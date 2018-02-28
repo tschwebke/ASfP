@@ -1,0 +1,38 @@
+﻿<section class="form-group">
+    <h2>Sample ASfP Order Form</h2>
+    <form name="orderForm" ng-submit="orderForm.$valid && order()" novalidate>
+        <!--<div id="messages" class="alert alert-success" ng-show="messages" ng-bind="messages"></div>
+        <div ng-show="progress.active()" style="color: red; font-size: 50px;">Sending&hellip;</div>-->
+        <fieldset>
+            <div class="form-group">
+                <label for="name">Full Name</label>
+                <span class="label label-danger" ng-show="orderForm.name.$invalid && orderForm.name.$touched">Required!</span>
+                <input type="text" name="name" ng-model="name" class="form-control" ng-required="true" ng-minlength="2" />
+            </div>
+            <div class="form-group">
+                <label for="email">Email</label>
+                <span class="label label-danger" ng-show="orderForm.email.$invalid && orderForm.$error.email && orderForm.email.$touched">Invalid email!</span>
+                <input type="email" name="email" ng-model="email" class="form-control" ng-required="true" />
+            </div>
+            <div class="form-group">
+                <label for="skuList">SKUs</label>
+                <span class="label label-danger" ng-show="orderForm.name.$invalid && orderForm.skuList.$touched">Required!</span>
+                <select name="skuList" ng-model="skuList" ng-options="id as value for (id, value) in skuListOptions" class="form-control" ng-required="true">
+                    <option value=""></option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="url">URL of Relevant Page</label>
+                <span class="label label-danger" ng-show="orderForm.url.$invalid && orderForm.$error.url && orderForm.url.$touched">Invalid URL format!</span>
+                <input type="url" name="url" ng-model="url" class="form-control" />
+            </div>
+            <div class="form-group">
+                <label for="comments">Description</label>
+                <span class="label label-danger" ng-show="orderForm.comments.$invalid && orderForm.comments.$touched">Required!</span>
+                <textarea name="comments" ng-model="comments" class="form-control" ng-required="true"></textarea>
+            </div>
+        </fieldset>
+
+        <button type="submit" ng-disabled="orderForm.$invalid" class="btn btn-default">Submit</button>
+    </form>
+</section>
