@@ -1,19 +1,28 @@
-﻿(function () {
-    'use strict';
+﻿
+asfpApp.controller('orderController', ['$scope', '$location', '$rootScope', 
+    function ($scope, $location, $rootScope) {
+        $scope.samListOptions = {
+            'APGC': 'Asia',
+            'EMEA': 'Europe',
+            'NA': 'North America',
+            'LATAM': 'Latin America'
+        };
 
-    asfpApp.controller('orderController', ['$scope', '$location', '$rootScope', order,
-        function ($scope, $location, $rootScope, orderService) {
-            $scope.skuListOptions = {
-                'bug': 'Report a Bug',
-                'account': 'Account Problems',
-                'mobile': 'Mobile',
-                'user': 'Report a Malicious User',
-                'other': 'Other'
-            };
-
-            myName = [{ name: $scope.name }, { email: $scope.email }, { skuList: $scope.skuList }, { url: $scope.url }, { comments: $scope.comments }];
-            //https://docs.microsoft.com/en-us/azure/cosmos-db/table-storage-cloud-service-nodejs
-            //$scope.order = function () {
+        $scope.orderSubmission = [
+            { name: $scope.name },
+            { email: $scope.email },
+            { phone: $scope.phone },
+            { mpnid: $scope.mpnid },
+            { domain: $scope.domain },
+            { samlist: $scope.samlist },
+            { samhours: $scope.samhours },
+            { cloudconsult: $scope.cloudconsult },
+            { singlepack: $scope.singlepack },
+            { fivepack: $scope.fivepack },
+            { privacy: $scope.privacy }
+        ];
+        //https://docs.microsoft.com/en-us/azure/cosmos-db/table-storage-cloud-service-nodejs
+        $scope.order = function () {
             //    var tableUri = 'https://asfpsample.table.core.windows.net/';
             //    var tableService = AzureStorage.createTableServiceWithSas(tableUri, '?sv=2017-07-29&ss=bfqt&srt=sco&sp=rwdlacup&se=2019-04-01T05:15:35Z&st=2018-02-26T22:15:35Z&spr=https&sig=iiXWqq8tvpFt4vI8liZBWR%2B5ElUgOhpMx55Pr7BWk0w%3D');
             //    var partitionKey = "PartitionKey";
@@ -36,19 +45,36 @@
             //            alert('Insert table entity successfully!');
             //        }
             //    });
+
+            for (var entry in $scope.orderSubmission) {
+                (function (entry) {
+                    console.log(entry + ": " + $scope.orderSubmission[entry]);
+                })
+            };
+
             $rootScope.name = $scope.name;
-            orderService.set(myName);
+            $rootScope.email = $scope.email;
+            $rootScope.phone = $scope.phone;
+            $rootScope.mpnid = $scope.mpnid;
+            $rootScope.domain = $scope.domain;
+            $rootScope.samlist = $scope.samlist;
+            $rootScope.samhours = $scope.samhours;
+            $rootScope.cloudconsult = $scope.cloudconsult;
+            $rootScope.singlepack = $scope.singlepack;
+            $rootScope.fivepack = $scope.fivepack;
+            $rootScope.privacy = $scope.privacy;
+            //orderService.set(myName);
             $location.path('/success');
-        }]);
-
-    order.$inject = ['$scope'];
-
-    function order($scope) {
-        $scope.title = 'order';
-
-        activate();
-
-        function activate() {
         }
-    }
-})();
+    }]);
+
+//order.$inject = ['$scope'];
+
+//function order($scope) {
+//    $scope.title = 'order';
+
+//    activate();
+
+//    function activate() {
+//    }
+//}

@@ -1,7 +1,5 @@
-﻿(function () {
-    'use strict';
-
-    angular.module('asfpApp',
+﻿
+    var asfpApp = angular.module('asfpApp',
         ['ngRoute']);
 
     asfpApp.run(['$rootScope', '$location', function ($rootScope, $location) {
@@ -24,4 +22,3 @@
                 redirectTo: '/order'
             });
     }]);
-})();
