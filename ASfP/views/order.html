@@ -1,76 +1,71 @@
-﻿<div class="col-md-10">
-    <h4 class="mb-3">Order Form</h4>
-    <section class="form-group">
-        <form name="orderForm" ng-submit="orderForm.$valid && order()" novalidate>
-            <!--<div id="messages" class="alert alert-success" ng-show="messages" ng-bind="messages"></div>
-            <div ng-show="progress.active()" style="color: red; font-size: 50px;">Sending&hellip;</div>-->
-            <fieldset>
-                <div class="form-group">
-                    <label for="name">Full Name</label>
-                    <span class="label label-danger" ng-show="orderForm.name.$invalid && orderForm.name.$touched">Required!</span>
-                    <input type="text" name="name" ng-model="name" class="form-control" ng-required="true" ng-minlength="2" />
-                </div>
-                <div class="form-group">
-                    <label for="email">Email</label>
-                    <span class="label label-danger" ng-show="orderForm.email.$invalid && orderForm.$error.email && orderForm.email.$touched">Invalid email!</span>
-                    <input type="email" name="email" ng-model="email" class="form-control" ng-required="true" />
-                </div>
-                <!--http://www.c-sharpcorner.com/code/919/how-to-validate-a-phone-number-in-angularjs.aspx-->
-                <!--http://embed.plnkr.co/I0J0Zi/preview-->
-                <div class="form-group">
-                    <label for="phone">Business Phone</label>
-                    <span class="label label-danger" ng-show="orderForm.phone.$invalid && orderForm.$error.phone && orderForm.phone.$touched">Invalid phone!</span>
-                    <input type="tel" name="phone" ng-model="phone" class="form-control" ng-required="true" />
-                </div>
-                <div class="form-group">
-                    <label for="mpnid">MPN ID</label>
-                    <span class="label label-danger" ng-show="orderForm.mpnid.$invalid &&  orderForm.mpnid.$touched">Invalid ID!</span>
-                    <input type="number" name="mpnid" ng-model="mpnid" class="form-control" ng-required="true" ng-minlength="6" />
-                </div>
-                <div class="form-group">
-                    <label for="domain">Domain name <span class="text-muted">(Optional)</span></label>
-                    <!--<span class="label label-danger" ng-show="orderForm.domain.$invalid && orderForm.domain.$touched">Invalid email!</span>-->
-                    <input type="text" name="domain" ng-model="domain" class="form-control" />
-                </div>
+﻿<form name="orderForm" ng-submit="orderForm.$valid && order()" novalidate>
+    <!--<div id="messages" class="alert alert-success" ng-show="messages" ng-bind="messages"></div>
+    <div ng-show="progress.active()" style="color: red; font-size: 50px;">Sending&hellip;</div>-->
 
-                <!-- Add subscription-->
+    <div class="form-group">
+        <label for="name">Full Name</label>
+        <span class="label label-danger" ng-show="orderForm.name.$invalid && orderForm.name.$touched">Required!</span>
+        <input type="text" name="name" ng-model="name" class="form-control" ng-required="true" ng-minlength="2" />
+    </div>
+    <div class="form-group">
+        <label for="email">Email</label>
+        <span class="label label-danger" ng-show="orderForm.email.$invalid && orderForm.$error.email && orderForm.email.$touched">Invalid email!</span>
+        <input type="email" name="email" ng-model="email" class="form-control" ng-required="true" />
+    </div>
+    <!--http://www.c-sharpcorner.com/code/919/how-to-validate-a-phone-number-in-angularjs.aspx-->
+    <!--http://embed.plnkr.co/I0J0Zi/preview-->
+    <div class="form-group">
+        <label for="phone">Business Phone</label>
+        <span class="label label-danger" ng-show="orderForm.phone.$invalid && orderForm.$error.phone && orderForm.phone.$touched">Invalid phone!</span>
+        <input type="tel" name="phone" ng-model="phone" class="form-control" ng-required="true" />
+    </div>
+    <div class="form-group">
+        <label for="mpnid">MPN ID</label>
+        <span class="label label-danger" ng-show="orderForm.mpnid.$invalid &&  orderForm.mpnid.$touched">Invalid ID!</span>
+        <input type="number" name="mpnid" ng-model="mpnid" class="form-control" ng-required="true" ng-minlength="6" />
+    </div>
+    <div class="form-group">
+        <label for="domain">Domain name <span class="text-muted">(Optional)</span></label>
+        <!--<span class="label label-danger" ng-show="orderForm.domain.$invalid && orderForm.domain.$touched">Invalid email!</span>-->
+        <input type="text" name="domain" ng-model="domain" class="form-control" />
+    </div>
 
-                <div class="form-group">
-                    <label for="sam">SAM Location</label>
-                    <span class="label label-danger" ng-show="orderForm.samlist.$invalid && orderForm.samlist.$touched">Required!</span>
-                    <select name="samlist" ng-model="samlist" ng-options="id as value for (id, value) in samListOptions" class="form-control" ng-required="true">
-                        <option value=""></option>
-                    </select>
-                </div>
-                <div class="custom-control custom-checkbox">
-                    <input type="checkbox" class="custom-control-input" id="samhours" ng-model="samhours">
-                    <label class="custom-control-label" for="samhours">SAM Hours</label>
-                </div>
-                <div class="custom-control custom-checkbox">
-                    <input type="checkbox" class="custom-control-input" id="cloudconsult" ng-model="cloudconsult">
-                    <label class="custom-control-label" for="cloudconsult">Cloud Consult</label>
-                </div>
-                <p>
-                    <div class="col-md-6 mb-3">
-                        <div class="custom-control custom-checkbox">
-                            <input type="checkbox" class="custom-control-input" id="singlepack" ng-model="singlepack">
-                            <label class="custom-control-label" for="singlepack">Single pack</label>
-                        </div>
-                    </div>
-                    <div class="col-md-6 mb-3">
-                        <div class="custom-control custom-checkbox">
-                            <input type="checkbox" class="custom-control-input" id="fivepack" ng-model="fivepack">
-                            <label class="custom-control-label" for="fivepack">Five pack</label>
-                        </div>
-                    </div>
-                </p>
-                <div class="custom-control custom-checkbox">
-                    <span class="label label-danger" ng-show="orderForm.privacy.$invalid && orderForm.privacy.$touched">Required!</span>
-                    <input type="checkbox" class="custom-control-input" id="privacy" ng-model="privacy" ng-required="true">
-                    <label class="custom-control-label" for="privacy">Privacy statement acknowledgement</label>
-                </div>
-            </fieldset>
-            <button type="submit" ng-disabled="orderForm.$invalid" class="btn btn-default">Submit</button>
-        </form>
-    </section>
-</div>
+    <!-- Add subscription-->
+
+    <div class="form-group">
+        <label for="sam">SAM Location</label>
+        <span class="label label-danger" ng-show="orderForm.samlist.$invalid && orderForm.samlist.$touched">Required!</span>
+        <select name="samlist" ng-model="samlist" ng-options="id as value for (id, value) in samListOptions" class="form-control" ng-required="true">
+            <option value=""></option>
+        </select>
+    </div>
+    <div class="custom-control custom-checkbox">
+        <input type="checkbox" class="custom-control-input" id="samhours" ng-model="samhours">
+        <label class="custom-control-label" for="samhours">SAM Hours</label>
+    </div>
+    <div class="custom-control custom-checkbox">
+        <input type="checkbox" class="custom-control-input" id="cloudconsult" ng-model="cloudconsult">
+        <label class="custom-control-label" for="cloudconsult">Cloud Consult</label>
+    </div>
+    <p>
+        <div class="col-md-6 mb-3">
+            <div class="custom-control custom-checkbox">
+                <input type="checkbox" class="custom-control-input" id="singlepack" ng-model="singlepack">
+                <label class="custom-control-label" for="singlepack">Single pack</label>
+            </div>
+        </div>
+        <div class="col-md-6 mb-3">
+            <div class="custom-control custom-checkbox">
+                <input type="checkbox" class="custom-control-input" id="fivepack" ng-model="fivepack">
+                <label class="custom-control-label" for="fivepack">Five pack</label>
+            </div>
+        </div>
+    </p>
+    <div class="custom-control custom-checkbox">
+        <span class="label label-danger" ng-show="orderForm.privacy.$invalid && orderForm.privacy.$touched">Required!</span>
+        <input type="checkbox" class="custom-control-input" id="privacy" ng-model="privacy" ng-required="true">
+        <label class="custom-control-label" for="privacy">Privacy statement acknowledgement</label>
+    </div>
+
+    <button type="submit" ng-disabled="orderForm.$invalid" class="btn btn-default">Submit</button>
+</form>
