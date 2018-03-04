@@ -1,14 +1,14 @@
-﻿
-asfpApp.controller('successController',
-        ['$scope', '$location', '$rootScope', 
+﻿asfpApp.controller('successController',
+        ['$scope', '$location', '$rootScope',
         function ($scope, $location, $rootScope) {
-            $scope.message = "Success!!!";
+            $('#hideTitle').addClass('titleFill');
             $scope.name = $rootScope.name;
             $scope.name = $rootScope.name;
             $scope.email = $rootScope.email;
-            $scope.phone = $rootScope.phone;
+            $scope.tel = $rootScope.tel;
             $scope.mpnid = $rootScope.mpnid;
             $scope.domain = $rootScope.domain;
+            $scope.subscription = $rootScope.subscription;
             $scope.samlist = $rootScope.samlist;
             $scope.samhours = $rootScope.samhours;
             $scope.cloudconsult = $rootScope.cloudconsult;
@@ -20,13 +20,13 @@ asfpApp.controller('successController',
             //$scope.myVal = orderService.get();
         }]);
 
-    //success.$inject = ['$scope'];
+//success.$inject = ['$scope'];
 
-    //function success($scope) {
-    //    $scope.title = 'success';
+//function success($scope) {
+//    $scope.title = 'success';
 
-    //    activate();
+//    activate();
 
-    //    function activate() {
-    //    }
-    //}
+//    function activate() {
+//    }
+//}

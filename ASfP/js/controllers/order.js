@@ -1,12 +1,30 @@
-﻿
-asfpApp.controller('orderController', ['$scope', '$location', '$rootScope', 
-    function ($scope, $location, $rootScope) {
-        $scope.samListOptions = {
-            'APGC': 'Asia',
-            'EMEA': 'Europe',
-            'NA': 'North America',
-            'LATAM': 'Latin America'
-        };
+﻿asfpApp.controller('orderController', ['$scope', '$location', '$rootScope',
+    function ($scope, $location, $rootScope, $element) {
+        $(function ($scope, $element) {
+            $('[data-toggle="tooltip"]').tooltip();
+            //$scope.specialValue = {
+            //    "id": "12345",
+            //    "value": "Annual"
+            //};
+            $('#sub1').click(function () {
+                $(this).addClass('active');
+                $('#sub2').removeClass('active');
+                $("#subAnnual").prop("checked", true);
+                $("#subAnnual").click();
+            })
+            $('#sub2').click(function () {
+                $(this).addClass('active');
+                $('#sub1').removeClass('active');
+                $("#subEmerging").prop("checked", true);
+                $("#subEmerging").click();
+            })
+            //$('should change state', function () {
+            //    var subscription = element(by.binding('subscription'));
+            //    expect(subscription.getText()).toContain('Annual');
+            //    element.all(by.model('subscription')).get(0).click();
+            //    expect(subscription.getText()).toContain('Emerging');
+            //});
+        })
 
         $scope.orderSubmission = [
             { name: $scope.name },
@@ -14,6 +32,7 @@ asfpApp.controller('orderController', ['$scope', '$location', '$rootScope',
             { phone: $scope.phone },
             { mpnid: $scope.mpnid },
             { domain: $scope.domain },
+            { subscription: $scope.subscription },
             { samlist: $scope.samlist },
             { samhours: $scope.samhours },
             { cloudconsult: $scope.cloudconsult },
@@ -46,9 +65,10 @@ asfpApp.controller('orderController', ['$scope', '$location', '$rootScope',
             //        }
             //    });
 
+            var intlNumber = $('#phone').intlTelInput('getNumber');
             for (var entry in $scope.orderSubmission) {
                 (function (entry) {
-                    console.log(entry + ": " + $scope.orderSubmission[entry]);
+                    $rootScope.phone = $scope.orderSubmission[entry];
                 })
             };
 
@@ -57,6 +77,7 @@ asfpApp.controller('orderController', ['$scope', '$location', '$rootScope',
             $rootScope.phone = $scope.phone;
             $rootScope.mpnid = $scope.mpnid;
             $rootScope.domain = $scope.domain;
+            $rootScope.subscription = $scope.subscription;
             $rootScope.samlist = $scope.samlist;
             $rootScope.samhours = $scope.samhours;
             $rootScope.cloudconsult = $scope.cloudconsult;
