@@ -1,6 +1,6 @@
 ﻿asfpApp.controller('orderController', ['$scope', '$location', '$rootScope',
 function ($scope, $location, $rootScope, $element) {
-    $(function ($scope, $element, $rootScope) {
+    $(function ($scope, $element) {
         $('[data-toggle="tooltip"]').tooltip();
 
         $('#sub1').click(function () {
@@ -66,6 +66,9 @@ function ($scope, $location, $rootScope, $element) {
         $rootScope.privacystatement = 'ポリシーを確認し、同意しました。';
         $rootScope.successmessage = 'お申し込みフォーム受領後、ASfP のお申し込みについて、弊社の担当よりご連絡差し上げます。[送信] ボタンをクリックして、フォームを送信してください。';
         $rootScope.submit = '送信';
+        $rootScope.thankyou = 'お申し込みありがとうございます。';
+        $rootScope.offeringspecialist = '担当者よりご連絡いたしますので、お待ちください。';
+        $rootScope.returntopage = '前のページに戻る';
     }
     else {
         $rootScope.requiredfield = '* Indicates a required field';
@@ -115,6 +118,9 @@ function ($scope, $location, $rootScope, $element) {
         $rootScope.privacystatement = 'privacy statement.';
         $rootScope.successmessage = 'Upon receipt of your order submission, you will be contacted by a Microsoft representative to complete your order and activate Microsoft Advanced Support for Partners. Please click submit to finalize your order.';
         $rootScope.submit = 'Submit';
+        $rootScope.thankyou = 'Thank you!';
+        $rootScope.offeringspecialist = 'A support offerings specialist will be in touch with you shortly.';
+        $rootScope.returntopage = 'Return to page';
     }
 
     $scope.orderSubmission = [
