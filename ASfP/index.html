@@ -4,10 +4,10 @@
     <meta charset="UTF-8">
     <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no">
-    <meta name="description" content="Get Microsoft Advanced Support for Partners by filling out our simple online purchase form. Once you complete the form, one of our service experts will reach out to help you get setup with ASfP.">
+    <meta name="description" content={{pagedescription}}>
     <meta name="keywords" content="ASfP, Microsoft Advanced Support for Partners, Microsoft Partner">
     <link rel="icon" href="images/favicon.ico">
-    <title>Purchase ASfP, Microsoft Advanced Support for Partners</title>
+    <title>{{pagetitle}}</title>
 
     <link rel="stylesheet" href="/Content/bootstrap.min.css">
     <link rel="stylesheet" href="/Content/intlTelInput.css" />
@@ -17,29 +17,27 @@
 <body style="background-color: #e3e3e3;">
     <div class="container-fluid" style="background-color: #0078d7;">
         <div class="row">
-            <div class="col-2"></div>
+            <div class="col-3"></div>
             <div class="col">
-                <h1 class="text-center pt-4 text-white" style="font-family:'Segoe WP SemiLight';">Purchase Advanced Support for Partners</h1>
-                <p>{{ fred }}</p>
-                <p>{{ barney }}</p>
-                <p class="text-left py-4 text-white" style="font-family:'Segoe UI';">Elevate your cloud business with Microsoft’s Advanced Support for Partners. Getting started is easy, just fill out the form below and you will be contacted by a Microsoft representative to review your order request and activate the subscription for your organization.</p>
+                <h1 class="text-center pt-4 text-white" style="font-family:'Segoe WP SemiLight';">{{title}}</h1>
+                <p class="text-left py-4 text-white" style="font-family:'Segoe UI';">{{description}}</p>
             </div>
-            <div class="col-2"></div>
+            <div class="col-3"></div>
         </div>
         <div class="row" id="hideTitle">
-            <div class="col-2"></div>
+            <div class="col-3"></div>
             <div class="col-md-auto bg-dark">
-                <p class="text-center pt-2 text-white" style="font-family:'Segoe UI';">Fill out the form below to get started.</p>
+                <p class="text-center pt-2 text-white" style="font-family:'Segoe UI';">{{instructions}}</p>
             </div>
-            <div class="col-2"></div>
+            <div class="col-3"></div>
         </div>
     </div>
     <div class="container-fluid">
         <div class="row">
-            <div class="col-2"></div>
+            <div class="col-3"></div>
             <div class="col cf bg-white pt-lg-3" ng-view>
             </div>
-            <div class="col-2"></div>
+            <div class="col-3"></div>
         </div>
     </div>
 

@@ -1,51 +1,52 @@
-﻿<form name="orderForm" ng-submit="orderForm.$valid && order()" novalidate>
+﻿<div class="text-right col-12 py-6">{{requiredfield}}</div>
+<form name="orderForm" ng-submit="orderForm.$valid && order()" novalidate>
     <!--<div id="messages" class="alert alert-success" ng-show="messages" ng-bind="messages"></div>
     <div ng-show="progress.active()" style="color: red; font-size: 50px;">Sending&hellip;</div>-->
     <fieldset>
         <div class="form-group col-4 py-6">
-            <label for="name" class="font-weight-normal" style="font-family:'Segoe UI';">*Full Name<span class="text-muted"> (First name/Last name)</span></label>
+            <label for="name" class="font-weight-normal" style="font-family:'Segoe UI';">{{fullname}}<span class="text-muted"> {{softfullname}}</span></label>
             <!--<span class="label label-danger" ng-show="orderForm.name.$invalid && orderForm.name.$touched">Required!</span>-->
             <input type="text" name="name" ng-model="name" class="form-control" ng-required="true" ng-minlength="2" />
         </div>
         <div class="form-group col-4">
-            <label for="email" class="font-weight-normal" style="font-family:'Segoe UI';">*Work Email</label>
+            <label for="email" class="font-weight-normal" style="font-family:'Segoe UI';">{{workemail}}</label>
             <!--<span class="label label-danger" ng-show="orderForm.email.$invalid && orderForm.$error.email && orderForm.email.$touched">Invalid email!</span>-->
             <input type="email" name="email" ng-model="email" class="form-control" ng-required="true" placeholder="e.g. name@example.com" />
         </div>
         <div class="form-group col-4">
-            <label for="tel" class="font-weight-normal" style="font-family:'Segoe UI';">*Business Phone Number</label>
+            <label for="tel" class="font-weight-normal" style="font-family:'Segoe UI';">*{{businessphonenumber}}</label>
             <!--<span class="label label-danger" ng-show="orderForm.tel.$invalid && orderForm.$error.tel && orderForm.tel.$touched">Invalid phone!</span>
             <span class="help-block" ng-show="orderForm.tel.$invalid && orderForm.tel.$touched">Invalid :(</span>
             <span class="help-block" ng-show="orderForm.tel.$valid">Valid :)</span>-->
             <input type="tel" name="tel" id="phone" ng-model="phone" class="form-control" ng-required="true" />
         </div>
         <div class="form-group col-4">
-            <label for="mpnid" class="font-weight-normal" style="font-family:'Segoe UI';">*MPN ID</label>
+            <label for="mpnid" class="font-weight-normal" style="font-family:'Segoe UI';">{{idlabel}}</label>
             <!--<span class="label label-danger" ng-show="orderForm.mpnid.$invalid &&  orderForm.mpnid.$touched">Invalid ID!</span>-->
             <input type="text" name="mpnid" ng-model="mpnid" class="form-control" style="width: 50%" ng-required="true" ng-minlength="6" />
         </div>
         <div class="form-group col-4">
-            <label for="domain" class="font-weight-normal" style="font-family:'Segoe UI';">Domain Name</label>
+            <label for="domain" class="font-weight-normal" style="font-family:'Segoe UI';">{{domainname}}</label>
             <!--<span class="label label-danger" ng-show="orderForm.domain.$invalid && orderForm.domain.$touched">Invalid email!</span>-->
-            <input type="text" name="domain" ng-model="domain" class="form-control" placeholder="e.g. contoso.onmicrosoft.com" />
+            <input type="text" name="domain" ng-model="domain" class="form-control" placeholder={{domainexample}} />
         </div>
         <div>
-            <p class="text-justify font-weight-normal ml-3" style="font-family:'Segoe UI';">*Select an Advanced Support for Partners Subscription model<span class="text-muted"> (Hover over each option to learn more).</span></p>
+            <p class="text-justify font-weight-normal ml-3" style="font-family:'Segoe UI';">{{selectsubscription}}<span class="text-muted"> {{selectsubscriptionmuted}}</span></p>
         </div>
         <div class="table-responsive cell_hover">
             <!--<span class="label label-danger" ng-show="orderForm.subscription.$invalid && orderForm.subscription.$touched">Required!</span>-->
             <table class="table table-bordered w-75 font-weight-normal" style="font-family:'Segoe UI';">
                 <tbody>
                     <tr>
-                        <td data-toggle="tooltip" id="sub1" data-placement="left" title="Advanced Support for Partners offers cloud support at an accessible price point that helps partners be a great ally to their customers and grow their business faster. This subscription model is for partners outside of the Emerging Markets regions.">
-                            <div class="text-center">Advanced Support for Partners</div>
-                            <div class="text-center">Annual Subscription</div>
-                            <div class="text-center pt-2 font-weight-bold">$15,000 (local taxes apply)</div>
+                        <td data-toggle="tooltip" id="sub1" data-placement="left" title={{annualsubscriptiontooltip}}>
+                            <div class="text-center">{{annualsubscription1}}</div>
+                            <div class="text-center">{{annualsubscription2}}</div>
+                            <div class="text-center pt-2 font-weight-bold">{{annualsubscription3}}</div>
                         </td>
-                        <td data-toggle="tooltip" id="sub2" data-placement="right" title="Advanced Support for Partners offers cloud support at an accessible price point that helps partners be a great ally to their customers and grow their business faster. This subscription model is for partners within the Emerging Markets regions. Please see the Emerging Market subscription requirements to determine if your organization qualifies. ">
-                            <div class="text-center">Advanced Support for Partners Annual</div>
-                            <div class="text-center">Subscription in Emerging Markets</div>
-                            <div class="text-center pt-2 font-weight-bold">$10,000 (local taxes apply)</div>
+                        <td data-toggle="tooltip" id="sub2" data-placement="right" title={{emergingmarkettooltip}}>
+                            <div class="text-center">{{emergingmarketsubscription1}}</div>
+                            <div class="text-center">{{emergingmarketsubscription2}}</div>
+                            <div class="text-center pt-2 font-weight-bold">{{emergingmarketsubscription3}}</div>
                         </td>
                     </tr>
                 </tbody>
@@ -56,38 +57,36 @@
             <label><input type="radio" name="colorRadio" id='subEmerging' ng-model="subscription" value="Emerging" ng-required="!subscription">Emerging</label>
         </div>
         <div>
-            <p class="text-justify font-weight-normal ml-3" style="font-family:'Segoe UI';">*<a href="https://support.microsoft.com/help/4011810/asfp-emerging-market-subscription-requirement" target="_blank">Click here</a> for Emerging Market subscription requirements</p>
+            <p class="text-justify font-weight-normal ml-3" style="font-family:'Segoe UI';">*<a href="https://support.microsoft.com/help/4011810/asfp-emerging-market-subscription-requirement" target="_blank">{{clickhere}}</a> {{emergingmarketrequirements}}</p>
         </div>
         <div class="form-group col-4 py-2">
-            <label for="sam" class="font-weight-normal" style="font-family:'Segoe UI';">*Preferred Services Account Manager Location</label>
-            <span class="label label-danger" ng-show="orderForm.samlist.$invalid && orderForm.samlist.$touched">Required!</span>
-            <select name="samlist" ng-model="samlist" class="custom-select form-control form-control-sm" style="width: 50%" ng-required="true">
-                <option value="" disabled selected>e.g. North America</option>
-                <option value="Asia Pacific">Asia Pacific</option>
-                <option value="Europe, Middle East, Africa">Europe, Middle East, Africa</option>
-                <option value="Japan">Japan</option>
-                <option value="Latin America">Latin America</option>
-                <option value="North America">North America</option>
+            <label for="sam" class="font-weight-normal" style="font-family:'Segoe UI';">{{samlocation}}</label>
+            <!--<span class="label label-danger" ng-show="orderForm.samlist.$invalid && orderForm.samlist.$touched">Required!</span>-->
+            <select name="samlist" ng-model="samlist" class="custom-select form-control form-control-md" style="width: 100%" ng-required="true">
+                <option value="" disabled selected>{{selectregion}}</option>
+                <option value="Asia Pacific">{{asiapacific}}</option>
+                <option value="Europe, Middle East, Africa">{{europe}}</option>
+                <option value="Japan">{{japan}}</option>
+                <option value="Latin America">{{latinamerica}}</option>
+                <option value="North America">{{northamerica}}</option>
             </select>
         </div>
         <div>
-            <p class="text-justify font-weight-normal ml-3 pt-1" style="font-family:'Segoe UI';">Add Optional Packages to your Subscription</p>
+            <p class="text-justify font-weight-normal ml-3 pt-1" style="font-family:'Segoe UI';">{{optionalpackagetitle}}</p>
         </div>
         <div>
-            <p class="text-justify font-weight-light ml-3 w-75 pb-3" style="font-family:'Segoe UI';">Choose from our three additional packages that can help you address specialized support scenarios or technologies by checking the box next to your desired package. Packages are paid up-front and require an active Advanced Support for Partners Subscription from your organization. </p>
+            <p class="text-justify font-weight-light ml-3 w-75 pb-3" style="font-family:'Segoe UI';">{{optionalpackagedescription}}</p>
         </div>
         <div class="ml-3 w-75">
             <div id="accordionSAMHours">
                 <div class="card">
                     <div class="card-header bg-dark" id="headingSAMHours">
                         <button class="btn bg-transparent btn-outline-dark text-white" style="font-family:'Segoe UI';" type="button" data-toggle="collapse" data-target="#collapseSAMHours" aria-expanded="false" aria-controls="collapseSAMHours">
-                            <div>Additional Services Management&nbsp; <span class="text-muted">(Click to learn more)</span></div>
+                            <div>{{additionalsam}}&nbsp; <span class="text-muted">{{learnmore}}</span></div>
                         </button>
                     </div>
                     <div class="collapse" id="collapseSAMHours">
-                        <div class="card card-body" style="background-color: #e3e3e3; font-family:'Segoe UI';">
-                            Gain direct access to a team of SAMs who provide proactive guidance and support assistance for your most critical cases as well as help identify and execute your top cloud priorities and projects.
-                        </div>
+                        <div class="card card-body" style="background-color: #e3e3e3; font-family:'Segoe UI';">{{additionalsamdescription}}</div>
                     </div>
                 </div>
             </div>
@@ -103,13 +102,11 @@
                 <div class="card">
                     <div class="card-header bg-dark" id="headingCloudConsult">
                         <button class="btn bg-transparent btn-outline-dark text-white" style="font-family:'Segoe UI';" type="button" data-toggle="collapse" data-target="#collapseCloudConsult" aria-expanded="false" aria-controls="collapseCloudConsult">
-                            <div>Additional Cloud Consult Engagements&nbsp; <span class="text-muted">(Click to learn more)</span></div>
+                            <div>{{additionalcloudconsult}}&nbsp; <span class="text-muted">{{learnmore}}</span></div>
                         </button>
                     </div>
                     <div class="collapse" id="collapseCloudConsult">
-                        <div class="card card-body" style="background-color: #e3e3e3; font-family:'Segoe UI';">
-                            We connect you to a Microsoft technical resource who provides you with best practice and architectural guidance of your deployment, migration, and Cloud API implementations.
-                        </div>
+                        <div class="card card-body" style="background-color: #e3e3e3; font-family:'Segoe UI';">{{additionalcloudconsultdescription}}</div>
                     </div>
                 </div>
             </div>
@@ -125,13 +122,11 @@
                 <div class="card">
                     <div class="card-header bg-dark" id="headingOne">
                         <button class="btn bg-transparent btn-outline-dark text-white" style="font-family:'Segoe UI';" type="button" data-toggle="collapse" data-target="#collapseSupport" aria-expanded="false" aria-controls="collapseSupport">
-                            <div>On-Premises Support Incidents&nbsp; <span class="text-muted">(Click to learn more)</span></div>
+                            <div>{{onpremiseselect}}&nbsp; <span class="text-muted">{{learnmore}}</span></div>
                         </button>
                     </div>
                     <div class="collapse" id="collapseSupport">
-                        <div class="card card-body" style="background-color: #e3e3e3; font-family:'Segoe UI';">
-                            Professional Support is available as a single “pay-per-incident” (PPI) or a 5-pack of incidents. Professional Support incidents focus on troubleshooting a specific problem, error message, or functionality that is not working as intended for Microsoft products.
-                        </div>
+                        <div class="card card-body" style="background-color: #e3e3e3; font-family:'Segoe UI';">{{onpremiseselectdescription}}</div>
                     </div>
                 </div>
             </div>
@@ -155,25 +150,25 @@
             </table>
         </div>
         <div>
-            <p class="text-justify font-weight-normal ml-3" style="font-family:'Segoe UI';">Agreement</p>
+            <p class="text-justify font-weight-normal ml-3" style="font-family:'Segoe UI';">{{agreement}}</p>
         </div>
         <div>
-            <p class="text-justify font-weight-light ml-3 w-75 pb-3" style="font-family:'Segoe UI';">*You’re almost done! Please take a moment to read through and accept our privacy statement.</p>
+            <p class="text-justify font-weight-light ml-3 w-75 pb-2" style="font-family:'Segoe UI';">{{privacytext}}</p>
         </div>
         <div>
             <div class="ml-5 w-75 py-3">
-                <div class="custom-control custom-checkbox pb-3 font-weight-light" style="font-family:'Segoe UI';">
-                    <span class="label label-danger" ng-show="orderForm.privacy.$invalid && orderForm.privacy.$touched">Required!</span>
+                <div class="custom-control custom-checkbox pb-2 font-weight-light" style="font-family:'Segoe UI';">
+                    <!--<span class="label label-danger" ng-show="orderForm.privacy.$invalid && orderForm.privacy.$touched">Required!</span>-->
                     <input type="checkbox" class="custom-control-input" id="privacy" ng-model="privacy" ng-required="true">
-                    <label class="custom-control-label" for="privacy">I certify that I have read and accept the <a href="https://privacy.microsoft.com/en-us/privacystatement" target="_blank">privacy statement.</a></label>
+                    <label class="custom-control-label" for="privacy">{{privacyaccept}} <a href="https://privacy.microsoft.com/en-us/privacystatement" target="_blank">{{privacystatement}}</a></label>
                 </div>
             </div>
         </div>
         <div>
-            <p class="text-justify font-weight-light ml-3 w-75 pb-3" style="font-family:'Segoe UI';">Upon receipt of your order submission, you will be contacted by a Microsoft representative to complete your order and activate Microsoft Advanced Support for Partners. Please click submit to finalize your order.</p>
+            <p class="text-justify font-weight-light ml-3 w-75 pb-3" style="font-family:'Segoe UI';">{{successmessage}}</p>
         </div>
         <div class="form-group col-4">
-            <button type="submit" ng-disabled="orderForm.$invalid" class="btn btn-default">Submit</button>
+            <button type="submit" ng-disabled="orderForm.$invalid" class="btn btn-default">{{submit}}</button>
         </div>
     </fieldset>
 </form>
