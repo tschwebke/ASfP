@@ -91,10 +91,13 @@
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\intlTelInput.css" />
     <Content Include="css\styles.css" />
+    <Content Include="images\success.png" />
     <Content Include="images\favicon.ico" />
     <Content Include="images\flags%402x.png" />
     <Content Include="images\flags.png" />
-    <Content Include="images\success.png" />
+    <Content Include="images\Microsoft-logo_rgb_c-wht.png" />
+    <Content Include="images\msft.png" />
+    <Content Include="images\success.old.png" />
     <Content Include="js\app.js" />
     <Content Include="js\controllers\order.js" />
     <Content Include="js\controllers\success.js" />

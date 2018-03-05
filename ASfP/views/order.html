@@ -2,38 +2,38 @@
 <form name="orderForm" ng-submit="orderForm.$valid && order()" novalidate>
     <fieldset>
         <div class="form-group col-4 py-6">
-            <label for="name" class="font-weight-normal" style="font-family:'Segoe UI';">{{fullname}}<span class="text-muted"> {{softfullname}}</span></label>
+            <label for="name" class="font-weight-bold">{{fullname}}<span> {{softfullname}}</span></label>
             <!--<span class="label label-danger" ng-show="orderForm.name.$invalid && orderForm.name.$touched">Required!</span>-->
             <input type="text" name="name" ng-model="name" class="form-control" ng-required="true" ng-minlength="2" />
         </div>
         <div class="form-group col-4">
-            <label for="email" class="font-weight-normal" style="font-family:'Segoe UI';">{{workemail}}</label>
+            <label for="email" class="font-weight-bold">{{workemail}}</label>
             <!--<span class="label label-danger" ng-show="orderForm.email.$invalid && orderForm.$error.email && orderForm.email.$touched">Invalid email!</span>-->
             <input type="email" name="email" ng-model="email" class="form-control" ng-required="true" placeholder="e.g. name@example.com" />
         </div>
         <div class="form-group col-4">
-            <label for="tel" class="font-weight-normal" style="font-family:'Segoe UI';">*{{businessphonenumber}}</label>
+            <label for="tel" class="font-weight-bold">{{businessphonenumber}}</label>
             <!--<span class="label label-danger" ng-show="orderForm.tel.$invalid && orderForm.$error.tel && orderForm.tel.$touched">Invalid phone!</span>
             <span class="help-block" ng-show="orderForm.tel.$invalid && orderForm.tel.$touched">Invalid :(</span>
             <span class="help-block" ng-show="orderForm.tel.$valid">Valid :)</span>-->
             <input type="tel" name="tel" id="phone" ng-model="phone" class="form-control" ng-required="true" />
         </div>
         <div class="form-group col-4">
-            <label for="mpnid" class="font-weight-normal" style="font-family:'Segoe UI';">{{idlabel}}</label>
+            <label for="mpnid" class="font-weight-bold">{{idlabel}}</label>
             <!--<span class="label label-danger" ng-show="orderForm.mpnid.$invalid &&  orderForm.mpnid.$touched">Invalid ID!</span>-->
             <input type="text" name="mpnid" ng-model="mpnid" class="form-control" style="width: 50%" ng-required="true" ng-minlength="6" />
         </div>
         <div class="form-group col-4">
-            <label for="domain" class="font-weight-normal" style="font-family:'Segoe UI';">{{domainname}}</label>
+            <label for="domain" class="font-weight-bold">{{domainname}}</label>
             <!--<span class="label label-danger" ng-show="orderForm.domain.$invalid && orderForm.domain.$touched">Invalid email!</span>-->
             <input type="text" name="domain" ng-model="domain" class="form-control" placeholder={{domainexample}} />
         </div>
         <div>
-            <p class="text-justify font-weight-normal ml-3" style="font-family:'Segoe UI';">{{selectsubscription}}<span class="text-muted"> {{selectsubscriptionmuted}}</span></p>
+            <p class="text-justify font-weight-normal ml-3 pt-2 font-weight-bold">{{selectsubscription}}<span> {{selectsubscriptionmuted}}</span></p>
         </div>
         <div class="table-responsive cell_hover">
             <!--<span class="label label-danger" ng-show="orderForm.subscription.$invalid && orderForm.subscription.$touched">Required!</span>-->
-            <table class="table table-bordered w-75 font-weight-normal" style="font-family:'Segoe UI';">
+            <table class="table table-bordered w-75 font-weight-normal">
                 <tbody>
                     <tr>
                         <td data-toggle="tooltip" id="sub1" data-placement="left" title={{annualsubscriptiontooltip}}>
@@ -55,12 +55,12 @@
             <label><input type="radio" name="colorRadio" id='subEmerging' ng-model="subscription" value="Emerging" ng-required="!subscription">Emerging</label>
         </div>
         <div>
-            <p class="text-justify font-weight-normal ml-3" style="font-family:'Segoe UI';">*<a href="https://support.microsoft.com/help/4011810/asfp-emerging-market-subscription-requirement" target="_blank">{{clickhere}}</a> {{emergingmarketrequirements}}</p>
+            <p class="text-justify font-weight-normal ml-3 pb-1"><a href="https://support.microsoft.com/help/4011810/asfp-emerging-market-subscription-requirement" target="_blank">{{clickhere}}</a> {{emergingmarketrequirements}}</p>
         </div>
         <div class="form-group col-4 py-2">
-            <label for="sam" class="font-weight-normal" style="font-family:'Segoe UI';">{{samlocation}}</label>
+            <label for="sam" class="font-weight-bold">{{samlocation}}</label>
             <!--<span class="label label-danger" ng-show="orderForm.samlist.$invalid && orderForm.samlist.$touched">Required!</span>-->
-            <select name="samlist" ng-model="samlist" class="custom-select form-control form-control-md" style="width: 100%" ng-required="true">
+            <select name="samlist" ng-model="samlist" class="custom-select form-control form-control-md" style="width: 110%" ng-required="true">
                 <option value="" disabled selected>{{selectregion}}</option>
                 <option value="Asia Pacific">{{asiapacific}}</option>
                 <option value="Europe, Middle East, Africa">{{europe}}</option>
@@ -70,21 +70,21 @@
             </select>
         </div>
         <div>
-            <p class="text-justify font-weight-normal ml-3 pt-1" style="font-family:'Segoe UI';">{{optionalpackagetitle}}</p>
+            <p class="text-justify font-weight-bold ml-3 pt-3">{{optionalpackagetitle}}</p>
         </div>
         <div>
-            <p class="text-justify font-weight-light ml-3 w-75 pb-3" style="font-family:'Segoe UI';">{{optionalpackagedescription}}</p>
+            <p class="text-justify font-weight-normal ml-3 w-75 pb-3">{{optionalpackagedescription}}</p>
         </div>
         <div class="ml-3 w-75">
             <div id="accordionSAMHours">
                 <div class="card">
                     <div class="card-header bg-dark" id="headingSAMHours">
-                        <button class="btn bg-transparent btn-outline-dark text-white" style="font-family:'Segoe UI';" type="button" data-toggle="collapse" data-target="#collapseSAMHours" aria-expanded="false" aria-controls="collapseSAMHours">
-                            <div>{{additionalsam}}&nbsp; <span class="text-muted">{{learnmore}}</span></div>
+                        <button class="btn bg-transparent btn-outline-dark text-white" type="button" data-toggle="collapse" data-target="#collapseSAMHours" aria-expanded="false" aria-controls="collapseSAMHours">
+                            <div>{{additionalsam}}&nbsp;<span>{{learnmore}}</span></div>
                         </button>
                     </div>
                     <div class="collapse" id="collapseSAMHours">
-                        <div class="card card-body" style="background-color: #e3e3e3; font-family:'Segoe UI';">{{additionalsamdescription}}</div>
+                        <div class="card card-body" style="background-color: #e3e3e3;">{{additionalsamdescription}}</div>
                     </div>
                 </div>
             </div>
@@ -92,19 +92,19 @@
         <div class="ml-5 w-75 py-3">
             <div class="custom-control custom-checkbox pb-3">
                 <input type="checkbox" class="custom-control-input" id="samhours" ng-model="samhours">
-                <label class="custom-control-label" for="samhours">20 Hours of Services Account Management – USD 4,000 (local taxes apply)</label>
+                <label class="custom-control-label" for="samhours">20 Hours of Services Account Management – USD $4,000 (local taxes apply)</label>
             </div>
         </div>
         <div class="ml-3 w-75">
             <div id="accordionCloudConsult">
                 <div class="card">
                     <div class="card-header bg-dark" id="headingCloudConsult">
-                        <button class="btn bg-transparent btn-outline-dark text-white" style="font-family:'Segoe UI';" type="button" data-toggle="collapse" data-target="#collapseCloudConsult" aria-expanded="false" aria-controls="collapseCloudConsult">
-                            <div>{{additionalcloudconsult}}&nbsp; <span class="text-muted">{{learnmore}}</span></div>
+                        <button class="btn bg-transparent btn-outline-dark text-white" type="button" data-toggle="collapse" data-target="#collapseCloudConsult" aria-expanded="false" aria-controls="collapseCloudConsult">
+                            <div>{{additionalcloudconsult}}&nbsp;<span>{{learnmore}}</span></div>
                         </button>
                     </div>
                     <div class="collapse" id="collapseCloudConsult">
-                        <div class="card card-body" style="background-color: #e3e3e3; font-family:'Segoe UI';">{{additionalcloudconsultdescription}}</div>
+                        <div class="card card-body" style="background-color: #e3e3e3;">{{additionalcloudconsultdescription}}</div>
                     </div>
                 </div>
             </div>
@@ -112,50 +112,50 @@
         <div class="ml-5 w-75 py-3">
             <div class="custom-control custom-checkbox pb-3">
                 <input type="checkbox" class="custom-control-input" id="cloudconsult" ng-model="cloudconsult">
-                <label class="custom-control-label" for="cloudconsult">Cloud Consult Engagement – USD 2,000 (local taxes apply)</label>
+                <label class="custom-control-label" for="cloudconsult">Cloud Consult Engagement – USD $2,000 (local taxes apply)</label>
             </div>
         </div>
         <div class="ml-3 w-75">
             <div id="accordionSupport">
                 <div class="card">
                     <div class="card-header bg-dark" id="headingOne">
-                        <button class="btn bg-transparent btn-outline-dark text-white" style="font-family:'Segoe UI';" type="button" data-toggle="collapse" data-target="#collapseSupport" aria-expanded="false" aria-controls="collapseSupport">
-                            <div>{{onpremiseselect}}&nbsp; <span class="text-muted">{{learnmore}}</span></div>
+                        <button class="btn bg-transparent btn-outline-dark text-white" type="button" data-toggle="collapse" data-target="#collapseSupport" aria-expanded="false" aria-controls="collapseSupport">
+                            <div>{{onpremiseselect}}&nbsp;<span>{{learnmore}}</span></div>
                         </button>
                     </div>
                     <div class="collapse" id="collapseSupport">
-                        <div class="card card-body" style="background-color: #e3e3e3; font-family:'Segoe UI';">{{onpremiseselectdescription}}</div>
+                        <div class="card card-body" style="background-color: #e3e3e3;">{{onpremiseselectdescription}}</div>
                     </div>
                 </div>
             </div>
         </div>
         <div class="table-responsive ml-4 w-75 py-3">
-            <table class="table w-75 font-weight-normal" style="font-family:'Segoe UI'; border: 5px solid white;">
+            <table class="table w-75 font-weight-normal" style="border: 5px solid white;">
                 <tr class="table-light">
                     <td class="mr-5">
                         <div class="custom-control custom-checkbox mr-5">
                             <input type="checkbox" class="custom-control-input" id="singlepack" ng-model="singlepack">
-                            <label class="custom-control-label" for="singlepack">1 pack On-Premises Support Incident – USD 499 (local taxes apply)</label>
+                            <label class="custom-control-label" for="singlepack">1 pack On-Premises Support Incident – USD $499 (local taxes apply)</label>
                         </div>
                     </td>
                     <td class="ml-5">
                         <div class="custom-control custom-checkbox ml-5">
                             <input type="checkbox" class="custom-control-input" id="fivepack" ng-model="fivepack">
-                            <label class="custom-control-label" for="fivepack">5 pack On-Premises Support Incidents – USD 1,999 (local taxes apply)</label>
+                            <label class="custom-control-label" for="fivepack">5 pack On-Premises Support Incidents – USD $1,999 (local taxes apply)</label>
                         </div>
                     </td>
                 </tr>
             </table>
         </div>
         <div>
-            <p class="text-justify font-weight-normal ml-3" style="font-family:'Segoe UI';">{{agreement}}</p>
+            <p class="text-justify font-weight-bold ml-3">{{agreement}}</p>
         </div>
         <div>
-            <p class="text-justify font-weight-light ml-3 w-75 pb-2" style="font-family:'Segoe UI';">{{privacytext}}</p>
+            <p class="text-justify font-weight-normal ml-3 w-75 pb-2">{{privacytext}}</p>
         </div>
         <div>
             <div class="ml-5 w-75 py-3">
-                <div class="custom-control custom-checkbox pb-2 font-weight-light" style="font-family:'Segoe UI';">
+                <div class="custom-control custom-checkbox pb-2 font-weight-normal">
                     <!--<span class="label label-danger" ng-show="orderForm.privacy.$invalid && orderForm.privacy.$touched">Required!</span>-->
                     <input type="checkbox" class="custom-control-input" id="privacy" ng-model="privacy" ng-required="true">
                     <label class="custom-control-label" for="privacy">{{privacyaccept}} <a href="https://privacy.microsoft.com/en-us/privacystatement" target="_blank">{{privacystatement}}</a></label>
@@ -163,15 +163,15 @@
             </div>
         </div>
         <div>
-            <p class="text-justify font-weight-light ml-3 w-75 pb-3" style="font-family:'Segoe UI';">{{successmessage}}</p>
+            <p class="text-justify font-weight-normal ml-3 w-75 pb-3">{{successmessage}}</p>
         </div>
         <div class="form-group col-4">
-            <button type="submit" ng-disabled="orderForm.$invalid" class="btn btn-default">{{submit}}</button>
+            <button type="submit" ng-disabled="orderForm.$invalid" class="btn btn-lg-default">{{submit}}</button>
         </div>
     </fieldset>
 </form>
 <script>
-    var telInput = $("#tel");
+    var telInput = $("#phone");
     telInput.intlTelInput({
         utilsScript: "/js/helpers/utils.js",
         autoPlaceholder: true,
