@@ -1,8 +1,7 @@
 ﻿var asfpApp = angular.module('asfpApp',
     ['ngRoute']);
 
-asfpApp.run(['$rootScope', '$location', '$locale', function ($rootScope, $location, $locale) {
-    $rootScope.fred = 'fred flintstone';
+asfpApp.run(['$rootScope', '$location', function ($rootScope, $location) {
     $rootScope.$on('$routeChangeError', function (event, next, previous, error) {
         $location.path('/order');
     });

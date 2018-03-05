@@ -1,6 +1,6 @@
 ﻿asfpApp.controller('successController',
-        ['$scope', '$location', '$rootScope', '$cookies',
-        function ($scope, $location, $rootScope, $cookies) {
+        ['$scope', '$location', '$rootScope',
+        function ($scope, $location, $rootScope) {
             $('#hideTitle').addClass('titleFill');
             $scope.name = $rootScope.name;
             $scope.name = $rootScope.name;
