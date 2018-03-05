@@ -1,14 +1,14 @@
-﻿* {
+﻿/** {
     box-sizing: border-box;
     -moz-box-sizing: border-box;
-}
+}*/
 
 /*.cell_hover td:hover {
     background-color: #e3e3e3;
     color: #000000;
 }*/
 
-.cell_hover td.active {
+.cell_hover .active {
     background-color: #e3e3e3;
     color: #000000;
 }
@@ -33,7 +33,7 @@ body {
 }
 
 pre {
-    margin: 0 !important;
+    margin: 0;
     display: inline-block;
 }
 
@@ -127,7 +127,7 @@ input.ng-invalid.ng-touched {
     border: 1px solid #DA3637;
 }
 
-input.ng-valid.ng-touched {
+.ng-valid.ng-touched {
     border: 1px solid #509D12;
 }
 
