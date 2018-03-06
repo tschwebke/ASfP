@@ -42,8 +42,9 @@ function ($scope, $location, $rootScope, $element) {
         $rootScope.emergingmarketsubscription2 = 'for Partners 年間契約 ';
         $rootScope.emergingmarketsubscription3 = '$10,000 (税別)';
         $rootScope.emergingmarkettooltip = 'Advanced Support for Partners は、エンド ユーザー様からの信頼獲得のお手伝いや、クラウド ビジネスの成長加速のお手伝いをお求めやすい価格でご提供します。新興成長市場向けのモデルで、日本ではこちらのモデルの利用はできません。';
-        $rootScope.emergingmarketrequirements = 'の契約の要件はこちらをご覧ください。';
-        $rootScope.clickhere = '* 新興成長市場向け';
+        $rootScope.emergingmarketrequirements = 'をご覧ください。';
+        $rootScope.clickhere = 'こちら';
+        $rootScope.leadclickhere = '* 新興成長市場向けの契約の要件は';
         $rootScope.samlocation = '* ご希望のサービス アカウント マネージャの地域:';
         $rootScope.selectregion = '以下のオプションから選択してください。';
         $rootScope.asiapacific = 'アジア太平洋';
@@ -69,6 +70,10 @@ function ($scope, $location, $rootScope, $element) {
         $rootScope.thankyou = 'お申し込みありがとうございます。';
         $rootScope.offeringspecialist = '担当者よりご連絡いたしますので、お待ちください。';
         $rootScope.returntopage = '前のページに戻る';
+        $rootScope.samhourstxt = 'サービス アカウント マネジメント 20 時間 – 440,000 円 (税別)';
+        $rootScope.cloudconsulttxt = '1 回あたり 220,000 円 (税別)';
+        $rootScope.onepacktxt = '1 インシデント 49,900 円 (税別)';
+        $rootScope.fivepacktxt = '5 インシデント パック 199,900 円 (税別)';
     }
     else {
         $rootScope.requiredfield = '* Indicates a required field';
@@ -96,6 +101,7 @@ function ($scope, $location, $rootScope, $element) {
         $rootScope.emergingmarkettooltip = 'Advanced Support for Partners offers cloud support at an accessible price point that helps partners be a great ally to their customers and grow their business faster. This subscription model is for partners within the Emerging Markets regions. Please see the Emerging Market subscription requirements to determine if your organization qualifies. ';
         $rootScope.emergingmarketrequirements = ' for Emerging Market subscription requirements';
         $rootScope.clickhere = '*Click here';
+        $rootScope.leadclickhere = '';
         $rootScope.samlocation = '*Preferred Services Account Manager Location';
         $rootScope.selectregion = 'Select from the following options';
         $rootScope.asiapacific = 'Asia Pacific';
@@ -121,6 +127,10 @@ function ($scope, $location, $rootScope, $element) {
         $rootScope.thankyou = 'Thank you!';
         $rootScope.offeringspecialist = 'A support offerings specialist will be in touch with you shortly.';
         $rootScope.returntopage = 'Return to page';
+        $rootScope.samhourstxt = '20 Hours of Services Account Management – USD $4,000 (local taxes apply)';
+        $rootScope.cloudconsulttxt = 'Cloud Consult Engagement – USD $2,000 (local taxes apply)';
+        $rootScope.onepacktxt = '1-Pack On Premises Support Incident – USD $499 (local taxes apply)';
+        $rootScope.fivepacktxt = '5-Pack On Premises Support Incidents – USD $1,999 (local taxes apply)';
     }
 
     $scope.orderSubmission = [

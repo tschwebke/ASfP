@@ -55,7 +55,7 @@
             <label><input type="radio" name="colorRadio" id='subEmerging' ng-model="subscription" value="Emerging" ng-required="!subscription">Emerging</label>
         </div>
         <div>
-            <p class="text-justify font-weight-normal ml-3 pb-1"><a href="https://support.microsoft.com/help/4011810/asfp-emerging-market-subscription-requirement" target="_blank">{{clickhere}}</a> {{emergingmarketrequirements}}</p>
+            <p class="text-justify font-weight-normal ml-3 pb-2">{{leadclickhere}}<a href="https://support.microsoft.com/help/4011810/asfp-emerging-market-subscription-requirement" target="_blank">{{clickhere}}</a> {{emergingmarketrequirements}}</p>
         </div>
         <div class="form-group col-4 py-2">
             <label for="sam" class="font-weight-bold">{{samlocation}}</label>
@@ -92,7 +92,7 @@
         <div class="ml-5 w-75 py-3">
             <div class="custom-control custom-checkbox pb-3">
                 <input type="checkbox" class="custom-control-input" id="samhours" ng-model="samhours">
-                <label class="custom-control-label" for="samhours">20 Hours of Services Account Management – USD $4,000 (local taxes apply)</label>
+                <label class="custom-control-label" for="samhours">{{samhourstxt}}</label>
             </div>
         </div>
         <div class="ml-3 w-75">
@@ -112,7 +112,7 @@
         <div class="ml-5 w-75 py-3">
             <div class="custom-control custom-checkbox pb-3">
                 <input type="checkbox" class="custom-control-input" id="cloudconsult" ng-model="cloudconsult">
-                <label class="custom-control-label" for="cloudconsult">Cloud Consult Engagement – USD $2,000 (local taxes apply)</label>
+                <label class="custom-control-label" for="cloudconsult">{{cloudconsulttxt}}</label>
             </div>
         </div>
         <div class="ml-3 w-75">
@@ -135,13 +135,13 @@
                     <td class="mr-5">
                         <div class="custom-control custom-checkbox mr-5">
                             <input type="checkbox" class="custom-control-input" id="singlepack" ng-model="singlepack">
-                            <label class="custom-control-label" for="singlepack">1 pack On-Premises Support Incident – USD $499 (local taxes apply)</label>
+                            <label class="custom-control-label" for="singlepack">{{onepacktxt}}</label>
                         </div>
                     </td>
                     <td class="ml-5">
                         <div class="custom-control custom-checkbox ml-5">
                             <input type="checkbox" class="custom-control-input" id="fivepack" ng-model="fivepack">
-                            <label class="custom-control-label" for="fivepack">5 pack On-Premises Support Incidents – USD $1,999 (local taxes apply)</label>
+                            <label class="custom-control-label" for="fivepack">{{fivepacktxt}}</label>
                         </div>
                     </td>
                 </tr>
@@ -151,11 +151,11 @@
             <p class="text-justify font-weight-bold ml-3">{{agreement}}</p>
         </div>
         <div>
-            <p class="text-justify font-weight-normal ml-3 w-75 pb-2">{{privacytext}}</p>
+            <p class="text-justify font-weight-normal ml-3 w-75 pb-1">{{privacytext}}</p>
         </div>
         <div>
             <div class="ml-5 w-75 py-3">
-                <div class="custom-control custom-checkbox pb-2 font-weight-normal">
+                <div class="custom-control custom-checkbox pb-3 font-weight-normal">
                     <!--<span class="label label-danger" ng-show="orderForm.privacy.$invalid && orderForm.privacy.$touched">Required!</span>-->
                     <input type="checkbox" class="custom-control-input" id="privacy" ng-model="privacy" ng-required="true">
                     <label class="custom-control-label" for="privacy">{{privacyaccept}} <a href="https://privacy.microsoft.com/en-us/privacystatement" target="_blank">{{privacystatement}}</a></label>
@@ -165,8 +165,8 @@
         <div>
             <p class="text-justify font-weight-normal ml-3 w-75 pb-3">{{successmessage}}</p>
         </div>
-        <div class="form-group col-4">
-            <button type="submit" ng-disabled="orderForm.$invalid" class="btn btn-lg-default">{{submit}}</button>
+        <div class="form-group col-4 pb-5">
+            <button type="submit" ng-disabled="orderForm.$invalid" class="btn btn-primary" style="font-size: 30px; width: 75%; padding-bottom:60px; padding-top:10px;">{{submit}}</button>
         </div>
     </fieldset>
 </form>

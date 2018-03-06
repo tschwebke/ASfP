@@ -79,21 +79,21 @@ input, select {
     color: #BBB;
 }
 
-button {
+/*button {
     color: #FFF;
-    background-color: #428BCA;
-    border: 1px solid #357EBD;
-}
+    /*background-color: #428BCA;*/
+/*border: 1px solid #357EBD;*/
+/*}*/
 
-    button:hover {
-        background-color: #3276B1;
-        border-color: #285E8E;
-        cursor: pointer;
-    }
+/*button:hover {
+    background-color: #3276B1;
+    border-color: #285E8E;
+    cursor: pointer;
+}*/
 
-#result {
+/* #result {
     margin-bottom: 100px;
-}
+}*/
 
 /**, *:before, *:after {
     box-sizing: inherit;
