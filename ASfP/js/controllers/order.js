@@ -135,7 +135,6 @@
             $scope.formLCID = '9';
         }
 
-        //https://docs.microsoft.com/en-us/azure/cosmos-db/table-storage-cloud-service-nodejs
         $scope.order = function () {
             var date = new Date();
             $scope.createdtime = date.toLocaleString('en-US', { timeZone: 'UTC' });
@@ -144,12 +143,62 @@
             var initials = $scope.name;
             initials = initials.substring(0, 2);
             newdate = newdate + initials;
+            if ($scope.formLCID == '1041') {
+                var sub1 = 'W6N - 00001 Advanced Support for Partners 年間契約 – 1, 600, 500 円(税別)'
+                var sub2 = 'W6M - 00001 新興成長市場向け Advanced Support for Partners 年間契約 – 137, 500 円(税別)'
+                var ced = 'W74 - 00001 1 回あたり – 220, 000 円(税別)'
+                var samh = 'W67 - 00001 1 インシデント – 49, 900 円(税別)'
+                var inc1 = 'W69 - 00001 5 インシデント パック – 199, 900 円(税別)'
+                var inc5 = 'W73 - 00001 サービス アカウント マネジメント 20 時間 – 440, 000 円(税別)'
+                var incidents;
+                if ($scope.singlepack && $scope.fivepack) {
+                    incidents = inc1 + '\n' + inc5;
+                }
+                else if ($scope.singlepack && !$scope.fivepack) {
+                    incidents = inc1;
+                }
+                else if (!$scope.singlepack && $scope.fivepack) {
+                    incidents = inc5;
+                }
+                else { incidents = ''; }
+                if ($scope.samhours) { $scope.samhours = samh; }
+                if ($scope.cloudconsult) { $scope.cloudconsult = ced; }
+                if ($scope.subscription == 'W6N-00001 Advanced Support for Partners Annual Subscription') {
+                    $scope.subscription = sub1;
+                }
+                else {
+                    $scope.subscription = sub5;
+                }
+            }
+            else {
+                var sub1 = 'W6N - 00001 Advanced Support for Partners Annual Subscription – USD $15, 000(local taxes apply)'
+                var sub2 = 'W6N - 00002 Advanced Support for Partners Annual Subscription in Emerging Markets – USD $10, 000(local taxes apply)'
+                var ced = 'W74 - 00001 1 Cloud Consult Engagement – USD 2, 000(local taxes apply)'
+                var samh = 'W67 - 00001 1 - Pack On Premises Support Incident – USD 499(local taxes apply)'
+                var inc1 = 'W69 - 00001 5 - Pack On Premises Support Incidents – USD 1, 999(local taxes apply)'
+                var inc5 = 'W73 - 00001 20 Hours of Services Account Management – USD $4, 000(local taxes apply)'
+                var incidents;
+                if ($scope.singlepack && $scope.fivepack) {
+                    incidents = inc1 + '\n' + inc5;
+                }
+                else if ($scope.singlepack && !$scope.fivepack) {
+                    incidents = inc1;
+                }
+                else if (!$scope.singlepack && $scope.fivepack) {
+                    incidents = inc5;
+                }
+                else { incidents = ''; }
+                if ($scope.samhours) { $scope.samhours = samh; }
+                if ($scope.cloudconsult) { $scope.cloudconsult = ced; }
+                if ($scope.subscription == 'W6N-00001 Advanced Support for Partners Annual Subscription') {
+                    $scope.subscription = sub1;
+                }
+                else {
+                    $scope.subscription = sub5;
+                }
+            }
 
-            if ($scope.samhours) { $scope.samhours = '20 Hours of Services Account Management'; }
-            if ($scope.cloudconsult) { $scope.cloudconsult = '1 Cloud Consult Engagement'; }
-            if ($scope.singlepack) { $scope.singlepack = '1-Pack On Premises Support Incident'; }
-            if ($scope.fivepack) { $scope.fivepack = '5-Pack On Premises Support Incident'; }
-
+            //https://docs.microsoft.com/en-us/azure/cosmos-db/table-storage-cloud-service-nodejs
             $scope.orderSubmission
             var entity = {
                 PartitionKey: $scope.samlist,
@@ -174,7 +223,7 @@
                 QIDcc9d6f8bf1e647dfbce07b88daafa817: $scope.samlist, //samlocation
                 QIDc7aa2740c3cf45db98deef24bb3f8838: $scope.samhours, //sku for sam hours - not required
                 QIDb6bef45f8bb74610a054e56923f0654b: $scope.cloudconsult, //sku for cloudconsult - not required
-                QIDca96efe55b8c4b27bee10d50846e1efa: $scope.singlepack + '\n' + $scope.fivepack, //sku for 1-pack TODO:Use newline to add a five pack - not required
+                QIDca96efe55b8c4b27bee10d50846e1efa: $scope.singlepack + '\n' + $scope.fivepack, //sku for 1 and 5 pack TODO:Handle empty strings
                 QID88a590c2da254c39847af73da3be7b94: 'Privacy Policy Agreement Completed' //privay agreement
             };
 
@@ -200,18 +249,6 @@
             }
 
             $rootScope.json = entity;
-            //$rootScope.email = $scope.email;
-            //$rootScope.phone = $scope.phone;
-            //$rootScope.mpnid = $scope.mpnid;
-            //$rootScope.domain = $scope.domain;
-            //$rootScope.subscription = $scope.subscription;
-            //$rootScope.samlist = $scope.samlist;
-            //$rootScope.samhours = $scope.samhours;
-            //$rootScope.cloudconsult = $scope.cloudconsult;
-            //$rootScope.singlepack = $scope.singlepack;
-            //$rootScope.fivepack = $scope.fivepack;
-            //$rootScope.privacy = $scope.privacy;
-            //orderService.set(myName);
             $location.path('/success');
         };
     }]);
