@@ -144,12 +144,12 @@
             initials = initials.substring(0, 2);
             newdate = newdate + initials;
             if ($scope.formLCID == '1041') {
-                var sub1 = 'W6N - 00001 Advanced Support for Partners 年間契約 – 1, 600, 500 円(税別)'
-                var sub2 = 'W6M - 00001 新興成長市場向け Advanced Support for Partners 年間契約 – 137, 500 円(税別)'
-                var ced = 'W74 - 00001 1 回あたり – 220, 000 円(税別)'
-                var samh = 'W67 - 00001 1 インシデント – 49, 900 円(税別)'
-                var inc1 = 'W69 - 00001 5 インシデント パック – 199, 900 円(税別)'
-                var inc5 = 'W73 - 00001 サービス アカウント マネジメント 20 時間 – 440, 000 円(税別)'
+                var sub1 = 'W6N-00001 Advanced Support for Partners 年間契約 – 1,600,500 円(税別)'
+                var sub2 = 'W6M-00001 新興成長市場向け Advanced Support for Partners 年間契約 – 137,500 円(税別)'
+                var ced = 'W74-00001 1 回あたり – 220,000 円(税別)'
+                var samh = 'W67-00001 1 インシデント – 49,900 円(税別)'
+                var inc1 = 'W69-00001 5 インシデント パック – 199,900 円(税別)'
+                var inc5 = 'W73-00001 サービス アカウント マネジメント 20 時間 – 440,000 円(税別)'
                 var incidents;
                 if ($scope.singlepack && $scope.fivepack) {
                     incidents = inc1 + '\n' + inc5;
@@ -163,20 +163,20 @@
                 else { incidents = ''; }
                 if ($scope.samhours) { $scope.samhours = samh; }
                 if ($scope.cloudconsult) { $scope.cloudconsult = ced; }
-                if ($scope.subscription == 'W6N-00001 Advanced Support for Partners Annual Subscription') {
+                if ($scope.subscription == 'Annual') {
                     $scope.subscription = sub1;
                 }
                 else {
-                    $scope.subscription = sub5;
+                    $scope.subscription = sub2;
                 }
             }
             else {
-                var sub1 = 'W6N - 00001 Advanced Support for Partners Annual Subscription – USD $15, 000(local taxes apply)'
-                var sub2 = 'W6N - 00002 Advanced Support for Partners Annual Subscription in Emerging Markets – USD $10, 000(local taxes apply)'
-                var ced = 'W74 - 00001 1 Cloud Consult Engagement – USD 2, 000(local taxes apply)'
-                var samh = 'W67 - 00001 1 - Pack On Premises Support Incident – USD 499(local taxes apply)'
-                var inc1 = 'W69 - 00001 5 - Pack On Premises Support Incidents – USD 1, 999(local taxes apply)'
-                var inc5 = 'W73 - 00001 20 Hours of Services Account Management – USD $4, 000(local taxes apply)'
+                var sub1 = 'W6N-00001 Advanced Support for Partners Annual Subscription – USD $15, 000(local taxes apply)'
+                var sub2 = 'W6N-00002 Advanced Support for Partners Annual Subscription in Emerging Markets – USD $10, 000(local taxes apply)'
+                var ced = 'W74-00001 1 Cloud Consult Engagement – USD 2, 000(local taxes apply)'
+                var samh = 'W67-00001 1-Pack On Premises Support Incident – USD 499(local taxes apply)'
+                var inc1 = 'W69-00001 5-Pack On Premises Support Incidents – USD 1, 999(local taxes apply)'
+                var inc5 = 'W73-00001 20 Hours of Services Account Management – USD $4, 000(local taxes apply)'
                 var incidents;
                 if ($scope.singlepack && $scope.fivepack) {
                     incidents = inc1 + '\n' + inc5;
@@ -190,11 +190,11 @@
                 else { incidents = ''; }
                 if ($scope.samhours) { $scope.samhours = samh; }
                 if ($scope.cloudconsult) { $scope.cloudconsult = ced; }
-                if ($scope.subscription == 'W6N-00001 Advanced Support for Partners Annual Subscription') {
+                if ($scope.subscription == 'Annual') {
                     $scope.subscription = sub1;
                 }
                 else {
-                    $scope.subscription = sub5;
+                    $scope.subscription = sub2;
                 }
             }
 
