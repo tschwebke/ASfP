@@ -225,8 +225,8 @@
 
         // Regular Expressions for parsing tags and attributes
         var SURROGATE_PAIR_REGEXP = /[\uD800-\uDBFF][\uDC00-\uDFFF]/g,
-          // Match everything outside of normal chars and " (quote character)
-          NON_ALPHANUMERIC_REGEXP = /([^#-~ |!])/g;
+            // Match everything outside of normal chars and " (quote character)
+            NON_ALPHANUMERIC_REGEXP = /([^#-~ |!])/g;
 
         // Good source of info about elements and attributes
         // http://dev.w3.org/html5/spec/Overview.html#semantics
@@ -241,35 +241,35 @@
         var optionalEndTagBlockElements = toMap('colgroup,dd,dt,li,p,tbody,td,tfoot,th,thead,tr'),
             optionalEndTagInlineElements = toMap('rp,rt'),
             optionalEndTagElements = extend({},
-                                                    optionalEndTagInlineElements,
-                                                    optionalEndTagBlockElements);
+                optionalEndTagInlineElements,
+                optionalEndTagBlockElements);
 
         // Safe Block Elements - HTML5
         var blockElements = extend({}, optionalEndTagBlockElements, toMap('address,article,' +
-                'aside,blockquote,caption,center,del,dir,div,dl,figure,figcaption,footer,h1,h2,h3,h4,h5,' +
-                'h6,header,hgroup,hr,ins,map,menu,nav,ol,pre,section,table,ul'));
+            'aside,blockquote,caption,center,del,dir,div,dl,figure,figcaption,footer,h1,h2,h3,h4,h5,' +
+            'h6,header,hgroup,hr,ins,map,menu,nav,ol,pre,section,table,ul'));
 
         // Inline Elements - HTML5
         var inlineElements = extend({}, optionalEndTagInlineElements, toMap('a,abbr,acronym,b,' +
-                'bdi,bdo,big,br,cite,code,del,dfn,em,font,i,img,ins,kbd,label,map,mark,q,ruby,rp,rt,s,' +
-                'samp,small,span,strike,strong,sub,sup,time,tt,u,var'));
+            'bdi,bdo,big,br,cite,code,del,dfn,em,font,i,img,ins,kbd,label,map,mark,q,ruby,rp,rt,s,' +
+            'samp,small,span,strike,strong,sub,sup,time,tt,u,var'));
 
         // SVG Elements
         // https://wiki.whatwg.org/wiki/Sanitization_rules#svg_Elements
         // Note: the elements animate,animateColor,animateMotion,animateTransform,set are intentionally omitted.
         // They can potentially allow for arbitrary javascript to be executed. See #11290
         var svgElements = toMap('circle,defs,desc,ellipse,font-face,font-face-name,font-face-src,g,glyph,' +
-                'hkern,image,linearGradient,line,marker,metadata,missing-glyph,mpath,path,polygon,polyline,' +
-                'radialGradient,rect,stop,svg,switch,text,title,tspan');
+            'hkern,image,linearGradient,line,marker,metadata,missing-glyph,mpath,path,polygon,polyline,' +
+            'radialGradient,rect,stop,svg,switch,text,title,tspan');
 
         // Blocked Elements (will be stripped)
         var blockedElements = toMap('script,style');
 
         var validElements = extend({},
-                                           voidElements,
-                                           blockElements,
-                                           inlineElements,
-                                           optionalEndTagElements);
+            voidElements,
+            blockElements,
+            inlineElements,
+            optionalEndTagElements);
 
         //Attributes that have href and hence need to be sanitized
         var uriAttrs = toMap('background,cite,href,longdesc,src,xlink:href');
@@ -299,9 +299,9 @@
             'xlink:type,xml:base,xml:lang,xml:space,xmlns,xmlns:xlink,y,y1,y2,zoomAndPan', true);
 
         var validAttrs = extend({},
-                                        uriAttrs,
-                                        svgAttrs,
-                                        htmlAttrs);
+            uriAttrs,
+            svgAttrs,
+            htmlAttrs);
 
         function toMap(str, lowercaseKeys) {
             var obj = {}, items = str.split(','), i;
@@ -473,17 +473,17 @@
          */
         function encodeEntities(value) {
             return value.
-              replace(/&/g, '&amp;').
-              replace(SURROGATE_PAIR_REGEXP, function (value) {
-                  var hi = value.charCodeAt(0);
-                  var low = value.charCodeAt(1);
-                  return '&#' + (((hi - 0xD800) * 0x400) + (low - 0xDC00) + 0x10000) + ';';
-              }).
-              replace(NON_ALPHANUMERIC_REGEXP, function (value) {
-                  return '&#' + value.charCodeAt(0) + ';';
-              }).
-              replace(/</g, '&lt;').
-              replace(/>/g, '&gt;');
+                replace(/&/g, '&amp;').
+                replace(SURROGATE_PAIR_REGEXP, function (value) {
+                    var hi = value.charCodeAt(0);
+                    var low = value.charCodeAt(1);
+                    return '&#' + (((hi - 0xD800) * 0x400) + (low - 0xDC00) + 0x10000) + ';';
+                }).
+                replace(NON_ALPHANUMERIC_REGEXP, function (value) {
+                    return '&#' + value.charCodeAt(0) + ';';
+                }).
+                replace(/</g, '&lt;').
+                replace(/>/g, '&gt;');
         }
 
         /**
@@ -512,7 +512,7 @@
                             var lkey = lowercase(key);
                             var isImage = (tag === 'img' && lkey === 'src') || (lkey === 'background');
                             if (validAttrs[lkey] === true &&
-                              (uriAttrs[lkey] !== true || uriValidator(value, isImage))) {
+                                (uriAttrs[lkey] !== true || uriValidator(value, isImage))) {
                                 out(' ');
                                 out(key);
                                 out('="');
@@ -593,8 +593,8 @@
 
     // define ngSanitize module and register $sanitize service
     angular.module('ngSanitize', [])
-      .provider('$sanitize', $SanitizeProvider)
-      .info({ angularVersion: '1.6.8' });
+        .provider('$sanitize', $SanitizeProvider)
+        .info({ angularVersion: '1.6.8' });
 
     /**
      * @ngdoc filter
@@ -725,7 +725,7 @@
      */
     angular.module('ngSanitize').filter('linky', ['$sanitize', function ($sanitize) {
         var LINKY_URL_REGEXP =
-              /((s?ftp|https?):\/\/|(www\.)|(mailto:)?[A-Za-z0-9._%+-]+@)\S*[^\s.;,(){}<>"\u201d\u2019]/i,
+            /((s?ftp|https?):\/\/|(www\.)|(mailto:)?[A-Za-z0-9._%+-]+@)\S*[^\s.;,(){}<>"\u201d\u2019]/i,
             MAILTO_REGEXP = /^mailto:/i;
 
         var linkyMinErr = angular.$$minErr('linky');
@@ -739,9 +739,9 @@
             if (!isString(text)) throw linkyMinErr('notstring', 'Expected string but received: {0}', text);
 
             var attributesFn =
-              isFunction(attributes) ? attributes :
-              isObject(attributes) ? function getAttributesObject() { return attributes; } :
-              function getEmptyAttributesObject() { return {}; };
+                isFunction(attributes) ? attributes :
+                    isObject(attributes) ? function getAttributesObject() { return attributes; } :
+                        function getEmptyAttributesObject() { return {}; };
 
             var match;
             var raw = text;
@@ -780,12 +780,12 @@
 
                 if (isDefined(target) && !('target' in linkAttributes)) {
                     html.push('target="',
-                              target,
-                              '" ');
+                        target,
+                        '" ');
                 }
                 html.push('href="',
-                          url.replace(/"/g, '&quot;'),
-                          '">');
+                    url.replace(/"/g, '&quot;'),
+                    '">');
                 addText(text);
                 html.push('</a>');
             }

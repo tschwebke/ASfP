@@ -259,11 +259,11 @@ require = (function e(t, n, r) { function s(o, u) { if (!n[o]) { if (!t[o]) { va
                 var storageServiceSettings = StorageServiceClient.getStorageSettings(storageAccountOrConnectionString, storageAccessKey, host, sasToken, endpointSuffix);
 
                 FileService['super_'].call(this,
-                  storageServiceSettings._name,
-                  storageServiceSettings._key,
-                  storageServiceSettings._fileEndpoint,
-                  storageServiceSettings._usePathStyleUri,
-                  storageServiceSettings._sasToken);
+                    storageServiceSettings._name,
+                    storageServiceSettings._key,
+                    storageServiceSettings._fileEndpoint,
+                    storageServiceSettings._usePathStyleUri,
+                    storageServiceSettings._sasToken);
 
                 this.defaultEnableReuseSocket = Constants.DEFAULT_ENABLE_REUSE_SOCKET;
                 this.singleFileThresholdInBytes = FileConstants.DEFAULT_SINGLE_FILE_GET_THRESHOLD_IN_BYTES;
@@ -432,9 +432,9 @@ require = (function e(t, n, r) { function s(o, u) { if (!n[o]) { if (!t[o]) { va
 
                 var options = extend(true, {}, userOptions);
                 var webResource = WebResource.get()
-                  .withQueryOption(QueryStringConstants.COMP, 'list')
-                  .withQueryOption(QueryStringConstants.MAX_RESULTS, options.maxResults)
-                  .withQueryOption(QueryStringConstants.INCLUDE, options.include);
+                    .withQueryOption(QueryStringConstants.COMP, 'list')
+                    .withQueryOption(QueryStringConstants.MAX_RESULTS, options.maxResults)
+                    .withQueryOption(QueryStringConstants.INCLUDE, options.include);
 
                 if (!azureutil.objectIsNull(currentToken)) {
                     webResource.withQueryOption(QueryStringConstants.MARKER, currentToken.nextMarker);
@@ -552,8 +552,8 @@ require = (function e(t, n, r) { function s(o, u) { if (!n[o]) { if (!t[o]) { va
 
                 var options = extend(true, {}, userOptions);
                 var webResource = WebResource.put(share)
-                  .withQueryOption(QueryStringConstants.RESTYPE, 'share')
-                  .withHeader(HeaderConstants.SHARE_QUOTA, options.quota);
+                    .withQueryOption(QueryStringConstants.RESTYPE, 'share')
+                    .withHeader(HeaderConstants.SHARE_QUOTA, options.quota);
 
                 webResource.addOptionalMetadataHeaders(options.metadata);
 
@@ -612,8 +612,8 @@ require = (function e(t, n, r) { function s(o, u) { if (!n[o]) { if (!t[o]) { va
 
                 var options = extend(true, {}, userOptions);
                 var webResource = WebResource.put(share)
-                  .withQueryOption(QueryStringConstants.RESTYPE, 'share')
-                  .withQueryOption(QueryStringConstants.COMP, QueryStringConstants.SNAPSHOT);
+                    .withQueryOption(QueryStringConstants.RESTYPE, 'share')
+                    .withQueryOption(QueryStringConstants.COMP, QueryStringConstants.SNAPSHOT);
                 webResource.addOptionalMetadataHeaders(options.metadata);
 
                 var processResponseCallback = function (responseObject, next) {
@@ -740,8 +740,8 @@ require = (function e(t, n, r) { function s(o, u) { if (!n[o]) { if (!t[o]) { va
 
                 var options = extend(true, {}, userOptions);
                 var webResource = WebResource.head(share)
-                  .withQueryOption(QueryStringConstants.RESTYPE, 'share')
-                  .withQueryOption(QueryStringConstants.SHARE_SNAPSHOT, options.shareSnapshotId);
+                    .withQueryOption(QueryStringConstants.RESTYPE, 'share')
+                    .withQueryOption(QueryStringConstants.SHARE_SNAPSHOT, options.shareSnapshotId);
 
                 //options.requestLocationMode = Constants.RequestLocationMode.PRIMARY_OR_SECONDARY;
 
@@ -799,9 +799,9 @@ require = (function e(t, n, r) { function s(o, u) { if (!n[o]) { if (!t[o]) { va
                 var options = extend(true, properties, userOptions);
                 var resourceName = createResourceName(share);
                 var webResource = WebResource.put(resourceName)
-                  .withQueryOption(QueryStringConstants.RESTYPE, 'share')
-                  .withQueryOption(QueryStringConstants.COMP, 'properties')
-                  .withHeader(HeaderConstants.SHARE_QUOTA, options.quota);
+                    .withQueryOption(QueryStringConstants.RESTYPE, 'share')
+                    .withQueryOption(QueryStringConstants.COMP, 'properties')
+                    .withHeader(HeaderConstants.SHARE_QUOTA, options.quota);
 
                 FileResult.setProperties(webResource, options);
 
@@ -852,8 +852,8 @@ require = (function e(t, n, r) { function s(o, u) { if (!n[o]) { if (!t[o]) { va
                 var options = extend(true, {}, userOptions);
                 var resourceName = createResourceName(share);
                 var webResource = WebResource.get(resourceName)
-                  .withQueryOption(QueryStringConstants.RESTYPE, 'share')
-                  .withQueryOption(QueryStringConstants.COMP, 'stats');
+                    .withQueryOption(QueryStringConstants.RESTYPE, 'share')
+                    .withQueryOption(QueryStringConstants.COMP, 'stats');
 
                 var processResponseCallback = function (responseObject, next) {
                     responseObject.shareResult = null;
@@ -909,9 +909,9 @@ require = (function e(t, n, r) { function s(o, u) { if (!n[o]) { if (!t[o]) { va
 
                 var options = extend(true, {}, userOptions);
                 var webResource = WebResource.head(share)
-                  .withQueryOption(QueryStringConstants.RESTYPE, 'share')
-                  .withQueryOption(QueryStringConstants.COMP, 'metadata')
-                  .withQueryOption(QueryStringConstants.SHARE_SNAPSHOT, options.shareSnapshotId);
+                    .withQueryOption(QueryStringConstants.RESTYPE, 'share')
+                    .withQueryOption(QueryStringConstants.COMP, 'metadata')
+                    .withQueryOption(QueryStringConstants.SHARE_SNAPSHOT, options.shareSnapshotId);
 
                 var self = this;
                 var processResponseCallback = function (responseObject, next) {
@@ -969,8 +969,8 @@ require = (function e(t, n, r) { function s(o, u) { if (!n[o]) { if (!t[o]) { va
 
                 var options = extend(true, {}, userOptions);
                 var webResource = WebResource.put(share)
-                  .withQueryOption(QueryStringConstants.RESTYPE, 'share')
-                  .withQueryOption(QueryStringConstants.COMP, 'metadata');
+                    .withQueryOption(QueryStringConstants.RESTYPE, 'share')
+                    .withQueryOption(QueryStringConstants.COMP, 'metadata');
 
                 webResource.addOptionalMetadataHeaders(metadata);
 
@@ -1024,8 +1024,8 @@ require = (function e(t, n, r) { function s(o, u) { if (!n[o]) { if (!t[o]) { va
 
                 var options = extend(true, {}, userOptions);
                 var webResource = WebResource.get(share)
-                  .withQueryOption(QueryStringConstants.RESTYPE, 'share')
-                  .withQueryOption(QueryStringConstants.COMP, 'acl');
+                    .withQueryOption(QueryStringConstants.RESTYPE, 'share')
+                    .withQueryOption(QueryStringConstants.COMP, 'acl');
 
                 options.requestLocationMode = Constants.RequestLocationMode.PRIMARY_OR_SECONDARY;
 
@@ -1088,10 +1088,10 @@ require = (function e(t, n, r) { function s(o, u) { if (!n[o]) { if (!t[o]) { va
                 }
 
                 var webResource = WebResource.put(share)
-                  .withQueryOption(QueryStringConstants.RESTYPE, 'share')
-                  .withQueryOption(QueryStringConstants.COMP, 'acl')
-                  .withHeader(HeaderConstants.CONTENT_LENGTH, !azureutil.objectIsNull(policies) ? Buffer.byteLength(policies) : 0)
-                  .withBody(policies);
+                    .withQueryOption(QueryStringConstants.RESTYPE, 'share')
+                    .withQueryOption(QueryStringConstants.COMP, 'acl')
+                    .withHeader(HeaderConstants.CONTENT_LENGTH, !azureutil.objectIsNull(policies) ? Buffer.byteLength(policies) : 0)
+                    .withBody(policies);
 
                 var processResponseCallback = function (responseObject, next) {
                     responseObject.shareResult = null;
@@ -1152,9 +1152,9 @@ require = (function e(t, n, r) { function s(o, u) { if (!n[o]) { if (!t[o]) { va
                 }
 
                 var webResource = WebResource.del(share)
-                  .withQueryOption(QueryStringConstants.RESTYPE, 'share')
-                  .withQueryOption(QueryStringConstants.SHARE_SNAPSHOT, options.shareSnapshotId)
-                  .withHeader(HeaderConstants.DELETE_SNAPSHOT, options.deleteSnapshots);
+                    .withQueryOption(QueryStringConstants.RESTYPE, 'share')
+                    .withQueryOption(QueryStringConstants.SHARE_SNAPSHOT, options.shareSnapshotId)
+                    .withHeader(HeaderConstants.DELETE_SNAPSHOT, options.deleteSnapshots);
 
                 var processResponseCallback = function (responseObject, next) {
                     var finalCallback = function (returnObject) {
@@ -1294,7 +1294,7 @@ require = (function e(t, n, r) { function s(o, u) { if (!n[o]) { if (!t[o]) { va
 
                 var options = extend(true, {}, userOptions);
                 var webResource = WebResource.put(createResourceName(share, directory))
-                  .withQueryOption(QueryStringConstants.RESTYPE, 'directory');
+                    .withQueryOption(QueryStringConstants.RESTYPE, 'directory');
 
                 webResource.addOptionalMetadataHeaders(options.metadata);
 
@@ -1427,8 +1427,8 @@ require = (function e(t, n, r) { function s(o, u) { if (!n[o]) { if (!t[o]) { va
 
                 var options = extend(true, {}, userOptions);
                 var webResource = WebResource.head(createResourceName(share, directory))
-                  .withQueryOption(QueryStringConstants.RESTYPE, 'directory')
-                  .withQueryOption(QueryStringConstants.SHARE_SNAPSHOT, options.shareSnapshotId);
+                    .withQueryOption(QueryStringConstants.RESTYPE, 'directory')
+                    .withQueryOption(QueryStringConstants.SHARE_SNAPSHOT, options.shareSnapshotId);
 
                 var self = this;
                 var processResponseCallback = function (responseObject, next) {
@@ -1483,7 +1483,7 @@ require = (function e(t, n, r) { function s(o, u) { if (!n[o]) { if (!t[o]) { va
 
                 var options = extend(true, {}, userOptions);
                 var webResource = WebResource.del(createResourceName(share, directory))
-                  .withQueryOption(QueryStringConstants.RESTYPE, 'directory');
+                    .withQueryOption(QueryStringConstants.RESTYPE, 'directory');
 
                 var processResponseCallback = function (responseObject, next) {
                     var finalCallback = function (returnObject) {
@@ -1626,10 +1626,10 @@ require = (function e(t, n, r) { function s(o, u) { if (!n[o]) { if (!t[o]) { va
 
                 var options = extend(true, {}, userOptions);
                 var webResource = WebResource.get(createResourceName(share, directory))
-                  .withQueryOption(QueryStringConstants.RESTYPE, 'directory')
-                  .withQueryOption(QueryStringConstants.COMP, 'list')
-                  .withQueryOption(QueryStringConstants.MAX_RESULTS, options.maxResults)
-                  .withQueryOption(QueryStringConstants.SHARE_SNAPSHOT, options.shareSnapshotId);
+                    .withQueryOption(QueryStringConstants.RESTYPE, 'directory')
+                    .withQueryOption(QueryStringConstants.COMP, 'list')
+                    .withQueryOption(QueryStringConstants.MAX_RESULTS, options.maxResults)
+                    .withQueryOption(QueryStringConstants.SHARE_SNAPSHOT, options.shareSnapshotId);
 
                 if (!azureutil.objectIsNull(currentToken)) {
                     webResource.withQueryOption(QueryStringConstants.MARKER, currentToken.nextMarker);
@@ -1735,9 +1735,9 @@ require = (function e(t, n, r) { function s(o, u) { if (!n[o]) { if (!t[o]) { va
                 var options = extend(true, {}, userOptions);
                 var resourceName = createResourceName(share, directory);
                 var webResource = WebResource.head(resourceName)
-                  .withQueryOption(QueryStringConstants.RESTYPE, 'directory')
-                  .withQueryOption(QueryStringConstants.COMP, 'metadata')
-                  .withQueryOption(QueryStringConstants.SHARE_SNAPSHOT, options.shareSnapshotId);
+                    .withQueryOption(QueryStringConstants.RESTYPE, 'directory')
+                    .withQueryOption(QueryStringConstants.COMP, 'metadata')
+                    .withQueryOption(QueryStringConstants.SHARE_SNAPSHOT, options.shareSnapshotId);
 
                 var self = this;
                 var processResponseCallback = function (responseObject, next) {
@@ -1794,8 +1794,8 @@ require = (function e(t, n, r) { function s(o, u) { if (!n[o]) { if (!t[o]) { va
                 var options = extend(true, {}, userOptions);
                 var resourceName = createResourceName(share, directory);
                 var webResource = WebResource.put(resourceName)
-                  .withQueryOption(QueryStringConstants.RESTYPE, 'directory')
-                  .withQueryOption(QueryStringConstants.COMP, 'metadata');
+                    .withQueryOption(QueryStringConstants.RESTYPE, 'directory')
+                    .withQueryOption(QueryStringConstants.COMP, 'metadata');
 
                 webResource.addOptionalMetadataHeaders(metadata);
 
@@ -1978,7 +1978,7 @@ require = (function e(t, n, r) { function s(o, u) { if (!n[o]) { if (!t[o]) { va
                 var options = extend(true, {}, userOptions);
                 var resourceName = createResourceName(share, directory, file);
                 var webResource = WebResource.head(resourceName)
-                  .withQueryOption(QueryStringConstants.SHARE_SNAPSHOT, options.shareSnapshotId);
+                    .withQueryOption(QueryStringConstants.SHARE_SNAPSHOT, options.shareSnapshotId);
 
                 var self = this;
                 var processResponseCallback = function (responseObject, next) {
@@ -2040,8 +2040,8 @@ require = (function e(t, n, r) { function s(o, u) { if (!n[o]) { if (!t[o]) { va
                 var options = extend(true, {}, userOptions);
                 var resourceName = createResourceName(share, directory, file);
                 var webResource = WebResource.head(resourceName)
-                  .withQueryOption(QueryStringConstants.COMP, 'metadata')
-                  .withQueryOption(QueryStringConstants.SHARE_SNAPSHOT, options.shareSnapshotId);
+                    .withQueryOption(QueryStringConstants.COMP, 'metadata')
+                    .withQueryOption(QueryStringConstants.SHARE_SNAPSHOT, options.shareSnapshotId);
 
                 var self = this;
                 var processResponseCallback = function (responseObject, next) {
@@ -2110,7 +2110,7 @@ require = (function e(t, n, r) { function s(o, u) { if (!n[o]) { if (!t[o]) { va
                 var options = extend(true, { contentSettings: properties, contentLength: properties.contentLength }, userOptions);
                 var resourceName = createResourceName(share, directory, file);
                 var webResource = WebResource.put(resourceName)
-                  .withQueryOption(QueryStringConstants.COMP, 'properties');
+                    .withQueryOption(QueryStringConstants.COMP, 'properties');
 
                 FileResult.setProperties(webResource, options);
 
@@ -2172,7 +2172,7 @@ require = (function e(t, n, r) { function s(o, u) { if (!n[o]) { if (!t[o]) { va
                 var options = extend(true, {}, userOptions);
                 var resourceName = createResourceName(share, directory, file);
                 var webResource = WebResource.put(resourceName)
-                  .withQueryOption(QueryStringConstants.COMP, 'metadata');
+                    .withQueryOption(QueryStringConstants.COMP, 'metadata');
 
                 webResource.addOptionalMetadataHeaders(metadata);
 
@@ -2231,7 +2231,7 @@ require = (function e(t, n, r) { function s(o, u) { if (!n[o]) { if (!t[o]) { va
                 var options = extend(true, {}, userOptions);
                 var resourceName = createResourceName(share, directory, file);
                 var webResource = WebResource.put(resourceName)
-                  .withQueryOption(QueryStringConstants.COMP, 'properties');
+                    .withQueryOption(QueryStringConstants.COMP, 'properties');
 
                 webResource.withHeader(HeaderConstants.FILE_CONTENT_LENGTH, size);
 
@@ -2327,8 +2327,8 @@ require = (function e(t, n, r) { function s(o, u) { if (!n[o]) { if (!t[o]) { va
                 var resourceName = createResourceName(share, directory, file);
                 var options = extend(true, {}, userOptions);
                 var webResource = WebResource.put(resourceName)
-                  .withHeader(HeaderConstants.TYPE, 'file')
-                  .withHeader(HeaderConstants.FILE_CONTENT_LENGTH, length);
+                    .withHeader(HeaderConstants.TYPE, 'file')
+                    .withHeader(HeaderConstants.FILE_CONTENT_LENGTH, length);
 
                 FileResult.setProperties(webResource, options);
 
@@ -2503,8 +2503,8 @@ require = (function e(t, n, r) { function s(o, u) { if (!n[o]) { if (!t[o]) { va
                 var options = extend(true, {}, userOptions);
                 var resourceName = createResourceName(share, directory, file);
                 var webResource = WebResource.get(resourceName)
-                  .withQueryOption(QueryStringConstants.SHARE_SNAPSHOT, options.shareSnapshotId)
-                  .withRawResponse();
+                    .withQueryOption(QueryStringConstants.SHARE_SNAPSHOT, options.shareSnapshotId)
+                    .withRawResponse();
 
                 FileResult.setHeaders(webResource, options);
                 this._setRangeContentMD5Header(webResource, options);
@@ -2732,8 +2732,8 @@ require = (function e(t, n, r) { function s(o, u) { if (!n[o]) { if (!t[o]) { va
                 var resourceName = createResourceName(share, directory, file);
                 var options = extend(true, {}, userOptions);
                 var webResource = WebResource.get(resourceName)
-                  .withQueryOption(QueryStringConstants.COMP, 'rangelist')
-                  .withQueryOption(QueryStringConstants.SHARE_SNAPSHOT, options.shareSnapshotId);
+                    .withQueryOption(QueryStringConstants.COMP, 'rangelist')
+                    .withQueryOption(QueryStringConstants.SHARE_SNAPSHOT, options.shareSnapshotId);
 
                 FileResult.setHeaders(webResource, options);
 
@@ -3252,8 +3252,8 @@ require = (function e(t, n, r) { function s(o, u) { if (!n[o]) { if (!t[o]) { va
                 var options = extend(true, {}, userOptions);
 
                 var webResource = WebResource.put(targetResourceName)
-                  .withHeader(HeaderConstants.COPY_SOURCE, sourceUri)
-                  .addOptionalMetadataHeaders(options.metadata);
+                    .withHeader(HeaderConstants.COPY_SOURCE, sourceUri)
+                    .addOptionalMetadataHeaders(options.metadata);
 
                 var processResponseCallback = function (responseObject, next) {
                     responseObject.fileResult = null;
@@ -3315,9 +3315,9 @@ require = (function e(t, n, r) { function s(o, u) { if (!n[o]) { if (!t[o]) { va
 
                 var options = extend(true, {}, userOptions);
                 var webResource = WebResource.put(resourceName)
-                  .withQueryOption(QueryStringConstants.COPY_ID, copyId)
-                  .withQueryOption(QueryStringConstants.COMP, 'copy')
-                  .withHeader(HeaderConstants.COPY_ACTION, 'abort');
+                    .withQueryOption(QueryStringConstants.COPY_ID, copyId)
+                    .withQueryOption(QueryStringConstants.COMP, 'copy')
+                    .withHeader(HeaderConstants.COPY_ACTION, 'abort');
 
                 var processResponseCallback = function (responseObject, next) {
                     var finalCallback = function (returnObject) {
@@ -3586,8 +3586,8 @@ require = (function e(t, n, r) { function s(o, u) { if (!n[o]) { if (!t[o]) { va
                 var options = extend(true, {}, userOptions);
                 var resourceName = createResourceName(share, directory, file);
                 var webResource = WebResource.get(resourceName)
-                  .withQueryOption(QueryStringConstants.SHARE_SNAPSHOT, options.shareSnapshotId)
-                  .withRawResponse();
+                    .withQueryOption(QueryStringConstants.SHARE_SNAPSHOT, options.shareSnapshotId)
+                    .withRawResponse();
 
                 FileResult.setHeaders(webResource, options);
                 this._setRangeContentMD5Header(webResource, options);
@@ -3816,9 +3816,9 @@ require = (function e(t, n, r) { function s(o, u) { if (!n[o]) { if (!t[o]) { va
             FileService.prototype._updateFilesImpl = function (share, directory, file, rangeStart, rangeEnd, writeMethod, options) {
                 var resourceName = createResourceName(share, directory, file);
                 var webResource = WebResource.put(resourceName)
-                  .withQueryOption(QueryStringConstants.COMP, 'range')
-                  .withHeader(HeaderConstants.CONTENT_TYPE, 'application/octet-stream')
-                  .withHeader(HeaderConstants.FILE_WRITE, writeMethod);
+                    .withQueryOption(QueryStringConstants.COMP, 'range')
+                    .withHeader(HeaderConstants.CONTENT_TYPE, 'application/octet-stream')
+                    .withHeader(HeaderConstants.FILE_WRITE, writeMethod);
 
                 options.rangeStart = rangeStart;
                 options.rangeEnd = rangeEnd;
@@ -3924,7 +3924,7 @@ require = (function e(t, n, r) { function s(o, u) { if (!n[o]) { if (!t[o]) { va
 
                 var resourceName = createResourceName(share, directory, file);
                 var webResource = WebResource.head(resourceName)
-                  .withQueryOption(QueryStringConstants.SHARE_SNAPSHOT, options.shareSnapshotId);
+                    .withQueryOption(QueryStringConstants.SHARE_SNAPSHOT, options.shareSnapshotId);
 
                 /*if(primaryOnly === false) {
                   options.requestLocationMode = RequestLocationMode.PRIMARY_OR_SECONDARY;
@@ -3989,8 +3989,8 @@ require = (function e(t, n, r) { function s(o, u) { if (!n[o]) { if (!t[o]) { va
 
                 var options = extend(true, {}, userOptions);
                 var webResource = WebResource.head(createResourceName(share, directory))
-                  .withQueryOption(QueryStringConstants.RESTYPE, 'directory')
-                  .withQueryOption(QueryStringConstants.SHARE_SNAPSHOT, options.shareSnapshotId);
+                    .withQueryOption(QueryStringConstants.RESTYPE, 'directory')
+                    .withQueryOption(QueryStringConstants.SHARE_SNAPSHOT, options.shareSnapshotId);
 
                 /*if(primaryOnly === false) {
                   options.requestLocationMode = RequestLocationMode.PRIMARY_OR_SECONDARY;
@@ -4056,8 +4056,8 @@ require = (function e(t, n, r) { function s(o, u) { if (!n[o]) { if (!t[o]) { va
 
                 var options = extend(true, {}, userOptions);
                 var webResource = WebResource.head(share)
-                  .withQueryOption(QueryStringConstants.RESTYPE, 'share')
-                  .withQueryOption(QueryStringConstants.SHARE_SNAPSHOT, options.shareSnapshotId);
+                    .withQueryOption(QueryStringConstants.RESTYPE, 'share')
+                    .withQueryOption(QueryStringConstants.SHARE_SNAPSHOT, options.shareSnapshotId);
 
                 /*if(primaryOnly === false) {
                   options.requestLocationMode = RequestLocationMode.PRIMARY_OR_SECONDARY;
@@ -4320,7 +4320,7 @@ require = (function e(t, n, r) { function s(o, u) { if (!n[o]) { if (!t[o]) { va
                     if (start < 0) start = str.length + start;
                     return str.substr(start, len);
                 }
-            ;
+                ;
         }).call(this, require('_process'))
     }, { "_process": 198 }], 56: [function (require, module, exports) {
         //

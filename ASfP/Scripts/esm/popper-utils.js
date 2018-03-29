@@ -326,7 +326,7 @@ function getBoundingClientRect(element) {
             rect.left += scrollLeft;
             rect.bottom += scrollTop;
             rect.right += scrollLeft;
-        } catch (err) {}
+        } catch (err) { }
     } else {
         rect = element.getBoundingClientRect();
     }
@@ -550,8 +550,8 @@ function computeAutoPlacement(placement, refRect, popper, reference, boundariesE
         return _extends({
             key: key
         }, rects[key], {
-            area: getArea(rects[key])
-        });
+                area: getArea(rects[key])
+            });
     }).sort(function (a, b) {
         return b.area - a.area;
     });

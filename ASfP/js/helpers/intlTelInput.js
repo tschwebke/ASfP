@@ -19,51 +19,51 @@
     "use strict";
     // these vars persist through all instances of the plugin
     var pluginName = "intlTelInput", id = 1, // give each instance it's own id for namespaced event handling
-    defaults = {
-        // whether or not to allow the dropdown
-        allowDropdown: true,
-        // if there is just a dial code in the input: remove it on blur, and re-add it on focus
-        autoHideDialCode: true,
-        // add a placeholder in the input with an example number for the selected country
-        autoPlaceholder: "polite",
-        // modify the auto placeholder
-        customPlaceholder: null,
-        // append menu to a specific element
-        dropdownContainer: "",
-        // don't display these countries
-        excludeCountries: [],
-        // format the input value during initialisation and on setNumber
-        formatOnDisplay: true,
-        // geoIp lookup function
-        geoIpLookup: null,
-        // inject a hidden input with this name, and on submit, populate it with the result of getNumber
-        hiddenInput: "",
-        // initial country
-        initialCountry: "",
-        // don't insert international dial codes
-        nationalMode: true,
-        // display only these countries
-        onlyCountries: [],
-        // number type to use for placeholders
-        placeholderNumberType: "MOBILE",
-        // the countries at the top of the list. defaults to united states and united kingdom
-        preferredCountries: ["us", "gb"],
-        // display the country dial code next to the selected flag so it's not part of the typed number
-        separateDialCode: false,
-        // specify the path to the libphonenumber script to enable validation/formatting
-        utilsScript: ""
-    }, keys = {
-        UP: 38,
-        DOWN: 40,
-        ENTER: 13,
-        ESC: 27,
-        PLUS: 43,
-        A: 65,
-        Z: 90,
-        SPACE: 32,
-        TAB: 9
-    }, // https://en.wikipedia.org/wiki/List_of_North_American_Numbering_Plan_area_codes#Non-geographic_area_codes
-    regionlessNanpNumbers = ["800", "822", "833", "844", "855", "866", "877", "880", "881", "882", "883", "884", "885", "886", "887", "888", "889"];
+        defaults = {
+            // whether or not to allow the dropdown
+            allowDropdown: true,
+            // if there is just a dial code in the input: remove it on blur, and re-add it on focus
+            autoHideDialCode: true,
+            // add a placeholder in the input with an example number for the selected country
+            autoPlaceholder: "polite",
+            // modify the auto placeholder
+            customPlaceholder: null,
+            // append menu to a specific element
+            dropdownContainer: "",
+            // don't display these countries
+            excludeCountries: [],
+            // format the input value during initialisation and on setNumber
+            formatOnDisplay: true,
+            // geoIp lookup function
+            geoIpLookup: null,
+            // inject a hidden input with this name, and on submit, populate it with the result of getNumber
+            hiddenInput: "",
+            // initial country
+            initialCountry: "",
+            // don't insert international dial codes
+            nationalMode: true,
+            // display only these countries
+            onlyCountries: [],
+            // number type to use for placeholders
+            placeholderNumberType: "MOBILE",
+            // the countries at the top of the list. defaults to united states and united kingdom
+            preferredCountries: ["us", "gb"],
+            // display the country dial code next to the selected flag so it's not part of the typed number
+            separateDialCode: false,
+            // specify the path to the libphonenumber script to enable validation/formatting
+            utilsScript: ""
+        }, keys = {
+            UP: 38,
+            DOWN: 40,
+            ENTER: 13,
+            ESC: 27,
+            PLUS: 43,
+            A: 65,
+            Z: 90,
+            SPACE: 32,
+            TAB: 9
+        }, // https://en.wikipedia.org/wiki/List_of_North_American_Numbering_Plan_area_codes#Non-geographic_area_codes
+        regionlessNanpNumbers = ["800", "822", "833", "844", "855", "866", "877", "880", "881", "882", "883", "884", "885", "886", "887", "888", "889"];
     // keep track of if the window.load event has fired as impossible to check after the fact
     $(window).on("load", function () {
         // UPDATE: use a public static field so we can fudge it in the tests
@@ -529,7 +529,7 @@
             this.dropdownHeight = this.countryList.removeClass("hide").outerHeight();
             if (!this.isMobile) {
                 var pos = this.telInput.offset(), inputTop = pos.top, windowTop = $(window).scrollTop(), // dropdownFitsBelow = (dropdownBottom < windowBottom)
-                dropdownFitsBelow = inputTop + this.telInput.outerHeight() + this.dropdownHeight < windowTop + $(window).height(), dropdownFitsAbove = inputTop - this.dropdownHeight > windowTop;
+                    dropdownFitsBelow = inputTop + this.telInput.outerHeight() + this.dropdownHeight < windowTop + $(window).height(), dropdownFitsAbove = inputTop - this.dropdownHeight > windowTop;
                 // by default, the dropdown will be below the input. If we want to position it above the input, we add the dropup class.
                 this.countryList.toggleClass("dropup", !dropdownFitsBelow && dropdownFitsAbove);
                 // if dropdownContainer is enabled, calculate postion
@@ -665,7 +665,7 @@
             if (dialCode) {
                 // check if one of the matching countries is already selected
                 var countryCodes = this.countryCodes[this._getNumeric(dialCode)], alreadySelected = $.inArray(this.selectedCountryData.iso2, countryCodes) > -1, // check if the given number contains a NANP area code i.e. the only dialCode that could be extracted was +1 (instead of say +1204) and the actual number's length is >=4
-                isNanpAreaCode = dialCode == "+1" && numeric.length >= 4, nanpSelected = this.selectedCountryData.dialCode == "1";
+                    isNanpAreaCode = dialCode == "+1" && numeric.length >= 4, nanpSelected = this.selectedCountryData.dialCode == "1";
                 // only update the flag if:
                 // A) NOT (we currently have a NANP flag selected, and the number is a regionlessNanp)
                 // AND
@@ -886,7 +886,7 @@
         // get the input val, adding the dial code if separateDialCode is enabled
         _getFullNumber: function () {
             var val = $.trim(this.telInput.val()), dialCode = this.selectedCountryData.dialCode, prefix, numericVal = this._getNumeric(val), // normalized means ensure starts with a 1, so we can match against the full dial code
-            normalizedVal = numericVal.charAt(0) == "1" ? numericVal : "1" + numericVal;
+                normalizedVal = numericVal.charAt(0) == "1" ? numericVal : "1" + numericVal;
             if (this.options.separateDialCode) {
                 prefix = "+" + dialCode;
             } else if (val.charAt(0) != "+" && val.charAt(0) != "1" && dialCode && dialCode.charAt(0) == "1" && dialCode.length == 4 && dialCode != normalizedVal.substr(0, 4)) {

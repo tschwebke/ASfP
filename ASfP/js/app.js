@@ -8,17 +8,17 @@ asfpApp.run(['$rootScope', '$location', '$locale', function ($rootScope, $locati
 }]);
 
 asfpApp.config(['$routeProvider',
-function ($routeProvider) {
-    $routeProvider.
-        when('/order', {
-            templateUrl: 'views/order.html',
-            controller: 'orderController'
-        }).
-        when('/success', {
-            templateUrl: 'views/success.html',
-            controller: 'successController'
-        }).
-        otherwise({
-            redirectTo: '/order'
-        });
-}]);
+    function ($routeProvider) {
+        $routeProvider.
+            when('/order', {
+                templateUrl: 'views/order.html',
+                controller: 'orderController'
+            }).
+            when('/success', {
+                templateUrl: 'views/success.html',
+                controller: 'successController'
+            }).
+            otherwise({
+                redirectTo: '/order'
+            });
+    }]);

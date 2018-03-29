@@ -24,8 +24,8 @@
  */
 (function (global, factory) {
     typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports) :
-	typeof define === 'function' && define.amd ? define(['exports'], factory) :
-	(factory((global.PopperUtils = {})));
+        typeof define === 'function' && define.amd ? define(['exports'], factory) :
+            (factory((global.PopperUtils = {})));
 }(this, (function (exports) {
     'use strict';
 
@@ -557,8 +557,8 @@
             return _extends({
                 key: key
             }, rects[key], {
-                area: getArea(rects[key])
-            });
+                    area: getArea(rects[key])
+                });
         }).sort(function (a, b) {
             return b.area - a.area;
         });

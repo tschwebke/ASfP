@@ -1618,9 +1618,9 @@ require = (function () { function e(t, n, r) { function s(o, u) { if (!n[o]) { i
             BatchOperation.prototype._isLowMemory = function () {
                 var approximateMemoryUsage = this._getApproximateMemoryUsage();
                 return os.freemem() < CriticalFreeMemory ||
-                  (this._activeOperation >= this.concurrency && approximateMemoryUsage > 0.5 * SystemTotalMemory) ||
-                  (azureutil.is32() && approximateMemoryUsage > DEFAULT_CRITICAL_MEMORY_LIMITATION_32_IN_BYTES) ||
-                  (azureutil.isBrowser() && approximateMemoryUsage > DEFAULT_CRITICAL_MEMORY_LIMITATION_BROWSER_IN_BYTES);
+                    (this._activeOperation >= this.concurrency && approximateMemoryUsage > 0.5 * SystemTotalMemory) ||
+                    (azureutil.is32() && approximateMemoryUsage > DEFAULT_CRITICAL_MEMORY_LIMITATION_32_IN_BYTES) ||
+                    (azureutil.isBrowser() && approximateMemoryUsage > DEFAULT_CRITICAL_MEMORY_LIMITATION_BROWSER_IN_BYTES);
             };
 
             /**
@@ -2280,9 +2280,9 @@ require = (function () { function e(t, n, r) { function s(o, u) { if (!n[o]) { i
                                                     if (errorMessageBuffer) {
                                                         // Strip the UTF8 BOM following the same ways as 'request' module
                                                         if (errorMessageBuffer.length > 3 &&
-                                                          errorMessageBuffer[0] === 239 &&
-                                                          errorMessageBuffer[1] === 187 &&
-                                                          errorMessageBuffer[2] === 191) {
+                                                            errorMessageBuffer[0] === 239 &&
+                                                            errorMessageBuffer[1] === 187 &&
+                                                            errorMessageBuffer[2] === 191) {
                                                             response.body = errorMessageBuffer.toString('utf8', 3);
                                                         } else {
                                                             response.body = errorMessageBuffer.toString('utf8');
@@ -2380,8 +2380,8 @@ require = (function () { function e(t, n, r) { function s(o, u) { if (!n[o]) { i
                                 } else if (body && body.outputStream) {
                                     var sendUnchunked = function () {
                                         var size = finalRequestOptions.headers['content-length'] ?
-                                          finalRequestOptions.headers['content-length'] :
-                                          Constants.BlobConstants.MAX_SINGLE_UPLOAD_BLOB_SIZE_IN_BYTES;
+                                            finalRequestOptions.headers['content-length'] :
+                                            Constants.BlobConstants.MAX_SINGLE_UPLOAD_BLOB_SIZE_IN_BYTES;
 
                                         var concatBuf = new Buffer(size);
                                         var index = 0;
@@ -2487,8 +2487,8 @@ require = (function () { function e(t, n, r) { function s(o, u) { if (!n[o]) { i
                 // Browsers cache GET/HEAD requests by adding conditional headers such as 'IF_MODIFIED_SINCE' after Azure Storage 'Authorization header' calculation,
                 // which may result in a 403 authorization error. So add timestamp to GET/HEAD request URLs thus avoid the browser cache.
                 if (azureutil.isBrowser() && (
-                  webResource.method === Constants.HttpConstants.HttpVerbs.GET ||
-                  webResource.method === Constants.HttpConstants.HttpVerbs.HEAD)) {
+                    webResource.method === Constants.HttpConstants.HttpVerbs.GET ||
+                    webResource.method === Constants.HttpConstants.HttpVerbs.HEAD)) {
                     webResource.withQueryOption(HeaderConstants.FORCE_NO_CACHE_IN_BROWSER, new Date().getTime());
                 }
 
@@ -2971,8 +2971,8 @@ require = (function () { function e(t, n, r) { function s(o, u) { if (!n[o]) { i
                 var options = extend(true, {}, userOptions);
 
                 var webResource = WebResource.get()
-                  .withQueryOption(QueryStringConstants.COMP, 'properties')
-                  .withQueryOption(QueryStringConstants.RESTYPE, 'service');
+                    .withQueryOption(QueryStringConstants.COMP, 'properties')
+                    .withQueryOption(QueryStringConstants.RESTYPE, 'service');
 
                 options.requestLocationMode = RequestLocationMode.PRIMARY_OR_SECONDARY;
 
@@ -3027,11 +3027,11 @@ require = (function () { function e(t, n, r) { function s(o, u) { if (!n[o]) { i
                 var servicePropertiesXml = ServicePropertiesResult.serialize(serviceProperties);
 
                 var webResource = WebResource.put()
-                  .withQueryOption(QueryStringConstants.COMP, 'properties')
-                  .withQueryOption(QueryStringConstants.RESTYPE, 'service')
-                  .withHeader(HeaderConstants.CONTENT_TYPE, 'application/xml;charset="utf-8"')
-                  .withHeader(HeaderConstants.CONTENT_LENGTH, Buffer.byteLength(servicePropertiesXml))
-                  .withBody(servicePropertiesXml);
+                    .withQueryOption(QueryStringConstants.COMP, 'properties')
+                    .withQueryOption(QueryStringConstants.RESTYPE, 'service')
+                    .withHeader(HeaderConstants.CONTENT_TYPE, 'application/xml;charset="utf-8"')
+                    .withHeader(HeaderConstants.CONTENT_LENGTH, Buffer.byteLength(servicePropertiesXml))
+                    .withBody(servicePropertiesXml);
 
                 var processResponseCallback = function (responseObject, next) {
                     var finalCallback = function (returnObject) {
@@ -3222,7 +3222,7 @@ require = (function () { function e(t, n, r) { function s(o, u) { if (!n[o]) { i
                         break;
 
                     default:
-                        // no op
+                    // no op
                 }
             };
 
@@ -3271,9 +3271,9 @@ require = (function () { function e(t, n, r) { function s(o, u) { if (!n[o]) { i
             // Generated by CoffeeScript 1.6.3
             (function () {
                 var events, isEmpty, sax,
-                  __hasProp = {}.hasOwnProperty,
-                  __extends = function (child, parent) { for (var key in parent) { if (__hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; },
-                  __bind = function (fn, me) { return function () { return fn.apply(me, arguments); }; };
+                    __hasProp = {}.hasOwnProperty,
+                    __extends = function (child, parent) { for (var key in parent) { if (__hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; },
+                    __bind = function (fn, me) { return function () { return fn.apply(me, arguments); }; };
 
                 sax = require('sax');
 
@@ -3364,7 +3364,7 @@ require = (function () { function e(t, n, r) { function s(o, u) { if (!n[o]) { i
 
                     Parser.prototype.reset = function () {
                         var attrkey, charkey, err, ontext, stack,
-                          _this = this;
+                            _this = this;
                         this.removeAllListeners();
                         this.saxParser = sax.parser(this.options.strict, {
                             trim: false,
@@ -3586,30 +3586,30 @@ require = (function () { function e(t, n, r) { function s(o, u) { if (!n[o]) { i
                 sax.MAX_BUFFER_LENGTH = 64 * 1024
 
                 var buffers = [
-                  "comment", "sgmlDecl", "textNode", "tagName", "doctype",
-                  "procInstName", "procInstBody", "entity", "attribName",
-                  "attribValue", "cdata", "script"
+                    "comment", "sgmlDecl", "textNode", "tagName", "doctype",
+                    "procInstName", "procInstBody", "entity", "attribName",
+                    "attribValue", "cdata", "script"
                 ]
 
                 sax.EVENTS = // for discoverability.
-                  ["text"
-                  , "processinginstruction"
-                  , "sgmldeclaration"
-                  , "doctype"
-                  , "comment"
-                  , "attribute"
-                  , "opentag"
-                  , "closetag"
-                  , "opencdata"
-                  , "cdata"
-                  , "closecdata"
-                  , "error"
-                  , "end"
-                  , "ready"
-                  , "script"
-                  , "opennamespace"
-                  , "closenamespace"
-                  ]
+                    ["text"
+                        , "processinginstruction"
+                        , "sgmldeclaration"
+                        , "doctype"
+                        , "comment"
+                        , "attribute"
+                        , "opentag"
+                        , "closetag"
+                        , "opencdata"
+                        , "cdata"
+                        , "closecdata"
+                        , "error"
+                        , "end"
+                        , "ready"
+                        , "script"
+                        , "opennamespace"
+                        , "closenamespace"
+                    ]
 
                 function SAXParser(strict, opt) {
                     if (!(this instanceof SAXParser)) return new SAXParser(strict, opt)
@@ -3661,7 +3661,7 @@ require = (function () { function e(t, n, r) { function s(o, u) { if (!n[o]) { i
 
                 function checkBufferLength(parser) {
                     var maxAllowed = Math.max(sax.MAX_BUFFER_LENGTH, 10)
-                      , maxActual = 0
+                        , maxActual = 0
                     for (var i = 0, l = buffers.length; i < l; i++) {
                         var len = parser[buffers[i]].length
                         if (len > maxAllowed) {
@@ -3692,7 +3692,7 @@ require = (function () { function e(t, n, r) { function s(o, u) { if (!n[o]) { i
                     }
                     // schedule the next check for the earliest possible buffer overrun.
                     parser.bufferCheckPosition = (sax.MAX_BUFFER_LENGTH - maxActual)
-                                               + parser.position
+                        + parser.position
                 }
 
                 function clearBuffers(parser) {
@@ -3714,13 +3714,13 @@ require = (function () { function e(t, n, r) { function s(o, u) { if (!n[o]) { i
                 }
 
                 SAXParser.prototype =
-                  {
-                      end: function () { end(this) }
-                  , write: write
-                  , resume: function () { this.error = null; return this }
-                  , close: function () { return this.write(null) }
-                  , flush: function () { flushBuffers(this) }
-                  }
+                    {
+                        end: function () { end(this) }
+                        , write: write
+                        , resume: function () { this.error = null; return this }
+                        , close: function () { return this.write(null) }
+                        , flush: function () { flushBuffers(this) }
+                    }
 
                 try {
                     var Stream = require("stream").Stream
@@ -3778,7 +3778,7 @@ require = (function () { function e(t, n, r) { function s(o, u) { if (!n[o]) { i
                 }
 
                 SAXStream.prototype = Object.create(Stream.prototype,
-                  { constructor: { value: SAXStream } })
+                    { constructor: { value: SAXStream } })
 
                 SAXStream.prototype.write = function (data) {
                     if (typeof Buffer === 'function' &&
@@ -3807,7 +3807,7 @@ require = (function () { function e(t, n, r) { function s(o, u) { if (!n[o]) { i
                     if (!me._parser["on" + ev] && streamWraps.indexOf(ev) !== -1) {
                         me._parser["on" + ev] = function () {
                             var args = arguments.length === 1 ? [arguments[0]]
-                                     : Array.apply(null, arguments)
+                                : Array.apply(null, arguments)
                             args.splice(0, 0, ev)
                             me.emit.apply(me, args)
                         }
@@ -3818,19 +3818,19 @@ require = (function () { function e(t, n, r) { function s(o, u) { if (!n[o]) { i
 
                 // character classes and tokens
                 var whitespace = "\r\n\t "
-                  // this really needs to be replaced with character classes.
-                  // XML allows all manner of ridiculous numbers and digits.
-                  , number = "0124356789"
-                  , letter = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
-                  // (Letter | "_" | ":")
-                  , quote = "'\""
-                  , entity = number + letter + "#"
-                  , attribEnd = whitespace + ">"
-                  , CDATA = "[CDATA["
-                  , DOCTYPE = "DOCTYPE"
-                  , XML_NAMESPACE = "http://www.w3.org/XML/1998/namespace"
-                  , XMLNS_NAMESPACE = "http://www.w3.org/2000/xmlns/"
-                  , rootNS = { xml: XML_NAMESPACE, xmlns: XMLNS_NAMESPACE }
+                    // this really needs to be replaced with character classes.
+                    // XML allows all manner of ridiculous numbers and digits.
+                    , number = "0124356789"
+                    , letter = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
+                    // (Letter | "_" | ":")
+                    , quote = "'\""
+                    , entity = number + letter + "#"
+                    , attribEnd = whitespace + ">"
+                    , CDATA = "[CDATA["
+                    , DOCTYPE = "DOCTYPE"
+                    , XML_NAMESPACE = "http://www.w3.org/XML/1998/namespace"
+                    , XMLNS_NAMESPACE = "http://www.w3.org/2000/xmlns/"
+                    , rootNS = { xml: XML_NAMESPACE, xmlns: XMLNS_NAMESPACE }
 
                 // turn all the string character sets into character class objects.
                 whitespace = charClass(whitespace)
@@ -3872,300 +3872,300 @@ require = (function () { function e(t, n, r) { function s(o, u) { if (!n[o]) { i
 
                 var S = 0
                 sax.STATE =
-                {
-                    BEGIN: S++
-                , TEXT: S++ // general stuff
-                , TEXT_ENTITY: S++ // &amp and such.
-                , OPEN_WAKA: S++ // <
-                , SGML_DECL: S++ // <!BLARG
-                , SGML_DECL_QUOTED: S++ // <!BLARG foo "bar
-                , DOCTYPE: S++ // <!DOCTYPE
-                , DOCTYPE_QUOTED: S++ // <!DOCTYPE "//blah
-                , DOCTYPE_DTD: S++ // <!DOCTYPE "//blah" [ ...
-                , DOCTYPE_DTD_QUOTED: S++ // <!DOCTYPE "//blah" [ "foo
-                , COMMENT_STARTING: S++ // <!-
-                , COMMENT: S++ // <!--
-                , COMMENT_ENDING: S++ // <!-- blah -
-                , COMMENT_ENDED: S++ // <!-- blah --
-                , CDATA: S++ // <![CDATA[ something
-                , CDATA_ENDING: S++ // ]
-                , CDATA_ENDING_2: S++ // ]]
-                , PROC_INST: S++ // <?hi
-                , PROC_INST_BODY: S++ // <?hi there
-                , PROC_INST_ENDING: S++ // <?hi "there" ?
-                , OPEN_TAG: S++ // <strong
-                , OPEN_TAG_SLASH: S++ // <strong /
-                , ATTRIB: S++ // <a
-                , ATTRIB_NAME: S++ // <a foo
-                , ATTRIB_NAME_SAW_WHITE: S++ // <a foo _
-                , ATTRIB_VALUE: S++ // <a foo=
-                , ATTRIB_VALUE_QUOTED: S++ // <a foo="bar
-                , ATTRIB_VALUE_CLOSED: S++ // <a foo="bar"
-                , ATTRIB_VALUE_UNQUOTED: S++ // <a foo=bar
-                , ATTRIB_VALUE_ENTITY_Q: S++ // <foo bar="&quot;"
-                , ATTRIB_VALUE_ENTITY_U: S++ // <foo bar=&quot;
-                , CLOSE_TAG: S++ // </a
-                , CLOSE_TAG_SAW_WHITE: S++ // </a   >
-                , SCRIPT: S++ // <script> ...
-                , SCRIPT_ENDING: S++ // <script> ... <
-                }
+                    {
+                        BEGIN: S++
+                        , TEXT: S++ // general stuff
+                        , TEXT_ENTITY: S++ // &amp and such.
+                        , OPEN_WAKA: S++ // <
+                        , SGML_DECL: S++ // <!BLARG
+                        , SGML_DECL_QUOTED: S++ // <!BLARG foo "bar
+                        , DOCTYPE: S++ // <!DOCTYPE
+                        , DOCTYPE_QUOTED: S++ // <!DOCTYPE "//blah
+                        , DOCTYPE_DTD: S++ // <!DOCTYPE "//blah" [ ...
+                        , DOCTYPE_DTD_QUOTED: S++ // <!DOCTYPE "//blah" [ "foo
+                        , COMMENT_STARTING: S++ // <!-
+                        , COMMENT: S++ // <!--
+                        , COMMENT_ENDING: S++ // <!-- blah -
+                        , COMMENT_ENDED: S++ // <!-- blah --
+                        , CDATA: S++ // <![CDATA[ something
+                        , CDATA_ENDING: S++ // ]
+                        , CDATA_ENDING_2: S++ // ]]
+                        , PROC_INST: S++ // <?hi
+                        , PROC_INST_BODY: S++ // <?hi there
+                        , PROC_INST_ENDING: S++ // <?hi "there" ?
+                        , OPEN_TAG: S++ // <strong
+                        , OPEN_TAG_SLASH: S++ // <strong /
+                        , ATTRIB: S++ // <a
+                        , ATTRIB_NAME: S++ // <a foo
+                        , ATTRIB_NAME_SAW_WHITE: S++ // <a foo _
+                        , ATTRIB_VALUE: S++ // <a foo=
+                        , ATTRIB_VALUE_QUOTED: S++ // <a foo="bar
+                        , ATTRIB_VALUE_CLOSED: S++ // <a foo="bar"
+                        , ATTRIB_VALUE_UNQUOTED: S++ // <a foo=bar
+                        , ATTRIB_VALUE_ENTITY_Q: S++ // <foo bar="&quot;"
+                        , ATTRIB_VALUE_ENTITY_U: S++ // <foo bar=&quot;
+                        , CLOSE_TAG: S++ // </a
+                        , CLOSE_TAG_SAW_WHITE: S++ // </a   >
+                        , SCRIPT: S++ // <script> ...
+                        , SCRIPT_ENDING: S++ // <script> ... <
+                    }
 
                 sax.ENTITIES =
-                {
-                    "amp": "&"
-                , "gt": ">"
-                , "lt": "<"
-                , "quot": "\""
-                , "apos": "'"
-                , "AElig": 198
-                , "Aacute": 193
-                , "Acirc": 194
-                , "Agrave": 192
-                , "Aring": 197
-                , "Atilde": 195
-                , "Auml": 196
-                , "Ccedil": 199
-                , "ETH": 208
-                , "Eacute": 201
-                , "Ecirc": 202
-                , "Egrave": 200
-                , "Euml": 203
-                , "Iacute": 205
-                , "Icirc": 206
-                , "Igrave": 204
-                , "Iuml": 207
-                , "Ntilde": 209
-                , "Oacute": 211
-                , "Ocirc": 212
-                , "Ograve": 210
-                , "Oslash": 216
-                , "Otilde": 213
-                , "Ouml": 214
-                , "THORN": 222
-                , "Uacute": 218
-                , "Ucirc": 219
-                , "Ugrave": 217
-                , "Uuml": 220
-                , "Yacute": 221
-                , "aacute": 225
-                , "acirc": 226
-                , "aelig": 230
-                , "agrave": 224
-                , "aring": 229
-                , "atilde": 227
-                , "auml": 228
-                , "ccedil": 231
-                , "eacute": 233
-                , "ecirc": 234
-                , "egrave": 232
-                , "eth": 240
-                , "euml": 235
-                , "iacute": 237
-                , "icirc": 238
-                , "igrave": 236
-                , "iuml": 239
-                , "ntilde": 241
-                , "oacute": 243
-                , "ocirc": 244
-                , "ograve": 242
-                , "oslash": 248
-                , "otilde": 245
-                , "ouml": 246
-                , "szlig": 223
-                , "thorn": 254
-                , "uacute": 250
-                , "ucirc": 251
-                , "ugrave": 249
-                , "uuml": 252
-                , "yacute": 253
-                , "yuml": 255
-                , "copy": 169
-                , "reg": 174
-                , "nbsp": 160
-                , "iexcl": 161
-                , "cent": 162
-                , "pound": 163
-                , "curren": 164
-                , "yen": 165
-                , "brvbar": 166
-                , "sect": 167
-                , "uml": 168
-                , "ordf": 170
-                , "laquo": 171
-                , "not": 172
-                , "shy": 173
-                , "macr": 175
-                , "deg": 176
-                , "plusmn": 177
-                , "sup1": 185
-                , "sup2": 178
-                , "sup3": 179
-                , "acute": 180
-                , "micro": 181
-                , "para": 182
-                , "middot": 183
-                , "cedil": 184
-                , "ordm": 186
-                , "raquo": 187
-                , "frac14": 188
-                , "frac12": 189
-                , "frac34": 190
-                , "iquest": 191
-                , "times": 215
-                , "divide": 247
-                , "OElig": 338
-                , "oelig": 339
-                , "Scaron": 352
-                , "scaron": 353
-                , "Yuml": 376
-                , "fnof": 402
-                , "circ": 710
-                , "tilde": 732
-                , "Alpha": 913
-                , "Beta": 914
-                , "Gamma": 915
-                , "Delta": 916
-                , "Epsilon": 917
-                , "Zeta": 918
-                , "Eta": 919
-                , "Theta": 920
-                , "Iota": 921
-                , "Kappa": 922
-                , "Lambda": 923
-                , "Mu": 924
-                , "Nu": 925
-                , "Xi": 926
-                , "Omicron": 927
-                , "Pi": 928
-                , "Rho": 929
-                , "Sigma": 931
-                , "Tau": 932
-                , "Upsilon": 933
-                , "Phi": 934
-                , "Chi": 935
-                , "Psi": 936
-                , "Omega": 937
-                , "alpha": 945
-                , "beta": 946
-                , "gamma": 947
-                , "delta": 948
-                , "epsilon": 949
-                , "zeta": 950
-                , "eta": 951
-                , "theta": 952
-                , "iota": 953
-                , "kappa": 954
-                , "lambda": 955
-                , "mu": 956
-                , "nu": 957
-                , "xi": 958
-                , "omicron": 959
-                , "pi": 960
-                , "rho": 961
-                , "sigmaf": 962
-                , "sigma": 963
-                , "tau": 964
-                , "upsilon": 965
-                , "phi": 966
-                , "chi": 967
-                , "psi": 968
-                , "omega": 969
-                , "thetasym": 977
-                , "upsih": 978
-                , "piv": 982
-                , "ensp": 8194
-                , "emsp": 8195
-                , "thinsp": 8201
-                , "zwnj": 8204
-                , "zwj": 8205
-                , "lrm": 8206
-                , "rlm": 8207
-                , "ndash": 8211
-                , "mdash": 8212
-                , "lsquo": 8216
-                , "rsquo": 8217
-                , "sbquo": 8218
-                , "ldquo": 8220
-                , "rdquo": 8221
-                , "bdquo": 8222
-                , "dagger": 8224
-                , "Dagger": 8225
-                , "bull": 8226
-                , "hellip": 8230
-                , "permil": 8240
-                , "prime": 8242
-                , "Prime": 8243
-                , "lsaquo": 8249
-                , "rsaquo": 8250
-                , "oline": 8254
-                , "frasl": 8260
-                , "euro": 8364
-                , "image": 8465
-                , "weierp": 8472
-                , "real": 8476
-                , "trade": 8482
-                , "alefsym": 8501
-                , "larr": 8592
-                , "uarr": 8593
-                , "rarr": 8594
-                , "darr": 8595
-                , "harr": 8596
-                , "crarr": 8629
-                , "lArr": 8656
-                , "uArr": 8657
-                , "rArr": 8658
-                , "dArr": 8659
-                , "hArr": 8660
-                , "forall": 8704
-                , "part": 8706
-                , "exist": 8707
-                , "empty": 8709
-                , "nabla": 8711
-                , "isin": 8712
-                , "notin": 8713
-                , "ni": 8715
-                , "prod": 8719
-                , "sum": 8721
-                , "minus": 8722
-                , "lowast": 8727
-                , "radic": 8730
-                , "prop": 8733
-                , "infin": 8734
-                , "ang": 8736
-                , "and": 8743
-                , "or": 8744
-                , "cap": 8745
-                , "cup": 8746
-                , "int": 8747
-                , "there4": 8756
-                , "sim": 8764
-                , "cong": 8773
-                , "asymp": 8776
-                , "ne": 8800
-                , "equiv": 8801
-                , "le": 8804
-                , "ge": 8805
-                , "sub": 8834
-                , "sup": 8835
-                , "nsub": 8836
-                , "sube": 8838
-                , "supe": 8839
-                , "oplus": 8853
-                , "otimes": 8855
-                , "perp": 8869
-                , "sdot": 8901
-                , "lceil": 8968
-                , "rceil": 8969
-                , "lfloor": 8970
-                , "rfloor": 8971
-                , "lang": 9001
-                , "rang": 9002
-                , "loz": 9674
-                , "spades": 9824
-                , "clubs": 9827
-                , "hearts": 9829
-                , "diams": 9830
-                }
+                    {
+                        "amp": "&"
+                        , "gt": ">"
+                        , "lt": "<"
+                        , "quot": "\""
+                        , "apos": "'"
+                        , "AElig": 198
+                        , "Aacute": 193
+                        , "Acirc": 194
+                        , "Agrave": 192
+                        , "Aring": 197
+                        , "Atilde": 195
+                        , "Auml": 196
+                        , "Ccedil": 199
+                        , "ETH": 208
+                        , "Eacute": 201
+                        , "Ecirc": 202
+                        , "Egrave": 200
+                        , "Euml": 203
+                        , "Iacute": 205
+                        , "Icirc": 206
+                        , "Igrave": 204
+                        , "Iuml": 207
+                        , "Ntilde": 209
+                        , "Oacute": 211
+                        , "Ocirc": 212
+                        , "Ograve": 210
+                        , "Oslash": 216
+                        , "Otilde": 213
+                        , "Ouml": 214
+                        , "THORN": 222
+                        , "Uacute": 218
+                        , "Ucirc": 219
+                        , "Ugrave": 217
+                        , "Uuml": 220
+                        , "Yacute": 221
+                        , "aacute": 225
+                        , "acirc": 226
+                        , "aelig": 230
+                        , "agrave": 224
+                        , "aring": 229
+                        , "atilde": 227
+                        , "auml": 228
+                        , "ccedil": 231
+                        , "eacute": 233
+                        , "ecirc": 234
+                        , "egrave": 232
+                        , "eth": 240
+                        , "euml": 235
+                        , "iacute": 237
+                        , "icirc": 238
+                        , "igrave": 236
+                        , "iuml": 239
+                        , "ntilde": 241
+                        , "oacute": 243
+                        , "ocirc": 244
+                        , "ograve": 242
+                        , "oslash": 248
+                        , "otilde": 245
+                        , "ouml": 246
+                        , "szlig": 223
+                        , "thorn": 254
+                        , "uacute": 250
+                        , "ucirc": 251
+                        , "ugrave": 249
+                        , "uuml": 252
+                        , "yacute": 253
+                        , "yuml": 255
+                        , "copy": 169
+                        , "reg": 174
+                        , "nbsp": 160
+                        , "iexcl": 161
+                        , "cent": 162
+                        , "pound": 163
+                        , "curren": 164
+                        , "yen": 165
+                        , "brvbar": 166
+                        , "sect": 167
+                        , "uml": 168
+                        , "ordf": 170
+                        , "laquo": 171
+                        , "not": 172
+                        , "shy": 173
+                        , "macr": 175
+                        , "deg": 176
+                        , "plusmn": 177
+                        , "sup1": 185
+                        , "sup2": 178
+                        , "sup3": 179
+                        , "acute": 180
+                        , "micro": 181
+                        , "para": 182
+                        , "middot": 183
+                        , "cedil": 184
+                        , "ordm": 186
+                        , "raquo": 187
+                        , "frac14": 188
+                        , "frac12": 189
+                        , "frac34": 190
+                        , "iquest": 191
+                        , "times": 215
+                        , "divide": 247
+                        , "OElig": 338
+                        , "oelig": 339
+                        , "Scaron": 352
+                        , "scaron": 353
+                        , "Yuml": 376
+                        , "fnof": 402
+                        , "circ": 710
+                        , "tilde": 732
+                        , "Alpha": 913
+                        , "Beta": 914
+                        , "Gamma": 915
+                        , "Delta": 916
+                        , "Epsilon": 917
+                        , "Zeta": 918
+                        , "Eta": 919
+                        , "Theta": 920
+                        , "Iota": 921
+                        , "Kappa": 922
+                        , "Lambda": 923
+                        , "Mu": 924
+                        , "Nu": 925
+                        , "Xi": 926
+                        , "Omicron": 927
+                        , "Pi": 928
+                        , "Rho": 929
+                        , "Sigma": 931
+                        , "Tau": 932
+                        , "Upsilon": 933
+                        , "Phi": 934
+                        , "Chi": 935
+                        , "Psi": 936
+                        , "Omega": 937
+                        , "alpha": 945
+                        , "beta": 946
+                        , "gamma": 947
+                        , "delta": 948
+                        , "epsilon": 949
+                        , "zeta": 950
+                        , "eta": 951
+                        , "theta": 952
+                        , "iota": 953
+                        , "kappa": 954
+                        , "lambda": 955
+                        , "mu": 956
+                        , "nu": 957
+                        , "xi": 958
+                        , "omicron": 959
+                        , "pi": 960
+                        , "rho": 961
+                        , "sigmaf": 962
+                        , "sigma": 963
+                        , "tau": 964
+                        , "upsilon": 965
+                        , "phi": 966
+                        , "chi": 967
+                        , "psi": 968
+                        , "omega": 969
+                        , "thetasym": 977
+                        , "upsih": 978
+                        , "piv": 982
+                        , "ensp": 8194
+                        , "emsp": 8195
+                        , "thinsp": 8201
+                        , "zwnj": 8204
+                        , "zwj": 8205
+                        , "lrm": 8206
+                        , "rlm": 8207
+                        , "ndash": 8211
+                        , "mdash": 8212
+                        , "lsquo": 8216
+                        , "rsquo": 8217
+                        , "sbquo": 8218
+                        , "ldquo": 8220
+                        , "rdquo": 8221
+                        , "bdquo": 8222
+                        , "dagger": 8224
+                        , "Dagger": 8225
+                        , "bull": 8226
+                        , "hellip": 8230
+                        , "permil": 8240
+                        , "prime": 8242
+                        , "Prime": 8243
+                        , "lsaquo": 8249
+                        , "rsaquo": 8250
+                        , "oline": 8254
+                        , "frasl": 8260
+                        , "euro": 8364
+                        , "image": 8465
+                        , "weierp": 8472
+                        , "real": 8476
+                        , "trade": 8482
+                        , "alefsym": 8501
+                        , "larr": 8592
+                        , "uarr": 8593
+                        , "rarr": 8594
+                        , "darr": 8595
+                        , "harr": 8596
+                        , "crarr": 8629
+                        , "lArr": 8656
+                        , "uArr": 8657
+                        , "rArr": 8658
+                        , "dArr": 8659
+                        , "hArr": 8660
+                        , "forall": 8704
+                        , "part": 8706
+                        , "exist": 8707
+                        , "empty": 8709
+                        , "nabla": 8711
+                        , "isin": 8712
+                        , "notin": 8713
+                        , "ni": 8715
+                        , "prod": 8719
+                        , "sum": 8721
+                        , "minus": 8722
+                        , "lowast": 8727
+                        , "radic": 8730
+                        , "prop": 8733
+                        , "infin": 8734
+                        , "ang": 8736
+                        , "and": 8743
+                        , "or": 8744
+                        , "cap": 8745
+                        , "cup": 8746
+                        , "int": 8747
+                        , "there4": 8756
+                        , "sim": 8764
+                        , "cong": 8773
+                        , "asymp": 8776
+                        , "ne": 8800
+                        , "equiv": 8801
+                        , "le": 8804
+                        , "ge": 8805
+                        , "sub": 8834
+                        , "sup": 8835
+                        , "nsub": 8836
+                        , "sube": 8838
+                        , "supe": 8839
+                        , "oplus": 8853
+                        , "otimes": 8855
+                        , "perp": 8869
+                        , "sdot": 8901
+                        , "lceil": 8968
+                        , "rceil": 8969
+                        , "lfloor": 8970
+                        , "rfloor": 8971
+                        , "lang": 9001
+                        , "rang": 9002
+                        , "loz": 9674
+                        , "spades": 9824
+                        , "clubs": 9827
+                        , "hearts": 9829
+                        , "diams": 9830
+                    }
 
                 Object.keys(sax.ENTITIES).forEach(function (key) {
                     var e = sax.ENTITIES[key]
@@ -4203,8 +4203,8 @@ require = (function () { function e(t, n, r) { function s(o, u) { if (!n[o]) { i
                     closeText(parser)
                     if (parser.trackPosition) {
                         er += "\nLine: " + parser.line +
-                              "\nColumn: " + parser.column +
-                              "\nChar: " + parser.c
+                            "\nColumn: " + parser.column +
+                            "\nChar: " + parser.c
                     }
                     er = new Error(er)
                     parser.error = er
@@ -4232,7 +4232,7 @@ require = (function () { function e(t, n, r) { function s(o, u) { if (!n[o]) { i
                 function newTag(parser) {
                     if (!parser.strict) parser.tagName = parser.tagName[parser.looseCase]()
                     var parent = parser.tags[parser.tags.length - 1] || parser
-                      , tag = parser.tag = { name: parser.tagName, attributes: {} }
+                        , tag = parser.tag = { name: parser.tagName, attributes: {} }
 
                     // will be overridden if tag contails an xmlns="foo" or xmlns:foo="bar"
                     if (parser.opt.xmlns) tag.ns = parent.ns
@@ -4241,9 +4241,9 @@ require = (function () { function e(t, n, r) { function s(o, u) { if (!n[o]) { i
 
                 function qname(name, attribute) {
                     var i = name.indexOf(":")
-                      , qualName = i < 0 ? ["", name] : name.split(":")
-                      , prefix = qualName[0]
-                      , local = qualName[1]
+                        , qualName = i < 0 ? ["", name] : name.split(":")
+                        , prefix = qualName[0]
+                        , local = qualName[1]
 
                     // <x "xmlns"="http://foo">
                     if (attribute && name === "xmlns") {
@@ -4264,22 +4264,22 @@ require = (function () { function e(t, n, r) { function s(o, u) { if (!n[o]) { i
 
                     if (parser.opt.xmlns) {
                         var qn = qname(parser.attribName, true)
-                          , prefix = qn.prefix
-                          , local = qn.local
+                            , prefix = qn.prefix
+                            , local = qn.local
 
                         if (prefix === "xmlns") {
                             // namespace binding attribute; push the binding into scope
                             if (local === "xml" && parser.attribValue !== XML_NAMESPACE) {
                                 strictFail(parser
-                                          , "xml: prefix must be bound to " + XML_NAMESPACE + "\n"
-                                          + "Actual: " + parser.attribValue)
+                                    , "xml: prefix must be bound to " + XML_NAMESPACE + "\n"
+                                    + "Actual: " + parser.attribValue)
                             } else if (local === "xmlns" && parser.attribValue !== XMLNS_NAMESPACE) {
                                 strictFail(parser
-                                          , "xmlns: prefix must be bound to " + XMLNS_NAMESPACE + "\n"
-                                          + "Actual: " + parser.attribValue)
+                                    , "xmlns: prefix must be bound to " + XMLNS_NAMESPACE + "\n"
+                                    + "Actual: " + parser.attribValue)
                             } else {
                                 var tag = parser.tag
-                                  , parent = parser.tags[parser.tags.length - 1] || parser
+                                    , parent = parser.tags[parser.tags.length - 1] || parser
                                 if (tag.ns === parent.ns) {
                                     tag.ns = Object.create(parent.ns)
                                 }
@@ -4295,11 +4295,11 @@ require = (function () { function e(t, n, r) { function s(o, u) { if (!n[o]) { i
                         // in non-xmlns mode, we can emit the event right away
                         parser.tag.attributes[parser.attribName] = parser.attribValue
                         emitNode(parser
-                                , "onattribute"
-                                , {
-                                    name: parser.attribName
-                                  , value: parser.attribValue
-                                })
+                            , "onattribute"
+                            , {
+                                name: parser.attribName
+                                , value: parser.attribValue
+                            })
                     }
 
                     parser.attribName = parser.attribValue = ""
@@ -4318,7 +4318,7 @@ require = (function () { function e(t, n, r) { function s(o, u) { if (!n[o]) { i
 
                         if (tag.prefix && !tag.uri) {
                             strictFail(parser, "Unbound namespace prefix: "
-                                             + JSON.stringify(parser.tagName))
+                                + JSON.stringify(parser.tagName))
                             tag.uri = qn.prefix
                         }
 
@@ -4326,8 +4326,8 @@ require = (function () { function e(t, n, r) { function s(o, u) { if (!n[o]) { i
                         if (tag.ns && parent.ns !== tag.ns) {
                             Object.keys(tag.ns).forEach(function (p) {
                                 emitNode(parser
-                                        , "onopennamespace"
-                                        , { prefix: p, uri: tag.ns[p] })
+                                    , "onopennamespace"
+                                    , { prefix: p, uri: tag.ns[p] })
                             })
                         }
 
@@ -4337,24 +4337,24 @@ require = (function () { function e(t, n, r) { function s(o, u) { if (!n[o]) { i
                         for (var i = 0, l = parser.attribList.length; i < l; i++) {
                             var nv = parser.attribList[i]
                             var name = nv[0]
-                              , value = nv[1]
-                              , qualName = qname(name, true)
-                              , prefix = qualName.prefix
-                              , local = qualName.local
-                              , uri = prefix == "" ? "" : (tag.ns[prefix] || "")
-                              , a = {
-                                  name: name
+                                , value = nv[1]
+                                , qualName = qname(name, true)
+                                , prefix = qualName.prefix
+                                , local = qualName.local
+                                , uri = prefix == "" ? "" : (tag.ns[prefix] || "")
+                                , a = {
+                                    name: name
                                     , value: value
                                     , prefix: prefix
                                     , local: local
                                     , uri: uri
-                              }
+                                }
 
                             // if there's any attributes with an undefined namespace,
                             // then fail on them now.
                             if (prefix && prefix != "xmlns" && !uri) {
                                 strictFail(parser, "Unbound namespace prefix: "
-                                                 + JSON.stringify(prefix))
+                                    + JSON.stringify(prefix))
                                 a.uri = prefix
                             }
                             parser.tag.attributes[name] = a
@@ -4450,9 +4450,9 @@ require = (function () { function e(t, n, r) { function s(o, u) { if (!n[o]) { i
 
                 function parseEntity(parser) {
                     var entity = parser.entity
-                      , entityLC = entity.toLowerCase()
-                      , num
-                      , numStr = ""
+                        , entityLC = entity.toLowerCase()
+                        , num
+                        , numStr = ""
                     if (parser.ENTITIES[entity])
                         return parser.ENTITIES[entity]
                     if (parser.ENTITIES[entityLC])
@@ -4481,7 +4481,7 @@ require = (function () { function e(t, n, r) { function s(o, u) { if (!n[o]) { i
                     var parser = this
                     if (this.error) throw this.error
                     if (parser.closed) return error(parser,
-                      "Cannot write after close. Assign an onready handler.")
+                        "Cannot write after close. Assign an onready handler.")
                     if (chunk === null) return end(parser)
                     var i = 0, c = ""
                     while (parser.c = c = chunk.charAt(i++)) {
@@ -4589,7 +4589,7 @@ require = (function () { function e(t, n, r) { function s(o, u) { if (!n[o]) { i
                                 } else if ((parser.sgmlDecl + c).toUpperCase() === DOCTYPE) {
                                     parser.state = S.DOCTYPE
                                     if (parser.doctype || parser.sawRoot) strictFail(parser,
-                                      "Inappropriately located doctype declaration")
+                                        "Inappropriately located doctype declaration")
                                     parser.doctype = ""
                                     parser.sgmlDecl = ""
                                 } else if (c === ">") {
@@ -4738,7 +4738,7 @@ require = (function () { function e(t, n, r) { function s(o, u) { if (!n[o]) { i
                                     else if (c === "/") parser.state = S.OPEN_TAG_SLASH
                                     else {
                                         if (not(whitespace, c)) strictFail(
-                                          parser, "Invalid character in tag name")
+                                            parser, "Invalid character in tag name")
                                         parser.state = S.ATTRIB
                                     }
                                 }
@@ -4787,7 +4787,7 @@ require = (function () { function e(t, n, r) { function s(o, u) { if (!n[o]) { i
                                     parser.tag.attributes[parser.attribName] = ""
                                     parser.attribValue = ""
                                     emitNode(parser, "onattribute",
-                                             { name: parser.attribName, value: "" })
+                                        { name: parser.attribName, value: "" })
                                     parser.attribName = ""
                                     if (c === ">") openTag(parser)
                                     else if (is(nameStart, c)) {
@@ -4867,7 +4867,7 @@ require = (function () { function e(t, n, r) { function s(o, u) { if (!n[o]) { i
                                     parser.state = S.SCRIPT
                                 } else {
                                     if (not(whitespace, c)) strictFail(parser,
-                                      "Invalid tagname in closing tag")
+                                        "Invalid tagname in closing tag")
                                     parser.state = S.CLOSE_TAG_SAW_WHITE
                                 }
                                 continue
@@ -4994,8 +4994,8 @@ require = (function () { function e(t, n, r) { function s(o, u) { if (!n[o]) { i
                 if (node == null) {
                     // Per 4.5, create and 48-bit node id, (47 random bits + multicast bit = 1)
                     node = _nodeId = [
-                      seedBytes[0] | 0x01,
-                      seedBytes[1], seedBytes[2], seedBytes[3], seedBytes[4], seedBytes[5]
+                        seedBytes[0] | 0x01,
+                        seedBytes[1], seedBytes[2], seedBytes[3], seedBytes[4], seedBytes[5]
                     ];
                 }
                 if (clockseq == null) {
@@ -5079,7 +5079,7 @@ require = (function () { function e(t, n, r) { function s(o, u) { if (!n[o]) { i
 
         // getRandomValues needs to be invoked in a context where "this" is a Crypto implementation.
         var getRandomValues = (typeof (crypto) != 'undefined' && crypto.getRandomValues.bind(crypto)) ||
-                              (typeof (msCrypto) != 'undefined' && msCrypto.getRandomValues.bind(msCrypto));
+            (typeof (msCrypto) != 'undefined' && msCrypto.getRandomValues.bind(msCrypto));
         if (getRandomValues) {
             // WHATWG crypto RNG - http://wiki.whatwg.org/wiki/Crypto
             var rnds8 = new Uint8Array(16); // eslint-disable-line no-undef
@@ -5118,13 +5118,13 @@ require = (function () { function e(t, n, r) { function s(o, u) { if (!n[o]) { i
             var i = offset || 0;
             var bth = byteToHex;
             return bth[buf[i++]] + bth[buf[i++]] +
-                    bth[buf[i++]] + bth[buf[i++]] + '-' +
-                    bth[buf[i++]] + bth[buf[i++]] + '-' +
-                    bth[buf[i++]] + bth[buf[i++]] + '-' +
-                    bth[buf[i++]] + bth[buf[i++]] + '-' +
-                    bth[buf[i++]] + bth[buf[i++]] +
-                    bth[buf[i++]] + bth[buf[i++]] +
-                    bth[buf[i++]] + bth[buf[i++]];
+                bth[buf[i++]] + bth[buf[i++]] + '-' +
+                bth[buf[i++]] + bth[buf[i++]] + '-' +
+                bth[buf[i++]] + bth[buf[i++]] + '-' +
+                bth[buf[i++]] + bth[buf[i++]] + '-' +
+                bth[buf[i++]] + bth[buf[i++]] +
+                bth[buf[i++]] + bth[buf[i++]] +
+                bth[buf[i++]] + bth[buf[i++]];
         }
 
         module.exports = bytesToUuid;
@@ -5162,8 +5162,8 @@ require = (function () { function e(t, n, r) { function s(o, u) { if (!n[o]) { i
         };
 
         exports.networkInterfaces
-        = exports.getNetworkInterfaces
-        = function () { return {} };
+            = exports.getNetworkInterfaces
+            = function () { return {} };
 
         exports.arch = function () { return 'javascript' };
 
@@ -5232,15 +5232,15 @@ require = (function () { function e(t, n, r) { function s(o, u) { if (!n[o]) { i
             }
 
             if (token === JsonParser.C.STRING ||
-            token === JsonParser.C.NUMBER ||
-            token === JsonParser.C.TRUE ||
-            token === JsonParser.C.FALSE ||
-            token === JsonParser.C.NULL) {
+                token === JsonParser.C.NUMBER ||
+                token === JsonParser.C.TRUE ||
+                token === JsonParser.C.FALSE ||
+                token === JsonParser.C.NULL) {
                 // Parser will emit value in these cases
                 if (typeof value === 'number' &&
-                this.internalParser.string.indexOf('.') != -1 &&
-                parseInt(this.internalParser.string) === value &&
-                this.internalParser.mode !== JsonParser.C.ARRAY) {
+                    this.internalParser.string.indexOf('.') != -1 &&
+                    parseInt(this.internalParser.string) === value &&
+                    this.internalParser.mode !== JsonParser.C.ARRAY) {
                     var typeKey = this.internalParser.key + '@odata.type';
                     if (this.internalParser.value) {
                         this.internalParser.value[typeKey] = 'Edm.Double';
@@ -5397,7 +5397,7 @@ require = (function () { function e(t, n, r) { function s(o, u) { if (!n[o]) { i
                             if ((n >= 224) && (n <= 239)) this.bytes_in_sequence = 3;
                             if ((n >= 240) && (n <= 244)) this.bytes_in_sequence = 4;
                             if ((this.bytes_in_sequence + i) > buffer.length) { // if bytes needed to complete char fall outside buffer length, we have a boundary split
-                                for (var k = 0; k <= (buffer.length - 1 - i) ; k++) {
+                                for (var k = 0; k <= (buffer.length - 1 - i); k++) {
                                     this.temp_buffs[this.bytes_in_sequence][k] = buffer[i + k]; // fill temp buffer of correct size with bytes available in this chunk
                                 }
                                 this.bytes_remaining = (i + this.bytes_in_sequence) - buffer.length;
@@ -6007,20 +6007,20 @@ require = (function () { function e(t, n, r) { function s(o, u) { if (!n[o]) { i
             };
 
             var stringToSign =
-              webResource.method + '\n' +
-              getvalueToAppend(webResource.headers, HeaderConstants.CONTENT_ENCODING) +
-              getvalueToAppend(webResource.headers, HeaderConstants.CONTENT_LANGUAGE) +
-              getvalueToAppend(webResource.headers, HeaderConstants.CONTENT_LENGTH) +
-              getvalueToAppend(webResource.headers, HeaderConstants.CONTENT_MD5) +
-              getvalueToAppend(webResource.headers, HeaderConstants.CONTENT_TYPE) +
-              getvalueToAppend(webResource.headers, HeaderConstants.DATE) +
-              getvalueToAppend(webResource.headers, HeaderConstants.IF_MODIFIED_SINCE) +
-              getvalueToAppend(webResource.headers, HeaderConstants.IF_MATCH) +
-              getvalueToAppend(webResource.headers, HeaderConstants.IF_NONE_MATCH) +
-              getvalueToAppend(webResource.headers, HeaderConstants.IF_UNMODIFIED_SINCE) +
-              getvalueToAppend(webResource.headers, HeaderConstants.RANGE) +
-              this._getCanonicalizedHeaders(webResource) +
-              this._getCanonicalizedResource(webResource);
+                webResource.method + '\n' +
+                getvalueToAppend(webResource.headers, HeaderConstants.CONTENT_ENCODING) +
+                getvalueToAppend(webResource.headers, HeaderConstants.CONTENT_LANGUAGE) +
+                getvalueToAppend(webResource.headers, HeaderConstants.CONTENT_LENGTH) +
+                getvalueToAppend(webResource.headers, HeaderConstants.CONTENT_MD5) +
+                getvalueToAppend(webResource.headers, HeaderConstants.CONTENT_TYPE) +
+                getvalueToAppend(webResource.headers, HeaderConstants.DATE) +
+                getvalueToAppend(webResource.headers, HeaderConstants.IF_MODIFIED_SINCE) +
+                getvalueToAppend(webResource.headers, HeaderConstants.IF_MATCH) +
+                getvalueToAppend(webResource.headers, HeaderConstants.IF_NONE_MATCH) +
+                getvalueToAppend(webResource.headers, HeaderConstants.IF_UNMODIFIED_SINCE) +
+                getvalueToAppend(webResource.headers, HeaderConstants.RANGE) +
+                this._getCanonicalizedHeaders(webResource) +
+                this._getCanonicalizedResource(webResource);
 
             var signature = this.signer.sign(stringToSign);
 
@@ -6144,7 +6144,7 @@ require = (function () { function e(t, n, r) { function s(o, u) { if (!n[o]) { i
                 } else {
                     var values = _.values(CompatibleVersionConstants);
                     if (values.some(function (version) {
-                      return version.toLowerCase() === sasVersion.toLowerCase();
+                        return version.toLowerCase() === sasVersion.toLowerCase();
                     })) {
                         return sasVersion;
                     } else {
@@ -6308,19 +6308,19 @@ require = (function () { function e(t, n, r) { function s(o, u) { if (!n[o]) { i
                 }
             } else if (resourceType) {
                 stringToSign += '\n' +
-                getvalueToAppend(headers ? headers.cacheControl : '') +
-                getvalueToAppend(headers ? headers.contentDisposition : '') +
-                getvalueToAppend(headers ? headers.contentEncoding : '') +
-                getvalueToAppend(headers ? headers.contentLanguage : '') +
-                getvalueToAppend(headers ? headers.contentType : '', true);
+                    getvalueToAppend(headers ? headers.cacheControl : '') +
+                    getvalueToAppend(headers ? headers.contentDisposition : '') +
+                    getvalueToAppend(headers ? headers.contentEncoding : '') +
+                    getvalueToAppend(headers ? headers.contentLanguage : '') +
+                    getvalueToAppend(headers ? headers.contentType : '', true);
             }
 
             if (tableName) {
                 stringToSign += '\n' +
-                getvalueToAppend(sharedAccessPolicy.AccessPolicy ? sharedAccessPolicy.AccessPolicy.StartPk : '') +
-                getvalueToAppend(sharedAccessPolicy.AccessPolicy ? sharedAccessPolicy.AccessPolicy.StartRk : '') +
-                getvalueToAppend(sharedAccessPolicy.AccessPolicy ? sharedAccessPolicy.AccessPolicy.EndPk : '') +
-                getvalueToAppend(sharedAccessPolicy.AccessPolicy ? sharedAccessPolicy.AccessPolicy.EndRk : '', true);
+                    getvalueToAppend(sharedAccessPolicy.AccessPolicy ? sharedAccessPolicy.AccessPolicy.StartPk : '') +
+                    getvalueToAppend(sharedAccessPolicy.AccessPolicy ? sharedAccessPolicy.AccessPolicy.StartRk : '') +
+                    getvalueToAppend(sharedAccessPolicy.AccessPolicy ? sharedAccessPolicy.AccessPolicy.EndPk : '') +
+                    getvalueToAppend(sharedAccessPolicy.AccessPolicy ? sharedAccessPolicy.AccessPolicy.EndRk : '', true);
             }
 
             return this.signer.sign(stringToSign);
@@ -6505,9 +6505,9 @@ require = (function () { function e(t, n, r) { function s(o, u) { if (!n[o]) { i
 
         exports.createCredentials = function () {
             throw new Error([
-              'sorry, createCredentials is not implemented yet',
-              'we accept pull requests',
-              'https://github.com/crypto-browserify/crypto-browserify'
+                'sorry, createCredentials is not implemented yet',
+                'we accept pull requests',
+                'https://github.com/crypto-browserify/crypto-browserify'
             ].join('\n'))
         }
 
@@ -6873,10 +6873,10 @@ require = (function () { function e(t, n, r) { function s(o, u) { if (!n[o]) { i
             var bn = require('bn.js');
             function withPublic(paddedMsg, key) {
                 return new Buffer(paddedMsg
-                  .toRed(bn.mont(key.modulus))
-                  .redPow(new bn(key.publicExponent))
-                  .fromRed()
-                  .toArray());
+                    .toRed(bn.mont(key.modulus))
+                    .redPow(new bn(key.publicExponent))
+                    .fromRed()
+                    .toArray());
             }
 
             module.exports = withPublic;
@@ -7022,9 +7022,9 @@ require = (function () { function e(t, n, r) { function s(o, u) { if (!n[o]) { i
                 var error = 0;
 
                 if (prime.isEven() ||
-                  !primes.simpleSieve ||
-                  !primes.fermatTest(prime) ||
-                  !millerRabin.test(prime)) {
+                    !primes.simpleSieve ||
+                    !primes.fermatTest(prime) ||
+                    !millerRabin.test(prime)) {
                     //not a prime so +1
                     error += 1;
 
@@ -7246,8 +7246,8 @@ require = (function () { function e(t, n, r) { function s(o, u) { if (!n[o]) { i
                 }
                 n2 = num.shrn(1);
                 if (simpleSieve(n2) && simpleSieve(num) &&
-                  fermatTest(n2) && fermatTest(num) &&
-                  millerRabin.test(n2) && millerRabin.test(num)) {
+                    fermatTest(n2) && fermatTest(num) &&
+                    millerRabin.test(n2) && millerRabin.test(num)) {
                     return num;
                 }
             }
@@ -7294,7 +7294,7 @@ require = (function () { function e(t, n, r) { function s(o, u) { if (!n[o]) { i
 
             // Find d and s, (n - 1) = (2 ^ s) * d;
             var n1 = n.subn(1);
-            for (var s = 0; !n1.testn(s) ; s++) { }
+            for (var s = 0; !n1.testn(s); s++) { }
             var d = n.shrn(s);
 
             var rn1 = n1.toRed(red);
@@ -7335,7 +7335,7 @@ require = (function () { function e(t, n, r) { function s(o, u) { if (!n[o]) { i
 
             // Find d and s, (n - 1) = (2 ^ s) * d;
             var n1 = n.subn(1);
-            for (var s = 0; !n1.testn(s) ; s++) { }
+            for (var s = 0; !n1.testn(s); s++) { }
             var d = n.shrn(s);
 
             var rn1 = n1.toRed(red);
@@ -7713,11 +7713,11 @@ require = (function () { function e(t, n, r) { function s(o, u) { if (!n[o]) { i
                 var montp = BN.mont(p)
                 var w = s.invm(q)
                 var v = g.toRed(montp)
-                  .redPow(new BN(hash).mul(w).mod(q))
-                  .fromRed()
-                  .mul(y.toRed(montp).redPow(r.mul(w).mod(q)).fromRed())
-                  .mod(p)
-                  .mod(q)
+                    .redPow(new BN(hash).mul(w).mod(q))
+                    .fromRed()
+                    .mul(y.toRed(montp).redPow(r.mul(w).mod(q)).fromRed())
+                    .mod(p)
+                    .mod(q)
                 return v.cmp(r) === 0
             }
 
@@ -7903,7 +7903,7 @@ require = (function () { function e(t, n, r) { function s(o, u) { if (!n[o]) { i
                 switch (type) {
                     case 'CERTIFICATE':
                         ndata = asn1.certificate.decode(data, 'der').tbsCertificate.subjectPublicKeyInfo
-                        // falls through
+                    // falls through
                     case 'PUBLIC KEY':
                         if (!ndata) {
                             ndata = asn1.PublicKey.decode(data, 'der')
@@ -7930,7 +7930,7 @@ require = (function () { function e(t, n, r) { function s(o, u) { if (!n[o]) { i
                     case 'ENCRYPTED PRIVATE KEY':
                         data = asn1.EncryptedPrivateKey.decode(data, 'der')
                         data = decrypt(data, password)
-                        // falls through
+                    // falls through
                     case 'PRIVATE KEY':
                         ndata = asn1.PrivateKey.decode(data, 'der')
                         subtype = ndata.algorithm.algorithm.join('.')
@@ -8022,17 +8022,17 @@ require = (function () { function e(t, n, r) { function s(o, u) { if (!n[o]) { i
                 }
                 ZERO_BUF = ZERO_BUF || Buffer.alloc(8)
                 var prom = browserPbkdf2(ZERO_BUF, ZERO_BUF, 10, 128, algo)
-                  .then(function () {
-                      return true
-                  }).catch(function () {
-                      return false
-                  })
+                    .then(function () {
+                        return true
+                    }).catch(function () {
+                        return false
+                    })
                 checks[algo] = prom
                 return prom
             }
             function browserPbkdf2(password, salt, iterations, length, algo) {
                 return subtle.importKey(
-                  'raw', password, { name: 'PBKDF2' }, false, ['deriveBits']
+                    'raw', password, { name: 'PBKDF2' }, false, ['deriveBits']
                 ).then(function (key) {
                     return subtle.deriveBits({
                         name: 'PBKDF2',
@@ -8268,75 +8268,75 @@ require = (function () { function e(t, n, r) { function s(o, u) { if (!n[o]) { i
 
         var RSAPrivateKey = asn1.define('RSAPrivateKey', function () {
             this.seq().obj(
-              this.key('version').int(),
-              this.key('modulus').int(),
-              this.key('publicExponent').int(),
-              this.key('privateExponent').int(),
-              this.key('prime1').int(),
-              this.key('prime2').int(),
-              this.key('exponent1').int(),
-              this.key('exponent2').int(),
-              this.key('coefficient').int()
+                this.key('version').int(),
+                this.key('modulus').int(),
+                this.key('publicExponent').int(),
+                this.key('privateExponent').int(),
+                this.key('prime1').int(),
+                this.key('prime2').int(),
+                this.key('exponent1').int(),
+                this.key('exponent2').int(),
+                this.key('coefficient').int()
             )
         })
         exports.RSAPrivateKey = RSAPrivateKey
 
         var RSAPublicKey = asn1.define('RSAPublicKey', function () {
             this.seq().obj(
-              this.key('modulus').int(),
-              this.key('publicExponent').int()
+                this.key('modulus').int(),
+                this.key('publicExponent').int()
             )
         })
         exports.RSAPublicKey = RSAPublicKey
 
         var PublicKey = asn1.define('SubjectPublicKeyInfo', function () {
             this.seq().obj(
-              this.key('algorithm').use(AlgorithmIdentifier),
-              this.key('subjectPublicKey').bitstr()
+                this.key('algorithm').use(AlgorithmIdentifier),
+                this.key('subjectPublicKey').bitstr()
             )
         })
         exports.PublicKey = PublicKey
 
         var AlgorithmIdentifier = asn1.define('AlgorithmIdentifier', function () {
             this.seq().obj(
-              this.key('algorithm').objid(),
-              this.key('none').null_().optional(),
-              this.key('curve').objid().optional(),
-              this.key('params').seq().obj(
-                this.key('p').int(),
-                this.key('q').int(),
-                this.key('g').int()
-              ).optional()
+                this.key('algorithm').objid(),
+                this.key('none').null_().optional(),
+                this.key('curve').objid().optional(),
+                this.key('params').seq().obj(
+                    this.key('p').int(),
+                    this.key('q').int(),
+                    this.key('g').int()
+                ).optional()
             )
         })
 
         var PrivateKeyInfo = asn1.define('PrivateKeyInfo', function () {
             this.seq().obj(
-              this.key('version').int(),
-              this.key('algorithm').use(AlgorithmIdentifier),
-              this.key('subjectPrivateKey').octstr()
+                this.key('version').int(),
+                this.key('algorithm').use(AlgorithmIdentifier),
+                this.key('subjectPrivateKey').octstr()
             )
         })
         exports.PrivateKey = PrivateKeyInfo
         var EncryptedPrivateKeyInfo = asn1.define('EncryptedPrivateKeyInfo', function () {
             this.seq().obj(
-              this.key('algorithm').seq().obj(
-                this.key('id').objid(),
-                this.key('decrypt').seq().obj(
-                  this.key('kde').seq().obj(
+                this.key('algorithm').seq().obj(
                     this.key('id').objid(),
-                    this.key('kdeparams').seq().obj(
-                      this.key('salt').octstr(),
-                      this.key('iters').int()
+                    this.key('decrypt').seq().obj(
+                        this.key('kde').seq().obj(
+                            this.key('id').objid(),
+                            this.key('kdeparams').seq().obj(
+                                this.key('salt').octstr(),
+                                this.key('iters').int()
+                            )
+                        ),
+                        this.key('cipher').seq().obj(
+                            this.key('algo').objid(),
+                            this.key('iv').octstr()
+                        )
                     )
-                  ),
-                  this.key('cipher').seq().obj(
-                    this.key('algo').objid(),
-                    this.key('iv').octstr()
-                  )
-                )
-              ),
-              this.key('subjectPrivateKey').octstr()
+                ),
+                this.key('subjectPrivateKey').octstr()
             )
         })
 
@@ -8344,12 +8344,12 @@ require = (function () { function e(t, n, r) { function s(o, u) { if (!n[o]) { i
 
         var DSAPrivateKey = asn1.define('DSAPrivateKey', function () {
             this.seq().obj(
-              this.key('version').int(),
-              this.key('p').int(),
-              this.key('q').int(),
-              this.key('g').int(),
-              this.key('pub_key').int(),
-              this.key('priv_key').int()
+                this.key('version').int(),
+                this.key('p').int(),
+                this.key('q').int(),
+                this.key('g').int(),
+                this.key('pub_key').int(),
+                this.key('priv_key').int()
             )
         })
         exports.DSAPrivateKey = DSAPrivateKey
@@ -8360,10 +8360,10 @@ require = (function () { function e(t, n, r) { function s(o, u) { if (!n[o]) { i
 
         var ECPrivateKey = asn1.define('ECPrivateKey', function () {
             this.seq().obj(
-              this.key('version').int(),
-              this.key('privateKey').octstr(),
-              this.key('parameters').optional().explicit(0).use(ECParameters),
-              this.key('publicKey').optional().explicit(1).bitstr()
+                this.key('version').int(),
+                this.key('privateKey').octstr(),
+                this.key('parameters').optional().explicit(0).use(ECParameters),
+                this.key('publicKey').optional().explicit(1).bitstr()
             )
         })
         exports.ECPrivateKey = ECPrivateKey
@@ -8376,8 +8376,8 @@ require = (function () { function e(t, n, r) { function s(o, u) { if (!n[o]) { i
 
         exports.signature = asn1.define('signature', function () {
             this.seq().obj(
-              this.key('r').int(),
-              this.key('s').int()
+                this.key('r').int(),
+                this.key('s').int()
             )
         })
     }, { "./certificate": 188, "asn1.js": 73 }], 188: [function (require, module, exports) {
@@ -8397,22 +8397,22 @@ require = (function () { function e(t, n, r) { function s(o, u) { if (!n[o]) { i
 
         var AttributeTypeValue = asn.define('AttributeTypeValue', function () {
             this.seq().obj(
-              this.key('type').objid(),
-              this.key('value').any()
+                this.key('type').objid(),
+                this.key('value').any()
             )
         })
 
         var AlgorithmIdentifier = asn.define('AlgorithmIdentifier', function () {
             this.seq().obj(
-              this.key('algorithm').objid(),
-              this.key('parameters').optional()
+                this.key('algorithm').objid(),
+                this.key('parameters').optional()
             )
         })
 
         var SubjectPublicKeyInfo = asn.define('SubjectPublicKeyInfo', function () {
             this.seq().obj(
-              this.key('algorithm').use(AlgorithmIdentifier),
-              this.key('subjectPublicKey').bitstr()
+                this.key('algorithm').use(AlgorithmIdentifier),
+                this.key('subjectPublicKey').bitstr()
             )
         })
 
@@ -8432,39 +8432,39 @@ require = (function () { function e(t, n, r) { function s(o, u) { if (!n[o]) { i
 
         var Validity = asn.define('Validity', function () {
             this.seq().obj(
-              this.key('notBefore').use(Time),
-              this.key('notAfter').use(Time)
+                this.key('notBefore').use(Time),
+                this.key('notAfter').use(Time)
             )
         })
 
         var Extension = asn.define('Extension', function () {
             this.seq().obj(
-              this.key('extnID').objid(),
-              this.key('critical').bool().def(false),
-              this.key('extnValue').octstr()
+                this.key('extnID').objid(),
+                this.key('critical').bool().def(false),
+                this.key('extnValue').octstr()
             )
         })
 
         var TBSCertificate = asn.define('TBSCertificate', function () {
             this.seq().obj(
-              this.key('version').explicit(0).int(),
-              this.key('serialNumber').int(),
-              this.key('signature').use(AlgorithmIdentifier),
-              this.key('issuer').use(Name),
-              this.key('validity').use(Validity),
-              this.key('subject').use(Name),
-              this.key('subjectPublicKeyInfo').use(SubjectPublicKeyInfo),
-              this.key('issuerUniqueID').implicit(1).bitstr().optional(),
-              this.key('subjectUniqueID').implicit(2).bitstr().optional(),
-              this.key('extensions').explicit(3).seqof(Extension).optional()
+                this.key('version').explicit(0).int(),
+                this.key('serialNumber').int(),
+                this.key('signature').use(AlgorithmIdentifier),
+                this.key('issuer').use(Name),
+                this.key('validity').use(Validity),
+                this.key('subject').use(Name),
+                this.key('subjectPublicKeyInfo').use(SubjectPublicKeyInfo),
+                this.key('issuerUniqueID').implicit(1).bitstr().optional(),
+                this.key('subjectUniqueID').implicit(2).bitstr().optional(),
+                this.key('extensions').explicit(3).seqof(Extension).optional()
             )
         })
 
         var X509Certificate = asn.define('X509Certificate', function () {
             this.seq().obj(
-              this.key('tbsCertificate').use(TBSCertificate),
-              this.key('signatureAlgorithm').use(AlgorithmIdentifier),
-              this.key('signatureValue').bitstr()
+                this.key('tbsCertificate').use(TBSCertificate),
+                this.key('signatureAlgorithm').use(AlgorithmIdentifier),
+                this.key('signatureValue').bitstr()
             )
         })
 
@@ -8539,9 +8539,9 @@ require = (function () { function e(t, n, r) { function s(o, u) { if (!n[o]) { i
         inherits(DERNode, base.Node);
 
         DERNode.prototype._encodeComposite = function encodeComposite(tag,
-                                                                      primitive,
-                                                                      cls,
-                                                                      content) {
+            primitive,
+            cls,
+            content) {
             var encodedTag = encodeTag(tag, primitive, cls, this.reporter);
 
             // Short form
@@ -8562,7 +8562,7 @@ require = (function () { function e(t, n, r) { function s(o, u) { if (!n[o]) { i
             header[0] = encodedTag;
             header[1] = 0x80 | lenOctets;
 
-            for (var i = 1 + lenOctets, j = content.length; j > 0; i--, j >>= 8)
+            for (var i = 1 + lenOctets, j = content.length; j > 0; i-- , j >>= 8)
                 header[i] = j & 0xff;
 
             return this._createEncoderBuffer([header, content]);
@@ -8580,17 +8580,17 @@ require = (function () { function e(t, n, r) { function s(o, u) { if (!n[o]) { i
             } else if (tag === 'numstr') {
                 if (!this._isNumstr(str)) {
                     return this.reporter.error('Encoding of string type: numstr supports ' +
-                                               'only digits and space');
+                        'only digits and space');
                 }
                 return this._createEncoderBuffer(str);
             } else if (tag === 'printstr') {
                 if (!this._isPrintstr(str)) {
                     return this.reporter.error('Encoding of string type: printstr supports ' +
-                                               'only latin upper and lower case letters, ' +
-                                               'digits, space, apostrophe, left and rigth ' +
-                                               'parenthesis, plus sign, comma, hyphen, ' +
-                                               'dot, slash, colon, equal sign, ' +
-                                               'question mark');
+                        'only latin upper and lower case letters, ' +
+                        'digits, space, apostrophe, left and rigth ' +
+                        'parenthesis, plus sign, comma, hyphen, ' +
+                        'dot, slash, colon, equal sign, ' +
+                        'question mark');
                 }
                 return this._createEncoderBuffer(str);
             } else if (/str$/.test(tag)) {
@@ -8599,7 +8599,7 @@ require = (function () { function e(t, n, r) { function s(o, u) { if (!n[o]) { i
                 return this._createEncoderBuffer(str);
             } else {
                 return this.reporter.error('Encoding of string type: ' + tag +
-                                           ' unsupported');
+                    ' unsupported');
             }
         };
 
@@ -8620,7 +8620,7 @@ require = (function () { function e(t, n, r) { function s(o, u) { if (!n[o]) { i
 
             if (!Array.isArray(id)) {
                 return this.reporter.error('objid() should be either array or string, ' +
-                                           'got: ' + JSON.stringify(id));
+                    'got: ' + JSON.stringify(id));
             }
 
             if (!relative) {
@@ -8662,23 +8662,23 @@ require = (function () { function e(t, n, r) { function s(o, u) { if (!n[o]) { i
 
             if (tag === 'gentime') {
                 str = [
-                  two(date.getFullYear()),
-                  two(date.getUTCMonth() + 1),
-                  two(date.getUTCDate()),
-                  two(date.getUTCHours()),
-                  two(date.getUTCMinutes()),
-                  two(date.getUTCSeconds()),
-                  'Z'
+                    two(date.getFullYear()),
+                    two(date.getUTCMonth() + 1),
+                    two(date.getUTCDate()),
+                    two(date.getUTCHours()),
+                    two(date.getUTCMinutes()),
+                    two(date.getUTCSeconds()),
+                    'Z'
                 ].join('');
             } else if (tag === 'utctime') {
                 str = [
-                  two(date.getFullYear() % 100),
-                  two(date.getUTCMonth() + 1),
-                  two(date.getUTCDate()),
-                  two(date.getUTCHours()),
-                  two(date.getUTCMinutes()),
-                  two(date.getUTCSeconds()),
-                  'Z'
+                    two(date.getFullYear() % 100),
+                    two(date.getUTCMonth() + 1),
+                    two(date.getUTCDate()),
+                    two(date.getUTCHours()),
+                    two(date.getUTCMinutes()),
+                    two(date.getUTCSeconds()),
+                    'Z'
                 ].join('');
             } else {
                 this.reporter.error('Encoding ' + tag + ' time is not supported yet');
@@ -8697,7 +8697,7 @@ require = (function () { function e(t, n, r) { function s(o, u) { if (!n[o]) { i
                     return this.reporter.error('String int or enum given, but no values map');
                 if (!values.hasOwnProperty(num)) {
                     return this.reporter.error('Values map doesn\'t contain: ' +
-                                               JSON.stringify(num));
+                        JSON.stringify(num));
                 }
                 num = values[num];
             }
@@ -8904,18 +8904,18 @@ require = (function () { function e(t, n, r) { function s(o, u) { if (!n[o]) { i
             buffer.restore(state);
 
             return decodedTag.tag === tag || decodedTag.tagStr === tag ||
-              (decodedTag.tagStr + 'of') === tag || any;
+                (decodedTag.tagStr + 'of') === tag || any;
         };
 
         DERNode.prototype._decodeTag = function decodeTag(buffer, tag, any) {
             var decodedTag = derDecodeTag(buffer,
-                                          'Failed to decode tag of "' + tag + '"');
+                'Failed to decode tag of "' + tag + '"');
             if (buffer.isError(decodedTag))
                 return decodedTag;
 
             var len = derDecodeLen(buffer,
-                                   decodedTag.primitive,
-                                   'Failed to get length of "' + tag + '"');
+                decodedTag.primitive,
+                'Failed to get length of "' + tag + '"');
 
             // Failure
             if (buffer.isError(len))
@@ -8969,7 +8969,7 @@ require = (function () { function e(t, n, r) { function s(o, u) { if (!n[o]) { i
         };
 
         DERNode.prototype._decodeList = function decodeList(buffer, tag, decoder,
-                                                            options) {
+            options) {
             var result = [];
             while (!buffer.isEmpty()) {
                 var possibleEnd = this._peekTag(buffer, 'end');
@@ -9004,7 +9004,7 @@ require = (function () { function e(t, n, r) { function s(o, u) { if (!n[o]) { i
                 var numstr = buffer.raw().toString('ascii');
                 if (!this._isNumstr(numstr)) {
                     return buffer.error('Decoding of string type: ' +
-                                        'numstr unsupported characters');
+                        'numstr unsupported characters');
                 }
                 return numstr;
             } else if (tag === 'octstr') {
@@ -9015,7 +9015,7 @@ require = (function () { function e(t, n, r) { function s(o, u) { if (!n[o]) { i
                 var printstr = buffer.raw().toString('ascii');
                 if (!this._isPrintstr(printstr)) {
                     return buffer.error('Decoding of string type: ' +
-                                        'printstr unsupported characters');
+                        'printstr unsupported characters');
                 }
                 return printstr;
             } else if (/str$/.test(tag)) {
@@ -9382,26 +9382,26 @@ require = (function () { function e(t, n, r) { function s(o, u) { if (!n[o]) { i
 
         // Supported tags
         var tags = [
-          'seq', 'seqof', 'set', 'setof', 'objid', 'bool',
-          'gentime', 'utctime', 'null_', 'enum', 'int', 'objDesc',
-          'bitstr', 'bmpstr', 'charstr', 'genstr', 'graphstr', 'ia5str', 'iso646str',
-          'numstr', 'octstr', 'printstr', 't61str', 'unistr', 'utf8str', 'videostr'
+            'seq', 'seqof', 'set', 'setof', 'objid', 'bool',
+            'gentime', 'utctime', 'null_', 'enum', 'int', 'objDesc',
+            'bitstr', 'bmpstr', 'charstr', 'genstr', 'graphstr', 'ia5str', 'iso646str',
+            'numstr', 'octstr', 'printstr', 't61str', 'unistr', 'utf8str', 'videostr'
         ];
 
         // Public methods list
         var methods = [
-          'key', 'obj', 'use', 'optional', 'explicit', 'implicit', 'def', 'choice',
-          'any', 'contains'
+            'key', 'obj', 'use', 'optional', 'explicit', 'implicit', 'def', 'choice',
+            'any', 'contains'
         ].concat(tags);
 
         // Overrided methods list
         var overrided = [
-          '_peekTag', '_decodeTag', '_use',
-          '_decodeStr', '_decodeObjid', '_decodeTime',
-          '_decodeNull', '_decodeInt', '_decodeBool', '_decodeList',
+            '_peekTag', '_decodeTag', '_use',
+            '_decodeStr', '_decodeObjid', '_decodeTime',
+            '_decodeNull', '_decodeInt', '_decodeBool', '_decodeList',
 
-          '_encodeComposite', '_encodeStr', '_encodeObjid', '_encodeTime',
-          '_encodeNull', '_encodeInt', '_encodeBool'
+            '_encodeComposite', '_encodeStr', '_encodeObjid', '_encodeTime',
+            '_encodeNull', '_encodeInt', '_encodeBool'
         ];
 
         function Node(enc, parent) {
@@ -9438,9 +9438,9 @@ require = (function () { function e(t, n, r) { function s(o, u) { if (!n[o]) { i
         module.exports = Node;
 
         var stateProps = [
-          'enc', 'parent', 'children', 'tag', 'args', 'reverseArgs', 'choice',
-          'optional', 'any', 'obj', 'use', 'alteredUse', 'key', 'default', 'explicit',
-          'implicit', 'contains'
+            'enc', 'parent', 'children', 'tag', 'args', 'reverseArgs', 'choice',
+            'optional', 'any', 'obj', 'use', 'alteredUse', 'key', 'default', 'explicit',
+            'implicit', 'contains'
         ];
 
         Node.prototype.clone = function clone() {
@@ -9712,9 +9712,9 @@ require = (function () { function e(t, n, r) { function s(o, u) { if (!n[o]) { i
                     if (state.any)
                         var save = input.save();
                     var body = this._decodeTag(
-                      input,
-                      state.implicit !== null ? state.implicit : state.tag,
-                      state.any
+                        input,
+                        state.implicit !== null ? state.implicit : state.tag,
+                        state.any
                     );
                     if (input.isError(body))
                         return body;
@@ -9973,7 +9973,7 @@ require = (function () { function e(t, n, r) { function s(o, u) { if (!n[o]) { i
                 assert(
                     false,
                     data.type + ' not found in ' +
-                        JSON.stringify(Object.keys(state.choice)));
+                    JSON.stringify(Object.keys(state.choice)));
             }
             return node._encode(data.value, reporter);
         };
@@ -10147,9 +10147,9 @@ require = (function () { function e(t, n, r) { function s(o, u) { if (!n[o]) { i
             var named;
             try {
                 named = require('vm').runInThisContext(
-                  '(function ' + this.name + '(entity) {\n' +
-                  '  this._initNamed(entity);\n' +
-                  '})'
+                    '(function ' + this.name + '(entity) {\n' +
+                    '  this._initNamed(entity);\n' +
+                    '})'
                 );
             } catch (e) {
                 named = function (entity) {
@@ -10225,10 +10225,10 @@ require = (function () { function e(t, n, r) { function s(o, u) { if (!n[o]) { i
         }());
 
         var globals = ['Array', 'Boolean', 'Date', 'Error', 'EvalError', 'Function',
-        'Infinity', 'JSON', 'Math', 'NaN', 'Number', 'Object', 'RangeError',
-        'ReferenceError', 'RegExp', 'String', 'SyntaxError', 'TypeError', 'URIError',
-        'decodeURI', 'decodeURIComponent', 'encodeURI', 'encodeURIComponent', 'escape',
-        'eval', 'isFinite', 'isNaN', 'parseFloat', 'parseInt', 'undefined', 'unescape'];
+            'Infinity', 'JSON', 'Math', 'NaN', 'Number', 'Object', 'RangeError',
+            'ReferenceError', 'RegExp', 'String', 'SyntaxError', 'TypeError', 'URIError',
+            'decodeURI', 'decodeURIComponent', 'encodeURI', 'encodeURIComponent', 'escape',
+            'eval', 'isFinite', 'isNaN', 'parseFloat', 'parseInt', 'undefined', 'unescape'];
 
         function Context() { }
         Context.prototype = {};
@@ -10384,8 +10384,8 @@ require = (function () { function e(t, n, r) { function s(o, u) { if (!n[o]) { i
                 "fetchSpec": "^6.0.0"
             },
             "_requiredBy": [
-              "/browserify-sign",
-              "/create-ecdh"
+                "/browserify-sign",
+                "/create-ecdh"
             ],
             "_resolved": "https://registry.npmjs.org/elliptic/-/elliptic-6.4.0.tgz",
             "_shasum": "cac9af8762c85836187003c8dfe193e5e2eae5df",
@@ -10427,14 +10427,14 @@ require = (function () { function e(t, n, r) { function s(o, u) { if (!n[o]) { i
                 "mocha": "^2.1.0"
             },
             "files": [
-              "lib"
+                "lib"
             ],
             "homepage": "https://github.com/indutny/elliptic",
             "keywords": [
-              "EC",
-              "Elliptic",
-              "curve",
-              "Cryptography"
+                "EC",
+                "Elliptic",
+                "curve",
+                "Cryptography"
             ],
             "license": "MIT",
             "main": "lib/elliptic.js",
@@ -10500,8 +10500,8 @@ require = (function () { function e(t, n, r) { function s(o, u) { if (!n[o]) { i
         // Represent k1, k2 in a Joint Sparse Form
         function getJSF(k1, k2) {
             var jsf = [
-              [],
-              []
+                [],
+                []
             ];
 
             k1 = k1.clone();
@@ -10557,14 +10557,14 @@ require = (function () { function e(t, n, r) { function s(o, u) { if (!n[o]) { i
             var key = '_' + name;
             obj.prototype[name] = function cachedProperty() {
                 return this[key] !== undefined ? this[key] :
-                       this[key] = computer.call(this);
+                    this[key] = computer.call(this);
             };
         }
         utils.cachedProperty = cachedProperty;
 
         function parseBytes(bytes) {
             return typeof bytes === 'string' ? utils.toArray(bytes, 'hex') :
-                                               bytes;
+                bytes;
         }
         utils.parseBytes = parseBytes;
 
@@ -10613,7 +10613,7 @@ require = (function () { function e(t, n, r) { function s(o, u) { if (!n[o]) { i
             var R = this.g.mul(r);
             var Rencoded = this.encodePoint(R);
             var s_ = this.hashInt(Rencoded, key.pubBytes(), message)
-                         .mul(key.priv());
+                .mul(key.priv());
             var S = r.add(s_).umod(this.curve.n);
             return this.makeSignature({ R: R, S: S, Rencoded: Rencoded });
         };
@@ -10997,7 +10997,7 @@ require = (function () { function e(t, n, r) { function s(o, u) { if (!n[o]) { i
                     continue;
 
                 var recoveryParam = (kp.getY().isOdd() ? 1 : 0) |
-                                    (kpX.cmp(r) !== 0 ? 2 : 0);
+                    (kpX.cmp(r) !== 0 ? 2 : 0);
 
                 // Use complement of `s`, if it is > `n / 2`
                 if (options.canonical && s.cmp(this.nh) > 0) {
@@ -11121,7 +11121,7 @@ require = (function () { function e(t, n, r) { function s(o, u) { if (!n[o]) { i
             var nonce = utils.toArray(options.nonce, options.nonceEnc || 'hex');
             var pers = utils.toArray(options.pers, options.persEnc || 'hex');
             assert(entropy.length >= (this.minEntropy / 8),
-                   'Not enough entropy. Minimum is: ' + this.minEntropy + ' bits');
+                'Not enough entropy. Minimum is: ' + this.minEntropy + ' bits');
             this._init(entropy, nonce, pers);
         }
         module.exports = HmacDRBG;
@@ -11147,8 +11147,8 @@ require = (function () { function e(t, n, r) { function s(o, u) { if (!n[o]) { i
 
         HmacDRBG.prototype._update = function update(seed) {
             var kmac = this._hmac()
-                           .update(this.V)
-                           .update([0x00]);
+                .update(this.V)
+                .update([0x00]);
             if (seed)
                 kmac = kmac.update(seed);
             this.K = kmac.digest();
@@ -11157,10 +11157,10 @@ require = (function () { function e(t, n, r) { function s(o, u) { if (!n[o]) { i
                 return;
 
             this.K = this._hmac()
-                         .update(this.V)
-                         .update([0x01])
-                         .update(seed)
-                         .digest();
+                .update(this.V)
+                .update([0x01])
+                .update(seed)
+                .digest();
             this.V = this._hmac().update(this.V).digest();
         };
 
@@ -11176,7 +11176,7 @@ require = (function () { function e(t, n, r) { function s(o, u) { if (!n[o]) { i
             add = utils.toArray(add, addEnc);
 
             assert(entropy.length >= (this.minEntropy / 8),
-                   'Not enough entropy. Minimum is: ' + this.minEntropy + ' bits');
+                'Not enough entropy. Minimum is: ' + this.minEntropy + ' bits');
 
             this._update(entropy.concat(add || []));
             this._reseed = 1;
@@ -11306,7 +11306,7 @@ require = (function () { function e(t, n, r) { function s(o, u) { if (!n[o]) { i
             }
             var octetLen = initial & 0xf;
             var val = 0;
-            for (var i = 0, off = p.place; i < octetLen; i++, off++) {
+            for (var i = 0, off = p.place; i < octetLen; i++ , off++) {
                 val <<= 8;
                 val |= buf[off];
             }
@@ -11498,7 +11498,7 @@ require = (function () { function e(t, n, r) { function s(o, u) { if (!n[o]) { i
                 if (this.ec.curve.type === 'mont') {
                     assert(key.x, 'Need x coordinate');
                 } else if (this.ec.curve.type === 'short' ||
-                           this.ec.curve.type === 'edwards') {
+                    this.ec.curve.type === 'edwards') {
                     assert(key.x && key.y, 'Need both x and y coordinate');
                 }
                 this.pub = this.ec.curve.point(key.x, key.y);
@@ -11523,7 +11523,7 @@ require = (function () { function e(t, n, r) { function s(o, u) { if (!n[o]) { i
 
         KeyPair.prototype.inspect = function inspect() {
             return '<Key priv: ' + (this.priv && this.priv.toString(16, 2)) +
-                   ' pub: ' + (this.pub && this.pub.inspect()) + ' >';
+                ' pub: ' + (this.pub && this.pub.inspect()) + ' >';
         };
     }, { "../../elliptic": 140, "bn.js": 88 }], 146: [function (require, module, exports) {
         'use strict';
@@ -11577,8 +11577,8 @@ require = (function () { function e(t, n, r) { function s(o, u) { if (!n[o]) { i
             hash: hash.sha256,
             gRed: false,
             g: [
-              '188da80e b03090f6 7cbf20eb 43a18800 f4ff0afd 82ff1012',
-              '07192b95 ffc8da78 631011ed 6b24cdd5 73f977a1 1e794811'
+                '188da80e b03090f6 7cbf20eb 43a18800 f4ff0afd 82ff1012',
+                '07192b95 ffc8da78 631011ed 6b24cdd5 73f977a1 1e794811'
             ]
         });
 
@@ -11592,8 +11592,8 @@ require = (function () { function e(t, n, r) { function s(o, u) { if (!n[o]) { i
             hash: hash.sha256,
             gRed: false,
             g: [
-              'b70e0cbd 6bb4bf7f 321390b9 4a03c1d3 56c21122 343280d6 115c1d21',
-              'bd376388 b5f723fb 4c22dfe6 cd4375a0 5a074764 44d58199 85007e34'
+                'b70e0cbd 6bb4bf7f 321390b9 4a03c1d3 56c21122 343280d6 115c1d21',
+                'bd376388 b5f723fb 4c22dfe6 cd4375a0 5a074764 44d58199 85007e34'
             ]
         });
 
@@ -11607,8 +11607,8 @@ require = (function () { function e(t, n, r) { function s(o, u) { if (!n[o]) { i
             hash: hash.sha256,
             gRed: false,
             g: [
-              '6b17d1f2 e12c4247 f8bce6e5 63a440f2 77037d81 2deb33a0 f4a13945 d898c296',
-              '4fe342e2 fe1a7f9b 8ee7eb4a 7c0f9e16 2bce3357 6b315ece cbb64068 37bf51f5'
+                '6b17d1f2 e12c4247 f8bce6e5 63a440f2 77037d81 2deb33a0 f4a13945 d898c296',
+                '4fe342e2 fe1a7f9b 8ee7eb4a 7c0f9e16 2bce3357 6b315ece cbb64068 37bf51f5'
             ]
         });
 
@@ -11616,20 +11616,20 @@ require = (function () { function e(t, n, r) { function s(o, u) { if (!n[o]) { i
             type: 'short',
             prime: null,
             p: 'ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff ' +
-               'fffffffe ffffffff 00000000 00000000 ffffffff',
+                'fffffffe ffffffff 00000000 00000000 ffffffff',
             a: 'ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff ' +
-               'fffffffe ffffffff 00000000 00000000 fffffffc',
+                'fffffffe ffffffff 00000000 00000000 fffffffc',
             b: 'b3312fa7 e23ee7e4 988e056b e3f82d19 181d9c6e fe814112 0314088f ' +
-               '5013875a c656398d 8a2ed19d 2a85c8ed d3ec2aef',
+                '5013875a c656398d 8a2ed19d 2a85c8ed d3ec2aef',
             n: 'ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff c7634d81 ' +
-               'f4372ddf 581a0db2 48b0a77a ecec196a ccc52973',
+                'f4372ddf 581a0db2 48b0a77a ecec196a ccc52973',
             hash: hash.sha384,
             gRed: false,
             g: [
-              'aa87ca22 be8b0537 8eb1c71e f320ad74 6e1d3b62 8ba79b98 59f741e0 82542a38 ' +
-              '5502f25d bf55296c 3a545e38 72760ab7',
-              '3617de4a 96262c6f 5d9e98bf 9292dc29 f8f41dbd 289a147c e9da3113 b5f0b8c0 ' +
-              '0a60b1ce 1d7e819d 7a431d7c 90ea0e5f'
+                'aa87ca22 be8b0537 8eb1c71e f320ad74 6e1d3b62 8ba79b98 59f741e0 82542a38 ' +
+                '5502f25d bf55296c 3a545e38 72760ab7',
+                '3617de4a 96262c6f 5d9e98bf 9292dc29 f8f41dbd 289a147c e9da3113 b5f0b8c0 ' +
+                '0a60b1ce 1d7e819d 7a431d7c 90ea0e5f'
             ]
         });
 
@@ -11637,26 +11637,26 @@ require = (function () { function e(t, n, r) { function s(o, u) { if (!n[o]) { i
             type: 'short',
             prime: null,
             p: '000001ff ffffffff ffffffff ffffffff ffffffff ffffffff ' +
-               'ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff ' +
-               'ffffffff ffffffff ffffffff ffffffff ffffffff',
+                'ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff ' +
+                'ffffffff ffffffff ffffffff ffffffff ffffffff',
             a: '000001ff ffffffff ffffffff ffffffff ffffffff ffffffff ' +
-               'ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff ' +
-               'ffffffff ffffffff ffffffff ffffffff fffffffc',
+                'ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff ' +
+                'ffffffff ffffffff ffffffff ffffffff fffffffc',
             b: '00000051 953eb961 8e1c9a1f 929a21a0 b68540ee a2da725b ' +
-               '99b315f3 b8b48991 8ef109e1 56193951 ec7e937b 1652c0bd ' +
-               '3bb1bf07 3573df88 3d2c34f1 ef451fd4 6b503f00',
+                '99b315f3 b8b48991 8ef109e1 56193951 ec7e937b 1652c0bd ' +
+                '3bb1bf07 3573df88 3d2c34f1 ef451fd4 6b503f00',
             n: '000001ff ffffffff ffffffff ffffffff ffffffff ffffffff ' +
-               'ffffffff ffffffff fffffffa 51868783 bf2f966b 7fcc0148 ' +
-               'f709a5d0 3bb5c9b8 899c47ae bb6fb71e 91386409',
+                'ffffffff ffffffff fffffffa 51868783 bf2f966b 7fcc0148 ' +
+                'f709a5d0 3bb5c9b8 899c47ae bb6fb71e 91386409',
             hash: hash.sha512,
             gRed: false,
             g: [
-              '000000c6 858e06b7 0404e9cd 9e3ecb66 2395b442 9c648139 ' +
-              '053fb521 f828af60 6b4d3dba a14b5e77 efe75928 fe1dc127 ' +
-              'a2ffa8de 3348b3c1 856a429b f97e7e31 c2e5bd66',
-              '00000118 39296a78 9a3bc004 5c8a5fb4 2c7d1bd9 98f54449 ' +
-              '579b4468 17afbd17 273e662c 97ee7299 5ef42640 c550b901 ' +
-              '3fad0761 353c7086 a272c240 88be9476 9fd16650'
+                '000000c6 858e06b7 0404e9cd 9e3ecb66 2395b442 9c648139 ' +
+                '053fb521 f828af60 6b4d3dba a14b5e77 efe75928 fe1dc127 ' +
+                'a2ffa8de 3348b3c1 856a429b f97e7e31 c2e5bd66',
+                '00000118 39296a78 9a3bc004 5c8a5fb4 2c7d1bd9 98f54449 ' +
+                '579b4468 17afbd17 273e662c 97ee7299 5ef42640 c550b901 ' +
+                '3fad0761 353c7086 a272c240 88be9476 9fd16650'
             ]
         });
 
@@ -11670,7 +11670,7 @@ require = (function () { function e(t, n, r) { function s(o, u) { if (!n[o]) { i
             hash: hash.sha256,
             gRed: false,
             g: [
-              '9'
+                '9'
             ]
         });
 
@@ -11686,10 +11686,10 @@ require = (function () { function e(t, n, r) { function s(o, u) { if (!n[o]) { i
             hash: hash.sha256,
             gRed: false,
             g: [
-              '216936d3cd6e53fec0a4e231fdd6dc5c692cc7609525a7b2c9562d608f25d51a',
+                '216936d3cd6e53fec0a4e231fdd6dc5c692cc7609525a7b2c9562d608f25d51a',
 
-              // 4/5
-              '6666666666666666666666666666666666666666666666666666666666666658'
+                // 4/5
+                '6666666666666666666666666666666666666666666666666666666666666658'
             ]
         });
 
@@ -11714,21 +11714,21 @@ require = (function () { function e(t, n, r) { function s(o, u) { if (!n[o]) { i
             beta: '7ae96a2b657c07106e64479eac3434e99cf0497512f58995c1396c28719501ee',
             lambda: '5363ad4cc05c30e0a5261c028812645a122e22ea20816678df02967c1b23bd72',
             basis: [
-              {
-                  a: '3086d221a7d46bcde86c90e49284eb15',
-                  b: '-e4437ed6010e88286f547fa90abfe4c3'
-              },
-              {
-                  a: '114ca50f7a8e2f3f657c1108d9d44cfd8',
-                  b: '3086d221a7d46bcde86c90e49284eb15'
-              }
+                {
+                    a: '3086d221a7d46bcde86c90e49284eb15',
+                    b: '-e4437ed6010e88286f547fa90abfe4c3'
+                },
+                {
+                    a: '114ca50f7a8e2f3f657c1108d9d44cfd8',
+                    b: '3086d221a7d46bcde86c90e49284eb15'
+                }
             ],
 
             gRed: false,
             g: [
-              '79be667ef9dcbbac55a06295ce870b07029bfcdb2dce28d959f2815b16f81798',
-              '483ada7726a3c4655da4fbfc0e1108a8fd17b448a68554199c47d08ffb10d4b8',
-              pre
+                '79be667ef9dcbbac55a06295ce870b07029bfcdb2dce28d959f2815b16f81798',
+                '483ada7726a3c4655da4fbfc0e1108a8fd17b448a68554199c47d08ffb10d4b8',
+                pre
             ]
         });
     }, { "../elliptic": 140, "./precomputed/secp256k1": 153, "hash.js": 160 }], 160: [function (require, module, exports) {
@@ -11768,14 +11768,14 @@ require = (function () { function e(t, n, r) { function s(o, u) { if (!n[o]) { i
 
             SHA512.call(this);
             this.h = [
-              0xcbbb9d5d, 0xc1059ed8,
-              0x629a292a, 0x367cd507,
-              0x9159015a, 0x3070dd17,
-              0x152fecd8, 0xf70e5939,
-              0x67332667, 0xffc00b31,
-              0x8eb44a87, 0x68581511,
-              0xdb0c2e0d, 0x64f98fa7,
-              0x47b5481d, 0xbefa4fa4];
+                0xcbbb9d5d, 0xc1059ed8,
+                0x629a292a, 0x367cd507,
+                0x9159015a, 0x3070dd17,
+                0x152fecd8, 0xf70e5939,
+                0x67332667, 0xffc00b31,
+                0x8eb44a87, 0x68581511,
+                0xdb0c2e0d, 0x64f98fa7,
+                0x47b5481d, 0xbefa4fa4];
         }
         utils.inherits(SHA384, SHA512);
         module.exports = SHA384;
@@ -11813,46 +11813,46 @@ require = (function () { function e(t, n, r) { function s(o, u) { if (!n[o]) { i
         var BlockHash = common.BlockHash;
 
         var sha512_K = [
-          0x428a2f98, 0xd728ae22, 0x71374491, 0x23ef65cd,
-          0xb5c0fbcf, 0xec4d3b2f, 0xe9b5dba5, 0x8189dbbc,
-          0x3956c25b, 0xf348b538, 0x59f111f1, 0xb605d019,
-          0x923f82a4, 0xaf194f9b, 0xab1c5ed5, 0xda6d8118,
-          0xd807aa98, 0xa3030242, 0x12835b01, 0x45706fbe,
-          0x243185be, 0x4ee4b28c, 0x550c7dc3, 0xd5ffb4e2,
-          0x72be5d74, 0xf27b896f, 0x80deb1fe, 0x3b1696b1,
-          0x9bdc06a7, 0x25c71235, 0xc19bf174, 0xcf692694,
-          0xe49b69c1, 0x9ef14ad2, 0xefbe4786, 0x384f25e3,
-          0x0fc19dc6, 0x8b8cd5b5, 0x240ca1cc, 0x77ac9c65,
-          0x2de92c6f, 0x592b0275, 0x4a7484aa, 0x6ea6e483,
-          0x5cb0a9dc, 0xbd41fbd4, 0x76f988da, 0x831153b5,
-          0x983e5152, 0xee66dfab, 0xa831c66d, 0x2db43210,
-          0xb00327c8, 0x98fb213f, 0xbf597fc7, 0xbeef0ee4,
-          0xc6e00bf3, 0x3da88fc2, 0xd5a79147, 0x930aa725,
-          0x06ca6351, 0xe003826f, 0x14292967, 0x0a0e6e70,
-          0x27b70a85, 0x46d22ffc, 0x2e1b2138, 0x5c26c926,
-          0x4d2c6dfc, 0x5ac42aed, 0x53380d13, 0x9d95b3df,
-          0x650a7354, 0x8baf63de, 0x766a0abb, 0x3c77b2a8,
-          0x81c2c92e, 0x47edaee6, 0x92722c85, 0x1482353b,
-          0xa2bfe8a1, 0x4cf10364, 0xa81a664b, 0xbc423001,
-          0xc24b8b70, 0xd0f89791, 0xc76c51a3, 0x0654be30,
-          0xd192e819, 0xd6ef5218, 0xd6990624, 0x5565a910,
-          0xf40e3585, 0x5771202a, 0x106aa070, 0x32bbd1b8,
-          0x19a4c116, 0xb8d2d0c8, 0x1e376c08, 0x5141ab53,
-          0x2748774c, 0xdf8eeb99, 0x34b0bcb5, 0xe19b48a8,
-          0x391c0cb3, 0xc5c95a63, 0x4ed8aa4a, 0xe3418acb,
-          0x5b9cca4f, 0x7763e373, 0x682e6ff3, 0xd6b2b8a3,
-          0x748f82ee, 0x5defb2fc, 0x78a5636f, 0x43172f60,
-          0x84c87814, 0xa1f0ab72, 0x8cc70208, 0x1a6439ec,
-          0x90befffa, 0x23631e28, 0xa4506ceb, 0xde82bde9,
-          0xbef9a3f7, 0xb2c67915, 0xc67178f2, 0xe372532b,
-          0xca273ece, 0xea26619c, 0xd186b8c7, 0x21c0c207,
-          0xeada7dd6, 0xcde0eb1e, 0xf57d4f7f, 0xee6ed178,
-          0x06f067aa, 0x72176fba, 0x0a637dc5, 0xa2c898a6,
-          0x113f9804, 0xbef90dae, 0x1b710b35, 0x131c471b,
-          0x28db77f5, 0x23047d84, 0x32caab7b, 0x40c72493,
-          0x3c9ebe0a, 0x15c9bebc, 0x431d67c4, 0x9c100d4c,
-          0x4cc5d4be, 0xcb3e42b6, 0x597f299c, 0xfc657e2a,
-          0x5fcb6fab, 0x3ad6faec, 0x6c44198c, 0x4a475817
+            0x428a2f98, 0xd728ae22, 0x71374491, 0x23ef65cd,
+            0xb5c0fbcf, 0xec4d3b2f, 0xe9b5dba5, 0x8189dbbc,
+            0x3956c25b, 0xf348b538, 0x59f111f1, 0xb605d019,
+            0x923f82a4, 0xaf194f9b, 0xab1c5ed5, 0xda6d8118,
+            0xd807aa98, 0xa3030242, 0x12835b01, 0x45706fbe,
+            0x243185be, 0x4ee4b28c, 0x550c7dc3, 0xd5ffb4e2,
+            0x72be5d74, 0xf27b896f, 0x80deb1fe, 0x3b1696b1,
+            0x9bdc06a7, 0x25c71235, 0xc19bf174, 0xcf692694,
+            0xe49b69c1, 0x9ef14ad2, 0xefbe4786, 0x384f25e3,
+            0x0fc19dc6, 0x8b8cd5b5, 0x240ca1cc, 0x77ac9c65,
+            0x2de92c6f, 0x592b0275, 0x4a7484aa, 0x6ea6e483,
+            0x5cb0a9dc, 0xbd41fbd4, 0x76f988da, 0x831153b5,
+            0x983e5152, 0xee66dfab, 0xa831c66d, 0x2db43210,
+            0xb00327c8, 0x98fb213f, 0xbf597fc7, 0xbeef0ee4,
+            0xc6e00bf3, 0x3da88fc2, 0xd5a79147, 0x930aa725,
+            0x06ca6351, 0xe003826f, 0x14292967, 0x0a0e6e70,
+            0x27b70a85, 0x46d22ffc, 0x2e1b2138, 0x5c26c926,
+            0x4d2c6dfc, 0x5ac42aed, 0x53380d13, 0x9d95b3df,
+            0x650a7354, 0x8baf63de, 0x766a0abb, 0x3c77b2a8,
+            0x81c2c92e, 0x47edaee6, 0x92722c85, 0x1482353b,
+            0xa2bfe8a1, 0x4cf10364, 0xa81a664b, 0xbc423001,
+            0xc24b8b70, 0xd0f89791, 0xc76c51a3, 0x0654be30,
+            0xd192e819, 0xd6ef5218, 0xd6990624, 0x5565a910,
+            0xf40e3585, 0x5771202a, 0x106aa070, 0x32bbd1b8,
+            0x19a4c116, 0xb8d2d0c8, 0x1e376c08, 0x5141ab53,
+            0x2748774c, 0xdf8eeb99, 0x34b0bcb5, 0xe19b48a8,
+            0x391c0cb3, 0xc5c95a63, 0x4ed8aa4a, 0xe3418acb,
+            0x5b9cca4f, 0x7763e373, 0x682e6ff3, 0xd6b2b8a3,
+            0x748f82ee, 0x5defb2fc, 0x78a5636f, 0x43172f60,
+            0x84c87814, 0xa1f0ab72, 0x8cc70208, 0x1a6439ec,
+            0x90befffa, 0x23631e28, 0xa4506ceb, 0xde82bde9,
+            0xbef9a3f7, 0xb2c67915, 0xc67178f2, 0xe372532b,
+            0xca273ece, 0xea26619c, 0xd186b8c7, 0x21c0c207,
+            0xeada7dd6, 0xcde0eb1e, 0xf57d4f7f, 0xee6ed178,
+            0x06f067aa, 0x72176fba, 0x0a637dc5, 0xa2c898a6,
+            0x113f9804, 0xbef90dae, 0x1b710b35, 0x131c471b,
+            0x28db77f5, 0x23047d84, 0x32caab7b, 0x40c72493,
+            0x3c9ebe0a, 0x15c9bebc, 0x431d67c4, 0x9c100d4c,
+            0x4cc5d4be, 0xcb3e42b6, 0x597f299c, 0xfc657e2a,
+            0x5fcb6fab, 0x3ad6faec, 0x6c44198c, 0x4a475817
         ];
 
         function SHA512() {
@@ -11861,14 +11861,14 @@ require = (function () { function e(t, n, r) { function s(o, u) { if (!n[o]) { i
 
             BlockHash.call(this);
             this.h = [
-              0x6a09e667, 0xf3bcc908,
-              0xbb67ae85, 0x84caa73b,
-              0x3c6ef372, 0xfe94f82b,
-              0xa54ff53a, 0x5f1d36f1,
-              0x510e527f, 0xade682d1,
-              0x9b05688c, 0x2b3e6c1f,
-              0x1f83d9ab, 0xfb41bd6b,
-              0x5be0cd19, 0x137e2179];
+                0x6a09e667, 0xf3bcc908,
+                0xbb67ae85, 0x84caa73b,
+                0x3c6ef372, 0xfe94f82b,
+                0xa54ff53a, 0x5f1d36f1,
+                0x510e527f, 0xade682d1,
+                0x9b05688c, 0x2b3e6c1f,
+                0x1f83d9ab, 0xfb41bd6b,
+                0x5be0cd19, 0x137e2179];
             this.k = sha512_K;
             this.W = new Array(160);
         }
@@ -11897,15 +11897,15 @@ require = (function () { function e(t, n, r) { function s(o, u) { if (!n[o]) { i
                 var c3_lo = W[i - 31];
 
                 W[i] = sum64_4_hi(
-                  c0_hi, c0_lo,
-                  c1_hi, c1_lo,
-                  c2_hi, c2_lo,
-                  c3_hi, c3_lo);
+                    c0_hi, c0_lo,
+                    c1_hi, c1_lo,
+                    c2_hi, c2_lo,
+                    c3_hi, c3_lo);
                 W[i + 1] = sum64_4_lo(
-                  c0_hi, c0_lo,
-                  c1_hi, c1_lo,
-                  c2_hi, c2_lo,
-                  c3_hi, c3_lo);
+                    c0_hi, c0_lo,
+                    c1_hi, c1_lo,
+                    c2_hi, c2_lo,
+                    c3_hi, c3_lo);
             }
         };
 
@@ -11945,17 +11945,17 @@ require = (function () { function e(t, n, r) { function s(o, u) { if (!n[o]) { i
                 var c4_lo = W[i + 1];
 
                 var T1_hi = sum64_5_hi(
-                  c0_hi, c0_lo,
-                  c1_hi, c1_lo,
-                  c2_hi, c2_lo,
-                  c3_hi, c3_lo,
-                  c4_hi, c4_lo);
+                    c0_hi, c0_lo,
+                    c1_hi, c1_lo,
+                    c2_hi, c2_lo,
+                    c3_hi, c3_lo,
+                    c4_hi, c4_lo);
                 var T1_lo = sum64_5_lo(
-                  c0_hi, c0_lo,
-                  c1_hi, c1_lo,
-                  c2_hi, c2_lo,
-                  c3_hi, c3_lo,
-                  c4_hi, c4_lo);
+                    c0_hi, c0_lo,
+                    c1_hi, c1_lo,
+                    c2_hi, c2_lo,
+                    c3_hi, c3_lo,
+                    c4_hi, c4_lo);
 
                 c0_hi = s0_512_hi(ah, al);
                 c0_lo = s0_512_lo(ah, al);
@@ -12134,8 +12134,8 @@ require = (function () { function e(t, n, r) { function s(o, u) { if (!n[o]) { i
 
             SHA256.call(this);
             this.h = [
-              0xc1059ed8, 0x367cd507, 0x3070dd17, 0xf70e5939,
-              0xffc00b31, 0x68581511, 0x64f98fa7, 0xbefa4fa4];
+                0xc1059ed8, 0x367cd507, 0x3070dd17, 0xf70e5939,
+                0xffc00b31, 0x68581511, 0x64f98fa7, 0xbefa4fa4];
         }
         utils.inherits(SHA224, SHA256);
         module.exports = SHA224;
@@ -12173,22 +12173,22 @@ require = (function () { function e(t, n, r) { function s(o, u) { if (!n[o]) { i
         var BlockHash = common.BlockHash;
 
         var sha256_K = [
-          0x428a2f98, 0x71374491, 0xb5c0fbcf, 0xe9b5dba5,
-          0x3956c25b, 0x59f111f1, 0x923f82a4, 0xab1c5ed5,
-          0xd807aa98, 0x12835b01, 0x243185be, 0x550c7dc3,
-          0x72be5d74, 0x80deb1fe, 0x9bdc06a7, 0xc19bf174,
-          0xe49b69c1, 0xefbe4786, 0x0fc19dc6, 0x240ca1cc,
-          0x2de92c6f, 0x4a7484aa, 0x5cb0a9dc, 0x76f988da,
-          0x983e5152, 0xa831c66d, 0xb00327c8, 0xbf597fc7,
-          0xc6e00bf3, 0xd5a79147, 0x06ca6351, 0x14292967,
-          0x27b70a85, 0x2e1b2138, 0x4d2c6dfc, 0x53380d13,
-          0x650a7354, 0x766a0abb, 0x81c2c92e, 0x92722c85,
-          0xa2bfe8a1, 0xa81a664b, 0xc24b8b70, 0xc76c51a3,
-          0xd192e819, 0xd6990624, 0xf40e3585, 0x106aa070,
-          0x19a4c116, 0x1e376c08, 0x2748774c, 0x34b0bcb5,
-          0x391c0cb3, 0x4ed8aa4a, 0x5b9cca4f, 0x682e6ff3,
-          0x748f82ee, 0x78a5636f, 0x84c87814, 0x8cc70208,
-          0x90befffa, 0xa4506ceb, 0xbef9a3f7, 0xc67178f2
+            0x428a2f98, 0x71374491, 0xb5c0fbcf, 0xe9b5dba5,
+            0x3956c25b, 0x59f111f1, 0x923f82a4, 0xab1c5ed5,
+            0xd807aa98, 0x12835b01, 0x243185be, 0x550c7dc3,
+            0x72be5d74, 0x80deb1fe, 0x9bdc06a7, 0xc19bf174,
+            0xe49b69c1, 0xefbe4786, 0x0fc19dc6, 0x240ca1cc,
+            0x2de92c6f, 0x4a7484aa, 0x5cb0a9dc, 0x76f988da,
+            0x983e5152, 0xa831c66d, 0xb00327c8, 0xbf597fc7,
+            0xc6e00bf3, 0xd5a79147, 0x06ca6351, 0x14292967,
+            0x27b70a85, 0x2e1b2138, 0x4d2c6dfc, 0x53380d13,
+            0x650a7354, 0x766a0abb, 0x81c2c92e, 0x92722c85,
+            0xa2bfe8a1, 0xa81a664b, 0xc24b8b70, 0xc76c51a3,
+            0xd192e819, 0xd6990624, 0xf40e3585, 0x106aa070,
+            0x19a4c116, 0x1e376c08, 0x2748774c, 0x34b0bcb5,
+            0x391c0cb3, 0x4ed8aa4a, 0x5b9cca4f, 0x682e6ff3,
+            0x748f82ee, 0x78a5636f, 0x84c87814, 0x8cc70208,
+            0x90befffa, 0xa4506ceb, 0xbef9a3f7, 0xc67178f2
         ];
 
         function SHA256() {
@@ -12197,8 +12197,8 @@ require = (function () { function e(t, n, r) { function s(o, u) { if (!n[o]) { i
 
             BlockHash.call(this);
             this.h = [
-              0x6a09e667, 0xbb67ae85, 0x3c6ef372, 0xa54ff53a,
-              0x510e527f, 0x9b05688c, 0x1f83d9ab, 0x5be0cd19
+                0x6a09e667, 0xbb67ae85, 0x3c6ef372, 0xa54ff53a,
+                0x510e527f, 0x9b05688c, 0x1f83d9ab, 0x5be0cd19
             ];
             this.k = sha256_K;
             this.W = new Array(64);
@@ -12272,8 +12272,8 @@ require = (function () { function e(t, n, r) { function s(o, u) { if (!n[o]) { i
         var BlockHash = common.BlockHash;
 
         var sha1_K = [
-          0x5A827999, 0x6ED9EBA1,
-          0x8F1BBCDC, 0xCA62C1D6
+            0x5A827999, 0x6ED9EBA1,
+            0x8F1BBCDC, 0xCA62C1D6
         ];
 
         function SHA1() {
@@ -12282,8 +12282,8 @@ require = (function () { function e(t, n, r) { function s(o, u) { if (!n[o]) { i
 
             BlockHash.call(this);
             this.h = [
-              0x67452301, 0xefcdab89, 0x98badcfe,
-              0x10325476, 0xc3d2e1f0];
+                0x67452301, 0xefcdab89, 0x98badcfe,
+                0x10325476, 0xc3d2e1f0];
             this.W = new Array(80);
         }
 
@@ -12425,20 +12425,20 @@ require = (function () { function e(t, n, r) { function s(o, u) { if (!n[o]) { i
             var Eh = E;
             for (var j = 0; j < 80; j++) {
                 var T = sum32(
-                  rotl32(
-                    sum32_4(A, f(j, B, C, D), msg[r[j] + start], K(j)),
-                    s[j]),
-                  E);
+                    rotl32(
+                        sum32_4(A, f(j, B, C, D), msg[r[j] + start], K(j)),
+                        s[j]),
+                    E);
                 A = E;
                 E = D;
                 D = rotl32(C, 10);
                 C = B;
                 B = T;
                 T = sum32(
-                  rotl32(
-                    sum32_4(Ah, f(79 - j, Bh, Ch, Dh), msg[rh[j] + start], Kh(j)),
-                    sh[j]),
-                  Eh);
+                    rotl32(
+                        sum32_4(Ah, f(79 - j, Bh, Ch, Dh), msg[rh[j] + start], Kh(j)),
+                        sh[j]),
+                    Eh);
                 Ah = Eh;
                 Eh = Dh;
                 Dh = rotl32(Ch, 10);
@@ -12500,35 +12500,35 @@ require = (function () { function e(t, n, r) { function s(o, u) { if (!n[o]) { i
         }
 
         var r = [
-          0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15,
-          7, 4, 13, 1, 10, 6, 15, 3, 12, 0, 9, 5, 2, 14, 11, 8,
-          3, 10, 14, 4, 9, 15, 8, 1, 2, 7, 0, 6, 13, 11, 5, 12,
-          1, 9, 11, 10, 0, 8, 12, 4, 13, 3, 7, 15, 14, 5, 6, 2,
-          4, 0, 5, 9, 7, 12, 2, 10, 14, 1, 3, 8, 11, 6, 15, 13
+            0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15,
+            7, 4, 13, 1, 10, 6, 15, 3, 12, 0, 9, 5, 2, 14, 11, 8,
+            3, 10, 14, 4, 9, 15, 8, 1, 2, 7, 0, 6, 13, 11, 5, 12,
+            1, 9, 11, 10, 0, 8, 12, 4, 13, 3, 7, 15, 14, 5, 6, 2,
+            4, 0, 5, 9, 7, 12, 2, 10, 14, 1, 3, 8, 11, 6, 15, 13
         ];
 
         var rh = [
-          5, 14, 7, 0, 9, 2, 11, 4, 13, 6, 15, 8, 1, 10, 3, 12,
-          6, 11, 3, 7, 0, 13, 5, 10, 14, 15, 8, 12, 4, 9, 1, 2,
-          15, 5, 1, 3, 7, 14, 6, 9, 11, 8, 12, 2, 10, 0, 4, 13,
-          8, 6, 4, 1, 3, 11, 15, 0, 5, 12, 2, 13, 9, 7, 10, 14,
-          12, 15, 10, 4, 1, 5, 8, 7, 6, 2, 13, 14, 0, 3, 9, 11
+            5, 14, 7, 0, 9, 2, 11, 4, 13, 6, 15, 8, 1, 10, 3, 12,
+            6, 11, 3, 7, 0, 13, 5, 10, 14, 15, 8, 12, 4, 9, 1, 2,
+            15, 5, 1, 3, 7, 14, 6, 9, 11, 8, 12, 2, 10, 0, 4, 13,
+            8, 6, 4, 1, 3, 11, 15, 0, 5, 12, 2, 13, 9, 7, 10, 14,
+            12, 15, 10, 4, 1, 5, 8, 7, 6, 2, 13, 14, 0, 3, 9, 11
         ];
 
         var s = [
-          11, 14, 15, 12, 5, 8, 7, 9, 11, 13, 14, 15, 6, 7, 9, 8,
-          7, 6, 8, 13, 11, 9, 7, 15, 7, 12, 15, 9, 11, 7, 13, 12,
-          11, 13, 6, 7, 14, 9, 13, 15, 14, 8, 13, 6, 5, 12, 7, 5,
-          11, 12, 14, 15, 14, 15, 9, 8, 9, 14, 5, 6, 8, 6, 5, 12,
-          9, 15, 5, 11, 6, 8, 13, 12, 5, 12, 13, 14, 11, 8, 5, 6
+            11, 14, 15, 12, 5, 8, 7, 9, 11, 13, 14, 15, 6, 7, 9, 8,
+            7, 6, 8, 13, 11, 9, 7, 15, 7, 12, 15, 9, 11, 7, 13, 12,
+            11, 13, 6, 7, 14, 9, 13, 15, 14, 8, 13, 6, 5, 12, 7, 5,
+            11, 12, 14, 15, 14, 15, 9, 8, 9, 14, 5, 6, 8, 6, 5, 12,
+            9, 15, 5, 11, 6, 8, 13, 12, 5, 12, 13, 14, 11, 8, 5, 6
         ];
 
         var sh = [
-          8, 9, 9, 11, 13, 15, 15, 5, 7, 7, 8, 11, 14, 14, 12, 6,
-          9, 13, 15, 7, 12, 8, 9, 11, 7, 7, 12, 7, 6, 15, 13, 11,
-          9, 7, 15, 11, 8, 6, 6, 14, 12, 13, 5, 14, 13, 13, 7, 5,
-          15, 5, 8, 11, 14, 14, 6, 14, 6, 9, 12, 9, 12, 5, 15, 8,
-          8, 5, 12, 9, 12, 5, 14, 6, 8, 13, 6, 5, 15, 13, 11, 11
+            8, 9, 9, 11, 13, 15, 15, 5, 7, 7, 8, 11, 14, 14, 12, 6,
+            9, 13, 15, 7, 12, 8, 9, 11, 7, 7, 12, 7, 6, 15, 13, 11,
+            9, 7, 15, 11, 8, 6, 6, 14, 12, 13, 5, 14, 13, 13, 7, 5,
+            15, 5, 8, 11, 14, 14, 6, 14, 6, 9, 12, 9, 12, 5, 15, 8,
+            8, 5, 12, 9, 12, 5, 14, 6, 8, 13, 6, 5, 15, 13, 11, 11
         ];
     }, { "./common": 161, "./utils": 171 }], 162: [function (require, module, exports) {
         'use strict';
@@ -12721,9 +12721,9 @@ require = (function () { function e(t, n, r) { function s(o, u) { if (!n[o]) { i
 
         function htonl(w) {
             var res = (w >>> 24) |
-                      ((w >>> 8) & 0xff00) |
-                      ((w << 8) & 0xff0000) |
-                      ((w & 0xff) << 24);
+                ((w >>> 8) & 0xff00) |
+                ((w << 8) & 0xff0000) |
+                ((w & 0xff) << 24);
             return res >>> 0;
         }
         exports.htonl = htonl;
@@ -12772,7 +12772,7 @@ require = (function () { function e(t, n, r) { function s(o, u) { if (!n[o]) { i
             var len = end - start;
             assert(len % 4 === 0);
             var res = new Array(len / 4);
-            for (var i = 0, k = start; i < res.length; i++, k += 4) {
+            for (var i = 0, k = start; i < res.length; i++ , k += 4) {
                 var w;
                 if (endian === 'big')
                     w = (msg[k] << 24) | (msg[k + 1] << 16) | (msg[k + 2] << 8) | msg[k + 3];
@@ -12786,7 +12786,7 @@ require = (function () { function e(t, n, r) { function s(o, u) { if (!n[o]) { i
 
         function split32(msg, endian) {
             var res = new Array(msg.length * 4);
-            for (var i = 0, k = 0; i < msg.length; i++, k += 4) {
+            for (var i = 0, k = 0; i < msg.length; i++ , k += 4) {
                 var m = msg[i];
                 if (endian === 'big') {
                     res[k] = m >>> 24;
@@ -12930,779 +12930,779 @@ require = (function () { function e(t, n, r) { function s(o, u) { if (!n[o]) { i
             doubles: {
                 step: 4,
                 points: [
-                  [
-                    'e60fce93b59e9ec53011aabc21c23e97b2a31369b87a5ae9c44ee89e2a6dec0a',
-                    'f7e3507399e595929db99f34f57937101296891e44d23f0be1f32cce69616821'
-                  ],
-                  [
-                    '8282263212c609d9ea2a6e3e172de238d8c39cabd5ac1ca10646e23fd5f51508',
-                    '11f8a8098557dfe45e8256e830b60ace62d613ac2f7b17bed31b6eaff6e26caf'
-                  ],
-                  [
-                    '175e159f728b865a72f99cc6c6fc846de0b93833fd2222ed73fce5b551e5b739',
-                    'd3506e0d9e3c79eba4ef97a51ff71f5eacb5955add24345c6efa6ffee9fed695'
-                  ],
-                  [
-                    '363d90d447b00c9c99ceac05b6262ee053441c7e55552ffe526bad8f83ff4640',
-                    '4e273adfc732221953b445397f3363145b9a89008199ecb62003c7f3bee9de9'
-                  ],
-                  [
-                    '8b4b5f165df3c2be8c6244b5b745638843e4a781a15bcd1b69f79a55dffdf80c',
-                    '4aad0a6f68d308b4b3fbd7813ab0da04f9e336546162ee56b3eff0c65fd4fd36'
-                  ],
-                  [
-                    '723cbaa6e5db996d6bf771c00bd548c7b700dbffa6c0e77bcb6115925232fcda',
-                    '96e867b5595cc498a921137488824d6e2660a0653779494801dc069d9eb39f5f'
-                  ],
-                  [
-                    'eebfa4d493bebf98ba5feec812c2d3b50947961237a919839a533eca0e7dd7fa',
-                    '5d9a8ca3970ef0f269ee7edaf178089d9ae4cdc3a711f712ddfd4fdae1de8999'
-                  ],
-                  [
-                    '100f44da696e71672791d0a09b7bde459f1215a29b3c03bfefd7835b39a48db0',
-                    'cdd9e13192a00b772ec8f3300c090666b7ff4a18ff5195ac0fbd5cd62bc65a09'
-                  ],
-                  [
-                    'e1031be262c7ed1b1dc9227a4a04c017a77f8d4464f3b3852c8acde6e534fd2d',
-                    '9d7061928940405e6bb6a4176597535af292dd419e1ced79a44f18f29456a00d'
-                  ],
-                  [
-                    'feea6cae46d55b530ac2839f143bd7ec5cf8b266a41d6af52d5e688d9094696d',
-                    'e57c6b6c97dce1bab06e4e12bf3ecd5c981c8957cc41442d3155debf18090088'
-                  ],
-                  [
-                    'da67a91d91049cdcb367be4be6ffca3cfeed657d808583de33fa978bc1ec6cb1',
-                    '9bacaa35481642bc41f463f7ec9780e5dec7adc508f740a17e9ea8e27a68be1d'
-                  ],
-                  [
-                    '53904faa0b334cdda6e000935ef22151ec08d0f7bb11069f57545ccc1a37b7c0',
-                    '5bc087d0bc80106d88c9eccac20d3c1c13999981e14434699dcb096b022771c8'
-                  ],
-                  [
-                    '8e7bcd0bd35983a7719cca7764ca906779b53a043a9b8bcaeff959f43ad86047',
-                    '10b7770b2a3da4b3940310420ca9514579e88e2e47fd68b3ea10047e8460372a'
-                  ],
-                  [
-                    '385eed34c1cdff21e6d0818689b81bde71a7f4f18397e6690a841e1599c43862',
-                    '283bebc3e8ea23f56701de19e9ebf4576b304eec2086dc8cc0458fe5542e5453'
-                  ],
-                  [
-                    '6f9d9b803ecf191637c73a4413dfa180fddf84a5947fbc9c606ed86c3fac3a7',
-                    '7c80c68e603059ba69b8e2a30e45c4d47ea4dd2f5c281002d86890603a842160'
-                  ],
-                  [
-                    '3322d401243c4e2582a2147c104d6ecbf774d163db0f5e5313b7e0e742d0e6bd',
-                    '56e70797e9664ef5bfb019bc4ddaf9b72805f63ea2873af624f3a2e96c28b2a0'
-                  ],
-                  [
-                    '85672c7d2de0b7da2bd1770d89665868741b3f9af7643397721d74d28134ab83',
-                    '7c481b9b5b43b2eb6374049bfa62c2e5e77f17fcc5298f44c8e3094f790313a6'
-                  ],
-                  [
-                    '948bf809b1988a46b06c9f1919413b10f9226c60f668832ffd959af60c82a0a',
-                    '53a562856dcb6646dc6b74c5d1c3418c6d4dff08c97cd2bed4cb7f88d8c8e589'
-                  ],
-                  [
-                    '6260ce7f461801c34f067ce0f02873a8f1b0e44dfc69752accecd819f38fd8e8',
-                    'bc2da82b6fa5b571a7f09049776a1ef7ecd292238051c198c1a84e95b2b4ae17'
-                  ],
-                  [
-                    'e5037de0afc1d8d43d8348414bbf4103043ec8f575bfdc432953cc8d2037fa2d',
-                    '4571534baa94d3b5f9f98d09fb990bddbd5f5b03ec481f10e0e5dc841d755bda'
-                  ],
-                  [
-                    'e06372b0f4a207adf5ea905e8f1771b4e7e8dbd1c6a6c5b725866a0ae4fce725',
-                    '7a908974bce18cfe12a27bb2ad5a488cd7484a7787104870b27034f94eee31dd'
-                  ],
-                  [
-                    '213c7a715cd5d45358d0bbf9dc0ce02204b10bdde2a3f58540ad6908d0559754',
-                    '4b6dad0b5ae462507013ad06245ba190bb4850f5f36a7eeddff2c27534b458f2'
-                  ],
-                  [
-                    '4e7c272a7af4b34e8dbb9352a5419a87e2838c70adc62cddf0cc3a3b08fbd53c',
-                    '17749c766c9d0b18e16fd09f6def681b530b9614bff7dd33e0b3941817dcaae6'
-                  ],
-                  [
-                    'fea74e3dbe778b1b10f238ad61686aa5c76e3db2be43057632427e2840fb27b6',
-                    '6e0568db9b0b13297cf674deccb6af93126b596b973f7b77701d3db7f23cb96f'
-                  ],
-                  [
-                    '76e64113f677cf0e10a2570d599968d31544e179b760432952c02a4417bdde39',
-                    'c90ddf8dee4e95cf577066d70681f0d35e2a33d2b56d2032b4b1752d1901ac01'
-                  ],
-                  [
-                    'c738c56b03b2abe1e8281baa743f8f9a8f7cc643df26cbee3ab150242bcbb891',
-                    '893fb578951ad2537f718f2eacbfbbbb82314eef7880cfe917e735d9699a84c3'
-                  ],
-                  [
-                    'd895626548b65b81e264c7637c972877d1d72e5f3a925014372e9f6588f6c14b',
-                    'febfaa38f2bc7eae728ec60818c340eb03428d632bb067e179363ed75d7d991f'
-                  ],
-                  [
-                    'b8da94032a957518eb0f6433571e8761ceffc73693e84edd49150a564f676e03',
-                    '2804dfa44805a1e4d7c99cc9762808b092cc584d95ff3b511488e4e74efdf6e7'
-                  ],
-                  [
-                    'e80fea14441fb33a7d8adab9475d7fab2019effb5156a792f1a11778e3c0df5d',
-                    'eed1de7f638e00771e89768ca3ca94472d155e80af322ea9fcb4291b6ac9ec78'
-                  ],
-                  [
-                    'a301697bdfcd704313ba48e51d567543f2a182031efd6915ddc07bbcc4e16070',
-                    '7370f91cfb67e4f5081809fa25d40f9b1735dbf7c0a11a130c0d1a041e177ea1'
-                  ],
-                  [
-                    '90ad85b389d6b936463f9d0512678de208cc330b11307fffab7ac63e3fb04ed4',
-                    'e507a3620a38261affdcbd9427222b839aefabe1582894d991d4d48cb6ef150'
-                  ],
-                  [
-                    '8f68b9d2f63b5f339239c1ad981f162ee88c5678723ea3351b7b444c9ec4c0da',
-                    '662a9f2dba063986de1d90c2b6be215dbbea2cfe95510bfdf23cbf79501fff82'
-                  ],
-                  [
-                    'e4f3fb0176af85d65ff99ff9198c36091f48e86503681e3e6686fd5053231e11',
-                    '1e63633ad0ef4f1c1661a6d0ea02b7286cc7e74ec951d1c9822c38576feb73bc'
-                  ],
-                  [
-                    '8c00fa9b18ebf331eb961537a45a4266c7034f2f0d4e1d0716fb6eae20eae29e',
-                    'efa47267fea521a1a9dc343a3736c974c2fadafa81e36c54e7d2a4c66702414b'
-                  ],
-                  [
-                    'e7a26ce69dd4829f3e10cec0a9e98ed3143d084f308b92c0997fddfc60cb3e41',
-                    '2a758e300fa7984b471b006a1aafbb18d0a6b2c0420e83e20e8a9421cf2cfd51'
-                  ],
-                  [
-                    'b6459e0ee3662ec8d23540c223bcbdc571cbcb967d79424f3cf29eb3de6b80ef',
-                    '67c876d06f3e06de1dadf16e5661db3c4b3ae6d48e35b2ff30bf0b61a71ba45'
-                  ],
-                  [
-                    'd68a80c8280bb840793234aa118f06231d6f1fc67e73c5a5deda0f5b496943e8',
-                    'db8ba9fff4b586d00c4b1f9177b0e28b5b0e7b8f7845295a294c84266b133120'
-                  ],
-                  [
-                    '324aed7df65c804252dc0270907a30b09612aeb973449cea4095980fc28d3d5d',
-                    '648a365774b61f2ff130c0c35aec1f4f19213b0c7e332843967224af96ab7c84'
-                  ],
-                  [
-                    '4df9c14919cde61f6d51dfdbe5fee5dceec4143ba8d1ca888e8bd373fd054c96',
-                    '35ec51092d8728050974c23a1d85d4b5d506cdc288490192ebac06cad10d5d'
-                  ],
-                  [
-                    '9c3919a84a474870faed8a9c1cc66021523489054d7f0308cbfc99c8ac1f98cd',
-                    'ddb84f0f4a4ddd57584f044bf260e641905326f76c64c8e6be7e5e03d4fc599d'
-                  ],
-                  [
-                    '6057170b1dd12fdf8de05f281d8e06bb91e1493a8b91d4cc5a21382120a959e5',
-                    '9a1af0b26a6a4807add9a2daf71df262465152bc3ee24c65e899be932385a2a8'
-                  ],
-                  [
-                    'a576df8e23a08411421439a4518da31880cef0fba7d4df12b1a6973eecb94266',
-                    '40a6bf20e76640b2c92b97afe58cd82c432e10a7f514d9f3ee8be11ae1b28ec8'
-                  ],
-                  [
-                    '7778a78c28dec3e30a05fe9629de8c38bb30d1f5cf9a3a208f763889be58ad71',
-                    '34626d9ab5a5b22ff7098e12f2ff580087b38411ff24ac563b513fc1fd9f43ac'
-                  ],
-                  [
-                    '928955ee637a84463729fd30e7afd2ed5f96274e5ad7e5cb09eda9c06d903ac',
-                    'c25621003d3f42a827b78a13093a95eeac3d26efa8a8d83fc5180e935bcd091f'
-                  ],
-                  [
-                    '85d0fef3ec6db109399064f3a0e3b2855645b4a907ad354527aae75163d82751',
-                    '1f03648413a38c0be29d496e582cf5663e8751e96877331582c237a24eb1f962'
-                  ],
-                  [
-                    'ff2b0dce97eece97c1c9b6041798b85dfdfb6d8882da20308f5404824526087e',
-                    '493d13fef524ba188af4c4dc54d07936c7b7ed6fb90e2ceb2c951e01f0c29907'
-                  ],
-                  [
-                    '827fbbe4b1e880ea9ed2b2e6301b212b57f1ee148cd6dd28780e5e2cf856e241',
-                    'c60f9c923c727b0b71bef2c67d1d12687ff7a63186903166d605b68baec293ec'
-                  ],
-                  [
-                    'eaa649f21f51bdbae7be4ae34ce6e5217a58fdce7f47f9aa7f3b58fa2120e2b3',
-                    'be3279ed5bbbb03ac69a80f89879aa5a01a6b965f13f7e59d47a5305ba5ad93d'
-                  ],
-                  [
-                    'e4a42d43c5cf169d9391df6decf42ee541b6d8f0c9a137401e23632dda34d24f',
-                    '4d9f92e716d1c73526fc99ccfb8ad34ce886eedfa8d8e4f13a7f7131deba9414'
-                  ],
-                  [
-                    '1ec80fef360cbdd954160fadab352b6b92b53576a88fea4947173b9d4300bf19',
-                    'aeefe93756b5340d2f3a4958a7abbf5e0146e77f6295a07b671cdc1cc107cefd'
-                  ],
-                  [
-                    '146a778c04670c2f91b00af4680dfa8bce3490717d58ba889ddb5928366642be',
-                    'b318e0ec3354028add669827f9d4b2870aaa971d2f7e5ed1d0b297483d83efd0'
-                  ],
-                  [
-                    'fa50c0f61d22e5f07e3acebb1aa07b128d0012209a28b9776d76a8793180eef9',
-                    '6b84c6922397eba9b72cd2872281a68a5e683293a57a213b38cd8d7d3f4f2811'
-                  ],
-                  [
-                    'da1d61d0ca721a11b1a5bf6b7d88e8421a288ab5d5bba5220e53d32b5f067ec2',
-                    '8157f55a7c99306c79c0766161c91e2966a73899d279b48a655fba0f1ad836f1'
-                  ],
-                  [
-                    'a8e282ff0c9706907215ff98e8fd416615311de0446f1e062a73b0610d064e13',
-                    '7f97355b8db81c09abfb7f3c5b2515888b679a3e50dd6bd6cef7c73111f4cc0c'
-                  ],
-                  [
-                    '174a53b9c9a285872d39e56e6913cab15d59b1fa512508c022f382de8319497c',
-                    'ccc9dc37abfc9c1657b4155f2c47f9e6646b3a1d8cb9854383da13ac079afa73'
-                  ],
-                  [
-                    '959396981943785c3d3e57edf5018cdbe039e730e4918b3d884fdff09475b7ba',
-                    '2e7e552888c331dd8ba0386a4b9cd6849c653f64c8709385e9b8abf87524f2fd'
-                  ],
-                  [
-                    'd2a63a50ae401e56d645a1153b109a8fcca0a43d561fba2dbb51340c9d82b151',
-                    'e82d86fb6443fcb7565aee58b2948220a70f750af484ca52d4142174dcf89405'
-                  ],
-                  [
-                    '64587e2335471eb890ee7896d7cfdc866bacbdbd3839317b3436f9b45617e073',
-                    'd99fcdd5bf6902e2ae96dd6447c299a185b90a39133aeab358299e5e9faf6589'
-                  ],
-                  [
-                    '8481bde0e4e4d885b3a546d3e549de042f0aa6cea250e7fd358d6c86dd45e458',
-                    '38ee7b8cba5404dd84a25bf39cecb2ca900a79c42b262e556d64b1b59779057e'
-                  ],
-                  [
-                    '13464a57a78102aa62b6979ae817f4637ffcfed3c4b1ce30bcd6303f6caf666b',
-                    '69be159004614580ef7e433453ccb0ca48f300a81d0942e13f495a907f6ecc27'
-                  ],
-                  [
-                    'bc4a9df5b713fe2e9aef430bcc1dc97a0cd9ccede2f28588cada3a0d2d83f366',
-                    'd3a81ca6e785c06383937adf4b798caa6e8a9fbfa547b16d758d666581f33c1'
-                  ],
-                  [
-                    '8c28a97bf8298bc0d23d8c749452a32e694b65e30a9472a3954ab30fe5324caa',
-                    '40a30463a3305193378fedf31f7cc0eb7ae784f0451cb9459e71dc73cbef9482'
-                  ],
-                  [
-                    '8ea9666139527a8c1dd94ce4f071fd23c8b350c5a4bb33748c4ba111faccae0',
-                    '620efabbc8ee2782e24e7c0cfb95c5d735b783be9cf0f8e955af34a30e62b945'
-                  ],
-                  [
-                    'dd3625faef5ba06074669716bbd3788d89bdde815959968092f76cc4eb9a9787',
-                    '7a188fa3520e30d461da2501045731ca941461982883395937f68d00c644a573'
-                  ],
-                  [
-                    'f710d79d9eb962297e4f6232b40e8f7feb2bc63814614d692c12de752408221e',
-                    'ea98e67232d3b3295d3b535532115ccac8612c721851617526ae47a9c77bfc82'
-                  ]
+                    [
+                        'e60fce93b59e9ec53011aabc21c23e97b2a31369b87a5ae9c44ee89e2a6dec0a',
+                        'f7e3507399e595929db99f34f57937101296891e44d23f0be1f32cce69616821'
+                    ],
+                    [
+                        '8282263212c609d9ea2a6e3e172de238d8c39cabd5ac1ca10646e23fd5f51508',
+                        '11f8a8098557dfe45e8256e830b60ace62d613ac2f7b17bed31b6eaff6e26caf'
+                    ],
+                    [
+                        '175e159f728b865a72f99cc6c6fc846de0b93833fd2222ed73fce5b551e5b739',
+                        'd3506e0d9e3c79eba4ef97a51ff71f5eacb5955add24345c6efa6ffee9fed695'
+                    ],
+                    [
+                        '363d90d447b00c9c99ceac05b6262ee053441c7e55552ffe526bad8f83ff4640',
+                        '4e273adfc732221953b445397f3363145b9a89008199ecb62003c7f3bee9de9'
+                    ],
+                    [
+                        '8b4b5f165df3c2be8c6244b5b745638843e4a781a15bcd1b69f79a55dffdf80c',
+                        '4aad0a6f68d308b4b3fbd7813ab0da04f9e336546162ee56b3eff0c65fd4fd36'
+                    ],
+                    [
+                        '723cbaa6e5db996d6bf771c00bd548c7b700dbffa6c0e77bcb6115925232fcda',
+                        '96e867b5595cc498a921137488824d6e2660a0653779494801dc069d9eb39f5f'
+                    ],
+                    [
+                        'eebfa4d493bebf98ba5feec812c2d3b50947961237a919839a533eca0e7dd7fa',
+                        '5d9a8ca3970ef0f269ee7edaf178089d9ae4cdc3a711f712ddfd4fdae1de8999'
+                    ],
+                    [
+                        '100f44da696e71672791d0a09b7bde459f1215a29b3c03bfefd7835b39a48db0',
+                        'cdd9e13192a00b772ec8f3300c090666b7ff4a18ff5195ac0fbd5cd62bc65a09'
+                    ],
+                    [
+                        'e1031be262c7ed1b1dc9227a4a04c017a77f8d4464f3b3852c8acde6e534fd2d',
+                        '9d7061928940405e6bb6a4176597535af292dd419e1ced79a44f18f29456a00d'
+                    ],
+                    [
+                        'feea6cae46d55b530ac2839f143bd7ec5cf8b266a41d6af52d5e688d9094696d',
+                        'e57c6b6c97dce1bab06e4e12bf3ecd5c981c8957cc41442d3155debf18090088'
+                    ],
+                    [
+                        'da67a91d91049cdcb367be4be6ffca3cfeed657d808583de33fa978bc1ec6cb1',
+                        '9bacaa35481642bc41f463f7ec9780e5dec7adc508f740a17e9ea8e27a68be1d'
+                    ],
+                    [
+                        '53904faa0b334cdda6e000935ef22151ec08d0f7bb11069f57545ccc1a37b7c0',
+                        '5bc087d0bc80106d88c9eccac20d3c1c13999981e14434699dcb096b022771c8'
+                    ],
+                    [
+                        '8e7bcd0bd35983a7719cca7764ca906779b53a043a9b8bcaeff959f43ad86047',
+                        '10b7770b2a3da4b3940310420ca9514579e88e2e47fd68b3ea10047e8460372a'
+                    ],
+                    [
+                        '385eed34c1cdff21e6d0818689b81bde71a7f4f18397e6690a841e1599c43862',
+                        '283bebc3e8ea23f56701de19e9ebf4576b304eec2086dc8cc0458fe5542e5453'
+                    ],
+                    [
+                        '6f9d9b803ecf191637c73a4413dfa180fddf84a5947fbc9c606ed86c3fac3a7',
+                        '7c80c68e603059ba69b8e2a30e45c4d47ea4dd2f5c281002d86890603a842160'
+                    ],
+                    [
+                        '3322d401243c4e2582a2147c104d6ecbf774d163db0f5e5313b7e0e742d0e6bd',
+                        '56e70797e9664ef5bfb019bc4ddaf9b72805f63ea2873af624f3a2e96c28b2a0'
+                    ],
+                    [
+                        '85672c7d2de0b7da2bd1770d89665868741b3f9af7643397721d74d28134ab83',
+                        '7c481b9b5b43b2eb6374049bfa62c2e5e77f17fcc5298f44c8e3094f790313a6'
+                    ],
+                    [
+                        '948bf809b1988a46b06c9f1919413b10f9226c60f668832ffd959af60c82a0a',
+                        '53a562856dcb6646dc6b74c5d1c3418c6d4dff08c97cd2bed4cb7f88d8c8e589'
+                    ],
+                    [
+                        '6260ce7f461801c34f067ce0f02873a8f1b0e44dfc69752accecd819f38fd8e8',
+                        'bc2da82b6fa5b571a7f09049776a1ef7ecd292238051c198c1a84e95b2b4ae17'
+                    ],
+                    [
+                        'e5037de0afc1d8d43d8348414bbf4103043ec8f575bfdc432953cc8d2037fa2d',
+                        '4571534baa94d3b5f9f98d09fb990bddbd5f5b03ec481f10e0e5dc841d755bda'
+                    ],
+                    [
+                        'e06372b0f4a207adf5ea905e8f1771b4e7e8dbd1c6a6c5b725866a0ae4fce725',
+                        '7a908974bce18cfe12a27bb2ad5a488cd7484a7787104870b27034f94eee31dd'
+                    ],
+                    [
+                        '213c7a715cd5d45358d0bbf9dc0ce02204b10bdde2a3f58540ad6908d0559754',
+                        '4b6dad0b5ae462507013ad06245ba190bb4850f5f36a7eeddff2c27534b458f2'
+                    ],
+                    [
+                        '4e7c272a7af4b34e8dbb9352a5419a87e2838c70adc62cddf0cc3a3b08fbd53c',
+                        '17749c766c9d0b18e16fd09f6def681b530b9614bff7dd33e0b3941817dcaae6'
+                    ],
+                    [
+                        'fea74e3dbe778b1b10f238ad61686aa5c76e3db2be43057632427e2840fb27b6',
+                        '6e0568db9b0b13297cf674deccb6af93126b596b973f7b77701d3db7f23cb96f'
+                    ],
+                    [
+                        '76e64113f677cf0e10a2570d599968d31544e179b760432952c02a4417bdde39',
+                        'c90ddf8dee4e95cf577066d70681f0d35e2a33d2b56d2032b4b1752d1901ac01'
+                    ],
+                    [
+                        'c738c56b03b2abe1e8281baa743f8f9a8f7cc643df26cbee3ab150242bcbb891',
+                        '893fb578951ad2537f718f2eacbfbbbb82314eef7880cfe917e735d9699a84c3'
+                    ],
+                    [
+                        'd895626548b65b81e264c7637c972877d1d72e5f3a925014372e9f6588f6c14b',
+                        'febfaa38f2bc7eae728ec60818c340eb03428d632bb067e179363ed75d7d991f'
+                    ],
+                    [
+                        'b8da94032a957518eb0f6433571e8761ceffc73693e84edd49150a564f676e03',
+                        '2804dfa44805a1e4d7c99cc9762808b092cc584d95ff3b511488e4e74efdf6e7'
+                    ],
+                    [
+                        'e80fea14441fb33a7d8adab9475d7fab2019effb5156a792f1a11778e3c0df5d',
+                        'eed1de7f638e00771e89768ca3ca94472d155e80af322ea9fcb4291b6ac9ec78'
+                    ],
+                    [
+                        'a301697bdfcd704313ba48e51d567543f2a182031efd6915ddc07bbcc4e16070',
+                        '7370f91cfb67e4f5081809fa25d40f9b1735dbf7c0a11a130c0d1a041e177ea1'
+                    ],
+                    [
+                        '90ad85b389d6b936463f9d0512678de208cc330b11307fffab7ac63e3fb04ed4',
+                        'e507a3620a38261affdcbd9427222b839aefabe1582894d991d4d48cb6ef150'
+                    ],
+                    [
+                        '8f68b9d2f63b5f339239c1ad981f162ee88c5678723ea3351b7b444c9ec4c0da',
+                        '662a9f2dba063986de1d90c2b6be215dbbea2cfe95510bfdf23cbf79501fff82'
+                    ],
+                    [
+                        'e4f3fb0176af85d65ff99ff9198c36091f48e86503681e3e6686fd5053231e11',
+                        '1e63633ad0ef4f1c1661a6d0ea02b7286cc7e74ec951d1c9822c38576feb73bc'
+                    ],
+                    [
+                        '8c00fa9b18ebf331eb961537a45a4266c7034f2f0d4e1d0716fb6eae20eae29e',
+                        'efa47267fea521a1a9dc343a3736c974c2fadafa81e36c54e7d2a4c66702414b'
+                    ],
+                    [
+                        'e7a26ce69dd4829f3e10cec0a9e98ed3143d084f308b92c0997fddfc60cb3e41',
+                        '2a758e300fa7984b471b006a1aafbb18d0a6b2c0420e83e20e8a9421cf2cfd51'
+                    ],
+                    [
+                        'b6459e0ee3662ec8d23540c223bcbdc571cbcb967d79424f3cf29eb3de6b80ef',
+                        '67c876d06f3e06de1dadf16e5661db3c4b3ae6d48e35b2ff30bf0b61a71ba45'
+                    ],
+                    [
+                        'd68a80c8280bb840793234aa118f06231d6f1fc67e73c5a5deda0f5b496943e8',
+                        'db8ba9fff4b586d00c4b1f9177b0e28b5b0e7b8f7845295a294c84266b133120'
+                    ],
+                    [
+                        '324aed7df65c804252dc0270907a30b09612aeb973449cea4095980fc28d3d5d',
+                        '648a365774b61f2ff130c0c35aec1f4f19213b0c7e332843967224af96ab7c84'
+                    ],
+                    [
+                        '4df9c14919cde61f6d51dfdbe5fee5dceec4143ba8d1ca888e8bd373fd054c96',
+                        '35ec51092d8728050974c23a1d85d4b5d506cdc288490192ebac06cad10d5d'
+                    ],
+                    [
+                        '9c3919a84a474870faed8a9c1cc66021523489054d7f0308cbfc99c8ac1f98cd',
+                        'ddb84f0f4a4ddd57584f044bf260e641905326f76c64c8e6be7e5e03d4fc599d'
+                    ],
+                    [
+                        '6057170b1dd12fdf8de05f281d8e06bb91e1493a8b91d4cc5a21382120a959e5',
+                        '9a1af0b26a6a4807add9a2daf71df262465152bc3ee24c65e899be932385a2a8'
+                    ],
+                    [
+                        'a576df8e23a08411421439a4518da31880cef0fba7d4df12b1a6973eecb94266',
+                        '40a6bf20e76640b2c92b97afe58cd82c432e10a7f514d9f3ee8be11ae1b28ec8'
+                    ],
+                    [
+                        '7778a78c28dec3e30a05fe9629de8c38bb30d1f5cf9a3a208f763889be58ad71',
+                        '34626d9ab5a5b22ff7098e12f2ff580087b38411ff24ac563b513fc1fd9f43ac'
+                    ],
+                    [
+                        '928955ee637a84463729fd30e7afd2ed5f96274e5ad7e5cb09eda9c06d903ac',
+                        'c25621003d3f42a827b78a13093a95eeac3d26efa8a8d83fc5180e935bcd091f'
+                    ],
+                    [
+                        '85d0fef3ec6db109399064f3a0e3b2855645b4a907ad354527aae75163d82751',
+                        '1f03648413a38c0be29d496e582cf5663e8751e96877331582c237a24eb1f962'
+                    ],
+                    [
+                        'ff2b0dce97eece97c1c9b6041798b85dfdfb6d8882da20308f5404824526087e',
+                        '493d13fef524ba188af4c4dc54d07936c7b7ed6fb90e2ceb2c951e01f0c29907'
+                    ],
+                    [
+                        '827fbbe4b1e880ea9ed2b2e6301b212b57f1ee148cd6dd28780e5e2cf856e241',
+                        'c60f9c923c727b0b71bef2c67d1d12687ff7a63186903166d605b68baec293ec'
+                    ],
+                    [
+                        'eaa649f21f51bdbae7be4ae34ce6e5217a58fdce7f47f9aa7f3b58fa2120e2b3',
+                        'be3279ed5bbbb03ac69a80f89879aa5a01a6b965f13f7e59d47a5305ba5ad93d'
+                    ],
+                    [
+                        'e4a42d43c5cf169d9391df6decf42ee541b6d8f0c9a137401e23632dda34d24f',
+                        '4d9f92e716d1c73526fc99ccfb8ad34ce886eedfa8d8e4f13a7f7131deba9414'
+                    ],
+                    [
+                        '1ec80fef360cbdd954160fadab352b6b92b53576a88fea4947173b9d4300bf19',
+                        'aeefe93756b5340d2f3a4958a7abbf5e0146e77f6295a07b671cdc1cc107cefd'
+                    ],
+                    [
+                        '146a778c04670c2f91b00af4680dfa8bce3490717d58ba889ddb5928366642be',
+                        'b318e0ec3354028add669827f9d4b2870aaa971d2f7e5ed1d0b297483d83efd0'
+                    ],
+                    [
+                        'fa50c0f61d22e5f07e3acebb1aa07b128d0012209a28b9776d76a8793180eef9',
+                        '6b84c6922397eba9b72cd2872281a68a5e683293a57a213b38cd8d7d3f4f2811'
+                    ],
+                    [
+                        'da1d61d0ca721a11b1a5bf6b7d88e8421a288ab5d5bba5220e53d32b5f067ec2',
+                        '8157f55a7c99306c79c0766161c91e2966a73899d279b48a655fba0f1ad836f1'
+                    ],
+                    [
+                        'a8e282ff0c9706907215ff98e8fd416615311de0446f1e062a73b0610d064e13',
+                        '7f97355b8db81c09abfb7f3c5b2515888b679a3e50dd6bd6cef7c73111f4cc0c'
+                    ],
+                    [
+                        '174a53b9c9a285872d39e56e6913cab15d59b1fa512508c022f382de8319497c',
+                        'ccc9dc37abfc9c1657b4155f2c47f9e6646b3a1d8cb9854383da13ac079afa73'
+                    ],
+                    [
+                        '959396981943785c3d3e57edf5018cdbe039e730e4918b3d884fdff09475b7ba',
+                        '2e7e552888c331dd8ba0386a4b9cd6849c653f64c8709385e9b8abf87524f2fd'
+                    ],
+                    [
+                        'd2a63a50ae401e56d645a1153b109a8fcca0a43d561fba2dbb51340c9d82b151',
+                        'e82d86fb6443fcb7565aee58b2948220a70f750af484ca52d4142174dcf89405'
+                    ],
+                    [
+                        '64587e2335471eb890ee7896d7cfdc866bacbdbd3839317b3436f9b45617e073',
+                        'd99fcdd5bf6902e2ae96dd6447c299a185b90a39133aeab358299e5e9faf6589'
+                    ],
+                    [
+                        '8481bde0e4e4d885b3a546d3e549de042f0aa6cea250e7fd358d6c86dd45e458',
+                        '38ee7b8cba5404dd84a25bf39cecb2ca900a79c42b262e556d64b1b59779057e'
+                    ],
+                    [
+                        '13464a57a78102aa62b6979ae817f4637ffcfed3c4b1ce30bcd6303f6caf666b',
+                        '69be159004614580ef7e433453ccb0ca48f300a81d0942e13f495a907f6ecc27'
+                    ],
+                    [
+                        'bc4a9df5b713fe2e9aef430bcc1dc97a0cd9ccede2f28588cada3a0d2d83f366',
+                        'd3a81ca6e785c06383937adf4b798caa6e8a9fbfa547b16d758d666581f33c1'
+                    ],
+                    [
+                        '8c28a97bf8298bc0d23d8c749452a32e694b65e30a9472a3954ab30fe5324caa',
+                        '40a30463a3305193378fedf31f7cc0eb7ae784f0451cb9459e71dc73cbef9482'
+                    ],
+                    [
+                        '8ea9666139527a8c1dd94ce4f071fd23c8b350c5a4bb33748c4ba111faccae0',
+                        '620efabbc8ee2782e24e7c0cfb95c5d735b783be9cf0f8e955af34a30e62b945'
+                    ],
+                    [
+                        'dd3625faef5ba06074669716bbd3788d89bdde815959968092f76cc4eb9a9787',
+                        '7a188fa3520e30d461da2501045731ca941461982883395937f68d00c644a573'
+                    ],
+                    [
+                        'f710d79d9eb962297e4f6232b40e8f7feb2bc63814614d692c12de752408221e',
+                        'ea98e67232d3b3295d3b535532115ccac8612c721851617526ae47a9c77bfc82'
+                    ]
                 ]
             },
             naf: {
                 wnd: 7,
                 points: [
-                  [
-                    'f9308a019258c31049344f85f89d5229b531c845836f99b08601f113bce036f9',
-                    '388f7b0f632de8140fe337e62a37f3566500a99934c2231b6cb9fd7584b8e672'
-                  ],
-                  [
-                    '2f8bde4d1a07209355b4a7250a5c5128e88b84bddc619ab7cba8d569b240efe4',
-                    'd8ac222636e5e3d6d4dba9dda6c9c426f788271bab0d6840dca87d3aa6ac62d6'
-                  ],
-                  [
-                    '5cbdf0646e5db4eaa398f365f2ea7a0e3d419b7e0330e39ce92bddedcac4f9bc',
-                    '6aebca40ba255960a3178d6d861a54dba813d0b813fde7b5a5082628087264da'
-                  ],
-                  [
-                    'acd484e2f0c7f65309ad178a9f559abde09796974c57e714c35f110dfc27ccbe',
-                    'cc338921b0a7d9fd64380971763b61e9add888a4375f8e0f05cc262ac64f9c37'
-                  ],
-                  [
-                    '774ae7f858a9411e5ef4246b70c65aac5649980be5c17891bbec17895da008cb',
-                    'd984a032eb6b5e190243dd56d7b7b365372db1e2dff9d6a8301d74c9c953c61b'
-                  ],
-                  [
-                    'f28773c2d975288bc7d1d205c3748651b075fbc6610e58cddeeddf8f19405aa8',
-                    'ab0902e8d880a89758212eb65cdaf473a1a06da521fa91f29b5cb52db03ed81'
-                  ],
-                  [
-                    'd7924d4f7d43ea965a465ae3095ff41131e5946f3c85f79e44adbcf8e27e080e',
-                    '581e2872a86c72a683842ec228cc6defea40af2bd896d3a5c504dc9ff6a26b58'
-                  ],
-                  [
-                    'defdea4cdb677750a420fee807eacf21eb9898ae79b9768766e4faa04a2d4a34',
-                    '4211ab0694635168e997b0ead2a93daeced1f4a04a95c0f6cfb199f69e56eb77'
-                  ],
-                  [
-                    '2b4ea0a797a443d293ef5cff444f4979f06acfebd7e86d277475656138385b6c',
-                    '85e89bc037945d93b343083b5a1c86131a01f60c50269763b570c854e5c09b7a'
-                  ],
-                  [
-                    '352bbf4a4cdd12564f93fa332ce333301d9ad40271f8107181340aef25be59d5',
-                    '321eb4075348f534d59c18259dda3e1f4a1b3b2e71b1039c67bd3d8bcf81998c'
-                  ],
-                  [
-                    '2fa2104d6b38d11b0230010559879124e42ab8dfeff5ff29dc9cdadd4ecacc3f',
-                    '2de1068295dd865b64569335bd5dd80181d70ecfc882648423ba76b532b7d67'
-                  ],
-                  [
-                    '9248279b09b4d68dab21a9b066edda83263c3d84e09572e269ca0cd7f5453714',
-                    '73016f7bf234aade5d1aa71bdea2b1ff3fc0de2a887912ffe54a32ce97cb3402'
-                  ],
-                  [
-                    'daed4f2be3a8bf278e70132fb0beb7522f570e144bf615c07e996d443dee8729',
-                    'a69dce4a7d6c98e8d4a1aca87ef8d7003f83c230f3afa726ab40e52290be1c55'
-                  ],
-                  [
-                    'c44d12c7065d812e8acf28d7cbb19f9011ecd9e9fdf281b0e6a3b5e87d22e7db',
-                    '2119a460ce326cdc76c45926c982fdac0e106e861edf61c5a039063f0e0e6482'
-                  ],
-                  [
-                    '6a245bf6dc698504c89a20cfded60853152b695336c28063b61c65cbd269e6b4',
-                    'e022cf42c2bd4a708b3f5126f16a24ad8b33ba48d0423b6efd5e6348100d8a82'
-                  ],
-                  [
-                    '1697ffa6fd9de627c077e3d2fe541084ce13300b0bec1146f95ae57f0d0bd6a5',
-                    'b9c398f186806f5d27561506e4557433a2cf15009e498ae7adee9d63d01b2396'
-                  ],
-                  [
-                    '605bdb019981718b986d0f07e834cb0d9deb8360ffb7f61df982345ef27a7479',
-                    '2972d2de4f8d20681a78d93ec96fe23c26bfae84fb14db43b01e1e9056b8c49'
-                  ],
-                  [
-                    '62d14dab4150bf497402fdc45a215e10dcb01c354959b10cfe31c7e9d87ff33d',
-                    '80fc06bd8cc5b01098088a1950eed0db01aa132967ab472235f5642483b25eaf'
-                  ],
-                  [
-                    '80c60ad0040f27dade5b4b06c408e56b2c50e9f56b9b8b425e555c2f86308b6f',
-                    '1c38303f1cc5c30f26e66bad7fe72f70a65eed4cbe7024eb1aa01f56430bd57a'
-                  ],
-                  [
-                    '7a9375ad6167ad54aa74c6348cc54d344cc5dc9487d847049d5eabb0fa03c8fb',
-                    'd0e3fa9eca8726909559e0d79269046bdc59ea10c70ce2b02d499ec224dc7f7'
-                  ],
-                  [
-                    'd528ecd9b696b54c907a9ed045447a79bb408ec39b68df504bb51f459bc3ffc9',
-                    'eecf41253136e5f99966f21881fd656ebc4345405c520dbc063465b521409933'
-                  ],
-                  [
-                    '49370a4b5f43412ea25f514e8ecdad05266115e4a7ecb1387231808f8b45963',
-                    '758f3f41afd6ed428b3081b0512fd62a54c3f3afbb5b6764b653052a12949c9a'
-                  ],
-                  [
-                    '77f230936ee88cbbd73df930d64702ef881d811e0e1498e2f1c13eb1fc345d74',
-                    '958ef42a7886b6400a08266e9ba1b37896c95330d97077cbbe8eb3c7671c60d6'
-                  ],
-                  [
-                    'f2dac991cc4ce4b9ea44887e5c7c0bce58c80074ab9d4dbaeb28531b7739f530',
-                    'e0dedc9b3b2f8dad4da1f32dec2531df9eb5fbeb0598e4fd1a117dba703a3c37'
-                  ],
-                  [
-                    '463b3d9f662621fb1b4be8fbbe2520125a216cdfc9dae3debcba4850c690d45b',
-                    '5ed430d78c296c3543114306dd8622d7c622e27c970a1de31cb377b01af7307e'
-                  ],
-                  [
-                    'f16f804244e46e2a09232d4aff3b59976b98fac14328a2d1a32496b49998f247',
-                    'cedabd9b82203f7e13d206fcdf4e33d92a6c53c26e5cce26d6579962c4e31df6'
-                  ],
-                  [
-                    'caf754272dc84563b0352b7a14311af55d245315ace27c65369e15f7151d41d1',
-                    'cb474660ef35f5f2a41b643fa5e460575f4fa9b7962232a5c32f908318a04476'
-                  ],
-                  [
-                    '2600ca4b282cb986f85d0f1709979d8b44a09c07cb86d7c124497bc86f082120',
-                    '4119b88753c15bd6a693b03fcddbb45d5ac6be74ab5f0ef44b0be9475a7e4b40'
-                  ],
-                  [
-                    '7635ca72d7e8432c338ec53cd12220bc01c48685e24f7dc8c602a7746998e435',
-                    '91b649609489d613d1d5e590f78e6d74ecfc061d57048bad9e76f302c5b9c61'
-                  ],
-                  [
-                    '754e3239f325570cdbbf4a87deee8a66b7f2b33479d468fbc1a50743bf56cc18',
-                    '673fb86e5bda30fb3cd0ed304ea49a023ee33d0197a695d0c5d98093c536683'
-                  ],
-                  [
-                    'e3e6bd1071a1e96aff57859c82d570f0330800661d1c952f9fe2694691d9b9e8',
-                    '59c9e0bba394e76f40c0aa58379a3cb6a5a2283993e90c4167002af4920e37f5'
-                  ],
-                  [
-                    '186b483d056a033826ae73d88f732985c4ccb1f32ba35f4b4cc47fdcf04aa6eb',
-                    '3b952d32c67cf77e2e17446e204180ab21fb8090895138b4a4a797f86e80888b'
-                  ],
-                  [
-                    'df9d70a6b9876ce544c98561f4be4f725442e6d2b737d9c91a8321724ce0963f',
-                    '55eb2dafd84d6ccd5f862b785dc39d4ab157222720ef9da217b8c45cf2ba2417'
-                  ],
-                  [
-                    '5edd5cc23c51e87a497ca815d5dce0f8ab52554f849ed8995de64c5f34ce7143',
-                    'efae9c8dbc14130661e8cec030c89ad0c13c66c0d17a2905cdc706ab7399a868'
-                  ],
-                  [
-                    '290798c2b6476830da12fe02287e9e777aa3fba1c355b17a722d362f84614fba',
-                    'e38da76dcd440621988d00bcf79af25d5b29c094db2a23146d003afd41943e7a'
-                  ],
-                  [
-                    'af3c423a95d9f5b3054754efa150ac39cd29552fe360257362dfdecef4053b45',
-                    'f98a3fd831eb2b749a93b0e6f35cfb40c8cd5aa667a15581bc2feded498fd9c6'
-                  ],
-                  [
-                    '766dbb24d134e745cccaa28c99bf274906bb66b26dcf98df8d2fed50d884249a',
-                    '744b1152eacbe5e38dcc887980da38b897584a65fa06cedd2c924f97cbac5996'
-                  ],
-                  [
-                    '59dbf46f8c94759ba21277c33784f41645f7b44f6c596a58ce92e666191abe3e',
-                    'c534ad44175fbc300f4ea6ce648309a042ce739a7919798cd85e216c4a307f6e'
-                  ],
-                  [
-                    'f13ada95103c4537305e691e74e9a4a8dd647e711a95e73cb62dc6018cfd87b8',
-                    'e13817b44ee14de663bf4bc808341f326949e21a6a75c2570778419bdaf5733d'
-                  ],
-                  [
-                    '7754b4fa0e8aced06d4167a2c59cca4cda1869c06ebadfb6488550015a88522c',
-                    '30e93e864e669d82224b967c3020b8fa8d1e4e350b6cbcc537a48b57841163a2'
-                  ],
-                  [
-                    '948dcadf5990e048aa3874d46abef9d701858f95de8041d2a6828c99e2262519',
-                    'e491a42537f6e597d5d28a3224b1bc25df9154efbd2ef1d2cbba2cae5347d57e'
-                  ],
-                  [
-                    '7962414450c76c1689c7b48f8202ec37fb224cf5ac0bfa1570328a8a3d7c77ab',
-                    '100b610ec4ffb4760d5c1fc133ef6f6b12507a051f04ac5760afa5b29db83437'
-                  ],
-                  [
-                    '3514087834964b54b15b160644d915485a16977225b8847bb0dd085137ec47ca',
-                    'ef0afbb2056205448e1652c48e8127fc6039e77c15c2378b7e7d15a0de293311'
-                  ],
-                  [
-                    'd3cc30ad6b483e4bc79ce2c9dd8bc54993e947eb8df787b442943d3f7b527eaf',
-                    '8b378a22d827278d89c5e9be8f9508ae3c2ad46290358630afb34db04eede0a4'
-                  ],
-                  [
-                    '1624d84780732860ce1c78fcbfefe08b2b29823db913f6493975ba0ff4847610',
-                    '68651cf9b6da903e0914448c6cd9d4ca896878f5282be4c8cc06e2a404078575'
-                  ],
-                  [
-                    '733ce80da955a8a26902c95633e62a985192474b5af207da6df7b4fd5fc61cd4',
-                    'f5435a2bd2badf7d485a4d8b8db9fcce3e1ef8e0201e4578c54673bc1dc5ea1d'
-                  ],
-                  [
-                    '15d9441254945064cf1a1c33bbd3b49f8966c5092171e699ef258dfab81c045c',
-                    'd56eb30b69463e7234f5137b73b84177434800bacebfc685fc37bbe9efe4070d'
-                  ],
-                  [
-                    'a1d0fcf2ec9de675b612136e5ce70d271c21417c9d2b8aaaac138599d0717940',
-                    'edd77f50bcb5a3cab2e90737309667f2641462a54070f3d519212d39c197a629'
-                  ],
-                  [
-                    'e22fbe15c0af8ccc5780c0735f84dbe9a790badee8245c06c7ca37331cb36980',
-                    'a855babad5cd60c88b430a69f53a1a7a38289154964799be43d06d77d31da06'
-                  ],
-                  [
-                    '311091dd9860e8e20ee13473c1155f5f69635e394704eaa74009452246cfa9b3',
-                    '66db656f87d1f04fffd1f04788c06830871ec5a64feee685bd80f0b1286d8374'
-                  ],
-                  [
-                    '34c1fd04d301be89b31c0442d3e6ac24883928b45a9340781867d4232ec2dbdf',
-                    '9414685e97b1b5954bd46f730174136d57f1ceeb487443dc5321857ba73abee'
-                  ],
-                  [
-                    'f219ea5d6b54701c1c14de5b557eb42a8d13f3abbcd08affcc2a5e6b049b8d63',
-                    '4cb95957e83d40b0f73af4544cccf6b1f4b08d3c07b27fb8d8c2962a400766d1'
-                  ],
-                  [
-                    'd7b8740f74a8fbaab1f683db8f45de26543a5490bca627087236912469a0b448',
-                    'fa77968128d9c92ee1010f337ad4717eff15db5ed3c049b3411e0315eaa4593b'
-                  ],
-                  [
-                    '32d31c222f8f6f0ef86f7c98d3a3335ead5bcd32abdd94289fe4d3091aa824bf',
-                    '5f3032f5892156e39ccd3d7915b9e1da2e6dac9e6f26e961118d14b8462e1661'
-                  ],
-                  [
-                    '7461f371914ab32671045a155d9831ea8793d77cd59592c4340f86cbc18347b5',
-                    '8ec0ba238b96bec0cbdddcae0aa442542eee1ff50c986ea6b39847b3cc092ff6'
-                  ],
-                  [
-                    'ee079adb1df1860074356a25aa38206a6d716b2c3e67453d287698bad7b2b2d6',
-                    '8dc2412aafe3be5c4c5f37e0ecc5f9f6a446989af04c4e25ebaac479ec1c8c1e'
-                  ],
-                  [
-                    '16ec93e447ec83f0467b18302ee620f7e65de331874c9dc72bfd8616ba9da6b5',
-                    '5e4631150e62fb40d0e8c2a7ca5804a39d58186a50e497139626778e25b0674d'
-                  ],
-                  [
-                    'eaa5f980c245f6f038978290afa70b6bd8855897f98b6aa485b96065d537bd99',
-                    'f65f5d3e292c2e0819a528391c994624d784869d7e6ea67fb18041024edc07dc'
-                  ],
-                  [
-                    '78c9407544ac132692ee1910a02439958ae04877151342ea96c4b6b35a49f51',
-                    'f3e0319169eb9b85d5404795539a5e68fa1fbd583c064d2462b675f194a3ddb4'
-                  ],
-                  [
-                    '494f4be219a1a77016dcd838431aea0001cdc8ae7a6fc688726578d9702857a5',
-                    '42242a969283a5f339ba7f075e36ba2af925ce30d767ed6e55f4b031880d562c'
-                  ],
-                  [
-                    'a598a8030da6d86c6bc7f2f5144ea549d28211ea58faa70ebf4c1e665c1fe9b5',
-                    '204b5d6f84822c307e4b4a7140737aec23fc63b65b35f86a10026dbd2d864e6b'
-                  ],
-                  [
-                    'c41916365abb2b5d09192f5f2dbeafec208f020f12570a184dbadc3e58595997',
-                    '4f14351d0087efa49d245b328984989d5caf9450f34bfc0ed16e96b58fa9913'
-                  ],
-                  [
-                    '841d6063a586fa475a724604da03bc5b92a2e0d2e0a36acfe4c73a5514742881',
-                    '73867f59c0659e81904f9a1c7543698e62562d6744c169ce7a36de01a8d6154'
-                  ],
-                  [
-                    '5e95bb399a6971d376026947f89bde2f282b33810928be4ded112ac4d70e20d5',
-                    '39f23f366809085beebfc71181313775a99c9aed7d8ba38b161384c746012865'
-                  ],
-                  [
-                    '36e4641a53948fd476c39f8a99fd974e5ec07564b5315d8bf99471bca0ef2f66',
-                    'd2424b1b1abe4eb8164227b085c9aa9456ea13493fd563e06fd51cf5694c78fc'
-                  ],
-                  [
-                    '336581ea7bfbbb290c191a2f507a41cf5643842170e914faeab27c2c579f726',
-                    'ead12168595fe1be99252129b6e56b3391f7ab1410cd1e0ef3dcdcabd2fda224'
-                  ],
-                  [
-                    '8ab89816dadfd6b6a1f2634fcf00ec8403781025ed6890c4849742706bd43ede',
-                    '6fdcef09f2f6d0a044e654aef624136f503d459c3e89845858a47a9129cdd24e'
-                  ],
-                  [
-                    '1e33f1a746c9c5778133344d9299fcaa20b0938e8acff2544bb40284b8c5fb94',
-                    '60660257dd11b3aa9c8ed618d24edff2306d320f1d03010e33a7d2057f3b3b6'
-                  ],
-                  [
-                    '85b7c1dcb3cec1b7ee7f30ded79dd20a0ed1f4cc18cbcfcfa410361fd8f08f31',
-                    '3d98a9cdd026dd43f39048f25a8847f4fcafad1895d7a633c6fed3c35e999511'
-                  ],
-                  [
-                    '29df9fbd8d9e46509275f4b125d6d45d7fbe9a3b878a7af872a2800661ac5f51',
-                    'b4c4fe99c775a606e2d8862179139ffda61dc861c019e55cd2876eb2a27d84b'
-                  ],
-                  [
-                    'a0b1cae06b0a847a3fea6e671aaf8adfdfe58ca2f768105c8082b2e449fce252',
-                    'ae434102edde0958ec4b19d917a6a28e6b72da1834aff0e650f049503a296cf2'
-                  ],
-                  [
-                    '4e8ceafb9b3e9a136dc7ff67e840295b499dfb3b2133e4ba113f2e4c0e121e5',
-                    'cf2174118c8b6d7a4b48f6d534ce5c79422c086a63460502b827ce62a326683c'
-                  ],
-                  [
-                    'd24a44e047e19b6f5afb81c7ca2f69080a5076689a010919f42725c2b789a33b',
-                    '6fb8d5591b466f8fc63db50f1c0f1c69013f996887b8244d2cdec417afea8fa3'
-                  ],
-                  [
-                    'ea01606a7a6c9cdd249fdfcfacb99584001edd28abbab77b5104e98e8e3b35d4',
-                    '322af4908c7312b0cfbfe369f7a7b3cdb7d4494bc2823700cfd652188a3ea98d'
-                  ],
-                  [
-                    'af8addbf2b661c8a6c6328655eb96651252007d8c5ea31be4ad196de8ce2131f',
-                    '6749e67c029b85f52a034eafd096836b2520818680e26ac8f3dfbcdb71749700'
-                  ],
-                  [
-                    'e3ae1974566ca06cc516d47e0fb165a674a3dabcfca15e722f0e3450f45889',
-                    '2aeabe7e4531510116217f07bf4d07300de97e4874f81f533420a72eeb0bd6a4'
-                  ],
-                  [
-                    '591ee355313d99721cf6993ffed1e3e301993ff3ed258802075ea8ced397e246',
-                    'b0ea558a113c30bea60fc4775460c7901ff0b053d25ca2bdeee98f1a4be5d196'
-                  ],
-                  [
-                    '11396d55fda54c49f19aa97318d8da61fa8584e47b084945077cf03255b52984',
-                    '998c74a8cd45ac01289d5833a7beb4744ff536b01b257be4c5767bea93ea57a4'
-                  ],
-                  [
-                    '3c5d2a1ba39c5a1790000738c9e0c40b8dcdfd5468754b6405540157e017aa7a',
-                    'b2284279995a34e2f9d4de7396fc18b80f9b8b9fdd270f6661f79ca4c81bd257'
-                  ],
-                  [
-                    'cc8704b8a60a0defa3a99a7299f2e9c3fbc395afb04ac078425ef8a1793cc030',
-                    'bdd46039feed17881d1e0862db347f8cf395b74fc4bcdc4e940b74e3ac1f1b13'
-                  ],
-                  [
-                    'c533e4f7ea8555aacd9777ac5cad29b97dd4defccc53ee7ea204119b2889b197',
-                    '6f0a256bc5efdf429a2fb6242f1a43a2d9b925bb4a4b3a26bb8e0f45eb596096'
-                  ],
-                  [
-                    'c14f8f2ccb27d6f109f6d08d03cc96a69ba8c34eec07bbcf566d48e33da6593',
-                    'c359d6923bb398f7fd4473e16fe1c28475b740dd098075e6c0e8649113dc3a38'
-                  ],
-                  [
-                    'a6cbc3046bc6a450bac24789fa17115a4c9739ed75f8f21ce441f72e0b90e6ef',
-                    '21ae7f4680e889bb130619e2c0f95a360ceb573c70603139862afd617fa9b9f'
-                  ],
-                  [
-                    '347d6d9a02c48927ebfb86c1359b1caf130a3c0267d11ce6344b39f99d43cc38',
-                    '60ea7f61a353524d1c987f6ecec92f086d565ab687870cb12689ff1e31c74448'
-                  ],
-                  [
-                    'da6545d2181db8d983f7dcb375ef5866d47c67b1bf31c8cf855ef7437b72656a',
-                    '49b96715ab6878a79e78f07ce5680c5d6673051b4935bd897fea824b77dc208a'
-                  ],
-                  [
-                    'c40747cc9d012cb1a13b8148309c6de7ec25d6945d657146b9d5994b8feb1111',
-                    '5ca560753be2a12fc6de6caf2cb489565db936156b9514e1bb5e83037e0fa2d4'
-                  ],
-                  [
-                    '4e42c8ec82c99798ccf3a610be870e78338c7f713348bd34c8203ef4037f3502',
-                    '7571d74ee5e0fb92a7a8b33a07783341a5492144cc54bcc40a94473693606437'
-                  ],
-                  [
-                    '3775ab7089bc6af823aba2e1af70b236d251cadb0c86743287522a1b3b0dedea',
-                    'be52d107bcfa09d8bcb9736a828cfa7fac8db17bf7a76a2c42ad961409018cf7'
-                  ],
-                  [
-                    'cee31cbf7e34ec379d94fb814d3d775ad954595d1314ba8846959e3e82f74e26',
-                    '8fd64a14c06b589c26b947ae2bcf6bfa0149ef0be14ed4d80f448a01c43b1c6d'
-                  ],
-                  [
-                    'b4f9eaea09b6917619f6ea6a4eb5464efddb58fd45b1ebefcdc1a01d08b47986',
-                    '39e5c9925b5a54b07433a4f18c61726f8bb131c012ca542eb24a8ac07200682a'
-                  ],
-                  [
-                    'd4263dfc3d2df923a0179a48966d30ce84e2515afc3dccc1b77907792ebcc60e',
-                    '62dfaf07a0f78feb30e30d6295853ce189e127760ad6cf7fae164e122a208d54'
-                  ],
-                  [
-                    '48457524820fa65a4f8d35eb6930857c0032acc0a4a2de422233eeda897612c4',
-                    '25a748ab367979d98733c38a1fa1c2e7dc6cc07db2d60a9ae7a76aaa49bd0f77'
-                  ],
-                  [
-                    'dfeeef1881101f2cb11644f3a2afdfc2045e19919152923f367a1767c11cceda',
-                    'ecfb7056cf1de042f9420bab396793c0c390bde74b4bbdff16a83ae09a9a7517'
-                  ],
-                  [
-                    '6d7ef6b17543f8373c573f44e1f389835d89bcbc6062ced36c82df83b8fae859',
-                    'cd450ec335438986dfefa10c57fea9bcc521a0959b2d80bbf74b190dca712d10'
-                  ],
-                  [
-                    'e75605d59102a5a2684500d3b991f2e3f3c88b93225547035af25af66e04541f',
-                    'f5c54754a8f71ee540b9b48728473e314f729ac5308b06938360990e2bfad125'
-                  ],
-                  [
-                    'eb98660f4c4dfaa06a2be453d5020bc99a0c2e60abe388457dd43fefb1ed620c',
-                    '6cb9a8876d9cb8520609af3add26cd20a0a7cd8a9411131ce85f44100099223e'
-                  ],
-                  [
-                    '13e87b027d8514d35939f2e6892b19922154596941888336dc3563e3b8dba942',
-                    'fef5a3c68059a6dec5d624114bf1e91aac2b9da568d6abeb2570d55646b8adf1'
-                  ],
-                  [
-                    'ee163026e9fd6fe017c38f06a5be6fc125424b371ce2708e7bf4491691e5764a',
-                    '1acb250f255dd61c43d94ccc670d0f58f49ae3fa15b96623e5430da0ad6c62b2'
-                  ],
-                  [
-                    'b268f5ef9ad51e4d78de3a750c2dc89b1e626d43505867999932e5db33af3d80',
-                    '5f310d4b3c99b9ebb19f77d41c1dee018cf0d34fd4191614003e945a1216e423'
-                  ],
-                  [
-                    'ff07f3118a9df035e9fad85eb6c7bfe42b02f01ca99ceea3bf7ffdba93c4750d',
-                    '438136d603e858a3a5c440c38eccbaddc1d2942114e2eddd4740d098ced1f0d8'
-                  ],
-                  [
-                    '8d8b9855c7c052a34146fd20ffb658bea4b9f69e0d825ebec16e8c3ce2b526a1',
-                    'cdb559eedc2d79f926baf44fb84ea4d44bcf50fee51d7ceb30e2e7f463036758'
-                  ],
-                  [
-                    '52db0b5384dfbf05bfa9d472d7ae26dfe4b851ceca91b1eba54263180da32b63',
-                    'c3b997d050ee5d423ebaf66a6db9f57b3180c902875679de924b69d84a7b375'
-                  ],
-                  [
-                    'e62f9490d3d51da6395efd24e80919cc7d0f29c3f3fa48c6fff543becbd43352',
-                    '6d89ad7ba4876b0b22c2ca280c682862f342c8591f1daf5170e07bfd9ccafa7d'
-                  ],
-                  [
-                    '7f30ea2476b399b4957509c88f77d0191afa2ff5cb7b14fd6d8e7d65aaab1193',
-                    'ca5ef7d4b231c94c3b15389a5f6311e9daff7bb67b103e9880ef4bff637acaec'
-                  ],
-                  [
-                    '5098ff1e1d9f14fb46a210fada6c903fef0fb7b4a1dd1d9ac60a0361800b7a00',
-                    '9731141d81fc8f8084d37c6e7542006b3ee1b40d60dfe5362a5b132fd17ddc0'
-                  ],
-                  [
-                    '32b78c7de9ee512a72895be6b9cbefa6e2f3c4ccce445c96b9f2c81e2778ad58',
-                    'ee1849f513df71e32efc3896ee28260c73bb80547ae2275ba497237794c8753c'
-                  ],
-                  [
-                    'e2cb74fddc8e9fbcd076eef2a7c72b0ce37d50f08269dfc074b581550547a4f7',
-                    'd3aa2ed71c9dd2247a62df062736eb0baddea9e36122d2be8641abcb005cc4a4'
-                  ],
-                  [
-                    '8438447566d4d7bedadc299496ab357426009a35f235cb141be0d99cd10ae3a8',
-                    'c4e1020916980a4da5d01ac5e6ad330734ef0d7906631c4f2390426b2edd791f'
-                  ],
-                  [
-                    '4162d488b89402039b584c6fc6c308870587d9c46f660b878ab65c82c711d67e',
-                    '67163e903236289f776f22c25fb8a3afc1732f2b84b4e95dbda47ae5a0852649'
-                  ],
-                  [
-                    '3fad3fa84caf0f34f0f89bfd2dcf54fc175d767aec3e50684f3ba4a4bf5f683d',
-                    'cd1bc7cb6cc407bb2f0ca647c718a730cf71872e7d0d2a53fa20efcdfe61826'
-                  ],
-                  [
-                    '674f2600a3007a00568c1a7ce05d0816c1fb84bf1370798f1c69532faeb1a86b',
-                    '299d21f9413f33b3edf43b257004580b70db57da0b182259e09eecc69e0d38a5'
-                  ],
-                  [
-                    'd32f4da54ade74abb81b815ad1fb3b263d82d6c692714bcff87d29bd5ee9f08f',
-                    'f9429e738b8e53b968e99016c059707782e14f4535359d582fc416910b3eea87'
-                  ],
-                  [
-                    '30e4e670435385556e593657135845d36fbb6931f72b08cb1ed954f1e3ce3ff6',
-                    '462f9bce619898638499350113bbc9b10a878d35da70740dc695a559eb88db7b'
-                  ],
-                  [
-                    'be2062003c51cc3004682904330e4dee7f3dcd10b01e580bf1971b04d4cad297',
-                    '62188bc49d61e5428573d48a74e1c655b1c61090905682a0d5558ed72dccb9bc'
-                  ],
-                  [
-                    '93144423ace3451ed29e0fb9ac2af211cb6e84a601df5993c419859fff5df04a',
-                    '7c10dfb164c3425f5c71a3f9d7992038f1065224f72bb9d1d902a6d13037b47c'
-                  ],
-                  [
-                    'b015f8044f5fcbdcf21ca26d6c34fb8197829205c7b7d2a7cb66418c157b112c',
-                    'ab8c1e086d04e813744a655b2df8d5f83b3cdc6faa3088c1d3aea1454e3a1d5f'
-                  ],
-                  [
-                    'd5e9e1da649d97d89e4868117a465a3a4f8a18de57a140d36b3f2af341a21b52',
-                    '4cb04437f391ed73111a13cc1d4dd0db1693465c2240480d8955e8592f27447a'
-                  ],
-                  [
-                    'd3ae41047dd7ca065dbf8ed77b992439983005cd72e16d6f996a5316d36966bb',
-                    'bd1aeb21ad22ebb22a10f0303417c6d964f8cdd7df0aca614b10dc14d125ac46'
-                  ],
-                  [
-                    '463e2763d885f958fc66cdd22800f0a487197d0a82e377b49f80af87c897b065',
-                    'bfefacdb0e5d0fd7df3a311a94de062b26b80c61fbc97508b79992671ef7ca7f'
-                  ],
-                  [
-                    '7985fdfd127c0567c6f53ec1bb63ec3158e597c40bfe747c83cddfc910641917',
-                    '603c12daf3d9862ef2b25fe1de289aed24ed291e0ec6708703a5bd567f32ed03'
-                  ],
-                  [
-                    '74a1ad6b5f76e39db2dd249410eac7f99e74c59cb83d2d0ed5ff1543da7703e9',
-                    'cc6157ef18c9c63cd6193d83631bbea0093e0968942e8c33d5737fd790e0db08'
-                  ],
-                  [
-                    '30682a50703375f602d416664ba19b7fc9bab42c72747463a71d0896b22f6da3',
-                    '553e04f6b018b4fa6c8f39e7f311d3176290d0e0f19ca73f17714d9977a22ff8'
-                  ],
-                  [
-                    '9e2158f0d7c0d5f26c3791efefa79597654e7a2b2464f52b1ee6c1347769ef57',
-                    '712fcdd1b9053f09003a3481fa7762e9ffd7c8ef35a38509e2fbf2629008373'
-                  ],
-                  [
-                    '176e26989a43c9cfeba4029c202538c28172e566e3c4fce7322857f3be327d66',
-                    'ed8cc9d04b29eb877d270b4878dc43c19aefd31f4eee09ee7b47834c1fa4b1c3'
-                  ],
-                  [
-                    '75d46efea3771e6e68abb89a13ad747ecf1892393dfc4f1b7004788c50374da8',
-                    '9852390a99507679fd0b86fd2b39a868d7efc22151346e1a3ca4726586a6bed8'
-                  ],
-                  [
-                    '809a20c67d64900ffb698c4c825f6d5f2310fb0451c869345b7319f645605721',
-                    '9e994980d9917e22b76b061927fa04143d096ccc54963e6a5ebfa5f3f8e286c1'
-                  ],
-                  [
-                    '1b38903a43f7f114ed4500b4eac7083fdefece1cf29c63528d563446f972c180',
-                    '4036edc931a60ae889353f77fd53de4a2708b26b6f5da72ad3394119daf408f9'
-                  ]
+                    [
+                        'f9308a019258c31049344f85f89d5229b531c845836f99b08601f113bce036f9',
+                        '388f7b0f632de8140fe337e62a37f3566500a99934c2231b6cb9fd7584b8e672'
+                    ],
+                    [
+                        '2f8bde4d1a07209355b4a7250a5c5128e88b84bddc619ab7cba8d569b240efe4',
+                        'd8ac222636e5e3d6d4dba9dda6c9c426f788271bab0d6840dca87d3aa6ac62d6'
+                    ],
+                    [
+                        '5cbdf0646e5db4eaa398f365f2ea7a0e3d419b7e0330e39ce92bddedcac4f9bc',
+                        '6aebca40ba255960a3178d6d861a54dba813d0b813fde7b5a5082628087264da'
+                    ],
+                    [
+                        'acd484e2f0c7f65309ad178a9f559abde09796974c57e714c35f110dfc27ccbe',
+                        'cc338921b0a7d9fd64380971763b61e9add888a4375f8e0f05cc262ac64f9c37'
+                    ],
+                    [
+                        '774ae7f858a9411e5ef4246b70c65aac5649980be5c17891bbec17895da008cb',
+                        'd984a032eb6b5e190243dd56d7b7b365372db1e2dff9d6a8301d74c9c953c61b'
+                    ],
+                    [
+                        'f28773c2d975288bc7d1d205c3748651b075fbc6610e58cddeeddf8f19405aa8',
+                        'ab0902e8d880a89758212eb65cdaf473a1a06da521fa91f29b5cb52db03ed81'
+                    ],
+                    [
+                        'd7924d4f7d43ea965a465ae3095ff41131e5946f3c85f79e44adbcf8e27e080e',
+                        '581e2872a86c72a683842ec228cc6defea40af2bd896d3a5c504dc9ff6a26b58'
+                    ],
+                    [
+                        'defdea4cdb677750a420fee807eacf21eb9898ae79b9768766e4faa04a2d4a34',
+                        '4211ab0694635168e997b0ead2a93daeced1f4a04a95c0f6cfb199f69e56eb77'
+                    ],
+                    [
+                        '2b4ea0a797a443d293ef5cff444f4979f06acfebd7e86d277475656138385b6c',
+                        '85e89bc037945d93b343083b5a1c86131a01f60c50269763b570c854e5c09b7a'
+                    ],
+                    [
+                        '352bbf4a4cdd12564f93fa332ce333301d9ad40271f8107181340aef25be59d5',
+                        '321eb4075348f534d59c18259dda3e1f4a1b3b2e71b1039c67bd3d8bcf81998c'
+                    ],
+                    [
+                        '2fa2104d6b38d11b0230010559879124e42ab8dfeff5ff29dc9cdadd4ecacc3f',
+                        '2de1068295dd865b64569335bd5dd80181d70ecfc882648423ba76b532b7d67'
+                    ],
+                    [
+                        '9248279b09b4d68dab21a9b066edda83263c3d84e09572e269ca0cd7f5453714',
+                        '73016f7bf234aade5d1aa71bdea2b1ff3fc0de2a887912ffe54a32ce97cb3402'
+                    ],
+                    [
+                        'daed4f2be3a8bf278e70132fb0beb7522f570e144bf615c07e996d443dee8729',
+                        'a69dce4a7d6c98e8d4a1aca87ef8d7003f83c230f3afa726ab40e52290be1c55'
+                    ],
+                    [
+                        'c44d12c7065d812e8acf28d7cbb19f9011ecd9e9fdf281b0e6a3b5e87d22e7db',
+                        '2119a460ce326cdc76c45926c982fdac0e106e861edf61c5a039063f0e0e6482'
+                    ],
+                    [
+                        '6a245bf6dc698504c89a20cfded60853152b695336c28063b61c65cbd269e6b4',
+                        'e022cf42c2bd4a708b3f5126f16a24ad8b33ba48d0423b6efd5e6348100d8a82'
+                    ],
+                    [
+                        '1697ffa6fd9de627c077e3d2fe541084ce13300b0bec1146f95ae57f0d0bd6a5',
+                        'b9c398f186806f5d27561506e4557433a2cf15009e498ae7adee9d63d01b2396'
+                    ],
+                    [
+                        '605bdb019981718b986d0f07e834cb0d9deb8360ffb7f61df982345ef27a7479',
+                        '2972d2de4f8d20681a78d93ec96fe23c26bfae84fb14db43b01e1e9056b8c49'
+                    ],
+                    [
+                        '62d14dab4150bf497402fdc45a215e10dcb01c354959b10cfe31c7e9d87ff33d',
+                        '80fc06bd8cc5b01098088a1950eed0db01aa132967ab472235f5642483b25eaf'
+                    ],
+                    [
+                        '80c60ad0040f27dade5b4b06c408e56b2c50e9f56b9b8b425e555c2f86308b6f',
+                        '1c38303f1cc5c30f26e66bad7fe72f70a65eed4cbe7024eb1aa01f56430bd57a'
+                    ],
+                    [
+                        '7a9375ad6167ad54aa74c6348cc54d344cc5dc9487d847049d5eabb0fa03c8fb',
+                        'd0e3fa9eca8726909559e0d79269046bdc59ea10c70ce2b02d499ec224dc7f7'
+                    ],
+                    [
+                        'd528ecd9b696b54c907a9ed045447a79bb408ec39b68df504bb51f459bc3ffc9',
+                        'eecf41253136e5f99966f21881fd656ebc4345405c520dbc063465b521409933'
+                    ],
+                    [
+                        '49370a4b5f43412ea25f514e8ecdad05266115e4a7ecb1387231808f8b45963',
+                        '758f3f41afd6ed428b3081b0512fd62a54c3f3afbb5b6764b653052a12949c9a'
+                    ],
+                    [
+                        '77f230936ee88cbbd73df930d64702ef881d811e0e1498e2f1c13eb1fc345d74',
+                        '958ef42a7886b6400a08266e9ba1b37896c95330d97077cbbe8eb3c7671c60d6'
+                    ],
+                    [
+                        'f2dac991cc4ce4b9ea44887e5c7c0bce58c80074ab9d4dbaeb28531b7739f530',
+                        'e0dedc9b3b2f8dad4da1f32dec2531df9eb5fbeb0598e4fd1a117dba703a3c37'
+                    ],
+                    [
+                        '463b3d9f662621fb1b4be8fbbe2520125a216cdfc9dae3debcba4850c690d45b',
+                        '5ed430d78c296c3543114306dd8622d7c622e27c970a1de31cb377b01af7307e'
+                    ],
+                    [
+                        'f16f804244e46e2a09232d4aff3b59976b98fac14328a2d1a32496b49998f247',
+                        'cedabd9b82203f7e13d206fcdf4e33d92a6c53c26e5cce26d6579962c4e31df6'
+                    ],
+                    [
+                        'caf754272dc84563b0352b7a14311af55d245315ace27c65369e15f7151d41d1',
+                        'cb474660ef35f5f2a41b643fa5e460575f4fa9b7962232a5c32f908318a04476'
+                    ],
+                    [
+                        '2600ca4b282cb986f85d0f1709979d8b44a09c07cb86d7c124497bc86f082120',
+                        '4119b88753c15bd6a693b03fcddbb45d5ac6be74ab5f0ef44b0be9475a7e4b40'
+                    ],
+                    [
+                        '7635ca72d7e8432c338ec53cd12220bc01c48685e24f7dc8c602a7746998e435',
+                        '91b649609489d613d1d5e590f78e6d74ecfc061d57048bad9e76f302c5b9c61'
+                    ],
+                    [
+                        '754e3239f325570cdbbf4a87deee8a66b7f2b33479d468fbc1a50743bf56cc18',
+                        '673fb86e5bda30fb3cd0ed304ea49a023ee33d0197a695d0c5d98093c536683'
+                    ],
+                    [
+                        'e3e6bd1071a1e96aff57859c82d570f0330800661d1c952f9fe2694691d9b9e8',
+                        '59c9e0bba394e76f40c0aa58379a3cb6a5a2283993e90c4167002af4920e37f5'
+                    ],
+                    [
+                        '186b483d056a033826ae73d88f732985c4ccb1f32ba35f4b4cc47fdcf04aa6eb',
+                        '3b952d32c67cf77e2e17446e204180ab21fb8090895138b4a4a797f86e80888b'
+                    ],
+                    [
+                        'df9d70a6b9876ce544c98561f4be4f725442e6d2b737d9c91a8321724ce0963f',
+                        '55eb2dafd84d6ccd5f862b785dc39d4ab157222720ef9da217b8c45cf2ba2417'
+                    ],
+                    [
+                        '5edd5cc23c51e87a497ca815d5dce0f8ab52554f849ed8995de64c5f34ce7143',
+                        'efae9c8dbc14130661e8cec030c89ad0c13c66c0d17a2905cdc706ab7399a868'
+                    ],
+                    [
+                        '290798c2b6476830da12fe02287e9e777aa3fba1c355b17a722d362f84614fba',
+                        'e38da76dcd440621988d00bcf79af25d5b29c094db2a23146d003afd41943e7a'
+                    ],
+                    [
+                        'af3c423a95d9f5b3054754efa150ac39cd29552fe360257362dfdecef4053b45',
+                        'f98a3fd831eb2b749a93b0e6f35cfb40c8cd5aa667a15581bc2feded498fd9c6'
+                    ],
+                    [
+                        '766dbb24d134e745cccaa28c99bf274906bb66b26dcf98df8d2fed50d884249a',
+                        '744b1152eacbe5e38dcc887980da38b897584a65fa06cedd2c924f97cbac5996'
+                    ],
+                    [
+                        '59dbf46f8c94759ba21277c33784f41645f7b44f6c596a58ce92e666191abe3e',
+                        'c534ad44175fbc300f4ea6ce648309a042ce739a7919798cd85e216c4a307f6e'
+                    ],
+                    [
+                        'f13ada95103c4537305e691e74e9a4a8dd647e711a95e73cb62dc6018cfd87b8',
+                        'e13817b44ee14de663bf4bc808341f326949e21a6a75c2570778419bdaf5733d'
+                    ],
+                    [
+                        '7754b4fa0e8aced06d4167a2c59cca4cda1869c06ebadfb6488550015a88522c',
+                        '30e93e864e669d82224b967c3020b8fa8d1e4e350b6cbcc537a48b57841163a2'
+                    ],
+                    [
+                        '948dcadf5990e048aa3874d46abef9d701858f95de8041d2a6828c99e2262519',
+                        'e491a42537f6e597d5d28a3224b1bc25df9154efbd2ef1d2cbba2cae5347d57e'
+                    ],
+                    [
+                        '7962414450c76c1689c7b48f8202ec37fb224cf5ac0bfa1570328a8a3d7c77ab',
+                        '100b610ec4ffb4760d5c1fc133ef6f6b12507a051f04ac5760afa5b29db83437'
+                    ],
+                    [
+                        '3514087834964b54b15b160644d915485a16977225b8847bb0dd085137ec47ca',
+                        'ef0afbb2056205448e1652c48e8127fc6039e77c15c2378b7e7d15a0de293311'
+                    ],
+                    [
+                        'd3cc30ad6b483e4bc79ce2c9dd8bc54993e947eb8df787b442943d3f7b527eaf',
+                        '8b378a22d827278d89c5e9be8f9508ae3c2ad46290358630afb34db04eede0a4'
+                    ],
+                    [
+                        '1624d84780732860ce1c78fcbfefe08b2b29823db913f6493975ba0ff4847610',
+                        '68651cf9b6da903e0914448c6cd9d4ca896878f5282be4c8cc06e2a404078575'
+                    ],
+                    [
+                        '733ce80da955a8a26902c95633e62a985192474b5af207da6df7b4fd5fc61cd4',
+                        'f5435a2bd2badf7d485a4d8b8db9fcce3e1ef8e0201e4578c54673bc1dc5ea1d'
+                    ],
+                    [
+                        '15d9441254945064cf1a1c33bbd3b49f8966c5092171e699ef258dfab81c045c',
+                        'd56eb30b69463e7234f5137b73b84177434800bacebfc685fc37bbe9efe4070d'
+                    ],
+                    [
+                        'a1d0fcf2ec9de675b612136e5ce70d271c21417c9d2b8aaaac138599d0717940',
+                        'edd77f50bcb5a3cab2e90737309667f2641462a54070f3d519212d39c197a629'
+                    ],
+                    [
+                        'e22fbe15c0af8ccc5780c0735f84dbe9a790badee8245c06c7ca37331cb36980',
+                        'a855babad5cd60c88b430a69f53a1a7a38289154964799be43d06d77d31da06'
+                    ],
+                    [
+                        '311091dd9860e8e20ee13473c1155f5f69635e394704eaa74009452246cfa9b3',
+                        '66db656f87d1f04fffd1f04788c06830871ec5a64feee685bd80f0b1286d8374'
+                    ],
+                    [
+                        '34c1fd04d301be89b31c0442d3e6ac24883928b45a9340781867d4232ec2dbdf',
+                        '9414685e97b1b5954bd46f730174136d57f1ceeb487443dc5321857ba73abee'
+                    ],
+                    [
+                        'f219ea5d6b54701c1c14de5b557eb42a8d13f3abbcd08affcc2a5e6b049b8d63',
+                        '4cb95957e83d40b0f73af4544cccf6b1f4b08d3c07b27fb8d8c2962a400766d1'
+                    ],
+                    [
+                        'd7b8740f74a8fbaab1f683db8f45de26543a5490bca627087236912469a0b448',
+                        'fa77968128d9c92ee1010f337ad4717eff15db5ed3c049b3411e0315eaa4593b'
+                    ],
+                    [
+                        '32d31c222f8f6f0ef86f7c98d3a3335ead5bcd32abdd94289fe4d3091aa824bf',
+                        '5f3032f5892156e39ccd3d7915b9e1da2e6dac9e6f26e961118d14b8462e1661'
+                    ],
+                    [
+                        '7461f371914ab32671045a155d9831ea8793d77cd59592c4340f86cbc18347b5',
+                        '8ec0ba238b96bec0cbdddcae0aa442542eee1ff50c986ea6b39847b3cc092ff6'
+                    ],
+                    [
+                        'ee079adb1df1860074356a25aa38206a6d716b2c3e67453d287698bad7b2b2d6',
+                        '8dc2412aafe3be5c4c5f37e0ecc5f9f6a446989af04c4e25ebaac479ec1c8c1e'
+                    ],
+                    [
+                        '16ec93e447ec83f0467b18302ee620f7e65de331874c9dc72bfd8616ba9da6b5',
+                        '5e4631150e62fb40d0e8c2a7ca5804a39d58186a50e497139626778e25b0674d'
+                    ],
+                    [
+                        'eaa5f980c245f6f038978290afa70b6bd8855897f98b6aa485b96065d537bd99',
+                        'f65f5d3e292c2e0819a528391c994624d784869d7e6ea67fb18041024edc07dc'
+                    ],
+                    [
+                        '78c9407544ac132692ee1910a02439958ae04877151342ea96c4b6b35a49f51',
+                        'f3e0319169eb9b85d5404795539a5e68fa1fbd583c064d2462b675f194a3ddb4'
+                    ],
+                    [
+                        '494f4be219a1a77016dcd838431aea0001cdc8ae7a6fc688726578d9702857a5',
+                        '42242a969283a5f339ba7f075e36ba2af925ce30d767ed6e55f4b031880d562c'
+                    ],
+                    [
+                        'a598a8030da6d86c6bc7f2f5144ea549d28211ea58faa70ebf4c1e665c1fe9b5',
+                        '204b5d6f84822c307e4b4a7140737aec23fc63b65b35f86a10026dbd2d864e6b'
+                    ],
+                    [
+                        'c41916365abb2b5d09192f5f2dbeafec208f020f12570a184dbadc3e58595997',
+                        '4f14351d0087efa49d245b328984989d5caf9450f34bfc0ed16e96b58fa9913'
+                    ],
+                    [
+                        '841d6063a586fa475a724604da03bc5b92a2e0d2e0a36acfe4c73a5514742881',
+                        '73867f59c0659e81904f9a1c7543698e62562d6744c169ce7a36de01a8d6154'
+                    ],
+                    [
+                        '5e95bb399a6971d376026947f89bde2f282b33810928be4ded112ac4d70e20d5',
+                        '39f23f366809085beebfc71181313775a99c9aed7d8ba38b161384c746012865'
+                    ],
+                    [
+                        '36e4641a53948fd476c39f8a99fd974e5ec07564b5315d8bf99471bca0ef2f66',
+                        'd2424b1b1abe4eb8164227b085c9aa9456ea13493fd563e06fd51cf5694c78fc'
+                    ],
+                    [
+                        '336581ea7bfbbb290c191a2f507a41cf5643842170e914faeab27c2c579f726',
+                        'ead12168595fe1be99252129b6e56b3391f7ab1410cd1e0ef3dcdcabd2fda224'
+                    ],
+                    [
+                        '8ab89816dadfd6b6a1f2634fcf00ec8403781025ed6890c4849742706bd43ede',
+                        '6fdcef09f2f6d0a044e654aef624136f503d459c3e89845858a47a9129cdd24e'
+                    ],
+                    [
+                        '1e33f1a746c9c5778133344d9299fcaa20b0938e8acff2544bb40284b8c5fb94',
+                        '60660257dd11b3aa9c8ed618d24edff2306d320f1d03010e33a7d2057f3b3b6'
+                    ],
+                    [
+                        '85b7c1dcb3cec1b7ee7f30ded79dd20a0ed1f4cc18cbcfcfa410361fd8f08f31',
+                        '3d98a9cdd026dd43f39048f25a8847f4fcafad1895d7a633c6fed3c35e999511'
+                    ],
+                    [
+                        '29df9fbd8d9e46509275f4b125d6d45d7fbe9a3b878a7af872a2800661ac5f51',
+                        'b4c4fe99c775a606e2d8862179139ffda61dc861c019e55cd2876eb2a27d84b'
+                    ],
+                    [
+                        'a0b1cae06b0a847a3fea6e671aaf8adfdfe58ca2f768105c8082b2e449fce252',
+                        'ae434102edde0958ec4b19d917a6a28e6b72da1834aff0e650f049503a296cf2'
+                    ],
+                    [
+                        '4e8ceafb9b3e9a136dc7ff67e840295b499dfb3b2133e4ba113f2e4c0e121e5',
+                        'cf2174118c8b6d7a4b48f6d534ce5c79422c086a63460502b827ce62a326683c'
+                    ],
+                    [
+                        'd24a44e047e19b6f5afb81c7ca2f69080a5076689a010919f42725c2b789a33b',
+                        '6fb8d5591b466f8fc63db50f1c0f1c69013f996887b8244d2cdec417afea8fa3'
+                    ],
+                    [
+                        'ea01606a7a6c9cdd249fdfcfacb99584001edd28abbab77b5104e98e8e3b35d4',
+                        '322af4908c7312b0cfbfe369f7a7b3cdb7d4494bc2823700cfd652188a3ea98d'
+                    ],
+                    [
+                        'af8addbf2b661c8a6c6328655eb96651252007d8c5ea31be4ad196de8ce2131f',
+                        '6749e67c029b85f52a034eafd096836b2520818680e26ac8f3dfbcdb71749700'
+                    ],
+                    [
+                        'e3ae1974566ca06cc516d47e0fb165a674a3dabcfca15e722f0e3450f45889',
+                        '2aeabe7e4531510116217f07bf4d07300de97e4874f81f533420a72eeb0bd6a4'
+                    ],
+                    [
+                        '591ee355313d99721cf6993ffed1e3e301993ff3ed258802075ea8ced397e246',
+                        'b0ea558a113c30bea60fc4775460c7901ff0b053d25ca2bdeee98f1a4be5d196'
+                    ],
+                    [
+                        '11396d55fda54c49f19aa97318d8da61fa8584e47b084945077cf03255b52984',
+                        '998c74a8cd45ac01289d5833a7beb4744ff536b01b257be4c5767bea93ea57a4'
+                    ],
+                    [
+                        '3c5d2a1ba39c5a1790000738c9e0c40b8dcdfd5468754b6405540157e017aa7a',
+                        'b2284279995a34e2f9d4de7396fc18b80f9b8b9fdd270f6661f79ca4c81bd257'
+                    ],
+                    [
+                        'cc8704b8a60a0defa3a99a7299f2e9c3fbc395afb04ac078425ef8a1793cc030',
+                        'bdd46039feed17881d1e0862db347f8cf395b74fc4bcdc4e940b74e3ac1f1b13'
+                    ],
+                    [
+                        'c533e4f7ea8555aacd9777ac5cad29b97dd4defccc53ee7ea204119b2889b197',
+                        '6f0a256bc5efdf429a2fb6242f1a43a2d9b925bb4a4b3a26bb8e0f45eb596096'
+                    ],
+                    [
+                        'c14f8f2ccb27d6f109f6d08d03cc96a69ba8c34eec07bbcf566d48e33da6593',
+                        'c359d6923bb398f7fd4473e16fe1c28475b740dd098075e6c0e8649113dc3a38'
+                    ],
+                    [
+                        'a6cbc3046bc6a450bac24789fa17115a4c9739ed75f8f21ce441f72e0b90e6ef',
+                        '21ae7f4680e889bb130619e2c0f95a360ceb573c70603139862afd617fa9b9f'
+                    ],
+                    [
+                        '347d6d9a02c48927ebfb86c1359b1caf130a3c0267d11ce6344b39f99d43cc38',
+                        '60ea7f61a353524d1c987f6ecec92f086d565ab687870cb12689ff1e31c74448'
+                    ],
+                    [
+                        'da6545d2181db8d983f7dcb375ef5866d47c67b1bf31c8cf855ef7437b72656a',
+                        '49b96715ab6878a79e78f07ce5680c5d6673051b4935bd897fea824b77dc208a'
+                    ],
+                    [
+                        'c40747cc9d012cb1a13b8148309c6de7ec25d6945d657146b9d5994b8feb1111',
+                        '5ca560753be2a12fc6de6caf2cb489565db936156b9514e1bb5e83037e0fa2d4'
+                    ],
+                    [
+                        '4e42c8ec82c99798ccf3a610be870e78338c7f713348bd34c8203ef4037f3502',
+                        '7571d74ee5e0fb92a7a8b33a07783341a5492144cc54bcc40a94473693606437'
+                    ],
+                    [
+                        '3775ab7089bc6af823aba2e1af70b236d251cadb0c86743287522a1b3b0dedea',
+                        'be52d107bcfa09d8bcb9736a828cfa7fac8db17bf7a76a2c42ad961409018cf7'
+                    ],
+                    [
+                        'cee31cbf7e34ec379d94fb814d3d775ad954595d1314ba8846959e3e82f74e26',
+                        '8fd64a14c06b589c26b947ae2bcf6bfa0149ef0be14ed4d80f448a01c43b1c6d'
+                    ],
+                    [
+                        'b4f9eaea09b6917619f6ea6a4eb5464efddb58fd45b1ebefcdc1a01d08b47986',
+                        '39e5c9925b5a54b07433a4f18c61726f8bb131c012ca542eb24a8ac07200682a'
+                    ],
+                    [
+                        'd4263dfc3d2df923a0179a48966d30ce84e2515afc3dccc1b77907792ebcc60e',
+                        '62dfaf07a0f78feb30e30d6295853ce189e127760ad6cf7fae164e122a208d54'
+                    ],
+                    [
+                        '48457524820fa65a4f8d35eb6930857c0032acc0a4a2de422233eeda897612c4',
+                        '25a748ab367979d98733c38a1fa1c2e7dc6cc07db2d60a9ae7a76aaa49bd0f77'
+                    ],
+                    [
+                        'dfeeef1881101f2cb11644f3a2afdfc2045e19919152923f367a1767c11cceda',
+                        'ecfb7056cf1de042f9420bab396793c0c390bde74b4bbdff16a83ae09a9a7517'
+                    ],
+                    [
+                        '6d7ef6b17543f8373c573f44e1f389835d89bcbc6062ced36c82df83b8fae859',
+                        'cd450ec335438986dfefa10c57fea9bcc521a0959b2d80bbf74b190dca712d10'
+                    ],
+                    [
+                        'e75605d59102a5a2684500d3b991f2e3f3c88b93225547035af25af66e04541f',
+                        'f5c54754a8f71ee540b9b48728473e314f729ac5308b06938360990e2bfad125'
+                    ],
+                    [
+                        'eb98660f4c4dfaa06a2be453d5020bc99a0c2e60abe388457dd43fefb1ed620c',
+                        '6cb9a8876d9cb8520609af3add26cd20a0a7cd8a9411131ce85f44100099223e'
+                    ],
+                    [
+                        '13e87b027d8514d35939f2e6892b19922154596941888336dc3563e3b8dba942',
+                        'fef5a3c68059a6dec5d624114bf1e91aac2b9da568d6abeb2570d55646b8adf1'
+                    ],
+                    [
+                        'ee163026e9fd6fe017c38f06a5be6fc125424b371ce2708e7bf4491691e5764a',
+                        '1acb250f255dd61c43d94ccc670d0f58f49ae3fa15b96623e5430da0ad6c62b2'
+                    ],
+                    [
+                        'b268f5ef9ad51e4d78de3a750c2dc89b1e626d43505867999932e5db33af3d80',
+                        '5f310d4b3c99b9ebb19f77d41c1dee018cf0d34fd4191614003e945a1216e423'
+                    ],
+                    [
+                        'ff07f3118a9df035e9fad85eb6c7bfe42b02f01ca99ceea3bf7ffdba93c4750d',
+                        '438136d603e858a3a5c440c38eccbaddc1d2942114e2eddd4740d098ced1f0d8'
+                    ],
+                    [
+                        '8d8b9855c7c052a34146fd20ffb658bea4b9f69e0d825ebec16e8c3ce2b526a1',
+                        'cdb559eedc2d79f926baf44fb84ea4d44bcf50fee51d7ceb30e2e7f463036758'
+                    ],
+                    [
+                        '52db0b5384dfbf05bfa9d472d7ae26dfe4b851ceca91b1eba54263180da32b63',
+                        'c3b997d050ee5d423ebaf66a6db9f57b3180c902875679de924b69d84a7b375'
+                    ],
+                    [
+                        'e62f9490d3d51da6395efd24e80919cc7d0f29c3f3fa48c6fff543becbd43352',
+                        '6d89ad7ba4876b0b22c2ca280c682862f342c8591f1daf5170e07bfd9ccafa7d'
+                    ],
+                    [
+                        '7f30ea2476b399b4957509c88f77d0191afa2ff5cb7b14fd6d8e7d65aaab1193',
+                        'ca5ef7d4b231c94c3b15389a5f6311e9daff7bb67b103e9880ef4bff637acaec'
+                    ],
+                    [
+                        '5098ff1e1d9f14fb46a210fada6c903fef0fb7b4a1dd1d9ac60a0361800b7a00',
+                        '9731141d81fc8f8084d37c6e7542006b3ee1b40d60dfe5362a5b132fd17ddc0'
+                    ],
+                    [
+                        '32b78c7de9ee512a72895be6b9cbefa6e2f3c4ccce445c96b9f2c81e2778ad58',
+                        'ee1849f513df71e32efc3896ee28260c73bb80547ae2275ba497237794c8753c'
+                    ],
+                    [
+                        'e2cb74fddc8e9fbcd076eef2a7c72b0ce37d50f08269dfc074b581550547a4f7',
+                        'd3aa2ed71c9dd2247a62df062736eb0baddea9e36122d2be8641abcb005cc4a4'
+                    ],
+                    [
+                        '8438447566d4d7bedadc299496ab357426009a35f235cb141be0d99cd10ae3a8',
+                        'c4e1020916980a4da5d01ac5e6ad330734ef0d7906631c4f2390426b2edd791f'
+                    ],
+                    [
+                        '4162d488b89402039b584c6fc6c308870587d9c46f660b878ab65c82c711d67e',
+                        '67163e903236289f776f22c25fb8a3afc1732f2b84b4e95dbda47ae5a0852649'
+                    ],
+                    [
+                        '3fad3fa84caf0f34f0f89bfd2dcf54fc175d767aec3e50684f3ba4a4bf5f683d',
+                        'cd1bc7cb6cc407bb2f0ca647c718a730cf71872e7d0d2a53fa20efcdfe61826'
+                    ],
+                    [
+                        '674f2600a3007a00568c1a7ce05d0816c1fb84bf1370798f1c69532faeb1a86b',
+                        '299d21f9413f33b3edf43b257004580b70db57da0b182259e09eecc69e0d38a5'
+                    ],
+                    [
+                        'd32f4da54ade74abb81b815ad1fb3b263d82d6c692714bcff87d29bd5ee9f08f',
+                        'f9429e738b8e53b968e99016c059707782e14f4535359d582fc416910b3eea87'
+                    ],
+                    [
+                        '30e4e670435385556e593657135845d36fbb6931f72b08cb1ed954f1e3ce3ff6',
+                        '462f9bce619898638499350113bbc9b10a878d35da70740dc695a559eb88db7b'
+                    ],
+                    [
+                        'be2062003c51cc3004682904330e4dee7f3dcd10b01e580bf1971b04d4cad297',
+                        '62188bc49d61e5428573d48a74e1c655b1c61090905682a0d5558ed72dccb9bc'
+                    ],
+                    [
+                        '93144423ace3451ed29e0fb9ac2af211cb6e84a601df5993c419859fff5df04a',
+                        '7c10dfb164c3425f5c71a3f9d7992038f1065224f72bb9d1d902a6d13037b47c'
+                    ],
+                    [
+                        'b015f8044f5fcbdcf21ca26d6c34fb8197829205c7b7d2a7cb66418c157b112c',
+                        'ab8c1e086d04e813744a655b2df8d5f83b3cdc6faa3088c1d3aea1454e3a1d5f'
+                    ],
+                    [
+                        'd5e9e1da649d97d89e4868117a465a3a4f8a18de57a140d36b3f2af341a21b52',
+                        '4cb04437f391ed73111a13cc1d4dd0db1693465c2240480d8955e8592f27447a'
+                    ],
+                    [
+                        'd3ae41047dd7ca065dbf8ed77b992439983005cd72e16d6f996a5316d36966bb',
+                        'bd1aeb21ad22ebb22a10f0303417c6d964f8cdd7df0aca614b10dc14d125ac46'
+                    ],
+                    [
+                        '463e2763d885f958fc66cdd22800f0a487197d0a82e377b49f80af87c897b065',
+                        'bfefacdb0e5d0fd7df3a311a94de062b26b80c61fbc97508b79992671ef7ca7f'
+                    ],
+                    [
+                        '7985fdfd127c0567c6f53ec1bb63ec3158e597c40bfe747c83cddfc910641917',
+                        '603c12daf3d9862ef2b25fe1de289aed24ed291e0ec6708703a5bd567f32ed03'
+                    ],
+                    [
+                        '74a1ad6b5f76e39db2dd249410eac7f99e74c59cb83d2d0ed5ff1543da7703e9',
+                        'cc6157ef18c9c63cd6193d83631bbea0093e0968942e8c33d5737fd790e0db08'
+                    ],
+                    [
+                        '30682a50703375f602d416664ba19b7fc9bab42c72747463a71d0896b22f6da3',
+                        '553e04f6b018b4fa6c8f39e7f311d3176290d0e0f19ca73f17714d9977a22ff8'
+                    ],
+                    [
+                        '9e2158f0d7c0d5f26c3791efefa79597654e7a2b2464f52b1ee6c1347769ef57',
+                        '712fcdd1b9053f09003a3481fa7762e9ffd7c8ef35a38509e2fbf2629008373'
+                    ],
+                    [
+                        '176e26989a43c9cfeba4029c202538c28172e566e3c4fce7322857f3be327d66',
+                        'ed8cc9d04b29eb877d270b4878dc43c19aefd31f4eee09ee7b47834c1fa4b1c3'
+                    ],
+                    [
+                        '75d46efea3771e6e68abb89a13ad747ecf1892393dfc4f1b7004788c50374da8',
+                        '9852390a99507679fd0b86fd2b39a868d7efc22151346e1a3ca4726586a6bed8'
+                    ],
+                    [
+                        '809a20c67d64900ffb698c4c825f6d5f2310fb0451c869345b7319f645605721',
+                        '9e994980d9917e22b76b061927fa04143d096ccc54963e6a5ebfa5f3f8e286c1'
+                    ],
+                    [
+                        '1b38903a43f7f114ed4500b4eac7083fdefece1cf29c63528d563446f972c180',
+                        '4036edc931a60ae889353f77fd53de4a2708b26b6f5da72ad3394119daf408f9'
+                    ]
                 ]
             }
         };
@@ -13879,8 +13879,8 @@ require = (function () { function e(t, n, r) { function s(o, u) { if (!n[o]) { i
             }
 
             return [
-              { a: a1, b: b1 },
-              { a: a2, b: b2 }
+                { a: a1, b: b1 },
+                { a: a2, b: b2 }
             ];
         };
 
@@ -14169,8 +14169,8 @@ require = (function () { function e(t, n, r) { function s(o, u) { if (!n[o]) { i
 
         Point.prototype.eq = function eq(p) {
             return this === p ||
-                   this.inf === p.inf &&
-                       (this.inf || this.x.cmp(p.x) === 0 && this.y.cmp(p.y) === 0);
+                this.inf === p.inf &&
+                (this.inf || this.x.cmp(p.x) === 0 && this.y.cmp(p.y) === 0);
         };
 
         Point.prototype.neg = function neg(_precompute) {
@@ -15006,7 +15006,7 @@ require = (function () { function e(t, n, r) { function s(o, u) { if (!n[o]) { i
         Point.prototype.isInfinity = function isInfinity() {
             // XXX This code assumes that zero is always zero in red
             return this.x.cmpn(0) === 0 &&
-                   this.y.cmp(this.z) === 0;
+                this.y.cmp(this.z) === 0;
         };
 
         Point.prototype._extDbl = function _extDbl() {
@@ -15226,9 +15226,9 @@ require = (function () { function e(t, n, r) { function s(o, u) { if (!n[o]) { i
 
         Point.prototype.neg = function neg() {
             return this.curve.point(this.x.redNeg(),
-                                    this.y,
-                                    this.z,
-                                    this.t && this.t.redNeg());
+                this.y,
+                this.z,
+                this.t && this.t.redNeg());
         };
 
         Point.prototype.getX = function getX() {
@@ -15243,8 +15243,8 @@ require = (function () { function e(t, n, r) { function s(o, u) { if (!n[o]) { i
 
         Point.prototype.eq = function eq(other) {
             return this === other ||
-                   this.getX().cmp(other.getX()) === 0 &&
-                   this.getY().cmp(other.getY()) === 0;
+                this.getX().cmp(other.getX()) === 0 &&
+                this.getY().cmp(other.getY()) === 0;
         };
 
         Point.prototype.eqXToP = function eqXToP(x) {
@@ -15395,10 +15395,10 @@ require = (function () { function e(t, n, r) { function s(o, u) { if (!n[o]) { i
         };
 
         BaseCurve.prototype._wnafMulAdd = function _wnafMulAdd(defW,
-                                                               points,
-                                                               coeffs,
-                                                               len,
-                                                               jacobianResult) {
+            points,
+            coeffs,
+            len,
+            jacobianResult) {
             var wndWidth = this._wnafT1;
             var wnd = this._wnafT2;
             var naf = this._wnafT3;
@@ -15425,10 +15425,10 @@ require = (function () { function e(t, n, r) { function s(o, u) { if (!n[o]) { i
                 }
 
                 var comb = [
-                  points[a], /* 1 */
-                  null, /* 3 */
-                  null, /* 5 */
-                  points[b] /* 7 */
+                    points[a], /* 1 */
+                    null, /* 3 */
+                    null, /* 5 */
+                    points[b] /* 7 */
                 ];
 
                 // Try to avoid Projective points, if possible
@@ -15444,15 +15444,15 @@ require = (function () { function e(t, n, r) { function s(o, u) { if (!n[o]) { i
                 }
 
                 var index = [
-                  -3, /* -1 -1 */
-                  -1, /* -1 0 */
-                  -5, /* -1 1 */
-                  -7, /* 0 -1 */
-                  0, /* 0 0 */
-                  7, /* 0 1 */
-                  5, /* 1 -1 */
-                  1, /* 1 0 */
-                  3  /* 1 1 */
+                    -3, /* -1 -1 */
+                    -1, /* -1 0 */
+                    -5, /* -1 1 */
+                    -7, /* 0 -1 */
+                    0, /* 0 0 */
+                    7, /* 0 1 */
+                    5, /* 1 -1 */
+                    1, /* 1 0 */
+                    3  /* 1 1 */
                 ];
 
                 var jsf = getJSF(coeffs[a], coeffs[b]);
@@ -15547,11 +15547,11 @@ require = (function () { function e(t, n, r) { function s(o, u) { if (!n[o]) { i
                     assert(bytes[bytes.length - 1] % 2 === 1);
 
                 var res = this.point(bytes.slice(1, 1 + len),
-                                      bytes.slice(1 + len, 1 + 2 * len));
+                    bytes.slice(1 + len, 1 + 2 * len));
 
                 return res;
             } else if ((bytes[0] === 0x02 || bytes[0] === 0x03) &&
-                        bytes.length - 1 === len) {
+                bytes.length - 1 === len) {
                 return this.pointFromX(bytes.slice(1, 1 + len), bytes[0] === 0x03);
             }
             throw new Error('Unknown point format');
@@ -15855,46 +15855,46 @@ require = (function () { function e(t, n, r) { function s(o, u) { if (!n[o]) { i
         var Buffer = require('safe-buffer').Buffer
 
         var K = [
-          0x428a2f98, 0xd728ae22, 0x71374491, 0x23ef65cd,
-          0xb5c0fbcf, 0xec4d3b2f, 0xe9b5dba5, 0x8189dbbc,
-          0x3956c25b, 0xf348b538, 0x59f111f1, 0xb605d019,
-          0x923f82a4, 0xaf194f9b, 0xab1c5ed5, 0xda6d8118,
-          0xd807aa98, 0xa3030242, 0x12835b01, 0x45706fbe,
-          0x243185be, 0x4ee4b28c, 0x550c7dc3, 0xd5ffb4e2,
-          0x72be5d74, 0xf27b896f, 0x80deb1fe, 0x3b1696b1,
-          0x9bdc06a7, 0x25c71235, 0xc19bf174, 0xcf692694,
-          0xe49b69c1, 0x9ef14ad2, 0xefbe4786, 0x384f25e3,
-          0x0fc19dc6, 0x8b8cd5b5, 0x240ca1cc, 0x77ac9c65,
-          0x2de92c6f, 0x592b0275, 0x4a7484aa, 0x6ea6e483,
-          0x5cb0a9dc, 0xbd41fbd4, 0x76f988da, 0x831153b5,
-          0x983e5152, 0xee66dfab, 0xa831c66d, 0x2db43210,
-          0xb00327c8, 0x98fb213f, 0xbf597fc7, 0xbeef0ee4,
-          0xc6e00bf3, 0x3da88fc2, 0xd5a79147, 0x930aa725,
-          0x06ca6351, 0xe003826f, 0x14292967, 0x0a0e6e70,
-          0x27b70a85, 0x46d22ffc, 0x2e1b2138, 0x5c26c926,
-          0x4d2c6dfc, 0x5ac42aed, 0x53380d13, 0x9d95b3df,
-          0x650a7354, 0x8baf63de, 0x766a0abb, 0x3c77b2a8,
-          0x81c2c92e, 0x47edaee6, 0x92722c85, 0x1482353b,
-          0xa2bfe8a1, 0x4cf10364, 0xa81a664b, 0xbc423001,
-          0xc24b8b70, 0xd0f89791, 0xc76c51a3, 0x0654be30,
-          0xd192e819, 0xd6ef5218, 0xd6990624, 0x5565a910,
-          0xf40e3585, 0x5771202a, 0x106aa070, 0x32bbd1b8,
-          0x19a4c116, 0xb8d2d0c8, 0x1e376c08, 0x5141ab53,
-          0x2748774c, 0xdf8eeb99, 0x34b0bcb5, 0xe19b48a8,
-          0x391c0cb3, 0xc5c95a63, 0x4ed8aa4a, 0xe3418acb,
-          0x5b9cca4f, 0x7763e373, 0x682e6ff3, 0xd6b2b8a3,
-          0x748f82ee, 0x5defb2fc, 0x78a5636f, 0x43172f60,
-          0x84c87814, 0xa1f0ab72, 0x8cc70208, 0x1a6439ec,
-          0x90befffa, 0x23631e28, 0xa4506ceb, 0xde82bde9,
-          0xbef9a3f7, 0xb2c67915, 0xc67178f2, 0xe372532b,
-          0xca273ece, 0xea26619c, 0xd186b8c7, 0x21c0c207,
-          0xeada7dd6, 0xcde0eb1e, 0xf57d4f7f, 0xee6ed178,
-          0x06f067aa, 0x72176fba, 0x0a637dc5, 0xa2c898a6,
-          0x113f9804, 0xbef90dae, 0x1b710b35, 0x131c471b,
-          0x28db77f5, 0x23047d84, 0x32caab7b, 0x40c72493,
-          0x3c9ebe0a, 0x15c9bebc, 0x431d67c4, 0x9c100d4c,
-          0x4cc5d4be, 0xcb3e42b6, 0x597f299c, 0xfc657e2a,
-          0x5fcb6fab, 0x3ad6faec, 0x6c44198c, 0x4a475817
+            0x428a2f98, 0xd728ae22, 0x71374491, 0x23ef65cd,
+            0xb5c0fbcf, 0xec4d3b2f, 0xe9b5dba5, 0x8189dbbc,
+            0x3956c25b, 0xf348b538, 0x59f111f1, 0xb605d019,
+            0x923f82a4, 0xaf194f9b, 0xab1c5ed5, 0xda6d8118,
+            0xd807aa98, 0xa3030242, 0x12835b01, 0x45706fbe,
+            0x243185be, 0x4ee4b28c, 0x550c7dc3, 0xd5ffb4e2,
+            0x72be5d74, 0xf27b896f, 0x80deb1fe, 0x3b1696b1,
+            0x9bdc06a7, 0x25c71235, 0xc19bf174, 0xcf692694,
+            0xe49b69c1, 0x9ef14ad2, 0xefbe4786, 0x384f25e3,
+            0x0fc19dc6, 0x8b8cd5b5, 0x240ca1cc, 0x77ac9c65,
+            0x2de92c6f, 0x592b0275, 0x4a7484aa, 0x6ea6e483,
+            0x5cb0a9dc, 0xbd41fbd4, 0x76f988da, 0x831153b5,
+            0x983e5152, 0xee66dfab, 0xa831c66d, 0x2db43210,
+            0xb00327c8, 0x98fb213f, 0xbf597fc7, 0xbeef0ee4,
+            0xc6e00bf3, 0x3da88fc2, 0xd5a79147, 0x930aa725,
+            0x06ca6351, 0xe003826f, 0x14292967, 0x0a0e6e70,
+            0x27b70a85, 0x46d22ffc, 0x2e1b2138, 0x5c26c926,
+            0x4d2c6dfc, 0x5ac42aed, 0x53380d13, 0x9d95b3df,
+            0x650a7354, 0x8baf63de, 0x766a0abb, 0x3c77b2a8,
+            0x81c2c92e, 0x47edaee6, 0x92722c85, 0x1482353b,
+            0xa2bfe8a1, 0x4cf10364, 0xa81a664b, 0xbc423001,
+            0xc24b8b70, 0xd0f89791, 0xc76c51a3, 0x0654be30,
+            0xd192e819, 0xd6ef5218, 0xd6990624, 0x5565a910,
+            0xf40e3585, 0x5771202a, 0x106aa070, 0x32bbd1b8,
+            0x19a4c116, 0xb8d2d0c8, 0x1e376c08, 0x5141ab53,
+            0x2748774c, 0xdf8eeb99, 0x34b0bcb5, 0xe19b48a8,
+            0x391c0cb3, 0xc5c95a63, 0x4ed8aa4a, 0xe3418acb,
+            0x5b9cca4f, 0x7763e373, 0x682e6ff3, 0xd6b2b8a3,
+            0x748f82ee, 0x5defb2fc, 0x78a5636f, 0x43172f60,
+            0x84c87814, 0xa1f0ab72, 0x8cc70208, 0x1a6439ec,
+            0x90befffa, 0x23631e28, 0xa4506ceb, 0xde82bde9,
+            0xbef9a3f7, 0xb2c67915, 0xc67178f2, 0xe372532b,
+            0xca273ece, 0xea26619c, 0xd186b8c7, 0x21c0c207,
+            0xeada7dd6, 0xcde0eb1e, 0xf57d4f7f, 0xee6ed178,
+            0x06f067aa, 0x72176fba, 0x0a637dc5, 0xa2c898a6,
+            0x113f9804, 0xbef90dae, 0x1b710b35, 0x131c471b,
+            0x28db77f5, 0x23047d84, 0x32caab7b, 0x40c72493,
+            0x3c9ebe0a, 0x15c9bebc, 0x431d67c4, 0x9c100d4c,
+            0x4cc5d4be, 0xcb3e42b6, 0x597f299c, 0xfc657e2a,
+            0x5fcb6fab, 0x3ad6faec, 0x6c44198c, 0x4a475817
         ]
 
         var W = new Array(160)
@@ -16178,22 +16178,22 @@ require = (function () { function e(t, n, r) { function s(o, u) { if (!n[o]) { i
         var Buffer = require('safe-buffer').Buffer
 
         var K = [
-          0x428A2F98, 0x71374491, 0xB5C0FBCF, 0xE9B5DBA5,
-          0x3956C25B, 0x59F111F1, 0x923F82A4, 0xAB1C5ED5,
-          0xD807AA98, 0x12835B01, 0x243185BE, 0x550C7DC3,
-          0x72BE5D74, 0x80DEB1FE, 0x9BDC06A7, 0xC19BF174,
-          0xE49B69C1, 0xEFBE4786, 0x0FC19DC6, 0x240CA1CC,
-          0x2DE92C6F, 0x4A7484AA, 0x5CB0A9DC, 0x76F988DA,
-          0x983E5152, 0xA831C66D, 0xB00327C8, 0xBF597FC7,
-          0xC6E00BF3, 0xD5A79147, 0x06CA6351, 0x14292967,
-          0x27B70A85, 0x2E1B2138, 0x4D2C6DFC, 0x53380D13,
-          0x650A7354, 0x766A0ABB, 0x81C2C92E, 0x92722C85,
-          0xA2BFE8A1, 0xA81A664B, 0xC24B8B70, 0xC76C51A3,
-          0xD192E819, 0xD6990624, 0xF40E3585, 0x106AA070,
-          0x19A4C116, 0x1E376C08, 0x2748774C, 0x34B0BCB5,
-          0x391C0CB3, 0x4ED8AA4A, 0x5B9CCA4F, 0x682E6FF3,
-          0x748F82EE, 0x78A5636F, 0x84C87814, 0x8CC70208,
-          0x90BEFFFA, 0xA4506CEB, 0xBEF9A3F7, 0xC67178F2
+            0x428A2F98, 0x71374491, 0xB5C0FBCF, 0xE9B5DBA5,
+            0x3956C25B, 0x59F111F1, 0x923F82A4, 0xAB1C5ED5,
+            0xD807AA98, 0x12835B01, 0x243185BE, 0x550C7DC3,
+            0x72BE5D74, 0x80DEB1FE, 0x9BDC06A7, 0xC19BF174,
+            0xE49B69C1, 0xEFBE4786, 0x0FC19DC6, 0x240CA1CC,
+            0x2DE92C6F, 0x4A7484AA, 0x5CB0A9DC, 0x76F988DA,
+            0x983E5152, 0xA831C66D, 0xB00327C8, 0xBF597FC7,
+            0xC6E00BF3, 0xD5A79147, 0x06CA6351, 0x14292967,
+            0x27B70A85, 0x2E1B2138, 0x4D2C6DFC, 0x53380D13,
+            0x650A7354, 0x766A0ABB, 0x81C2C92E, 0x92722C85,
+            0xA2BFE8A1, 0xA81A664B, 0xC24B8B70, 0xC76C51A3,
+            0xD192E819, 0xD6990624, 0xF40E3585, 0x106AA070,
+            0x19A4C116, 0x1E376C08, 0x2748774C, 0x34B0BCB5,
+            0x391C0CB3, 0x4ED8AA4A, 0x5B9CCA4F, 0x682E6FF3,
+            0x748F82EE, 0x78A5636F, 0x84C87814, 0x8CC70208,
+            0x90BEFFFA, 0xA4506CEB, 0xBEF9A3F7, 0xC67178F2
         ]
 
         var W = new Array(64)
@@ -16315,7 +16315,7 @@ require = (function () { function e(t, n, r) { function s(o, u) { if (!n[o]) { i
         var Buffer = require('safe-buffer').Buffer
 
         var K = [
-          0x5a827999, 0x6ed9eba1, 0x8f1bbcdc | 0, 0xca62c1d6 | 0
+            0x5a827999, 0x6ed9eba1, 0x8f1bbcdc | 0, 0xca62c1d6 | 0
         ]
 
         var W = new Array(80)
@@ -16414,7 +16414,7 @@ require = (function () { function e(t, n, r) { function s(o, u) { if (!n[o]) { i
         var Buffer = require('safe-buffer').Buffer
 
         var K = [
-          0x5a827999, 0x6ed9eba1, 0x8f1bbcdc | 0, 0xca62c1d6 | 0
+            0x5a827999, 0x6ed9eba1, 0x8f1bbcdc | 0, 0xca62c1d6 | 0
         ]
 
         var W = new Array(80)
@@ -17206,7 +17206,7 @@ require = (function () { function e(t, n, r) { function s(o, u) { if (!n[o]) { i
             function blind(priv) {
                 var r = getr(priv);
                 var blinder = r.toRed(bn.mont(priv.modulus))
-                .redPow(new bn(priv.publicExponent)).fromRed();
+                    .redPow(new bn(priv.publicExponent)).fromRed();
                 return {
                     blinder: blinder,
                     unblinder: r.invm(priv.modulus)
@@ -17345,7 +17345,7 @@ require = (function () { function e(t, n, r) { function s(o, u) { if (!n[o]) { i
                 }
 
                 return num !== null && typeof num === 'object' &&
-                  num.constructor.wordSize === BN.wordSize && Array.isArray(num.words);
+                    num.constructor.wordSize === BN.wordSize && Array.isArray(num.words);
             };
 
             BN.max = function max(left, right) {
@@ -17405,16 +17405,16 @@ require = (function () { function e(t, n, r) { function s(o, u) { if (!n[o]) { i
                     this.length = 1;
                 } else if (number < 0x10000000000000) {
                     this.words = [
-                      number & 0x3ffffff,
-                      (number / 0x4000000) & 0x3ffffff
+                        number & 0x3ffffff,
+                        (number / 0x4000000) & 0x3ffffff
                     ];
                     this.length = 2;
                 } else {
                     assert(number < 0x20000000000000); // 2 ^ 53 (unsafe)
                     this.words = [
-                      number & 0x3ffffff,
-                      (number / 0x4000000) & 0x3ffffff,
-                      1
+                        number & 0x3ffffff,
+                        (number / 0x4000000) & 0x3ffffff,
+                        1
                     ];
                     this.length = 3;
                 }
@@ -17665,50 +17665,50 @@ require = (function () { function e(t, n, r) { function s(o, u) { if (!n[o]) { i
             */
 
             var zeros = [
-              '',
-              '0',
-              '00',
-              '000',
-              '0000',
-              '00000',
-              '000000',
-              '0000000',
-              '00000000',
-              '000000000',
-              '0000000000',
-              '00000000000',
-              '000000000000',
-              '0000000000000',
-              '00000000000000',
-              '000000000000000',
-              '0000000000000000',
-              '00000000000000000',
-              '000000000000000000',
-              '0000000000000000000',
-              '00000000000000000000',
-              '000000000000000000000',
-              '0000000000000000000000',
-              '00000000000000000000000',
-              '000000000000000000000000',
-              '0000000000000000000000000'
+                '',
+                '0',
+                '00',
+                '000',
+                '0000',
+                '00000',
+                '000000',
+                '0000000',
+                '00000000',
+                '000000000',
+                '0000000000',
+                '00000000000',
+                '000000000000',
+                '0000000000000',
+                '00000000000000',
+                '000000000000000',
+                '0000000000000000',
+                '00000000000000000',
+                '000000000000000000',
+                '0000000000000000000',
+                '00000000000000000000',
+                '000000000000000000000',
+                '0000000000000000000000',
+                '00000000000000000000000',
+                '000000000000000000000000',
+                '0000000000000000000000000'
             ];
 
             var groupSizes = [
-              0, 0,
-              25, 16, 12, 11, 10, 9, 8,
-              8, 7, 7, 7, 7, 6, 6,
-              6, 6, 6, 6, 6, 5, 5,
-              5, 5, 5, 5, 5, 5, 5,
-              5, 5, 5, 5, 5, 5, 5
+                0, 0,
+                25, 16, 12, 11, 10, 9, 8,
+                8, 7, 7, 7, 7, 6, 6,
+                6, 6, 6, 6, 6, 5, 5,
+                5, 5, 5, 5, 5, 5, 5,
+                5, 5, 5, 5, 5, 5, 5
             ];
 
             var groupBases = [
-              0, 0,
-              33554432, 43046721, 16777216, 48828125, 60466176, 40353607, 16777216,
-              43046721, 10000000, 19487171, 35831808, 62748517, 7529536, 11390625,
-              16777216, 24137569, 34012224, 47045881, 64000000, 4084101, 5153632,
-              6436343, 7962624, 9765625, 11881376, 14348907, 17210368, 20511149,
-              24300000, 28629151, 33554432, 39135393, 45435424, 52521875, 60466176
+                0, 0,
+                33554432, 43046721, 16777216, 48828125, 60466176, 40353607, 16777216,
+                43046721, 10000000, 19487171, 35831808, 62748517, 7529536, 11390625,
+                16777216, 24137569, 34012224, 47045881, 64000000, 4084101, 5153632,
+                6436343, 7962624, 9765625, 11881376, 14348907, 17210368, 20511149,
+                24300000, 28629151, 33554432, 39135393, 45435424, 52521875, 60466176
             ];
 
             BN.prototype.toString = function toString(base, padding) {
@@ -17824,14 +17824,14 @@ require = (function () { function e(t, n, r) { function s(o, u) { if (!n[o]) { i
                         res[i] = 0;
                     }
 
-                    for (i = 0; !q.isZero() ; i++) {
+                    for (i = 0; !q.isZero(); i++) {
                         b = q.andln(0xff);
                         q.iushrn(8);
 
                         res[reqLength - i - 1] = b;
                     }
                 } else {
-                    for (i = 0; !q.isZero() ; i++) {
+                    for (i = 0; !q.isZero(); i++) {
                         b = q.andln(0xff);
                         q.iushrn(8);
 
@@ -18295,7 +18295,7 @@ require = (function () { function e(t, n, r) { function s(o, u) { if (!n[o]) { i
                     var ncarry = carry >>> 26;
                     var rword = carry & 0x3ffffff;
                     var maxJ = Math.min(k, num.length - 1);
-                    for (var j = Math.max(0, k - self.length + 1) ; j <= maxJ; j++) {
+                    for (var j = Math.max(0, k - self.length + 1); j <= maxJ; j++) {
                         var i = (k - j) | 0;
                         a = self.words[i] | 0;
                         b = num.words[j] | 0;
@@ -18909,7 +18909,7 @@ require = (function () { function e(t, n, r) { function s(o, u) { if (!n[o]) { i
                     hncarry = 0;
                     var rword = carry & 0x3ffffff;
                     var maxJ = Math.min(k, num.length - 1);
-                    for (var j = Math.max(0, k - self.length + 1) ; j <= maxJ; j++) {
+                    for (var j = Math.max(0, k - self.length + 1); j <= maxJ; j++) {
                         var i = k - j;
                         var a = self.words[i] | 0;
                         var b = num.words[j] | 0;
@@ -19072,8 +19072,8 @@ require = (function () { function e(t, n, r) { function s(o, u) { if (!n[o]) { i
                 var carry = 0;
                 for (var i = 0; i < N / 2; i++) {
                     var w = Math.round(ws[2 * i + 1] / N) * 0x2000 +
-                      Math.round(ws[2 * i] / N) +
-                      carry;
+                        Math.round(ws[2 * i] / N) +
+                        carry;
 
                     ws[i] = w & 0x3ffffff;
 
@@ -19218,12 +19218,12 @@ require = (function () { function e(t, n, r) { function s(o, u) { if (!n[o]) { i
 
                 // Skip leading zeroes
                 var res = this;
-                for (var i = 0; i < w.length; i++, res = res.sqr()) {
+                for (var i = 0; i < w.length; i++ , res = res.sqr()) {
                     if (w[i] !== 0) break;
                 }
 
                 if (++i < w.length) {
-                    for (var q = res.sqr() ; i < w.length; i++, q = q.sqr()) {
+                    for (var q = res.sqr(); i < w.length; i++ , q = q.sqr()) {
                         if (w[i] === 0) continue;
 
                         res = res.mul(q);
@@ -19319,7 +19319,7 @@ require = (function () { function e(t, n, r) { function s(o, u) { if (!n[o]) { i
                 }
 
                 var carry = 0;
-                for (i = this.length - 1; i >= 0 && (carry !== 0 || i >= h) ; i--) {
+                for (i = this.length - 1; i >= 0 && (carry !== 0 || i >= h); i--) {
                     var word = this.words[i] | 0;
                     this.words[i] = (carry << (26 - r)) | (word >>> r);
                     carry = word & mask;
@@ -19571,7 +19571,7 @@ require = (function () { function e(t, n, r) { function s(o, u) { if (!n[o]) { i
 
                 for (var j = m - 1; j >= 0; j--) {
                     var qj = (a.words[b.length + j] | 0) * 0x4000000 +
-                      (a.words[b.length + j - 1] | 0);
+                        (a.words[b.length + j - 1] | 0);
 
                     // NOTE: (qj / bhi) is (0x3ffffff * 0x4000000 + 0x3ffffff) / 0x2000000 max
                     // (0x7ffffff)
@@ -19927,7 +19927,7 @@ require = (function () { function e(t, n, r) { function s(o, u) { if (!n[o]) { i
                 b.negative = 0;
 
                 // Remove common factor of two
-                for (var shift = 0; a.isEven() && b.isEven() ; shift++) {
+                for (var shift = 0; a.isEven() && b.isEven(); shift++) {
                     a.iushrn(1);
                     b.iushrn(1);
                 }
@@ -20273,9 +20273,9 @@ require = (function () { function e(t, n, r) { function s(o, u) { if (!n[o]) { i
 
             function K256() {
                 MPrime.call(
-                  this,
-                  'k256',
-                  'ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff fffffffe fffffc2f');
+                    this,
+                    'k256',
+                    'ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff fffffffe fffffc2f');
             }
             inherits(K256, MPrime);
 
@@ -20340,26 +20340,26 @@ require = (function () { function e(t, n, r) { function s(o, u) { if (!n[o]) { i
 
             function P224() {
                 MPrime.call(
-                  this,
-                  'p224',
-                  'ffffffff ffffffff ffffffff ffffffff 00000000 00000000 00000001');
+                    this,
+                    'p224',
+                    'ffffffff ffffffff ffffffff ffffffff 00000000 00000000 00000001');
             }
             inherits(P224, MPrime);
 
             function P192() {
                 MPrime.call(
-                  this,
-                  'p192',
-                  'ffffffff ffffffff ffffffff fffffffe ffffffff ffffffff');
+                    this,
+                    'p192',
+                    'ffffffff ffffffff ffffffff fffffffe ffffffff ffffffff');
             }
             inherits(P192, MPrime);
 
             function P25519() {
                 // 2 ^ 255 - 19
                 MPrime.call(
-                  this,
-                  '25519',
-                  '7fffffffffffffff ffffffffffffffff ffffffffffffffff ffffffffffffffed');
+                    this,
+                    '25519',
+                    '7fffffffffffffff ffffffffffffffff ffffffffffffffff ffffffffffffffed');
             }
             inherits(P25519, MPrime);
 
@@ -20425,7 +20425,7 @@ require = (function () { function e(t, n, r) { function s(o, u) { if (!n[o]) { i
             Red.prototype._verify2 = function _verify2(a, b) {
                 assert((a.negative | b.negative) === 0, 'red works only with positives');
                 assert(a.red && a.red === b.red,
-                  'red works only with red numbers');
+                    'red works only with red numbers');
             };
 
             Red.prototype.imod = function imod(a) {
@@ -21023,9 +21023,9 @@ require = (function () { function e(t, n, r) { function s(o, u) { if (!n[o]) { i
 
         exports.readUInt32BE = function readUInt32BE(bytes, off) {
             var res = (bytes[0 + off] << 24) |
-                       (bytes[1 + off] << 16) |
-                       (bytes[2 + off] << 8) |
-                       bytes[3 + off];
+                (bytes[1 + off] << 16) |
+                (bytes[2 + off] << 8) |
+                bytes[3 + off];
             return res >>> 0;
         };
 
@@ -21142,15 +21142,15 @@ require = (function () { function e(t, n, r) { function s(o, u) { if (!n[o]) { i
         };
 
         var pc2table = [
-          // inL => outL
-          14, 11, 17, 4, 27, 23, 25, 0,
-          13, 22, 7, 18, 5, 9, 16, 24,
-          2, 20, 12, 21, 1, 8, 15, 26,
+            // inL => outL
+            14, 11, 17, 4, 27, 23, 25, 0,
+            13, 22, 7, 18, 5, 9, 16, 24,
+            2, 20, 12, 21, 1, 8, 15, 26,
 
-          // inR => outR
-          15, 4, 25, 19, 9, 1, 26, 16,
-          5, 11, 23, 8, 12, 7, 17, 0,
-          22, 3, 10, 14, 6, 20, 27, 24
+            // inR => outR
+            15, 4, 25, 19, 9, 1, 26, 16,
+            5, 11, 23, 8, 12, 7, 17, 0,
+            22, 3, 10, 14, 6, 20, 27, 24
         ];
 
         exports.pc2 = function pc2(inL, inR, out, off) {
@@ -21191,45 +21191,45 @@ require = (function () { function e(t, n, r) { function s(o, u) { if (!n[o]) { i
         };
 
         var sTable = [
-          14, 0, 4, 15, 13, 7, 1, 4, 2, 14, 15, 2, 11, 13, 8, 1,
-          3, 10, 10, 6, 6, 12, 12, 11, 5, 9, 9, 5, 0, 3, 7, 8,
-          4, 15, 1, 12, 14, 8, 8, 2, 13, 4, 6, 9, 2, 1, 11, 7,
-          15, 5, 12, 11, 9, 3, 7, 14, 3, 10, 10, 0, 5, 6, 0, 13,
+            14, 0, 4, 15, 13, 7, 1, 4, 2, 14, 15, 2, 11, 13, 8, 1,
+            3, 10, 10, 6, 6, 12, 12, 11, 5, 9, 9, 5, 0, 3, 7, 8,
+            4, 15, 1, 12, 14, 8, 8, 2, 13, 4, 6, 9, 2, 1, 11, 7,
+            15, 5, 12, 11, 9, 3, 7, 14, 3, 10, 10, 0, 5, 6, 0, 13,
 
-          15, 3, 1, 13, 8, 4, 14, 7, 6, 15, 11, 2, 3, 8, 4, 14,
-          9, 12, 7, 0, 2, 1, 13, 10, 12, 6, 0, 9, 5, 11, 10, 5,
-          0, 13, 14, 8, 7, 10, 11, 1, 10, 3, 4, 15, 13, 4, 1, 2,
-          5, 11, 8, 6, 12, 7, 6, 12, 9, 0, 3, 5, 2, 14, 15, 9,
+            15, 3, 1, 13, 8, 4, 14, 7, 6, 15, 11, 2, 3, 8, 4, 14,
+            9, 12, 7, 0, 2, 1, 13, 10, 12, 6, 0, 9, 5, 11, 10, 5,
+            0, 13, 14, 8, 7, 10, 11, 1, 10, 3, 4, 15, 13, 4, 1, 2,
+            5, 11, 8, 6, 12, 7, 6, 12, 9, 0, 3, 5, 2, 14, 15, 9,
 
-          10, 13, 0, 7, 9, 0, 14, 9, 6, 3, 3, 4, 15, 6, 5, 10,
-          1, 2, 13, 8, 12, 5, 7, 14, 11, 12, 4, 11, 2, 15, 8, 1,
-          13, 1, 6, 10, 4, 13, 9, 0, 8, 6, 15, 9, 3, 8, 0, 7,
-          11, 4, 1, 15, 2, 14, 12, 3, 5, 11, 10, 5, 14, 2, 7, 12,
+            10, 13, 0, 7, 9, 0, 14, 9, 6, 3, 3, 4, 15, 6, 5, 10,
+            1, 2, 13, 8, 12, 5, 7, 14, 11, 12, 4, 11, 2, 15, 8, 1,
+            13, 1, 6, 10, 4, 13, 9, 0, 8, 6, 15, 9, 3, 8, 0, 7,
+            11, 4, 1, 15, 2, 14, 12, 3, 5, 11, 10, 5, 14, 2, 7, 12,
 
-          7, 13, 13, 8, 14, 11, 3, 5, 0, 6, 6, 15, 9, 0, 10, 3,
-          1, 4, 2, 7, 8, 2, 5, 12, 11, 1, 12, 10, 4, 14, 15, 9,
-          10, 3, 6, 15, 9, 0, 0, 6, 12, 10, 11, 1, 7, 13, 13, 8,
-          15, 9, 1, 4, 3, 5, 14, 11, 5, 12, 2, 7, 8, 2, 4, 14,
+            7, 13, 13, 8, 14, 11, 3, 5, 0, 6, 6, 15, 9, 0, 10, 3,
+            1, 4, 2, 7, 8, 2, 5, 12, 11, 1, 12, 10, 4, 14, 15, 9,
+            10, 3, 6, 15, 9, 0, 0, 6, 12, 10, 11, 1, 7, 13, 13, 8,
+            15, 9, 1, 4, 3, 5, 14, 11, 5, 12, 2, 7, 8, 2, 4, 14,
 
-          2, 14, 12, 11, 4, 2, 1, 12, 7, 4, 10, 7, 11, 13, 6, 1,
-          8, 5, 5, 0, 3, 15, 15, 10, 13, 3, 0, 9, 14, 8, 9, 6,
-          4, 11, 2, 8, 1, 12, 11, 7, 10, 1, 13, 14, 7, 2, 8, 13,
-          15, 6, 9, 15, 12, 0, 5, 9, 6, 10, 3, 4, 0, 5, 14, 3,
+            2, 14, 12, 11, 4, 2, 1, 12, 7, 4, 10, 7, 11, 13, 6, 1,
+            8, 5, 5, 0, 3, 15, 15, 10, 13, 3, 0, 9, 14, 8, 9, 6,
+            4, 11, 2, 8, 1, 12, 11, 7, 10, 1, 13, 14, 7, 2, 8, 13,
+            15, 6, 9, 15, 12, 0, 5, 9, 6, 10, 3, 4, 0, 5, 14, 3,
 
-          12, 10, 1, 15, 10, 4, 15, 2, 9, 7, 2, 12, 6, 9, 8, 5,
-          0, 6, 13, 1, 3, 13, 4, 14, 14, 0, 7, 11, 5, 3, 11, 8,
-          9, 4, 14, 3, 15, 2, 5, 12, 2, 9, 8, 5, 12, 15, 3, 10,
-          7, 11, 0, 14, 4, 1, 10, 7, 1, 6, 13, 0, 11, 8, 6, 13,
+            12, 10, 1, 15, 10, 4, 15, 2, 9, 7, 2, 12, 6, 9, 8, 5,
+            0, 6, 13, 1, 3, 13, 4, 14, 14, 0, 7, 11, 5, 3, 11, 8,
+            9, 4, 14, 3, 15, 2, 5, 12, 2, 9, 8, 5, 12, 15, 3, 10,
+            7, 11, 0, 14, 4, 1, 10, 7, 1, 6, 13, 0, 11, 8, 6, 13,
 
-          4, 13, 11, 0, 2, 11, 14, 7, 15, 4, 0, 9, 8, 1, 13, 10,
-          3, 14, 12, 3, 9, 5, 7, 12, 5, 2, 10, 15, 6, 8, 1, 6,
-          1, 6, 4, 11, 11, 13, 13, 8, 12, 1, 3, 4, 7, 10, 14, 7,
-          10, 9, 15, 5, 6, 0, 8, 15, 0, 14, 5, 2, 9, 3, 2, 12,
+            4, 13, 11, 0, 2, 11, 14, 7, 15, 4, 0, 9, 8, 1, 13, 10,
+            3, 14, 12, 3, 9, 5, 7, 12, 5, 2, 10, 15, 6, 8, 1, 6,
+            1, 6, 4, 11, 11, 13, 13, 8, 12, 1, 3, 4, 7, 10, 14, 7,
+            10, 9, 15, 5, 6, 0, 8, 15, 0, 14, 5, 2, 9, 3, 2, 12,
 
-          13, 1, 2, 15, 8, 13, 4, 8, 6, 10, 15, 3, 11, 7, 1, 4,
-          10, 12, 9, 5, 3, 6, 14, 11, 5, 0, 0, 14, 12, 9, 7, 2,
-          7, 2, 11, 1, 4, 14, 1, 7, 9, 4, 12, 10, 14, 8, 2, 13,
-          0, 15, 6, 12, 10, 9, 13, 0, 15, 3, 3, 5, 5, 6, 8, 11
+            13, 1, 2, 15, 8, 13, 4, 8, 6, 10, 15, 3, 11, 7, 1, 4,
+            10, 12, 9, 5, 3, 6, 14, 11, 5, 0, 0, 14, 12, 9, 7, 2,
+            7, 2, 11, 1, 4, 14, 1, 7, 9, 4, 12, 10, 14, 8, 2, 13,
+            0, 15, 6, 12, 10, 9, 13, 0, 15, 3, 3, 5, 5, 6, 8, 11
         ];
 
         exports.substitute = function substitute(inL, inR) {
@@ -21252,8 +21252,8 @@ require = (function () { function e(t, n, r) { function s(o, u) { if (!n[o]) { i
         };
 
         var permuteTable = [
-          16, 25, 12, 11, 3, 20, 4, 15, 31, 17, 9, 6, 27, 14, 1, 22,
-          30, 24, 8, 18, 0, 5, 29, 23, 13, 19, 2, 26, 10, 21, 28, 7
+            16, 25, 12, 11, 3, 20, 4, 15, 31, 17, 9, 6, 27, 14, 1, 22,
+            30, 24, 8, 18, 0, 5, 29, 23, 13, 19, 2, 26, 10, 21, 28, 7
         ];
 
         exports.permute = function permute(num) {
@@ -21294,15 +21294,15 @@ require = (function () { function e(t, n, r) { function s(o, u) { if (!n[o]) { i
 
             if (type === 'encrypt') {
                 this.ciphers = [
-                  DES.create({ type: 'encrypt', key: k1 }),
-                  DES.create({ type: 'decrypt', key: k2 }),
-                  DES.create({ type: 'encrypt', key: k3 })
+                    DES.create({ type: 'encrypt', key: k1 }),
+                    DES.create({ type: 'decrypt', key: k2 }),
+                    DES.create({ type: 'encrypt', key: k3 })
                 ];
             } else {
                 this.ciphers = [
-                  DES.create({ type: 'decrypt', key: k3 }),
-                  DES.create({ type: 'encrypt', key: k2 }),
-                  DES.create({ type: 'decrypt', key: k1 })
+                    DES.create({ type: 'decrypt', key: k3 }),
+                    DES.create({ type: 'encrypt', key: k2 }),
+                    DES.create({ type: 'decrypt', key: k1 })
                 ];
             }
         }
@@ -21362,8 +21362,8 @@ require = (function () { function e(t, n, r) { function s(o, u) { if (!n[o]) { i
         };
 
         var shiftTable = [
-          1, 1, 2, 2, 2, 2, 2, 2,
-          1, 2, 2, 2, 2, 2, 2, 1
+            1, 1, 2, 2, 2, 2, 2, 2,
+            1, 2, 2, 2, 2, 2, 2, 1
         ];
 
         DES.prototype.deriveKeys = function deriveKeys(state, key) {
@@ -21545,7 +21545,7 @@ require = (function () { function e(t, n, r) { function s(o, u) { if (!n[o]) { i
             }
 
             // Queue rest
-            for (; inputOff < data.length; inputOff++, this.bufferOff++)
+            for (; inputOff < data.length; inputOff++ , this.bufferOff++)
                 this.buffer[this.bufferOff] = data[inputOff];
 
             return out;
@@ -22274,8 +22274,8 @@ require = (function () { function e(t, n, r) { function s(o, u) { if (!n[o]) { i
             var chunkNum = Math.ceil(chunk.length / blockSize)
             var start = self._cache.length
             self._cache = Buffer.concat([
-              self._cache,
-              Buffer.allocUnsafe(chunkNum * blockSize)
+                self._cache,
+                Buffer.allocUnsafe(chunkNum * blockSize)
             ])
             for (var i = 0; i < chunkNum; i++) {
                 var out = getBlock(self)
@@ -22297,8 +22297,8 @@ require = (function () { function e(t, n, r) { function s(o, u) { if (!n[o]) { i
             var out = pad[0] ^ byteParam
 
             self._prev = Buffer.concat([
-              self._prev.slice(1),
-              Buffer.from([decrypt ? byteParam : out])
+                self._prev.slice(1),
+                Buffer.from([decrypt ? byteParam : out])
             ])
 
             return out
@@ -22663,10 +22663,10 @@ require = (function () { function e(t, n, r) { function s(o, u) { if (!n[o]) { i
 
         function toArray(buf) {
             return [
-              buf.readUInt32BE(0),
-              buf.readUInt32BE(4),
-              buf.readUInt32BE(8),
-              buf.readUInt32BE(12)
+                buf.readUInt32BE(0),
+                buf.readUInt32BE(4),
+                buf.readUInt32BE(8),
+                buf.readUInt32BE(12)
             ]
         }
 
@@ -22899,18 +22899,18 @@ require = (function () { function e(t, n, r) { function s(o, u) { if (!n[o]) { i
                 if (k % keySize === 0) {
                     t = (t << 8) | (t >>> 24)
                     t =
-                      (G.SBOX[t >>> 24] << 24) |
-                      (G.SBOX[(t >>> 16) & 0xff] << 16) |
-                      (G.SBOX[(t >>> 8) & 0xff] << 8) |
-                      (G.SBOX[t & 0xff])
+                        (G.SBOX[t >>> 24] << 24) |
+                        (G.SBOX[(t >>> 16) & 0xff] << 16) |
+                        (G.SBOX[(t >>> 8) & 0xff] << 8) |
+                        (G.SBOX[t & 0xff])
 
                     t ^= RCON[(k / keySize) | 0] << 24
                 } else if (keySize > 6 && k % keySize === 4) {
                     t =
-                      (G.SBOX[t >>> 24] << 24) |
-                      (G.SBOX[(t >>> 16) & 0xff] << 16) |
-                      (G.SBOX[(t >>> 8) & 0xff] << 8) |
-                      (G.SBOX[t & 0xff])
+                        (G.SBOX[t >>> 24] << 24) |
+                        (G.SBOX[(t >>> 16) & 0xff] << 16) |
+                        (G.SBOX[(t >>> 8) & 0xff] << 8) |
+                        (G.SBOX[t & 0xff])
                 }
 
                 keySchedule[k] = keySchedule[k - keySize] ^ t
@@ -22925,10 +22925,10 @@ require = (function () { function e(t, n, r) { function s(o, u) { if (!n[o]) { i
                     invKeySchedule[ik] = tt
                 } else {
                     invKeySchedule[ik] =
-                      G.INV_SUB_MIX[0][G.SBOX[tt >>> 24]] ^
-                      G.INV_SUB_MIX[1][G.SBOX[(tt >>> 16) & 0xff]] ^
-                      G.INV_SUB_MIX[2][G.SBOX[(tt >>> 8) & 0xff]] ^
-                      G.INV_SUB_MIX[3][G.SBOX[tt & 0xff]]
+                        G.INV_SUB_MIX[0][G.SBOX[tt >>> 24]] ^
+                        G.INV_SUB_MIX[1][G.SBOX[(tt >>> 16) & 0xff]] ^
+                        G.INV_SUB_MIX[2][G.SBOX[(tt >>> 8) & 0xff]] ^
+                        G.INV_SUB_MIX[3][G.SBOX[tt & 0xff]]
                 }
             }
 
@@ -23015,42 +23015,42 @@ require = (function () { function e(t, n, r) { function s(o, u) { if (!n[o]) { i
             var sasSetting = ServiceSettings.settingWithFunc(ConnectionStringKeys.SHARED_ACCESS_SIGNATURE_NAME, _.isString);
 
             var blobEndpointSetting = ServiceSettings.settingWithFunc(
-              ConnectionStringKeys.BLOB_ENDPOINT_NAME,
-              Validate.isValidHost
+                ConnectionStringKeys.BLOB_ENDPOINT_NAME,
+                Validate.isValidHost
             );
 
             var queueEndpointSetting = ServiceSettings.settingWithFunc(
-              ConnectionStringKeys.QUEUE_ENDPOINT_NAME,
-              Validate.isValidHost
+                ConnectionStringKeys.QUEUE_ENDPOINT_NAME,
+                Validate.isValidHost
             );
 
             var tableEndpointSetting = ServiceSettings.settingWithFunc(
-              ConnectionStringKeys.TABLE_ENDPOINT_NAME,
-              Validate.isValidHost
+                ConnectionStringKeys.TABLE_ENDPOINT_NAME,
+                Validate.isValidHost
             );
 
             var fileEndpointSetting = ServiceSettings.settingWithFunc(
-              ConnectionStringKeys.FILE_ENDPOINT_NAME,
-              Validate.isValidHost
+                ConnectionStringKeys.FILE_ENDPOINT_NAME,
+                Validate.isValidHost
             );
 
             var endpointSuffixSetting = ServiceSettings.settingWithFunc(
-              ConnectionStringKeys.ENDPOINT_SUFFIX_NAME,
-              Validate.isValidHost
+                ConnectionStringKeys.ENDPOINT_SUFFIX_NAME,
+                Validate.isValidHost
             );
 
             var validKeys = [
-              ConnectionStringKeys.USE_DEVELOPMENT_STORAGE_NAME,
-              ConnectionStringKeys.DEVELOPMENT_STORAGE_PROXY_URI_NAME,
-              ConnectionStringKeys.DEFAULT_ENDPOINTS_PROTOCOL_NAME,
-              ConnectionStringKeys.ACCOUNT_NAME_NAME,
-              ConnectionStringKeys.ACCOUNT_KEY_NAME,
-              ConnectionStringKeys.SHARED_ACCESS_SIGNATURE_NAME,
-              ConnectionStringKeys.BLOB_ENDPOINT_NAME,
-              ConnectionStringKeys.QUEUE_ENDPOINT_NAME,
-              ConnectionStringKeys.TABLE_ENDPOINT_NAME,
-              ConnectionStringKeys.FILE_ENDPOINT_NAME,
-              ConnectionStringKeys.ENDPOINT_SUFFIX_NAME
+                ConnectionStringKeys.USE_DEVELOPMENT_STORAGE_NAME,
+                ConnectionStringKeys.DEVELOPMENT_STORAGE_PROXY_URI_NAME,
+                ConnectionStringKeys.DEFAULT_ENDPOINTS_PROTOCOL_NAME,
+                ConnectionStringKeys.ACCOUNT_NAME_NAME,
+                ConnectionStringKeys.ACCOUNT_KEY_NAME,
+                ConnectionStringKeys.SHARED_ACCESS_SIGNATURE_NAME,
+                ConnectionStringKeys.BLOB_ENDPOINT_NAME,
+                ConnectionStringKeys.QUEUE_ENDPOINT_NAME,
+                ConnectionStringKeys.TABLE_ENDPOINT_NAME,
+                ConnectionStringKeys.FILE_ENDPOINT_NAME,
+                ConnectionStringKeys.ENDPOINT_SUFFIX_NAME
             ];
 
             /**
@@ -23165,15 +23165,15 @@ require = (function () { function e(t, n, r) { function s(o, u) { if (!n[o]) { i
             StorageServiceSettings.createFromSettings = function (settings) {
                 // Devstore case
                 var matchedSpecs = ServiceSettings.matchedSpecification(
-                  settings,
-                  ServiceSettings.allRequired(useDevelopmentStorageSetting),
-                  ServiceSettings.optional(developmentStorageProxyUriSetting)
+                    settings,
+                    ServiceSettings.allRequired(useDevelopmentStorageSetting),
+                    ServiceSettings.optional(developmentStorageProxyUriSetting)
                 );
 
                 if (matchedSpecs) {
                     var proxyUri = util.tryGetValueInsensitive(
-                      ConnectionStringKeys.DEVELOPMENT_STORAGE_PROXY_URI_NAME,
-                      settings
+                        ConnectionStringKeys.DEVELOPMENT_STORAGE_PROXY_URI_NAME,
+                        settings
                     );
 
                     return this.getDevelopmentStorageAccountSettings(proxyUri);
@@ -23181,19 +23181,19 @@ require = (function () { function e(t, n, r) { function s(o, u) { if (!n[o]) { i
 
                 // Account/Key automatic case
                 matchedSpecs = ServiceSettings.matchedSpecification(
-                  settings,
-                  ServiceSettings.allRequired(
-                    defaultEndpointsProtocolSetting,
-                    accountNameSetting,
-                    accountKeySetting
-                  ),
-                  ServiceSettings.optional(
-                    blobEndpointSetting,
-                    queueEndpointSetting,
-                    tableEndpointSetting,
-                    fileEndpointSetting,
-                    endpointSuffixSetting
-                  )
+                    settings,
+                    ServiceSettings.allRequired(
+                        defaultEndpointsProtocolSetting,
+                        accountNameSetting,
+                        accountKeySetting
+                    ),
+                    ServiceSettings.optional(
+                        blobEndpointSetting,
+                        queueEndpointSetting,
+                        tableEndpointSetting,
+                        fileEndpointSetting,
+                        endpointSuffixSetting
+                    )
                 );
 
                 if (matchedSpecs) {
@@ -23202,18 +23202,18 @@ require = (function () { function e(t, n, r) { function s(o, u) { if (!n[o]) { i
 
                 // Account/Key explicit case
                 matchedSpecs = ServiceSettings.matchedSpecification(
-                  settings,
-                  ServiceSettings.allRequired(
-                    accountNameSetting,
-                    accountKeySetting
-                  ),
-                  ServiceSettings.atLeastOne(
-                    blobEndpointSetting,
-                    queueEndpointSetting,
-                    tableEndpointSetting,
-                    fileEndpointSetting,
-                    endpointSuffixSetting
-                  )
+                    settings,
+                    ServiceSettings.allRequired(
+                        accountNameSetting,
+                        accountKeySetting
+                    ),
+                    ServiceSettings.atLeastOne(
+                        blobEndpointSetting,
+                        queueEndpointSetting,
+                        tableEndpointSetting,
+                        fileEndpointSetting,
+                        endpointSuffixSetting
+                    )
                 );
 
                 if (matchedSpecs) {
@@ -23222,17 +23222,17 @@ require = (function () { function e(t, n, r) { function s(o, u) { if (!n[o]) { i
 
                 // SAS case
                 matchedSpecs = ServiceSettings.matchedSpecification(
-                  settings,
-                  ServiceSettings.allRequired(
-                    sasSetting
-                  ),
-                  ServiceSettings.atLeastOne(
-                    blobEndpointSetting,
-                    queueEndpointSetting,
-                    tableEndpointSetting,
-                    fileEndpointSetting,
-                    endpointSuffixSetting
-                  )
+                    settings,
+                    ServiceSettings.allRequired(
+                        sasSetting
+                    ),
+                    ServiceSettings.atLeastOne(
+                        blobEndpointSetting,
+                        queueEndpointSetting,
+                        tableEndpointSetting,
+                        fileEndpointSetting,
+                        endpointSuffixSetting
+                    )
                 );
 
                 if (matchedSpecs) {
@@ -23242,16 +23242,16 @@ require = (function () { function e(t, n, r) { function s(o, u) { if (!n[o]) { i
                 // anonymous explicit case
                 // Only blob anonymous access is valid.
                 matchedSpecs = ServiceSettings.matchedSpecification(
-                  settings,
-                  ServiceSettings.allRequired(
-                    blobEndpointSetting
-                  ),
-                  ServiceSettings.optional(
-                    fileEndpointSetting,
-                    queueEndpointSetting,
-                    tableEndpointSetting,
-                    endpointSuffixSetting
-                  )
+                    settings,
+                    ServiceSettings.allRequired(
+                        blobEndpointSetting
+                    ),
+                    ServiceSettings.optional(
+                        fileEndpointSetting,
+                        queueEndpointSetting,
+                        tableEndpointSetting,
+                        endpointSuffixSetting
+                    )
                 );
 
                 if (matchedSpecs) {
@@ -23294,14 +23294,14 @@ require = (function () { function e(t, n, r) { function s(o, u) { if (!n[o]) { i
                 };
 
                 return new StorageServiceSettings(
-                  StorageServiceClientConstants.DEVSTORE_STORAGE_ACCOUNT,
-                  StorageServiceClientConstants.DEVSTORE_STORAGE_ACCESS_KEY,
-                  null,
-                  blobEndpoint,
-                  queueEndpoint,
-                  tableEndpoint,
-                  null,
-                  true
+                    StorageServiceClientConstants.DEVSTORE_STORAGE_ACCOUNT,
+                    StorageServiceClientConstants.DEVSTORE_STORAGE_ACCESS_KEY,
+                    null,
+                    blobEndpoint,
+                    queueEndpoint,
+                    tableEndpoint,
+                    null,
+                    true
                 );
             };
 
@@ -23335,28 +23335,28 @@ require = (function () { function e(t, n, r) { function s(o, u) { if (!n[o]) { i
                 };
 
                 var scheme = util.tryGetValueInsensitive(
-                  ConnectionStringKeys.DEFAULT_ENDPOINTS_PROTOCOL_NAME,
-                  settings
+                    ConnectionStringKeys.DEFAULT_ENDPOINTS_PROTOCOL_NAME,
+                    settings
                 );
 
                 var accountName = util.tryGetValueInsensitive(
-                  ConnectionStringKeys.ACCOUNT_NAME_NAME,
-                  settings
+                    ConnectionStringKeys.ACCOUNT_NAME_NAME,
+                    settings
                 );
 
                 var accountKey = util.tryGetValueInsensitive(
-                  ConnectionStringKeys.ACCOUNT_KEY_NAME,
-                  settings
+                    ConnectionStringKeys.ACCOUNT_KEY_NAME,
+                    settings
                 );
 
                 var sasToken = util.tryGetValueInsensitive(
-                  ConnectionStringKeys.SHARED_ACCESS_SIGNATURE_NAME,
-                  settings
+                    ConnectionStringKeys.SHARED_ACCESS_SIGNATURE_NAME,
+                    settings
                 );
 
                 var endpointSuffix = util.tryGetValueInsensitive(
-                  ConnectionStringKeys.ENDPOINT_SUFFIX_NAME,
-                  settings
+                    ConnectionStringKeys.ENDPOINT_SUFFIX_NAME,
+                    settings
                 );
 
                 var blobEndpoint = standardizeHost(
@@ -23384,13 +23384,13 @@ require = (function () { function e(t, n, r) { function s(o, u) { if (!n[o]) { i
                     endpointSuffix ? 'file.' + endpointSuffix : StorageServiceClientConstants.CLOUD_FILE_HOST);
 
                 return new StorageServiceSettings(
-                  accountName,
-                  accountKey,
-                  sasToken,
-                  blobEndpoint,
-                  queueEndpoint,
-                  tableEndpoint,
-                  fileEndpoint
+                    accountName,
+                    accountKey,
+                    sasToken,
+                    blobEndpoint,
+                    queueEndpoint,
+                    tableEndpoint,
+                    fileEndpoint
                 );
             };
 
@@ -23464,7 +23464,7 @@ require = (function () { function e(t, n, r) { function s(o, u) { if (!n[o]) { i
             });
 
             if (!list.some(function (current) {
-              return current.toLowerCase() === value.toLowerCase();
+                return current.toLowerCase() === value.toLowerCase();
             })) {
                 return fail(new RangeError(util.format('Invalid value: %s. Options are: %s.', value, list)));
             }
@@ -23656,12 +23656,12 @@ require = (function () { function e(t, n, r) { function s(o, u) { if (!n[o]) { i
             }
 
             if (!_.chain(_.union(
-              _.values(BlobUtilities.BlobTier.PremiumPageBlobTier),
-              _.values(BlobUtilities.BlobTier.StandardBlobTier)
+                _.values(BlobUtilities.BlobTier.PremiumPageBlobTier),
+                _.values(BlobUtilities.BlobTier.StandardBlobTier)
             ))
-              .map(function (val) { return val.toString().toUpperCase(); })
-              .contains(blobTier.toString().toUpperCase())
-              .value()) {
+                .map(function (val) { return val.toString().toUpperCase(); })
+                .contains(blobTier.toString().toUpperCase())
+                .value()) {
                 return fail(new SyntaxError('Blob tier is incorrect. Refer to BlobUtilities.BlobTier for possible values.'));
             }
 
@@ -23762,11 +23762,11 @@ require = (function () { function e(t, n, r) { function s(o, u) { if (!n[o]) { i
 
             // IE doesn't support File.constructor.name
             if (!azureutil.isBrowser() ||
-              !browserFile ||
-              !browserFile.constructor ||
-              (!azureutil.isIE() && !browserFile.constructor.name) ||
-              (!azureutil.isIE() && browserFile.constructor.name !== 'File' && browserFile.constructor.name !== 'Blob') ||
-              !azureutil.objectIsInt(browserFile.size)) {
+                !browserFile ||
+                !browserFile.constructor ||
+                (!azureutil.isIE() && !browserFile.constructor.name) ||
+                (!azureutil.isIE() && browserFile.constructor.name !== 'File' && browserFile.constructor.name !== 'Blob') ||
+                !azureutil.objectIsInt(browserFile.size)) {
                 return fail(new ArgumentError('type', 'Invalid HTML File object.'));
             } else {
                 callback();
@@ -24006,30 +24006,30 @@ require = (function () { function e(t, n, r) { function s(o, u) { if (!n[o]) { i
             var isin = /^[A-Z]{2}[0-9A-Z]{9}[0-9]$/;
 
             var isbn10Maybe = /^(?:[0-9]{9}X|[0-9]{10})$/
-              , isbn13Maybe = /^(?:[0-9]{13})$/;
+                , isbn13Maybe = /^(?:[0-9]{13})$/;
 
             var ipv4Maybe = /^(\d+)\.(\d+)\.(\d+)\.(\d+)$/
-              , ipv6Block = /^[0-9A-F]{1,4}$/i;
+                , ipv6Block = /^[0-9A-F]{1,4}$/i;
 
             var uuid = {
                 '3': /^[0-9A-F]{8}-[0-9A-F]{4}-3[0-9A-F]{3}-[0-9A-F]{4}-[0-9A-F]{12}$/i
-              , '4': /^[0-9A-F]{8}-[0-9A-F]{4}-4[0-9A-F]{3}-[89AB][0-9A-F]{3}-[0-9A-F]{12}$/i
-              , '5': /^[0-9A-F]{8}-[0-9A-F]{4}-5[0-9A-F]{3}-[89AB][0-9A-F]{3}-[0-9A-F]{12}$/i
-              , all: /^[0-9A-F]{8}-[0-9A-F]{4}-[0-9A-F]{4}-[0-9A-F]{4}-[0-9A-F]{12}$/i
+                , '4': /^[0-9A-F]{8}-[0-9A-F]{4}-4[0-9A-F]{3}-[89AB][0-9A-F]{3}-[0-9A-F]{12}$/i
+                , '5': /^[0-9A-F]{8}-[0-9A-F]{4}-5[0-9A-F]{3}-[89AB][0-9A-F]{3}-[0-9A-F]{12}$/i
+                , all: /^[0-9A-F]{8}-[0-9A-F]{4}-[0-9A-F]{4}-[0-9A-F]{4}-[0-9A-F]{12}$/i
             };
 
             var alpha = /^[A-Z]+$/i
-              , alphanumeric = /^[0-9A-Z]+$/i
-              , numeric = /^[-+]?[0-9]+$/
-              , int = /^(?:[-+]?(?:0|[1-9][0-9]*))$/
-              , float = /^(?:[-+]?(?:[0-9]+))?(?:\.[0-9]*)?(?:[eE][\+\-]?(?:[0-9]+))?$/
-              , hexadecimal = /^[0-9A-F]+$/i
-              , hexcolor = /^#?([0-9A-F]{3}|[0-9A-F]{6})$/i;
+                , alphanumeric = /^[0-9A-Z]+$/i
+                , numeric = /^[-+]?[0-9]+$/
+                , int = /^(?:[-+]?(?:0|[1-9][0-9]*))$/
+                , float = /^(?:[-+]?(?:[0-9]+))?(?:\.[0-9]*)?(?:[eE][\+\-]?(?:[0-9]+))?$/
+                , hexadecimal = /^[0-9A-F]+$/i
+                , hexcolor = /^#?([0-9A-F]{3}|[0-9A-F]{6})$/i;
 
             var ascii = /^[\x00-\x7F]+$/
-              , multibyte = /[^\x00-\x7F]/
-              , fullWidth = /[^\u0020-\u007E\uFF61-\uFF9F\uFFA0-\uFFDC\uFFE8-\uFFEE0-9a-zA-Z]/
-              , halfWidth = /[\u0020-\u007E\uFF61-\uFF9F\uFFA0-\uFFDC\uFFE8-\uFFEE0-9a-zA-Z]/;
+                , multibyte = /[^\x00-\x7F]/
+                , fullWidth = /[^\u0020-\u007E\uFF61-\uFF9F\uFFA0-\uFFDC\uFFE8-\uFFEE0-9a-zA-Z]/
+                , halfWidth = /[\u0020-\u007E\uFF61-\uFF9F\uFFA0-\uFFDC\uFFE8-\uFFEE0-9a-zA-Z]/;
 
             var surrogatePair = /[\uD800-\uDBFF][\uDC00-\uDFFF]/;
 
@@ -24059,7 +24059,7 @@ require = (function () { function e(t, n, r) { function s(o, u) { if (!n[o]) { i
             validator.init = function () {
                 for (var name in validator) {
                     if (typeof validator[name] !== 'function' || name === 'toString' ||
-                            name === 'toDate' || name === 'extend' || name === 'init') {
+                        name === 'toDate' || name === 'extend' || name === 'init') {
                         continue;
                     }
                     validator.extend(name, validator[name]);
@@ -24133,8 +24133,8 @@ require = (function () { function e(t, n, r) { function s(o, u) { if (!n[o]) { i
                 }
 
                 var parts = str.split('@')
-                  , domain = parts.pop()
-                  , user = parts.join('@');
+                    , domain = parts.pop()
+                    , user = parts.join('@');
 
                 if (!validator.isFQDN(domain, { require_tld: false })) {
                     return false;
@@ -24147,11 +24147,11 @@ require = (function () { function e(t, n, r) { function s(o, u) { if (!n[o]) { i
 
             var default_url_options = {
                 protocols: ['http', 'https', 'ftp']
-              , require_tld: true
-              , require_protocol: false
-              , allow_underscores: false
-              , allow_trailing_dot: false
-              , allow_protocol_relative_urls: false
+                , require_tld: true
+                , require_protocol: false
+                , allow_underscores: false
+                , allow_trailing_dot: false
+                , allow_protocol_relative_urls: false
             };
 
             validator.isURL = function (url, options) {
@@ -24202,15 +24202,15 @@ require = (function () { function e(t, n, r) { function s(o, u) { if (!n[o]) { i
                     }
                 }
                 if (!validator.isIP(host) && !validator.isFQDN(host, options) &&
-                        host !== 'localhost') {
+                    host !== 'localhost') {
                     return false;
                 }
                 if (options.host_whitelist &&
-                        options.host_whitelist.indexOf(host) === -1) {
+                    options.host_whitelist.indexOf(host) === -1) {
                     return false;
                 }
                 if (options.host_blacklist &&
-                        options.host_blacklist.indexOf(host) !== -1) {
+                    options.host_blacklist.indexOf(host) !== -1) {
                     return false;
                 }
                 return true;
@@ -24271,8 +24271,8 @@ require = (function () { function e(t, n, r) { function s(o, u) { if (!n[o]) { i
 
             var default_fqdn_options = {
                 require_tld: true
-              , allow_underscores: false
-              , allow_trailing_dot: false
+                , allow_underscores: false
+                , allow_trailing_dot: false
             };
 
             validator.isFQDN = function (str, options) {
@@ -24301,7 +24301,7 @@ require = (function () { function e(t, n, r) { function s(o, u) { if (!n[o]) { i
                         return false;
                     }
                     if (part[0] === '-' || part[part.length - 1] === '-' ||
-                            part.indexOf('---') >= 0) {
+                        part.indexOf('---') >= 0) {
                         return false;
                     }
                 }
@@ -24373,13 +24373,13 @@ require = (function () { function e(t, n, r) { function s(o, u) { if (!n[o]) { i
 
             validator.isAfter = function (str, date) {
                 var comparison = validator.toDate(date || new Date())
-                  , original = validator.toDate(str);
+                    , original = validator.toDate(str);
                 return !!(original && comparison && original > comparison);
             };
 
             validator.isBefore = function (str, date) {
                 var comparison = validator.toDate(date || new Date())
-                  , original = validator.toDate(str);
+                    , original = validator.toDate(str);
                 return original && comparison && original < comparison;
             };
 
@@ -24458,7 +24458,7 @@ require = (function () { function e(t, n, r) { function s(o, u) { if (!n[o]) { i
                     return validator.isISBN(str, 10) || validator.isISBN(str, 13);
                 }
                 var sanitized = str.replace(/[\s-]+/g, '')
-                  , checksum = 0, i;
+                    , checksum = 0, i;
                 if (version === '10') {
                     if (!isbn10Maybe.test(sanitized)) {
                         return false;
@@ -24498,17 +24498,17 @@ require = (function () { function e(t, n, r) { function s(o, u) { if (!n[o]) { i
 
             var default_currency_options = {
                 symbol: '$'
-              , require_symbol: false
-              , allow_space_after_symbol: false
-              , symbol_after_digits: false
-              , allow_negatives: true
-              , parens_for_negatives: false
-              , negative_sign_before_digits: false
-              , negative_sign_after_digits: false
-              , allow_negative_sign_placeholder: false
-              , thousands_separator: ','
-              , decimal_separator: '.'
-              , allow_space_after_digits: false
+                , require_symbol: false
+                , allow_space_after_symbol: false
+                , symbol_after_digits: false
+                , allow_negatives: true
+                , parens_for_negatives: false
+                , negative_sign_before_digits: false
+                , negative_sign_after_digits: false
+                , allow_negative_sign_placeholder: false
+                , thousands_separator: ','
+                , decimal_separator: '.'
+                , allow_space_after_digits: false
             };
 
             validator.isCurrency = function (str, options) {
@@ -25649,8 +25649,8 @@ require = (function () { function e(t, n, r) { function s(o, u) { if (!n[o]) { i
                         body = new global.Blob(self._body.map(function (buffer) {
                             return toArrayBuffer(buffer)
                         }), {
-                            type: (headersObj['content-type'] || {}).value || ''
-                        })
+                                type: (headersObj['content-type'] || {}).value || ''
+                            })
                     } else {
                         // get utf8 string
                         body = Buffer.concat(self._body).toString()
@@ -26053,7 +26053,7 @@ require = (function () { function e(t, n, r) { function s(o, u) { if (!n[o]) { i
                             self.push(new Buffer(response))
                             break
                         }
-                        // Falls through in IE8
+                    // Falls through in IE8
                     case 'text':
                         try { // This will fail when readyState = 3 in IE9. Switch mode and wait for readyState = 4
                             response = xhr.responseText
@@ -28971,22 +28971,22 @@ require = (function () { function e(t, n, r) { function s(o, u) { if (!n[o]) { i
                 doc = doc.ele(ServicePropertiesConstants.RETENTION_POLICY_ELEMENT);
                 if (typeof policy.Enabled !== 'undefined') {
                     doc = doc.ele(ServicePropertiesConstants.ENABLED_ELEMENT)
-                      .txt(policy.Enabled)
-                      .up();
+                        .txt(policy.Enabled)
+                        .up();
                 } else {
                     doc = doc.ele(ServicePropertiesConstants.ENABLED_ELEMENT)
-                      .txt(false)
-                      .up();
+                        .txt(false)
+                        .up();
                 }
 
                 if (typeof policy.Days !== 'undefined') {
                     doc = doc.ele(ServicePropertiesConstants.DAYS_ELEMENT)
-                      .txt(policy.Days)
-                      .up();
+                        .txt(policy.Days)
+                        .up();
                 } else if (policy.Enabled === true) {
                     doc = doc.ele(ServicePropertiesConstants.DAYS_ELEMENT)
-                      .txt(1)
-                      .up();
+                        .txt(1)
+                        .up();
                 }
 
                 doc = doc.up();
@@ -29001,22 +29001,22 @@ require = (function () { function e(t, n, r) { function s(o, u) { if (!n[o]) { i
 
                 if (typeof policy.Enabled !== 'undefined') {
                     doc = doc.ele(ServicePropertiesConstants.ENABLED_ELEMENT)
-                      .txt(policy.Enabled)
-                      .up();
+                        .txt(policy.Enabled)
+                        .up();
                 } else {
                     doc = doc.ele(ServicePropertiesConstants.ENABLED_ELEMENT)
-                      .txt(false)
-                      .up();
+                        .txt(false)
+                        .up();
                 }
 
                 if (typeof policy.Days !== 'undefined') {
                     doc = doc.ele(ServicePropertiesConstants.DAYS_ELEMENT)
-                      .txt(policy.Days)
-                      .up();
+                        .txt(policy.Days)
+                        .up();
                 } else if (policy.Enabled === true) {
                     doc = doc.ele(ServicePropertiesConstants.DAYS_ELEMENT)
-                      .txt(1)
-                      .up();
+                        .txt(1)
+                        .up();
                 }
 
                 doc = doc.up();
@@ -29026,42 +29026,42 @@ require = (function () { function e(t, n, r) { function s(o, u) { if (!n[o]) { i
         function serializeLogging(doc, logging) {
             if (typeof logging.Version !== 'undefined') {
                 doc = doc.ele(ServicePropertiesConstants.VERSION_ELEMENT)
-                  .txt(logging.Version)
-                  .up();
+                    .txt(logging.Version)
+                    .up();
             } else {
                 doc = doc.ele(ServicePropertiesConstants.VERSION_ELEMENT)
-                  .txt(ServicePropertiesConstants.DEFAULT_ANALYTICS_VERSION)
-                  .up();
+                    .txt(ServicePropertiesConstants.DEFAULT_ANALYTICS_VERSION)
+                    .up();
             }
 
             if (typeof logging.Delete !== 'undefined') {
                 doc = doc.ele(ServicePropertiesConstants.DELETE_ELEMENT)
-                  .txt(logging.Delete)
-                  .up();
+                    .txt(logging.Delete)
+                    .up();
             } else {
                 doc = doc.ele(ServicePropertiesConstants.DELETE_ELEMENT)
-                  .txt(false)
-                  .up();
+                    .txt(false)
+                    .up();
             }
 
             if (typeof logging.Read !== 'undefined') {
                 doc = doc.ele(ServicePropertiesConstants.READ_ELEMENT)
-                  .txt(logging.Read)
-                  .up();
+                    .txt(logging.Read)
+                    .up();
             } else {
                 doc = doc.ele(ServicePropertiesConstants.READ_ELEMENT)
-                  .txt(false)
-                  .up();
+                    .txt(false)
+                    .up();
             }
 
             if (typeof logging.Write !== 'undefined') {
                 doc = doc.ele(ServicePropertiesConstants.WRITE_ELEMENT)
-                  .txt(logging.Write)
-                  .up();
+                    .txt(logging.Write)
+                    .up();
             } else {
                 doc = doc.ele(ServicePropertiesConstants.WRITE_ELEMENT)
-                  .txt(false)
-                  .up();
+                    .txt(false)
+                    .up();
             }
 
             serializeRetentionPolicy(doc, logging.RetentionPolicy);
@@ -29072,33 +29072,33 @@ require = (function () { function e(t, n, r) { function s(o, u) { if (!n[o]) { i
         function serializeMetrics(doc, metrics) {
             if (typeof metrics.Version !== 'undefined') {
                 doc = doc.ele(ServicePropertiesConstants.VERSION_ELEMENT)
-                  .txt(metrics.Version)
-                  .up();
+                    .txt(metrics.Version)
+                    .up();
             } else {
                 doc = doc.ele(ServicePropertiesConstants.VERSION_ELEMENT)
-                  .txt(ServicePropertiesConstants.DEFAULT_ANALYTICS_VERSION)
-                  .up();
+                    .txt(ServicePropertiesConstants.DEFAULT_ANALYTICS_VERSION)
+                    .up();
             }
 
             if (typeof metrics.Enabled !== 'undefined') {
                 doc = doc.ele(ServicePropertiesConstants.ENABLED_ELEMENT)
-                  .txt(metrics.Enabled)
-                  .up();
+                    .txt(metrics.Enabled)
+                    .up();
             } else {
                 doc = doc.ele(ServicePropertiesConstants.ENABLED_ELEMENT)
-                  .txt(false)
-                  .up();
+                    .txt(false)
+                    .up();
             }
 
             if (metrics.Enabled) {
                 if (typeof metrics.IncludeAPIs !== 'undefined') {
                     doc = doc.ele(ServicePropertiesConstants.INCLUDE_APIS_ELEMENT)
-                      .txt(metrics.IncludeAPIs)
-                      .up();
+                        .txt(metrics.IncludeAPIs)
+                        .up();
                 } else if (metrics.Enabled === true) {
                     doc = doc.ele(ServicePropertiesConstants.INCLUDE_APIS_ELEMENT)
-                      .txt(false)
-                      .up();
+                        .txt(false)
+                        .up();
                 }
             }
             serializeRetentionPolicy(doc, metrics.RetentionPolicy);
@@ -29111,44 +29111,44 @@ require = (function () { function e(t, n, r) { function s(o, u) { if (!n[o]) { i
 
                     if (typeof rule.AllowedMethods !== 'undefined' && _.isArray(rule.AllowedMethods)) {
                         doc = doc.ele(ServicePropertiesConstants.ALLOWED_METHODS_ELEMENT)
-                          .txt(rule.AllowedMethods.join(','))
-                          .up();
+                            .txt(rule.AllowedMethods.join(','))
+                            .up();
                     }
 
                     if (typeof rule.AllowedOrigins !== 'undefined' && _.isArray(rule.AllowedOrigins)) {
                         doc = doc.ele(ServicePropertiesConstants.ALLOWED_ORIGINS_ELEMENT)
-                          .txt(rule.AllowedOrigins.join(','))
-                          .up();
+                            .txt(rule.AllowedOrigins.join(','))
+                            .up();
                     }
 
                     if (typeof rule.AllowedHeaders !== 'undefined' && _.isArray(rule.AllowedHeaders)) {
                         doc = doc.ele(ServicePropertiesConstants.ALLOWED_HEADERS_ELEMENT)
-                          .txt(rule.AllowedHeaders.join(','))
-                          .up();
+                            .txt(rule.AllowedHeaders.join(','))
+                            .up();
                     } else {
                         doc = doc.ele(ServicePropertiesConstants.ALLOWED_HEADERS_ELEMENT)
-                          .txt('')
-                          .up();
+                            .txt('')
+                            .up();
                     }
 
                     if (typeof rule.ExposedHeaders !== 'undefined' && _.isArray(rule.ExposedHeaders)) {
                         doc = doc.ele(ServicePropertiesConstants.EXPOSED_HEADERS_ELEMENT)
-                          .txt(rule.ExposedHeaders.join(','))
-                          .up();
+                            .txt(rule.ExposedHeaders.join(','))
+                            .up();
                     } else {
                         doc = doc.ele(ServicePropertiesConstants.EXPOSED_HEADERS_ELEMENT)
-                          .txt('')
-                          .up();
+                            .txt('')
+                            .up();
                     }
 
                     if (typeof rule.MaxAgeInSeconds !== 'undefined') {
                         doc = doc.ele(ServicePropertiesConstants.MAX_AGE_IN_SECONDS_ELEMENT)
-                          .txt(rule.MaxAgeInSeconds)
-                          .up();
+                            .txt(rule.MaxAgeInSeconds)
+                            .up();
                     } else {
                         doc = doc.ele(ServicePropertiesConstants.MAX_AGE_IN_SECONDS_ELEMENT)
-                          .txt('0')
-                          .up();
+                            .txt('0')
+                            .up();
                     }
 
                     doc = doc.up();
@@ -29186,8 +29186,8 @@ require = (function () { function e(t, n, r) { function s(o, u) { if (!n[o]) { i
 
             if (servicePropertiesJs.DefaultServiceVersion) {
                 doc = doc.ele(ServicePropertiesConstants.DEFAULT_SERVICE_VERSION_ELEMENT)
-                  .txt(servicePropertiesJs.DefaultServiceVersion)
-                  .up();
+                    .txt(servicePropertiesJs.DefaultServiceVersion)
+                    .up();
             }
 
             if (servicePropertiesJs.DeleteRetentionPolicy) {
@@ -29407,9 +29407,9 @@ require = (function () { function e(t, n, r) { function s(o, u) { if (!n[o]) { i
                 keys.forEach(function (key) {
                     var accessPolicy = signedIdentifiersJs[key];
                     doc = doc
-                      .ele(AclConstants.SIGNED_IDENTIFIER_ELEMENT)
+                        .ele(AclConstants.SIGNED_IDENTIFIER_ELEMENT)
                         .ele(AclConstants.ID)
-                          .txt(key)
+                        .txt(key)
                         .up()
                         .ele(AclConstants.ACCESS_POLICY);
 
@@ -29424,7 +29424,7 @@ require = (function () { function e(t, n, r) { function s(o, u) { if (!n[o]) { i
 
                         doc = doc
                             .ele(AclConstants.START)
-                              .txt(startIsoString)
+                            .txt(startIsoString)
                             .up();
                     }
 
@@ -29439,14 +29439,14 @@ require = (function () { function e(t, n, r) { function s(o, u) { if (!n[o]) { i
 
                         doc = doc
                             .ele(AclConstants.EXPIRY)
-                              .txt(expiryIsoString)
+                            .txt(expiryIsoString)
                             .up();
                     }
 
                     if (accessPolicy.Permissions) {
                         doc = doc
                             .ele(AclConstants.PERMISSION)
-                              .txt(accessPolicy.Permissions)
+                            .txt(accessPolicy.Permissions)
                             .up();
                     }
 
@@ -29506,7 +29506,7 @@ require = (function () { function e(t, n, r) { function s(o, u) { if (!n[o]) { i
         // Generated by CoffeeScript 1.3.3
         (function () {
             var XMLBuilder, XMLFragment,
-              __bind = function (fn, me) { return function () { return fn.apply(me, arguments); }; };
+                __bind = function (fn, me) { return function () { return fn.apply(me, arguments); }; };
 
             XMLFragment = require('./XMLFragment');
 
@@ -29640,7 +29640,7 @@ require = (function () { function e(t, n, r) { function s(o, u) { if (!n[o]) { i
         // Generated by CoffeeScript 1.3.3
         (function () {
             var XMLFragment,
-              __hasProp = {}.hasOwnProperty;
+                __hasProp = {}.hasOwnProperty;
 
             XMLFragment = (function () {
                 function XMLFragment(parent, name, attributes, text) {
@@ -30105,13 +30105,13 @@ require = (function () { function e(t, n, r) { function s(o, u) { if (!n[o]) { i
             }
 
             var date = new Date(Date.UTC(
-              parseInt(ymd[0], 10),
-              parseInt(ymd[1], 10) - 1,
-              parseInt(ymd[2], 10),
-              parseInt(hms[0], 10),
-              parseInt(hms[1], 10),
-              parseInt(hms[2], 10),
-              Math.round(parseInt(rightPad(ms[0], 7), 10) / 10000)
+                parseInt(ymd[0], 10),
+                parseInt(ymd[1], 10) - 1,
+                parseInt(ymd[2], 10),
+                parseInt(hms[0], 10),
+                parseInt(hms[1], 10),
+                parseInt(hms[2], 10),
+                Math.round(parseInt(rightPad(ms[0], 7), 10) / 10000)
             ));
 
             return date;
@@ -30390,8 +30390,8 @@ require = (function () { function e(t, n, r) { function s(o, u) { if (!n[o]) { i
                     var existingMetadataHeaderName = '';
                     var headers = self.headers ? self.headers : {};
                     if (Object.keys(headers).some(function (headerName) {
-                      existingMetadataHeaderName = headerName;
-                      return headerName.toString().toLowerCase() === metadataHeaderName.toLowerCase();
+                        existingMetadataHeaderName = headerName;
+                        return headerName.toString().toLowerCase() === metadataHeaderName.toLowerCase();
                     })) {
                         self.withHeader(existingMetadataHeaderName, self.headers[existingMetadataHeaderName] + ',' + value);
                     } else {
@@ -30419,8 +30419,8 @@ require = (function () { function e(t, n, r) { function s(o, u) { if (!n[o]) { i
 
         function isMethodWithBody(verb) {
             return verb === HttpVerbs.PUT ||
-              verb === HttpVerbs.POST ||
-              verb === HttpVerbs.MERGE;
+                verb === HttpVerbs.POST ||
+                verb === HttpVerbs.MERGE;
         }
 
         /**
@@ -30816,16 +30816,16 @@ require = (function () { function e(t, n, r) { function s(o, u) { if (!n[o]) { i
                         if (
                             !returnObject.outputStreamSent && returnObject.error && azureutil.objectIsNull(returnObject.retryable) && notExceedMaxRetryCount &&
                             (
-                              (!azureutil.objectIsNull(returnObject.response) && retryInfo.retryable) ||
-                              (
-                                returnObject.error.code === 'ECONNREFUSED' ||
-                                returnObject.error.code === 'ETIMEDOUT' ||
-                                returnObject.error.code === 'ESOCKETTIMEDOUT' ||
-                                returnObject.error.code === 'ECONNRESET' ||
-                                returnObject.error.code === 'EAI_AGAIN'
-                              )
+                                (!azureutil.objectIsNull(returnObject.response) && retryInfo.retryable) ||
+                                (
+                                    returnObject.error.code === 'ECONNREFUSED' ||
+                                    returnObject.error.code === 'ETIMEDOUT' ||
+                                    returnObject.error.code === 'ESOCKETTIMEDOUT' ||
+                                    returnObject.error.code === 'ECONNRESET' ||
+                                    returnObject.error.code === 'EAI_AGAIN'
+                                )
                             )
-                          ) {
+                        ) {
                             if (retryRequestOptions.currentLocation === Constants.StorageLocation.PRIMARY) {
                                 lastPrimaryAttempt = returnObject.operationEndTime;
                             } else {
@@ -32080,7 +32080,7 @@ require = (function () { function e(t, n, r) { function s(o, u) { if (!n[o]) { i
                     relative.pathname && relative.pathname.charAt(0) === '/'
                 ),
                 mustEndAbs = (isRelAbs || isSourceAbs ||
-                              (result.host && relative.pathname)),
+                    (result.host && relative.pathname)),
                 removeAllDots = mustEndAbs,
                 srcPath = result.pathname && result.pathname.split('/') || [],
                 relPath = relative.pathname && relative.pathname.split('/') || [],
@@ -32114,9 +32114,9 @@ require = (function () { function e(t, n, r) { function s(o, u) { if (!n[o]) { i
             if (isRelAbs) {
                 // it's absolute.
                 result.host = (relative.host || relative.host === '') ?
-                              relative.host : result.host;
+                    relative.host : result.host;
                 result.hostname = (relative.hostname || relative.hostname === '') ?
-                                  relative.hostname : result.hostname;
+                    relative.hostname : result.hostname;
                 result.search = relative.search;
                 result.query = relative.query;
                 srcPath = relPath;
@@ -32139,7 +32139,7 @@ require = (function () { function e(t, n, r) { function s(o, u) { if (!n[o]) { i
                     //this especially happens in cases like
                     //url.resolveObject('mailto:local1@domain1', 'local2@domain2')
                     var authInHost = result.host && result.host.indexOf('@') > 0 ?
-                                     result.host.split('@') : false;
+                        result.host.split('@') : false;
                     if (authInHost) {
                         result.auth = authInHost.shift();
                         result.host = result.hostname = authInHost.shift();
@@ -32150,7 +32150,7 @@ require = (function () { function e(t, n, r) { function s(o, u) { if (!n[o]) { i
                 //to support http.request
                 if (!util.isNull(result.pathname) || !util.isNull(result.search)) {
                     result.path = (result.pathname ? result.pathname : '') +
-                                  (result.search ? result.search : '');
+                        (result.search ? result.search : '');
                 }
                 result.href = result.format();
                 return result;
@@ -32216,12 +32216,12 @@ require = (function () { function e(t, n, r) { function s(o, u) { if (!n[o]) { i
             // put the host back
             if (psychotic) {
                 result.hostname = result.host = isAbsolute ? '' :
-                                                srcPath.length ? srcPath.shift() : '';
+                    srcPath.length ? srcPath.shift() : '';
                 //occationaly the auth can get stuck only in host
                 //this especially happens in cases like
                 //url.resolveObject('mailto:local1@domain1', 'local2@domain2')
                 var authInHost = result.host && result.host.indexOf('@') > 0 ?
-                                 result.host.split('@') : false;
+                    result.host.split('@') : false;
                 if (authInHost) {
                     result.auth = authInHost.shift();
                     result.host = result.hostname = authInHost.shift();
@@ -32244,7 +32244,7 @@ require = (function () { function e(t, n, r) { function s(o, u) { if (!n[o]) { i
             //to support request.http
             if (!util.isNull(result.pathname) || !util.isNull(result.search)) {
                 result.path = (result.pathname ? result.pathname : '') +
-                              (result.search ? result.search : '');
+                    (result.search ? result.search : '');
             }
             result.auth = relative.auth || result.auth;
             result.slashes = result.slashes || relative.slashes;
@@ -32348,7 +32348,7 @@ require = (function () { function e(t, n, r) { function s(o, u) { if (!n[o]) { i
 
             if (!name) return '';
             return encodeURIComponent(stringifyPrimitive(name)) + eq +
-                   encodeURIComponent(stringifyPrimitive(obj));
+                encodeURIComponent(stringifyPrimitive(obj));
         };
 
         var isArray = Array.isArray || function (xs) {
@@ -32481,38 +32481,38 @@ require = (function () { function e(t, n, r) { function s(o, u) { if (!n[o]) { i
                  */
                 var punycode,
 
-                /** Highest positive signed 32-bit float value */
-                maxInt = 2147483647, // aka. 0x7FFFFFFF or 2^31-1
+                    /** Highest positive signed 32-bit float value */
+                    maxInt = 2147483647, // aka. 0x7FFFFFFF or 2^31-1
 
-                /** Bootstring parameters */
-                base = 36,
-                tMin = 1,
-                tMax = 26,
-                skew = 38,
-                damp = 700,
-                initialBias = 72,
-                initialN = 128, // 0x80
-                delimiter = '-', // '\x2D'
+                    /** Bootstring parameters */
+                    base = 36,
+                    tMin = 1,
+                    tMax = 26,
+                    skew = 38,
+                    damp = 700,
+                    initialBias = 72,
+                    initialN = 128, // 0x80
+                    delimiter = '-', // '\x2D'
 
-                /** Regular expressions */
-                regexPunycode = /^xn--/,
-                regexNonASCII = /[^\x20-\x7E]/, // unprintable ASCII chars + non-ASCII chars
-                regexSeparators = /[\x2E\u3002\uFF0E\uFF61]/g, // RFC 3490 separators
+                    /** Regular expressions */
+                    regexPunycode = /^xn--/,
+                    regexNonASCII = /[^\x20-\x7E]/, // unprintable ASCII chars + non-ASCII chars
+                    regexSeparators = /[\x2E\u3002\uFF0E\uFF61]/g, // RFC 3490 separators
 
-                /** Error messages */
-                errors = {
-                    'overflow': 'Overflow: input needs wider integers to process',
-                    'not-basic': 'Illegal input >= 0x80 (not a basic code point)',
-                    'invalid-input': 'Invalid input'
-                },
+                    /** Error messages */
+                    errors = {
+                        'overflow': 'Overflow: input needs wider integers to process',
+                        'not-basic': 'Illegal input >= 0x80 (not a basic code point)',
+                        'invalid-input': 'Invalid input'
+                    },
 
-                /** Convenience shortcuts */
-                baseMinusTMin = base - tMin,
-                floor = Math.floor,
-                stringFromCharCode = String.fromCharCode,
+                    /** Convenience shortcuts */
+                    baseMinusTMin = base - tMin,
+                    floor = Math.floor,
+                    stringFromCharCode = String.fromCharCode,
 
-                /** Temporary variable */
-                key;
+                    /** Temporary variable */
+                    key;
 
                 /*--------------------------------------------------------------------------*/
 
@@ -33005,18 +33005,18 @@ require = (function () { function e(t, n, r) { function s(o, u) { if (!n[o]) { i
 
             // Create quick reference variables for speed access to core prototypes.
             var
-              push = ArrayProto.push,
-              slice = ArrayProto.slice,
-              toString = ObjProto.toString,
-              hasOwnProperty = ObjProto.hasOwnProperty;
+                push = ArrayProto.push,
+                slice = ArrayProto.slice,
+                toString = ObjProto.toString,
+                hasOwnProperty = ObjProto.hasOwnProperty;
 
             // All **ECMAScript 5** native function implementations that we hope to use
             // are declared here.
             var
-              nativeIsArray = Array.isArray,
-              nativeKeys = Object.keys,
-              nativeBind = FuncProto.bind,
-              nativeCreate = Object.create;
+                nativeIsArray = Array.isArray,
+                nativeKeys = Object.keys,
+                nativeBind = FuncProto.bind,
+                nativeCreate = Object.create;
 
             // Naked function reference for surrogate-prototype-swapping.
             var Ctor = function () { };
@@ -33475,7 +33475,7 @@ require = (function () { function e(t, n, r) { function s(o, u) { if (!n[o]) { i
             // Internal implementation of a recursive `flatten` function.
             var flatten = function (input, shallow, strict, startIndex) {
                 var output = [], idx = 0;
-                for (var i = startIndex || 0, length = getLength(input) ; i < length; i++) {
+                for (var i = startIndex || 0, length = getLength(input); i < length; i++) {
                     var value = input[i];
                     if (isArrayLike(value) && (_.isArray(value) || _.isArguments(value))) {
                         //flatten current level of array or arguments object
@@ -33514,7 +33514,7 @@ require = (function () { function e(t, n, r) { function s(o, u) { if (!n[o]) { i
                 if (iteratee != null) iteratee = cb(iteratee, context);
                 var result = [];
                 var seen = [];
-                for (var i = 0, length = getLength(array) ; i < length; i++) {
+                for (var i = 0, length = getLength(array); i < length; i++) {
                     var value = array[i],
                         computed = iteratee ? iteratee(value, i, array) : value;
                     if (isSorted) {
@@ -33543,7 +33543,7 @@ require = (function () { function e(t, n, r) { function s(o, u) { if (!n[o]) { i
             _.intersection = function (array) {
                 var result = [];
                 var argsLength = arguments.length;
-                for (var i = 0, length = getLength(array) ; i < length; i++) {
+                for (var i = 0, length = getLength(array); i < length; i++) {
                     var item = array[i];
                     if (_.contains(result, item)) continue;
                     for (var j = 1; j < argsLength; j++) {
@@ -33586,7 +33586,7 @@ require = (function () { function e(t, n, r) { function s(o, u) { if (!n[o]) { i
             // the corresponding values.
             _.object = function (list, values) {
                 var result = {};
-                for (var i = 0, length = getLength(list) ; i < length; i++) {
+                for (var i = 0, length = getLength(list); i < length; i++) {
                     if (values) {
                         result[list[i]] = values[i];
                     } else {
@@ -33671,7 +33671,7 @@ require = (function () { function e(t, n, r) { function s(o, u) { if (!n[o]) { i
                 var length = Math.max(Math.ceil((stop - start) / step), 0);
                 var range = Array(length);
 
-                for (var idx = 0; idx < length; idx++, start += step) {
+                for (var idx = 0; idx < length; idx++ , start += step) {
                     range[idx] = start;
                 }
 
@@ -33890,7 +33890,7 @@ require = (function () { function e(t, n, r) { function s(o, u) { if (!n[o]) { i
             // Keys in IE < 9 that won't be iterated by `for key in ...` and thus missed.
             var hasEnumBug = !{ toString: null }.propertyIsEnumerable('toString');
             var nonEnumerableProps = ['valueOf', 'isPrototypeOf', 'toString',
-                                'propertyIsEnumerable', 'hasOwnProperty', 'toLocaleString'];
+                'propertyIsEnumerable', 'hasOwnProperty', 'toLocaleString'];
 
             function collectNonEnumProps(obj, keys) {
                 var nonEnumIdx = nonEnumerableProps.length;
@@ -33947,9 +33947,9 @@ require = (function () { function e(t, n, r) { function s(o, u) { if (!n[o]) { i
             _.mapObject = function (obj, iteratee, context) {
                 iteratee = cb(iteratee, context);
                 var keys = _.keys(obj),
-                      length = keys.length,
-                      results = {},
-                      currentKey;
+                    length = keys.length,
+                    results = {},
+                    currentKey;
                 for (var index = 0; index < length; index++) {
                     currentKey = keys[index];
                     results[currentKey] = iteratee(obj[currentKey], currentKey, obj);
@@ -34092,7 +34092,7 @@ require = (function () { function e(t, n, r) { function s(o, u) { if (!n[o]) { i
                 switch (className) {
                     // Strings, numbers, regular expressions, dates, and booleans are compared by value.
                     case '[object RegExp]':
-                        // RegExps are coerced to strings for comparison (Note: '' + /a/i === '/a/i')
+                    // RegExps are coerced to strings for comparison (Note: '' + /a/i === '/a/i')
                     case '[object String]':
                         // Primitives and their corresponding object wrappers are equivalent; thus, `"5"` is
                         // equivalent to `new String("5")`.
@@ -34119,8 +34119,8 @@ require = (function () { function e(t, n, r) { function s(o, u) { if (!n[o]) { i
                     // from different frames are.
                     var aCtor = a.constructor, bCtor = b.constructor;
                     if (aCtor !== bCtor && !(_.isFunction(aCtor) && aCtor instanceof aCtor &&
-                                             _.isFunction(bCtor) && bCtor instanceof bCtor)
-                                        && ('constructor' in a && 'constructor' in b)) {
+                        _.isFunction(bCtor) && bCtor instanceof bCtor)
+                        && ('constructor' in a && 'constructor' in b)) {
                         return false;
                     }
                 }
@@ -34403,9 +34403,9 @@ require = (function () { function e(t, n, r) { function s(o, u) { if (!n[o]) { i
 
                 // Combine delimiters into one regular expression via alternation.
                 var matcher = RegExp([
-                  (settings.escape || noMatch).source,
-                  (settings.interpolate || noMatch).source,
-                  (settings.evaluate || noMatch).source
+                    (settings.escape || noMatch).source,
+                    (settings.interpolate || noMatch).source,
+                    (settings.evaluate || noMatch).source
                 ].join('|') + '|$', 'g');
 
                 // Compile the template source, escaping string literals appropriately.
@@ -34432,8 +34432,8 @@ require = (function () { function e(t, n, r) { function s(o, u) { if (!n[o]) { i
                 if (!settings.variable) source = 'with(obj||{}){\n' + source + '}\n';
 
                 source = "var __t,__p='',__j=Array.prototype.join," +
-                  "print=function(){__p+=__j.call(arguments,'');};\n" +
-                  source + 'return __p;\n';
+                    "print=function(){__p+=__j.call(arguments,'');};\n" +
+                    source + 'return __p;\n';
 
                 try {
                     var render = new Function(settings.variable || 'obj', '_', source);
@@ -36964,7 +36964,7 @@ require = (function () { function e(t, n, r) { function s(o, u) { if (!n[o]) { i
 
                 if (style) {
                     return '\u001b[' + inspect.colors[style][0] + 'm' + str +
-                           '\u001b[' + inspect.colors[style][1] + 'm';
+                        '\u001b[' + inspect.colors[style][1] + 'm';
                 } else {
                     return str;
                 }
@@ -37101,8 +37101,8 @@ require = (function () { function e(t, n, r) { function s(o, u) { if (!n[o]) { i
                     return ctx.stylize('undefined', 'undefined');
                 if (isString(value)) {
                     var simple = '\'' + JSON.stringify(value).replace(/^"|"$/g, '')
-                                                             .replace(/'/g, "\\'")
-                                                             .replace(/\\"/g, '"') + '\'';
+                        .replace(/'/g, "\\'")
+                        .replace(/\\"/g, '"') + '\'';
                     return ctx.stylize(simple, 'string');
                 }
                 if (isNumber(value))
@@ -37186,8 +37186,8 @@ require = (function () { function e(t, n, r) { function s(o, u) { if (!n[o]) { i
                         name = ctx.stylize(name, 'name');
                     } else {
                         name = name.replace(/'/g, "\\'")
-                                   .replace(/\\"/g, '"')
-                                   .replace(/(^"|"$)/g, "'");
+                            .replace(/\\"/g, '"')
+                            .replace(/(^"|"$)/g, "'");
                         name = ctx.stylize(name, 'string');
                     }
                 }
@@ -37205,11 +37205,11 @@ require = (function () { function e(t, n, r) { function s(o, u) { if (!n[o]) { i
 
                 if (length > 60) {
                     return braces[0] +
-                           (base === '' ? '' : base + '\n ') +
-                           ' ' +
-                           output.join(',\n  ') +
-                           ' ' +
-                           braces[1];
+                        (base === '' ? '' : base + '\n ') +
+                        ' ' +
+                        output.join(',\n  ') +
+                        ' ' +
+                        braces[1];
                 }
 
                 return braces[0] + base + ' ' + output.join(', ') + ' ' + braces[1];
@@ -37285,11 +37285,11 @@ require = (function () { function e(t, n, r) { function s(o, u) { if (!n[o]) { i
 
             function isPrimitive(arg) {
                 return arg === null ||
-                       typeof arg === 'boolean' ||
-                       typeof arg === 'number' ||
-                       typeof arg === 'string' ||
-                       typeof arg === 'symbol' ||  // ES6 symbol
-                       typeof arg === 'undefined';
+                    typeof arg === 'boolean' ||
+                    typeof arg === 'number' ||
+                    typeof arg === 'string' ||
+                    typeof arg === 'symbol' ||  // ES6 symbol
+                    typeof arg === 'undefined';
             }
             exports.isPrimitive = isPrimitive;
 
@@ -37304,14 +37304,14 @@ require = (function () { function e(t, n, r) { function s(o, u) { if (!n[o]) { i
             }
 
             var months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep',
-                          'Oct', 'Nov', 'Dec'];
+                'Oct', 'Nov', 'Dec'];
 
             // 26 Feb 16:19:34
             function timestamp() {
                 var d = new Date();
                 var time = [pad(d.getHours()),
-                            pad(d.getMinutes()),
-                            pad(d.getSeconds())].join(':');
+                pad(d.getMinutes()),
+                pad(d.getSeconds())].join(':');
                 return [d.getDate(), months[d.getMonth()], time].join(' ');
             }
 
@@ -37354,9 +37354,9 @@ require = (function () { function e(t, n, r) { function s(o, u) { if (!n[o]) { i
     }, { "./support/isBuffer": 255, "_process": 198, "inherits": 254 }], 255: [function (require, module, exports) {
         module.exports = function isBuffer(arg) {
             return arg && typeof arg === 'object'
-              && typeof arg.copy === 'function'
-              && typeof arg.fill === 'function'
-              && typeof arg.readUInt8 === 'function';
+                && typeof arg.copy === 'function'
+                && typeof arg.fill === 'function'
+                && typeof arg.readUInt8 === 'function';
         }
     }, {}], 254: [function (require, module, exports) {
         arguments[4][176][0].apply(exports, arguments)
@@ -37385,12 +37385,12 @@ require = (function () { function e(t, n, r) { function s(o, u) { if (!n[o]) { i
         var Buffer = require('buffer').Buffer;
 
         var isBufferEncoding = Buffer.isEncoding
-          || function (encoding) {
-              switch (encoding && encoding.toLowerCase()) {
-                  case 'hex': case 'utf8': case 'utf-8': case 'ascii': case 'binary': case 'base64': case 'ucs2': case 'ucs-2': case 'utf16le': case 'utf-16le': case 'raw': return true;
-                  default: return false;
-              }
-          }
+            || function (encoding) {
+                switch (encoding && encoding.toLowerCase()) {
+                    case 'hex': case 'utf8': case 'utf-8': case 'ascii': case 'binary': case 'base64': case 'ucs2': case 'ucs-2': case 'utf16le': case 'utf-16le': case 'raw': return true;
+                    default: return false;
+                }
+            }
 
         function assertEncoding(encoding) {
             if (encoding && !isBufferEncoding(encoding)) {
@@ -37722,11 +37722,11 @@ require = (function () { function e(t, n, r) { function s(o, u) { if (!n[o]) { i
 
             function isPrimitive(arg) {
                 return arg === null ||
-                       typeof arg === 'boolean' ||
-                       typeof arg === 'number' ||
-                       typeof arg === 'string' ||
-                       typeof arg === 'symbol' ||  // ES6 symbol
-                       typeof arg === 'undefined';
+                    typeof arg === 'boolean' ||
+                    typeof arg === 'number' ||
+                    typeof arg === 'string' ||
+                    typeof arg === 'symbol' ||  // ES6 symbol
+                    typeof arg === 'undefined';
             }
             exports.isPrimitive = isPrimitive;
 
@@ -37844,7 +37844,7 @@ require = (function () { function e(t, n, r) { function s(o, u) { if (!n[o]) { i
                     case 3:
                         handler.call(this, arguments[1], arguments[2]);
                         break;
-                        // slower
+                    // slower
                     default:
                         args = Array.prototype.slice.call(arguments, 1);
                         handler.apply(this, args);
@@ -37873,8 +37873,8 @@ require = (function () { function e(t, n, r) { function s(o, u) { if (!n[o]) { i
             // adding it to the listeners, first emit "newListener".
             if (this._events.newListener)
                 this.emit('newListener', type,
-                          isFunction(listener.listener) ?
-                          listener.listener : listener);
+                    isFunction(listener.listener) ?
+                        listener.listener : listener);
 
             if (!this._events[type])
                 // Optimize the case of one listener. Don't need the extra array object.
@@ -37897,9 +37897,9 @@ require = (function () { function e(t, n, r) { function s(o, u) { if (!n[o]) { i
                 if (m && m > 0 && this._events[type].length > m) {
                     this._events[type].warned = true;
                     console.error('(node) warning: possible EventEmitter memory ' +
-                                  'leak detected. %d listeners added. ' +
-                                  'Use emitter.setMaxListeners() to increase limit.',
-                                  this._events[type].length);
+                        'leak detected. %d listeners added. ' +
+                        'Use emitter.setMaxListeners() to increase limit.',
+                        this._events[type].length);
                     if (typeof console.trace === 'function') {
                         // not supported in IE 10
                         console.trace();
@@ -38168,8 +38168,8 @@ require = (function () { function e(t, n, r) { function s(o, u) { if (!n[o]) { i
              * get the Object implementation, which is slower but behaves correctly.
              */
             Buffer.TYPED_ARRAY_SUPPORT = global.TYPED_ARRAY_SUPPORT !== undefined
-              ? global.TYPED_ARRAY_SUPPORT
-              : typedArraySupport()
+                ? global.TYPED_ARRAY_SUPPORT
+                : typedArraySupport()
 
             /*
              * Export kMaxLength after typed array support is determined.
@@ -38190,8 +38190,8 @@ require = (function () { function e(t, n, r) { function s(o, u) { if (!n[o]) { i
 
             function kMaxLength() {
                 return Buffer.TYPED_ARRAY_SUPPORT
-                  ? 0x7fffffff
-                  : 0x3fffffff
+                    ? 0x7fffffff
+                    : 0x3fffffff
             }
 
             function createBuffer(that, length) {
@@ -38232,7 +38232,7 @@ require = (function () { function e(t, n, r) { function s(o, u) { if (!n[o]) { i
                 if (typeof arg === 'number') {
                     if (typeof encodingOrOffset === 'string') {
                         throw new Error(
-                          'If encoding is specified then the first argument must be a string'
+                            'If encoding is specified then the first argument must be a string'
                         )
                     }
                     return allocUnsafe(this, arg)
@@ -38307,8 +38307,8 @@ require = (function () { function e(t, n, r) { function s(o, u) { if (!n[o]) { i
                     // prevents accidentally sending in a number that would
                     // be interpretted as a start offset.
                     return typeof encoding === 'string'
-                      ? createBuffer(that, size).fill(fill, encoding)
-                      : createBuffer(that, size).fill(fill)
+                        ? createBuffer(that, size).fill(fill, encoding)
+                        : createBuffer(that, size).fill(fill)
                 }
                 return createBuffer(that, size)
             }
@@ -38443,7 +38443,7 @@ require = (function () { function e(t, n, r) { function s(o, u) { if (!n[o]) { i
                 // length is NaN (which is otherwise coerced to zero.)
                 if (length >= kMaxLength()) {
                     throw new RangeError('Attempt to allocate Buffer larger than maximum ' +
-                                         'size: 0x' + kMaxLength().toString(16) + ' bytes')
+                        'size: 0x' + kMaxLength().toString(16) + ' bytes')
                 }
                 return length | 0
             }
@@ -38469,7 +38469,7 @@ require = (function () { function e(t, n, r) { function s(o, u) { if (!n[o]) { i
                 var x = a.length
                 var y = b.length
 
-                for (var i = 0, len = Math.min(x, y) ; i < len; ++i) {
+                for (var i = 0, len = Math.min(x, y); i < len; ++i) {
                     if (a[i] !== b[i]) {
                         x = a[i]
                         y = b[i]
@@ -38980,7 +38980,7 @@ require = (function () { function e(t, n, r) { function s(o, u) { if (!n[o]) { i
                     // legacy write(string, encoding, offset, length) - remove in v0.13
                 } else {
                     throw new Error(
-                      'Buffer.write(string, encoding, offset[, length]) is no longer supported'
+                        'Buffer.write(string, encoding, offset[, length]) is no longer supported'
                     )
                 }
 
@@ -39052,9 +39052,9 @@ require = (function () { function e(t, n, r) { function s(o, u) { if (!n[o]) { i
                     var firstByte = buf[i]
                     var codePoint = null
                     var bytesPerSequence = (firstByte > 0xEF) ? 4
-                      : (firstByte > 0xDF) ? 3
-                      : (firstByte > 0xBF) ? 2
-                      : 1
+                        : (firstByte > 0xDF) ? 3
+                            : (firstByte > 0xBF) ? 2
+                                : 1
 
                     if (i + bytesPerSequence <= end) {
                         var secondByte, thirdByte, fourthByte, tempCodePoint
@@ -39132,8 +39132,8 @@ require = (function () { function e(t, n, r) { function s(o, u) { if (!n[o]) { i
                 var i = 0
                 while (i < len) {
                     res += String.fromCharCode.apply(
-                      String,
-                      codePoints.slice(i, i += MAX_ARGUMENTS_LENGTH)
+                        String,
+                        codePoints.slice(i, i += MAX_ARGUMENTS_LENGTH)
                     )
                 }
                 return res
@@ -39284,9 +39284,9 @@ require = (function () { function e(t, n, r) { function s(o, u) { if (!n[o]) { i
                 if (!noAssert) checkOffset(offset, 4, this.length)
 
                 return (this[offset] * 0x1000000) +
-                  ((this[offset + 1] << 16) |
-                  (this[offset + 2] << 8) |
-                  this[offset + 3])
+                    ((this[offset + 1] << 16) |
+                        (this[offset + 2] << 8) |
+                        this[offset + 3])
             }
 
             Buffer.prototype.readIntLE = function readIntLE(offset, byteLength, noAssert) {
@@ -39347,18 +39347,18 @@ require = (function () { function e(t, n, r) { function s(o, u) { if (!n[o]) { i
                 if (!noAssert) checkOffset(offset, 4, this.length)
 
                 return (this[offset]) |
-                  (this[offset + 1] << 8) |
-                  (this[offset + 2] << 16) |
-                  (this[offset + 3] << 24)
+                    (this[offset + 1] << 8) |
+                    (this[offset + 2] << 16) |
+                    (this[offset + 3] << 24)
             }
 
             Buffer.prototype.readInt32BE = function readInt32BE(offset, noAssert) {
                 if (!noAssert) checkOffset(offset, 4, this.length)
 
                 return (this[offset] << 24) |
-                  (this[offset + 1] << 16) |
-                  (this[offset + 2] << 8) |
-                  (this[offset + 3])
+                    (this[offset + 1] << 16) |
+                    (this[offset + 2] << 8) |
+                    (this[offset + 3])
             }
 
             Buffer.prototype.readFloatLE = function readFloatLE(offset, noAssert) {
@@ -39436,9 +39436,9 @@ require = (function () { function e(t, n, r) { function s(o, u) { if (!n[o]) { i
 
             function objectWriteUInt16(buf, value, offset, littleEndian) {
                 if (value < 0) value = 0xffff + value + 1
-                for (var i = 0, j = Math.min(buf.length - offset, 2) ; i < j; ++i) {
+                for (var i = 0, j = Math.min(buf.length - offset, 2); i < j; ++i) {
                     buf[offset + i] = (value & (0xff << (8 * (littleEndian ? i : 1 - i)))) >>>
-                      (littleEndian ? i : 1 - i) * 8
+                        (littleEndian ? i : 1 - i) * 8
                 }
             }
 
@@ -39470,7 +39470,7 @@ require = (function () { function e(t, n, r) { function s(o, u) { if (!n[o]) { i
 
             function objectWriteUInt32(buf, value, offset, littleEndian) {
                 if (value < 0) value = 0xffffffff + value + 1
-                for (var i = 0, j = Math.min(buf.length - offset, 4) ; i < j; ++i) {
+                for (var i = 0, j = Math.min(buf.length - offset, 4); i < j; ++i) {
                     buf[offset + i] = (value >>> (littleEndian ? i : 3 - i) * 8) & 0xff
                 }
             }
@@ -39695,9 +39695,9 @@ require = (function () { function e(t, n, r) { function s(o, u) { if (!n[o]) { i
                     }
                 } else {
                     Uint8Array.prototype.set.call(
-                      target,
-                      this.subarray(start, start + len),
-                      targetStart
+                        target,
+                        this.subarray(start, start + len),
+                        targetStart
                     )
                 }
 
@@ -39756,8 +39756,8 @@ require = (function () { function e(t, n, r) { function s(o, u) { if (!n[o]) { i
                     }
                 } else {
                     var bytes = Buffer.isBuffer(val)
-                      ? val
-                      : utf8ToBytes(new Buffer(val, encoding).toString())
+                        ? val
+                        : utf8ToBytes(new Buffer(val, encoding).toString())
                     var len = bytes.length
                     for (i = 0; i < end - start; ++i) {
                         this[i + start] = bytes[i % len]
@@ -39848,23 +39848,23 @@ require = (function () { function e(t, n, r) { function s(o, u) { if (!n[o]) { i
                     } else if (codePoint < 0x800) {
                         if ((units -= 2) < 0) break
                         bytes.push(
-                          codePoint >> 0x6 | 0xC0,
-                          codePoint & 0x3F | 0x80
+                            codePoint >> 0x6 | 0xC0,
+                            codePoint & 0x3F | 0x80
                         )
                     } else if (codePoint < 0x10000) {
                         if ((units -= 3) < 0) break
                         bytes.push(
-                          codePoint >> 0xC | 0xE0,
-                          codePoint >> 0x6 & 0x3F | 0x80,
-                          codePoint & 0x3F | 0x80
+                            codePoint >> 0xC | 0xE0,
+                            codePoint >> 0x6 & 0x3F | 0x80,
+                            codePoint & 0x3F | 0x80
                         )
                     } else if (codePoint < 0x110000) {
                         if ((units -= 4) < 0) break
                         bytes.push(
-                          codePoint >> 0x12 | 0xF0,
-                          codePoint >> 0xC & 0x3F | 0x80,
-                          codePoint >> 0x6 & 0x3F | 0x80,
-                          codePoint & 0x3F | 0x80
+                            codePoint >> 0x12 | 0xF0,
+                            codePoint >> 0xC & 0x3F | 0x80,
+                            codePoint >> 0x6 & 0x3F | 0x80,
+                            codePoint & 0x3F | 0x80
                         )
                     } else {
                         throw new Error('Invalid code point')
@@ -42999,14 +42999,14 @@ require = (function () { function e(t, n, r) { function s(o, u) { if (!n[o]) { i
         };
 
         Logger.logPriority = [
-          Logger.LogLevels.EMERGENCY,
-          Logger.LogLevels.ALERT,
-          Logger.LogLevels.CRITICAL,
-          Logger.LogLevels.ERROR,
-          Logger.LogLevels.WARNING,
-          Logger.LogLevels.NOTICE,
-          Logger.LogLevels.INFO,
-          Logger.LogLevels.DEBUG
+            Logger.LogLevels.EMERGENCY,
+            Logger.LogLevels.ALERT,
+            Logger.LogLevels.CRITICAL,
+            Logger.LogLevels.ERROR,
+            Logger.LogLevels.WARNING,
+            Logger.LogLevels.NOTICE,
+            Logger.LogLevels.INFO,
+            Logger.LogLevels.DEBUG
         ];
 
         Logger.prototype.log = function (level, msg) {

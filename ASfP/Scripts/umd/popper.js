@@ -24,8 +24,8 @@
  */
 (function (global, factory) {
     typeof exports === 'object' && typeof module !== 'undefined' ? module.exports = factory() :
-	typeof define === 'function' && define.amd ? define(factory) :
-	(global.Popper = factory());
+        typeof define === 'function' && define.amd ? define(factory) :
+            (global.Popper = factory());
 }(this, (function () {
     'use strict';
 
@@ -658,8 +658,8 @@
             return _extends({
                 key: key
             }, rects[key], {
-                area: getArea(rects[key])
-            });
+                    area: getArea(rects[key])
+                });
         }).sort(function (a, b) {
             return b.area - a.area;
         });
@@ -1643,25 +1643,25 @@
             var measurement = (index === 1 ? !useHeight : useHeight) ? 'height' : 'width';
             var mergeWithPrevious = false;
             return op
-            // This aggregates any `+` or `-` sign that aren't considered operators
-            // e.g.: 10 + +5 => [10, +, +5]
-            .reduce(function (a, b) {
-                if (a[a.length - 1] === '' && ['+', '-'].indexOf(b) !== -1) {
-                    a[a.length - 1] = b;
-                    mergeWithPrevious = true;
-                    return a;
-                } else if (mergeWithPrevious) {
-                    a[a.length - 1] += b;
-                    mergeWithPrevious = false;
-                    return a;
-                } else {
-                    return a.concat(b);
-                }
-            }, [])
-            // Here we convert the string values into number values (in px)
-            .map(function (str) {
-                return toValue(str, measurement, popperOffsets, referenceOffsets);
-            });
+                // This aggregates any `+` or `-` sign that aren't considered operators
+                // e.g.: 10 + +5 => [10, +, +5]
+                .reduce(function (a, b) {
+                    if (a[a.length - 1] === '' && ['+', '-'].indexOf(b) !== -1) {
+                        a[a.length - 1] = b;
+                        mergeWithPrevious = true;
+                        return a;
+                    } else if (mergeWithPrevious) {
+                        a[a.length - 1] += b;
+                        mergeWithPrevious = false;
+                        return a;
+                    } else {
+                        return a.concat(b);
+                    }
+                }, [])
+                // Here we convert the string values into number values (in px)
+                .map(function (str) {
+                    return toValue(str, measurement, popperOffsets, referenceOffsets);
+                });
         });
 
         // Loop trough the offsets arrays and execute the operations
@@ -2331,10 +2331,10 @@
                     name: name
                 }, _this.options.modifiers[name]);
             })
-            // sort the modifiers by order
-            .sort(function (a, b) {
-                return a.order - b.order;
-            });
+                // sort the modifiers by order
+                .sort(function (a, b) {
+                    return a.order - b.order;
+                });
 
             // modifiers have the ability to execute arbitrary code when Popper.js get inited
             // such code is executed in the same order of its modifier

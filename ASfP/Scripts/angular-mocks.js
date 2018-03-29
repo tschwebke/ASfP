@@ -72,13 +72,13 @@
 
         self.onUrlChange = function (listener) {
             self.pollFns.push(
-              function () {
-                  if (self.$$lastUrl !== self.$$url || self.$$state !== self.$$lastState) {
-                      self.$$lastUrl = self.$$url;
-                      self.$$lastState = self.$$state;
-                      listener(self.$$url, self.$$state);
-                  }
-              }
+                function () {
+                    if (self.$$lastUrl !== self.$$url || self.$$state !== self.$$lastState) {
+                        self.$$lastUrl = self.$$url;
+                        self.$$lastState = self.$$state;
+                        listener(self.$$url, self.$$state);
+                    }
+                }
             );
 
             return listener;
@@ -419,13 +419,13 @@
                     angular.forEach($log[logLevel].logs, function (log) {
                         angular.forEach(log, function (logItem) {
                             errors.push('MOCK $log (' + logLevel + '): ' + String(logItem) + '\n' +
-                                        (logItem.stack || ''));
+                                (logItem.stack || ''));
                         });
                     });
                 });
                 if (errors.length) {
                     errors.unshift('Expected $log to be empty! Either a message was logged unexpectedly, or ' +
-                      'an expected log message was not checked and removed:');
+                        'an expected log message was not checked and removed:');
                     errors.push('');
                     throw new Error(errors.join('\n---------\n'));
                 }
@@ -458,119 +458,119 @@
      */
     angular.mock.$IntervalProvider = function () {
         this.$get = ['$browser', '$rootScope', '$q', '$$q',
-             function ($browser, $rootScope, $q, $$q) {
-                 var repeatFns = [],
-                     nextRepeatId = 0,
-                     now = 0;
+            function ($browser, $rootScope, $q, $$q) {
+                var repeatFns = [],
+                    nextRepeatId = 0,
+                    now = 0;
 
-                 var $interval = function (fn, delay, count, invokeApply) {
-                     var hasParams = arguments.length > 4,
-                         args = hasParams ? Array.prototype.slice.call(arguments, 4) : [],
-                         iteration = 0,
-                         skipApply = (angular.isDefined(invokeApply) && !invokeApply),
-                         deferred = (skipApply ? $$q : $q).defer(),
-                         promise = deferred.promise;
+                var $interval = function (fn, delay, count, invokeApply) {
+                    var hasParams = arguments.length > 4,
+                        args = hasParams ? Array.prototype.slice.call(arguments, 4) : [],
+                        iteration = 0,
+                        skipApply = (angular.isDefined(invokeApply) && !invokeApply),
+                        deferred = (skipApply ? $$q : $q).defer(),
+                        promise = deferred.promise;
 
-                     count = (angular.isDefined(count)) ? count : 0;
-                     promise.then(null, function () { }, (!hasParams) ? fn : function () {
-                         fn.apply(null, args);
-                     });
+                    count = (angular.isDefined(count)) ? count : 0;
+                    promise.then(null, function () { }, (!hasParams) ? fn : function () {
+                        fn.apply(null, args);
+                    });
 
-                     promise.$$intervalId = nextRepeatId;
+                    promise.$$intervalId = nextRepeatId;
 
-                     function tick() {
-                         deferred.notify(iteration++);
+                    function tick() {
+                        deferred.notify(iteration++);
 
-                         if (count > 0 && iteration >= count) {
-                             var fnIndex;
-                             deferred.resolve(iteration);
+                        if (count > 0 && iteration >= count) {
+                            var fnIndex;
+                            deferred.resolve(iteration);
 
-                             angular.forEach(repeatFns, function (fn, index) {
-                                 if (fn.id === promise.$$intervalId) fnIndex = index;
-                             });
+                            angular.forEach(repeatFns, function (fn, index) {
+                                if (fn.id === promise.$$intervalId) fnIndex = index;
+                            });
 
-                             if (angular.isDefined(fnIndex)) {
-                                 repeatFns.splice(fnIndex, 1);
-                             }
-                         }
+                            if (angular.isDefined(fnIndex)) {
+                                repeatFns.splice(fnIndex, 1);
+                            }
+                        }
 
-                         if (skipApply) {
-                             $browser.defer.flush();
-                         } else {
-                             $rootScope.$apply();
-                         }
-                     }
+                        if (skipApply) {
+                            $browser.defer.flush();
+                        } else {
+                            $rootScope.$apply();
+                        }
+                    }
 
-                     repeatFns.push({
-                         nextTime: (now + (delay || 0)),
-                         delay: delay || 1,
-                         fn: tick,
-                         id: nextRepeatId,
-                         deferred: deferred
-                     });
-                     repeatFns.sort(function (a, b) { return a.nextTime - b.nextTime; });
+                    repeatFns.push({
+                        nextTime: (now + (delay || 0)),
+                        delay: delay || 1,
+                        fn: tick,
+                        id: nextRepeatId,
+                        deferred: deferred
+                    });
+                    repeatFns.sort(function (a, b) { return a.nextTime - b.nextTime; });
 
-                     nextRepeatId++;
-                     return promise;
-                 };
-                 /**
-                  * @ngdoc method
-                  * @name $interval#cancel
-                  *
-                  * @description
-                  * Cancels a task associated with the `promise`.
-                  *
-                  * @param {promise} promise A promise from calling the `$interval` function.
-                  * @returns {boolean} Returns `true` if the task was successfully cancelled.
-                  */
-                 $interval.cancel = function (promise) {
-                     if (!promise) return false;
-                     var fnIndex;
+                    nextRepeatId++;
+                    return promise;
+                };
+                /**
+                 * @ngdoc method
+                 * @name $interval#cancel
+                 *
+                 * @description
+                 * Cancels a task associated with the `promise`.
+                 *
+                 * @param {promise} promise A promise from calling the `$interval` function.
+                 * @returns {boolean} Returns `true` if the task was successfully cancelled.
+                 */
+                $interval.cancel = function (promise) {
+                    if (!promise) return false;
+                    var fnIndex;
 
-                     angular.forEach(repeatFns, function (fn, index) {
-                         if (fn.id === promise.$$intervalId) fnIndex = index;
-                     });
+                    angular.forEach(repeatFns, function (fn, index) {
+                        if (fn.id === promise.$$intervalId) fnIndex = index;
+                    });
 
-                     if (angular.isDefined(fnIndex)) {
-                         repeatFns[fnIndex].deferred.promise.then(undefined, function () { });
-                         repeatFns[fnIndex].deferred.reject('canceled');
-                         repeatFns.splice(fnIndex, 1);
-                         return true;
-                     }
+                    if (angular.isDefined(fnIndex)) {
+                        repeatFns[fnIndex].deferred.promise.then(undefined, function () { });
+                        repeatFns[fnIndex].deferred.reject('canceled');
+                        repeatFns.splice(fnIndex, 1);
+                        return true;
+                    }
 
-                     return false;
-                 };
+                    return false;
+                };
 
-                 /**
-                  * @ngdoc method
-                  * @name $interval#flush
-                  * @description
-                  *
-                  * Runs interval tasks scheduled to be run in the next `millis` milliseconds.
-                  *
-                  * @param {number=} millis maximum timeout amount to flush up until.
-                  *
-                  * @return {number} The amount of time moved forward.
-                  */
-                 $interval.flush = function (millis) {
-                     var before = now;
-                     now += millis;
-                     while (repeatFns.length && repeatFns[0].nextTime <= now) {
-                         var task = repeatFns[0];
-                         task.fn();
-                         if (task.nextTime === before) {
-                             // this can only happen the first time
-                             // a zero-delay interval gets triggered
-                             task.nextTime++;
-                         }
-                         task.nextTime += task.delay;
-                         repeatFns.sort(function (a, b) { return a.nextTime - b.nextTime; });
-                     }
-                     return millis;
-                 };
+                /**
+                 * @ngdoc method
+                 * @name $interval#flush
+                 * @description
+                 *
+                 * Runs interval tasks scheduled to be run in the next `millis` milliseconds.
+                 *
+                 * @param {number=} millis maximum timeout amount to flush up until.
+                 *
+                 * @return {number} The amount of time moved forward.
+                 */
+                $interval.flush = function (millis) {
+                    var before = now;
+                    now += millis;
+                    while (repeatFns.length && repeatFns[0].nextTime <= now) {
+                        var task = repeatFns[0];
+                        task.fn();
+                        if (task.nextTime === before) {
+                            // this can only happen the first time
+                            // a zero-delay interval gets triggered
+                            task.nextTime++;
+                        }
+                        task.nextTime += task.delay;
+                        repeatFns.sort(function (a, b) { return a.nextTime - b.nextTime; });
+                    }
+                    return millis;
+                };
 
-                 return $interval;
-             }];
+                return $interval;
+            }];
     };
 
     function jsonStringToDate(string) {
@@ -589,9 +589,9 @@
             }
             date.setUTCFullYear(toInt(match[1]), toInt(match[2]) - 1, toInt(match[3]));
             date.setUTCHours(toInt(match[4] || 0) - tzHour,
-                             toInt(match[5] || 0) - tzMin,
-                             toInt(match[6] || 0),
-                             toInt(match[7] || 0));
+                toInt(match[5] || 0) - tzMin,
+                toInt(match[6] || 0),
+                toInt(match[7] || 0));
             return date;
         }
         return string;
@@ -751,12 +751,12 @@
         if (self.toISOString) {
             self.toISOString = function () {
                 return padNumberInMock(self.origDate.getUTCFullYear(), 4) + '-' +
-                      padNumberInMock(self.origDate.getUTCMonth() + 1, 2) + '-' +
-                      padNumberInMock(self.origDate.getUTCDate(), 2) + 'T' +
-                      padNumberInMock(self.origDate.getUTCHours(), 2) + ':' +
-                      padNumberInMock(self.origDate.getUTCMinutes(), 2) + ':' +
-                      padNumberInMock(self.origDate.getUTCSeconds(), 2) + '.' +
-                      padNumberInMock(self.origDate.getUTCMilliseconds(), 3) + 'Z';
+                    padNumberInMock(self.origDate.getUTCMonth() + 1, 2) + '-' +
+                    padNumberInMock(self.origDate.getUTCDate(), 2) + 'T' +
+                    padNumberInMock(self.origDate.getUTCHours(), 2) + ':' +
+                    padNumberInMock(self.origDate.getUTCMinutes(), 2) + ':' +
+                    padNumberInMock(self.origDate.getUTCSeconds(), 2) + '.' +
+                    padNumberInMock(self.origDate.getUTCMilliseconds(), 3) + 'Z';
             };
         }
 
@@ -791,161 +791,161 @@
      * You need to require the `ngAnimateMock` module in your test suite for instance `beforeEach(module('ngAnimateMock'))`
      */
     angular.mock.animate = angular.module('ngAnimateMock', ['ng'])
-      .info({ angularVersion: '1.6.8' })
+        .info({ angularVersion: '1.6.8' })
 
-      .config(['$provide', function ($provide) {
-          $provide.factory('$$forceReflow', function () {
-              function reflowFn() {
-                  reflowFn.totalReflows++;
-              }
-              reflowFn.totalReflows = 0;
-              return reflowFn;
-          });
+        .config(['$provide', function ($provide) {
+            $provide.factory('$$forceReflow', function () {
+                function reflowFn() {
+                    reflowFn.totalReflows++;
+                }
+                reflowFn.totalReflows = 0;
+                return reflowFn;
+            });
 
-          $provide.factory('$$animateAsyncRun', function () {
-              var queue = [];
-              var queueFn = function () {
-                  return function (fn) {
-                      queue.push(fn);
-                  };
-              };
-              queueFn.flush = function () {
-                  if (queue.length === 0) return false;
+            $provide.factory('$$animateAsyncRun', function () {
+                var queue = [];
+                var queueFn = function () {
+                    return function (fn) {
+                        queue.push(fn);
+                    };
+                };
+                queueFn.flush = function () {
+                    if (queue.length === 0) return false;
 
-                  for (var i = 0; i < queue.length; i++) {
-                      queue[i]();
-                  }
-                  queue = [];
+                    for (var i = 0; i < queue.length; i++) {
+                        queue[i]();
+                    }
+                    queue = [];
 
-                  return true;
-              };
-              return queueFn;
-          });
+                    return true;
+                };
+                return queueFn;
+            });
 
-          $provide.decorator('$$animateJs', ['$delegate', function ($delegate) {
-              var runners = [];
+            $provide.decorator('$$animateJs', ['$delegate', function ($delegate) {
+                var runners = [];
 
-              var animateJsConstructor = function () {
-                  var animator = $delegate.apply($delegate, arguments);
-                  // If no javascript animation is found, animator is undefined
-                  if (animator) {
-                      runners.push(animator);
-                  }
-                  return animator;
-              };
+                var animateJsConstructor = function () {
+                    var animator = $delegate.apply($delegate, arguments);
+                    // If no javascript animation is found, animator is undefined
+                    if (animator) {
+                        runners.push(animator);
+                    }
+                    return animator;
+                };
 
-              animateJsConstructor.$closeAndFlush = function () {
-                  runners.forEach(function (runner) {
-                      runner.end();
-                  });
-                  runners = [];
-              };
+                animateJsConstructor.$closeAndFlush = function () {
+                    runners.forEach(function (runner) {
+                        runner.end();
+                    });
+                    runners = [];
+                };
 
-              return animateJsConstructor;
-          }]);
+                return animateJsConstructor;
+            }]);
 
-          $provide.decorator('$animateCss', ['$delegate', function ($delegate) {
-              var runners = [];
+            $provide.decorator('$animateCss', ['$delegate', function ($delegate) {
+                var runners = [];
 
-              var animateCssConstructor = function (element, options) {
-                  var animator = $delegate(element, options);
-                  runners.push(animator);
-                  return animator;
-              };
+                var animateCssConstructor = function (element, options) {
+                    var animator = $delegate(element, options);
+                    runners.push(animator);
+                    return animator;
+                };
 
-              animateCssConstructor.$closeAndFlush = function () {
-                  runners.forEach(function (runner) {
-                      runner.end();
-                  });
-                  runners = [];
-              };
+                animateCssConstructor.$closeAndFlush = function () {
+                    runners.forEach(function (runner) {
+                        runner.end();
+                    });
+                    runners = [];
+                };
 
-              return animateCssConstructor;
-          }]);
+                return animateCssConstructor;
+            }]);
 
-          $provide.decorator('$animate', ['$delegate', '$timeout', '$browser', '$$rAF', '$animateCss', '$$animateJs',
-                                          '$$forceReflow', '$$animateAsyncRun', '$rootScope',
-                                  function ($delegate, $timeout, $browser, $$rAF, $animateCss, $$animateJs,
-                                           $$forceReflow, $$animateAsyncRun, $rootScope) {
-                                      var animate = {
-                                          queue: [],
-                                          cancel: $delegate.cancel,
-                                          on: $delegate.on,
-                                          off: $delegate.off,
-                                          pin: $delegate.pin,
-                                          get reflows() {
-                                              return $$forceReflow.totalReflows;
-                                          },
-                                          enabled: $delegate.enabled,
-                                          /**
-                                           * @ngdoc method
-                                           * @name $animate#closeAndFlush
-                                           * @description
-                                           *
-                                           * This method will close all pending animations (both {@link ngAnimate#javascript-based-animations Javascript}
-                                           * and {@link ngAnimate.$animateCss CSS}) and it will also flush any remaining animation frames and/or callbacks.
-                                           */
-                                          closeAndFlush: function () {
-                                              // we allow the flush command to swallow the errors
-                                              // because depending on whether CSS or JS animations are
-                                              // used, there may not be a RAF flush. The primary flush
-                                              // at the end of this function must throw an exception
-                                              // because it will track if there were pending animations
-                                              this.flush(true);
-                                              $animateCss.$closeAndFlush();
-                                              $$animateJs.$closeAndFlush();
-                                              this.flush();
-                                          },
-                                          /**
-                                           * @ngdoc method
-                                           * @name $animate#flush
-                                           * @description
-                                           *
-                                           * This method is used to flush the pending callbacks and animation frames to either start
-                                           * an animation or conclude an animation. Note that this will not actually close an
-                                           * actively running animation (see {@link ngMock.$animate#closeAndFlush `closeAndFlush()`} for that).
-                                           */
-                                          flush: function (hideErrors) {
-                                              $rootScope.$digest();
+            $provide.decorator('$animate', ['$delegate', '$timeout', '$browser', '$$rAF', '$animateCss', '$$animateJs',
+                '$$forceReflow', '$$animateAsyncRun', '$rootScope',
+                function ($delegate, $timeout, $browser, $$rAF, $animateCss, $$animateJs,
+                    $$forceReflow, $$animateAsyncRun, $rootScope) {
+                    var animate = {
+                        queue: [],
+                        cancel: $delegate.cancel,
+                        on: $delegate.on,
+                        off: $delegate.off,
+                        pin: $delegate.pin,
+                        get reflows() {
+                            return $$forceReflow.totalReflows;
+                        },
+                        enabled: $delegate.enabled,
+                        /**
+                         * @ngdoc method
+                         * @name $animate#closeAndFlush
+                         * @description
+                         *
+                         * This method will close all pending animations (both {@link ngAnimate#javascript-based-animations Javascript}
+                         * and {@link ngAnimate.$animateCss CSS}) and it will also flush any remaining animation frames and/or callbacks.
+                         */
+                        closeAndFlush: function () {
+                            // we allow the flush command to swallow the errors
+                            // because depending on whether CSS or JS animations are
+                            // used, there may not be a RAF flush. The primary flush
+                            // at the end of this function must throw an exception
+                            // because it will track if there were pending animations
+                            this.flush(true);
+                            $animateCss.$closeAndFlush();
+                            $$animateJs.$closeAndFlush();
+                            this.flush();
+                        },
+                        /**
+                         * @ngdoc method
+                         * @name $animate#flush
+                         * @description
+                         *
+                         * This method is used to flush the pending callbacks and animation frames to either start
+                         * an animation or conclude an animation. Note that this will not actually close an
+                         * actively running animation (see {@link ngMock.$animate#closeAndFlush `closeAndFlush()`} for that).
+                         */
+                        flush: function (hideErrors) {
+                            $rootScope.$digest();
 
-                                              var doNextRun, somethingFlushed = false;
-                                              do {
-                                                  doNextRun = false;
+                            var doNextRun, somethingFlushed = false;
+                            do {
+                                doNextRun = false;
 
-                                                  if ($$rAF.queue.length) {
-                                                      $$rAF.flush();
-                                                      doNextRun = somethingFlushed = true;
-                                                  }
+                                if ($$rAF.queue.length) {
+                                    $$rAF.flush();
+                                    doNextRun = somethingFlushed = true;
+                                }
 
-                                                  if ($$animateAsyncRun.flush()) {
-                                                      doNextRun = somethingFlushed = true;
-                                                  }
-                                              } while (doNextRun);
+                                if ($$animateAsyncRun.flush()) {
+                                    doNextRun = somethingFlushed = true;
+                                }
+                            } while (doNextRun);
 
-                                              if (!somethingFlushed && !hideErrors) {
-                                                  throw new Error('No pending animations ready to be closed or flushed');
-                                              }
+                            if (!somethingFlushed && !hideErrors) {
+                                throw new Error('No pending animations ready to be closed or flushed');
+                            }
 
-                                              $rootScope.$digest();
-                                          }
-                                      };
+                            $rootScope.$digest();
+                        }
+                    };
 
-                                      angular.forEach(
-                                        ['animate', 'enter', 'leave', 'move', 'addClass', 'removeClass', 'setClass'], function (method) {
-                                            animate[method] = function () {
-                                                animate.queue.push({
-                                                    event: method,
-                                                    element: arguments[0],
-                                                    options: arguments[arguments.length - 1],
-                                                    args: arguments
-                                                });
-                                                return $delegate[method].apply($delegate, arguments);
-                                            };
-                                        });
+                    angular.forEach(
+                        ['animate', 'enter', 'leave', 'move', 'addClass', 'removeClass', 'setClass'], function (method) {
+                            animate[method] = function () {
+                                animate.queue.push({
+                                    event: method,
+                                    element: arguments[0],
+                                    options: arguments[arguments.length - 1],
+                                    args: arguments
+                                });
+                                return $delegate[method].apply($delegate, arguments);
+                            };
+                        });
 
-                                      return animate;
-                                  }]);
-      }]);
+                    return animate;
+                }]);
+        }]);
 
     /**
      * @ngdoc function
@@ -1309,7 +1309,7 @@
       ```
      */
     angular.mock.$httpBackendDecorator =
-      ['$rootScope', '$timeout', '$delegate', createHttpBackendMock];
+        ['$rootScope', '$timeout', '$delegate', createHttpBackendMock];
 
     /**
      * General factory function for $httpBackend mock.
@@ -1376,7 +1376,7 @@
                     var response = wrapped.response(method, url, data, headers, wrapped.params(url));
                     xhr.$$respHeaders = response[2];
                     callback(copy(response[0]), copy(response[1]), xhr.getAllResponseHeaders(),
-                             copy(response[3] || ''), copy(response[4]));
+                        copy(response[3] || ''), copy(response[4]));
                 }
 
                 function handleTimeout() {
@@ -1398,8 +1398,8 @@
 
                 if (!expectation.matchHeaders(headers)) {
                     throw new Error('Expected ' + expectation + ' with different headers\n' +
-                                    'EXPECTED: ' + prettyPrint(expectation.headers) + '\nGOT:      ' +
-                                    prettyPrint(headers));
+                        'EXPECTED: ' + prettyPrint(expectation.headers) + '\nGOT:      ' +
+                        prettyPrint(headers));
                 }
 
                 expectations.shift();
@@ -1426,7 +1426,7 @@
             var error = wasExpected ?
                 new Error('No response defined !') :
                 new Error('Unexpected request: ' + method + ' ' + url + '\n' +
-                          (expectation ? 'Expected ' + expectation : 'No more request expected'));
+                    (expectation ? 'Expected ' + expectation : 'No more request expected'));
 
             // In addition to be being converted to a rejection, this error also needs to be passed to
             // the $exceptionHandler and be rethrown (so that the test fails).
@@ -1602,27 +1602,27 @@
             var ret = {
                 regexp: url
             },
-            keys = ret.keys = [];
+                keys = ret.keys = [];
 
             if (!url || !angular.isString(url)) return ret;
 
             url = url
-              .replace(/([().])/g, '\\$1')
-              .replace(/(\/)?:(\w+)([?*])?/g, function (_, slash, key, option) {
-                  var optional = option === '?' ? option : null;
-                  var star = option === '*' ? option : null;
-                  keys.push({ name: key, optional: !!optional });
-                  slash = slash || '';
-                  return ''
-                    + (optional ? '' : slash)
-                    + '(?:'
-                    + (optional ? slash : '')
-                    + (star && '(.+?)' || '([^/]+)')
-                    + (optional || '')
-                    + ')'
-                    + (optional || '');
-              })
-              .replace(/([/$*])/g, '\\$1');
+                .replace(/([().])/g, '\\$1')
+                .replace(/(\/)?:(\w+)([?*])?/g, function (_, slash, key, option) {
+                    var optional = option === '?' ? option : null;
+                    var star = option === '*' ? option : null;
+                    keys.push({ name: key, optional: !!optional });
+                    slash = slash || '';
+                    return ''
+                        + (optional ? '' : slash)
+                        + '(?:'
+                        + (optional ? slash : '')
+                        + (star && '(.+?)' || '([^/]+)')
+                        + (optional || '')
+                        + ')'
+                        + (optional || '');
+                })
+                .replace(/([/$*])/g, '\\$1');
 
             ret.regexp = new RegExp('^' + url, 'i');
             return ret;
@@ -1879,7 +1879,7 @@
             if (responses.length) {
                 var unflushedDescriptions = responses.map(function (res) { return res.description; });
                 throw new Error('Unflushed requests: ' + responses.length + '\n  ' +
-                                unflushedDescriptions.join('\n  '));
+                    unflushedDescriptions.join('\n  '));
             }
         };
 
@@ -1939,7 +1939,7 @@
 
         function compareUrl(u) {
             return (url.slice(0, url.indexOf('?')) === u.slice(0, u.indexOf('?')) &&
-              getUrlParams(url).join() === getUrlParams(u).join());
+                getUrlParams(url).join() === getUrlParams(u).join());
         }
 
         this.data = data;
@@ -2004,8 +2004,8 @@
             function parseQuery() {
                 var obj = {}, key_value, key,
                     queryStr = u.indexOf('?') > -1
-                    ? u.substring(u.indexOf('?') + 1)
-                    : '';
+                        ? u.substring(u.indexOf('?') + 1)
+                        : '';
 
                 angular.forEach(queryStr.split('&'), function (keyValue) {
                     if (keyValue) {
@@ -2695,7 +2695,7 @@
      */
     angular.mock.e2e = {};
     angular.mock.e2e.$httpBackendDecorator =
-      ['$rootScope', '$timeout', '$delegate', '$browser', createHttpBackendMock];
+        ['$rootScope', '$timeout', '$delegate', '$browser', createHttpBackendMock];
 
     /**
      * @ngdoc type

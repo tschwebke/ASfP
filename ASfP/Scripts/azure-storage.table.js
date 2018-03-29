@@ -148,11 +148,11 @@ require = (function e(t, n, r) { function s(o, u) { if (!n[o]) { if (!t[o]) { va
                 var storageServiceSettings = StorageServiceClient.getStorageSettings(storageAccountOrConnectionString, storageAccessKey, host, sasToken, endpointSuffix);
 
                 TableService['super_'].call(this,
-                  storageServiceSettings._name,
-                  storageServiceSettings._key,
-                  storageServiceSettings._tableEndpoint,
-                  storageServiceSettings._usePathStyleUri,
-                  storageServiceSettings._sasToken);
+                    storageServiceSettings._name,
+                    storageServiceSettings._key,
+                    storageServiceSettings._tableEndpoint,
+                    storageServiceSettings._usePathStyleUri,
+                    storageServiceSettings._sasToken);
 
                 if (this.anonymous) {
                     throw new Error(SR.ANONYMOUS_ACCESS_BLOBSERVICE_ONLY);
@@ -200,8 +200,8 @@ require = (function e(t, n, r) { function s(o, u) { if (!n[o]) { if (!t[o]) { va
                 options.requestLocationMode = Constants.RequestLocationMode.PRIMARY_OR_SECONDARY;
 
                 var webResource = WebResource.get()
-                  .withQueryOption(QueryStringConstants.COMP, 'stats')
-                  .withQueryOption(QueryStringConstants.RESTYPE, 'service');
+                    .withQueryOption(QueryStringConstants.COMP, 'stats')
+                    .withQueryOption(QueryStringConstants.RESTYPE, 'service');
 
                 var processResponseCallback = function (responseObject, next) {
                     responseObject.serviceStatsResult = null;
@@ -339,8 +339,8 @@ require = (function e(t, n, r) { function s(o, u) { if (!n[o]) { if (!t[o]) { va
 
                 if (!azureutil.objectIsNull(prefix)) {
                     var query = new TableQuery()
-                      .where(TableConstants.TABLE_NAME + ' >= ?', prefix)
-                      .and(TableConstants.TABLE_NAME + ' < ?', prefix + '{');
+                        .where(TableConstants.TABLE_NAME + ' >= ?', prefix)
+                        .and(TableConstants.TABLE_NAME + ' < ?', prefix + '{');
 
                     webResource.withQueryOption(QueryStringConstants.FILTER, query.toQueryObject().$filter);
                 }
@@ -363,7 +363,7 @@ require = (function e(t, n, r) { function s(o, u) { if (!n[o]) { if (!t[o]) { va
                         responseObject.listTablesResult.entries = TableResult.parse(responseObject.response);
 
                         if (responseObject.response.headers[TableConstants.CONTINUATION_NEXT_TABLE_NAME] &&
-                        !azureutil.objectIsEmpty(responseObject.response.headers[TableConstants.CONTINUATION_NEXT_TABLE_NAME])) {
+                            !azureutil.objectIsEmpty(responseObject.response.headers[TableConstants.CONTINUATION_NEXT_TABLE_NAME])) {
                             responseObject.listTablesResult.continuationToken = {
                                 nextTableName: null,
                                 targetLocation: null
@@ -420,7 +420,7 @@ require = (function e(t, n, r) { function s(o, u) { if (!n[o]) { if (!t[o]) { va
                 options.requestLocationMode = Constants.RequestLocationMode.PRIMARY_OR_SECONDARY;
 
                 var webResource = WebResource.get(table)
-                  .withQueryOption(QueryStringConstants.COMP, 'acl');
+                    .withQueryOption(QueryStringConstants.COMP, 'acl');
 
                 var processResponseCallback = function (responseObject, next) {
                     responseObject.tableResult = null;
@@ -481,9 +481,9 @@ require = (function e(t, n, r) { function s(o, u) { if (!n[o]) { if (!t[o]) { va
                 }
 
                 var webResource = WebResource.put(table)
-                  .withQueryOption(QueryStringConstants.COMP, 'acl')
-                  .withHeader(HeaderConstants.CONTENT_LENGTH, !azureutil.objectIsNull(policies) ? Buffer.byteLength(policies) : 0)
-                  .withBody(policies);
+                    .withQueryOption(QueryStringConstants.COMP, 'acl')
+                    .withHeader(HeaderConstants.CONTENT_LENGTH, !azureutil.objectIsNull(policies) ? Buffer.byteLength(policies) : 0)
+                    .withBody(policies);
 
                 var processResponseCallback = function (responseObject, next) {
                     responseObject.tableResult = null;
@@ -599,7 +599,7 @@ require = (function e(t, n, r) { function s(o, u) { if (!n[o]) { if (!t[o]) { va
                 var tableDescriptor = TableResult.serialize(table);
 
                 var webResource = WebResource.post('Tables')
-                  .withHeader(HeaderConstants.PREFER, HeaderConstants.PREFER_NO_CONTENT);
+                    .withHeader(HeaderConstants.PREFER, HeaderConstants.PREFER_NO_CONTENT);
 
                 RequestHandler.setTableRequestHeadersAndBody(webResource, tableDescriptor, this.defaultPayloadFormat);
 
@@ -1565,7 +1565,7 @@ require = (function e(t, n, r) { function s(o, u) { if (!n[o]) { if (!t[o]) { va
         */
         BatchResult.prototype.constructWebResource = function () {
             var webResource = WebResource.post('$batch')
-              .withRawResponse(true);
+                .withRawResponse(true);
 
             webResource.withHeader(HeaderConstants.CONTENT_TYPE, 'multipart/mixed; charset="utf-8"; boundary=' + this.batchBoundary);
             webResource.withHeader(HeaderConstants.DATA_SERVICE_VERSION, '3.0;');
@@ -1770,9 +1770,9 @@ require = (function e(t, n, r) { function s(o, u) { if (!n[o]) { if (!t[o]) { va
         */
         function SharedKeyTable(storageAccount, storageAccessKey, usePathStyleUri) {
             SharedKeyTable['super_'].call(this,
-              storageAccount,
-              storageAccessKey,
-              usePathStyleUri);
+                storageAccount,
+                storageAccessKey,
+                usePathStyleUri);
         }
 
         util.inherits(SharedKeyTable, SharedKey);
@@ -1902,7 +1902,7 @@ require = (function e(t, n, r) { function s(o, u) { if (!n[o]) { if (!t[o]) { va
                 var webResource = null;
                 if (operation === TableConstants.Operations.INSERT) {
                     webResource = WebResource.post(table)
-                      .withHeader(HeaderConstants.PREFER, options.echoContent ? HeaderConstants.PREFER_CONTENT : HeaderConstants.PREFER_NO_CONTENT);
+                        .withHeader(HeaderConstants.PREFER, options.echoContent ? HeaderConstants.PREFER_CONTENT : HeaderConstants.PREFER_NO_CONTENT);
                 } else {
                     var partitionKey;
                     var rowKey;
@@ -1957,12 +1957,12 @@ require = (function e(t, n, r) { function s(o, u) { if (!n[o]) { if (!t[o]) { va
             exports.setTableRequestHeadersAndBody = function (webResource, body, acceptType) {
                 if (body) {
                     webResource.withHeader(HeaderConstants.CONTENT_LENGTH, Buffer.byteLength(body, 'utf8'))
-                      .withBody(body)
-                      .withHeader(HeaderConstants.CONTENT_TYPE, HeaderConstants.JSON_CONTENT_TYPE_VALUE);
+                        .withBody(body)
+                        .withHeader(HeaderConstants.CONTENT_TYPE, HeaderConstants.JSON_CONTENT_TYPE_VALUE);
                 }
 
                 webResource.withHeader(HeaderConstants.ACCEPT, acceptType)
-                  .withHeader(HeaderConstants.MAX_DATA_SERVICE_VERSION, TableConstants.DEFAULT_DATA_SERVICE_VERSION);
+                    .withHeader(HeaderConstants.MAX_DATA_SERVICE_VERSION, TableConstants.DEFAULT_DATA_SERVICE_VERSION);
             };
         }).call(this, require("buffer").Buffer)
     }, { "../models/entityresult": 67, "./../../../common/common.core": 6, "buffer": "buffer", "util": "util" }], 67: [function (require, module, exports) {

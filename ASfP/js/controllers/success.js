@@ -1,7 +1,8 @@
 ﻿asfpApp.controller('successController',
-        ['$scope', '$location', '$rootScope',
+    ['$scope', '$location', '$rootScope',
         function ($scope, $location, $rootScope) {
             $('#hideTitle').addClass('titleFill');
+            $('#hideDescription').addClass('titleFill');
 
             $scope.thankyou = $rootScope.thankyou;
             $scope.offeringspecialist = $rootScope.offeringspecialist;

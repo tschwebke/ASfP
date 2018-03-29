@@ -182,11 +182,11 @@ require = (function e(t, n, r) { function s(o, u) { if (!n[o]) { if (!t[o]) { va
                 var storageServiceSettings = StorageServiceClient.getStorageSettings(storageAccountOrConnectionString, storageAccessKey, host, sasToken, endpointSuffix);
 
                 QueueService['super_'].call(this,
-                  storageServiceSettings._name,
-                  storageServiceSettings._key,
-                  storageServiceSettings._queueEndpoint,
-                  storageServiceSettings._usePathStyleUri,
-                  storageServiceSettings._sasToken);
+                    storageServiceSettings._name,
+                    storageServiceSettings._key,
+                    storageServiceSettings._queueEndpoint,
+                    storageServiceSettings._usePathStyleUri,
+                    storageServiceSettings._sasToken);
 
                 if (this.anonymous) {
                     throw new Error(SR.ANONYMOUS_ACCESS_BLOBSERVICE_ONLY);
@@ -232,8 +232,8 @@ require = (function e(t, n, r) { function s(o, u) { if (!n[o]) { if (!t[o]) { va
 
                 var options = extend(true, {}, userOptions);
                 var webResource = WebResource.get()
-                  .withQueryOption(QueryStringConstants.COMP, 'stats')
-                  .withQueryOption(QueryStringConstants.RESTYPE, 'service');
+                    .withQueryOption(QueryStringConstants.COMP, 'stats')
+                    .withQueryOption(QueryStringConstants.RESTYPE, 'service');
 
                 options.requestLocationMode = RequestLocationMode.PRIMARY_OR_SECONDARY;
 
@@ -369,9 +369,9 @@ require = (function e(t, n, r) { function s(o, u) { if (!n[o]) { if (!t[o]) { va
                 var options = extend(true, {}, userOptions);
                 var webResource = WebResource.get();
                 webResource.withQueryOption(QueryStringConstants.COMP, 'list')
-                  .withQueryOption(QueryStringConstants.MAX_RESULTS, options.maxResults)
-                  .withQueryOption(QueryStringConstants.INCLUDE, options.include)
-                  .withQueryOption(QueryStringConstants.PREFIX, prefix);
+                    .withQueryOption(QueryStringConstants.MAX_RESULTS, options.maxResults)
+                    .withQueryOption(QueryStringConstants.INCLUDE, options.include)
+                    .withQueryOption(QueryStringConstants.PREFIX, prefix);
 
                 if (!azureutil.objectIsNull(currentToken)) {
                     webResource.withQueryOption(QueryStringConstants.MARKER, currentToken.nextMarker);
@@ -708,7 +708,7 @@ require = (function e(t, n, r) { function s(o, u) { if (!n[o]) { if (!t[o]) { va
 
                 var options = extend(true, {}, userOptions);
                 var webResource = WebResource.get(queue)
-                  .withQueryOption(QueryStringConstants.COMP, 'metadata');
+                    .withQueryOption(QueryStringConstants.COMP, 'metadata');
 
                 options.requestLocationMode = Constants.RequestLocationMode.PRIMARY_OR_SECONDARY;
 
@@ -765,8 +765,8 @@ require = (function e(t, n, r) { function s(o, u) { if (!n[o]) { if (!t[o]) { va
 
                 var options = extend(true, {}, userOptions);
                 var webResource = WebResource.put(queue)
-                  .withQueryOption(QueryStringConstants.COMP, 'metadata')
-                  .addOptionalMetadataHeaders(metadata);
+                    .withQueryOption(QueryStringConstants.COMP, 'metadata')
+                    .addOptionalMetadataHeaders(metadata);
 
                 var processResponseCallback = function (responseObject, next) {
                     responseObject.queueResult = null;
@@ -835,11 +835,11 @@ require = (function e(t, n, r) { function s(o, u) { if (!n[o]) { if (!t[o]) { va
 
                 var options = extend(true, {}, userOptions);
                 var webResource = WebResource.post(queue + '/messages')
-                  .withHeader(HeaderConstants.CONTENT_TYPE, 'application/atom+xml;charset="utf-8"')
-                  .withHeader(HeaderConstants.CONTENT_LENGTH, Buffer.byteLength(xmlMessageDescriptor, 'utf8'))
-                  .withQueryOption(QueryStringConstants.MESSAGE_TTL, options.messageTimeToLive)
-                  .withQueryOption(QueryStringConstants.VISIBILITY_TIMEOUT, options.visibilityTimeout)
-                  .withBody(xmlMessageDescriptor);
+                    .withHeader(HeaderConstants.CONTENT_TYPE, 'application/atom+xml;charset="utf-8"')
+                    .withHeader(HeaderConstants.CONTENT_LENGTH, Buffer.byteLength(xmlMessageDescriptor, 'utf8'))
+                    .withQueryOption(QueryStringConstants.MESSAGE_TTL, options.messageTimeToLive)
+                    .withQueryOption(QueryStringConstants.VISIBILITY_TIMEOUT, options.visibilityTimeout)
+                    .withBody(xmlMessageDescriptor);
 
                 var messageEncoder = this.messageEncoder;
 
@@ -1113,7 +1113,7 @@ require = (function e(t, n, r) { function s(o, u) { if (!n[o]) { if (!t[o]) { va
 
                 var options = extend(true, {}, userOptions);
                 var webResource = WebResource.del(queue + '/messages/' + messageId)
-                  .withQueryOption(QueryStringConstants.POP_RECEIPT, popReceipt, null, true);
+                    .withQueryOption(QueryStringConstants.POP_RECEIPT, popReceipt, null, true);
 
                 var processResponseCallback = function (responseObject, next) {
                     var finalCallback = function (returnObject) {
@@ -1223,11 +1223,11 @@ require = (function e(t, n, r) { function s(o, u) { if (!n[o]) { if (!t[o]) { va
                 var contentLength = content ? Buffer.byteLength(content, 'utf8') : 0;
 
                 var webResource = WebResource.put(queue + '/messages/' + messageId)
-                  .withHeader(HeaderConstants.CONTENT_TYPE, 'application/atom+xml;charset="utf-8"')
-                  .withHeader(HeaderConstants.CONTENT_LENGTH, contentLength)
-                  .withQueryOption(QueryStringConstants.POP_RECEIPT, popReceipt, null, true)
-                  .withQueryOption(QueryStringConstants.VISIBILITY_TIMEOUT, visibilityTimeout)
-                  .withBody(content);
+                    .withHeader(HeaderConstants.CONTENT_TYPE, 'application/atom+xml;charset="utf-8"')
+                    .withHeader(HeaderConstants.CONTENT_LENGTH, contentLength)
+                    .withQueryOption(QueryStringConstants.POP_RECEIPT, popReceipt, null, true)
+                    .withQueryOption(QueryStringConstants.VISIBILITY_TIMEOUT, visibilityTimeout)
+                    .withBody(content);
 
                 var processResponseCallback = function (responseObject, next) {
                     responseObject.queueMessageResult = null;
@@ -1279,7 +1279,7 @@ require = (function e(t, n, r) { function s(o, u) { if (!n[o]) { if (!t[o]) { va
 
                 var options = extend(true, {}, userOptions);
                 var webResource = WebResource.get(queue)
-                  .withQueryOption(QueryStringConstants.COMP, 'acl');
+                    .withQueryOption(QueryStringConstants.COMP, 'acl');
 
                 options.requestLocationMode = Constants.RequestLocationMode.PRIMARY_OR_SECONDARY;
 
@@ -1367,9 +1367,9 @@ require = (function e(t, n, r) { function s(o, u) { if (!n[o]) { if (!t[o]) { va
                 }
 
                 var webResource = WebResource.put(queue)
-                  .withQueryOption(QueryStringConstants.COMP, 'acl')
-                  .withHeader(HeaderConstants.CONTENT_LENGTH, !azureutil.objectIsNull(policies) ? Buffer.byteLength(policies) : 0)
-                  .withBody(policies);
+                    .withQueryOption(QueryStringConstants.COMP, 'acl')
+                    .withHeader(HeaderConstants.CONTENT_LENGTH, !azureutil.objectIsNull(policies) ? Buffer.byteLength(policies) : 0)
+                    .withBody(policies);
 
                 var processResponseCallback = function (responseObject, next) {
                     responseObject.containerResult = null;
@@ -1457,7 +1457,7 @@ require = (function e(t, n, r) { function s(o, u) { if (!n[o]) { if (!t[o]) { va
 
                 var options = extend(true, {}, userOptions);
                 var webResource = WebResource.head(queue)
-                  .withQueryOption(QueryStringConstants.COMP, 'metadata');
+                    .withQueryOption(QueryStringConstants.COMP, 'metadata');
 
                 if (primaryOnly === false) {
                     options.requestLocationMode = RequestLocationMode.PRIMARY_OR_SECONDARY;
@@ -1506,9 +1506,9 @@ require = (function e(t, n, r) { function s(o, u) { if (!n[o]) { if (!t[o]) { va
                 }
 
                 var webResource = WebResource.get(queue + '/messages')
-                  .withQueryOption(QueryStringConstants.NUM_OF_MESSAGES, options.numOfMessages)
-                  .withQueryOption(QueryStringConstants.VISIBILITY_TIMEOUT, options.visibilityTimeout)
-                  .withQueryOption(QueryStringConstants.PEEK_ONLY, options.peekOnly);
+                    .withQueryOption(QueryStringConstants.NUM_OF_MESSAGES, options.numOfMessages)
+                    .withQueryOption(QueryStringConstants.VISIBILITY_TIMEOUT, options.visibilityTimeout)
+                    .withQueryOption(QueryStringConstants.PEEK_ONLY, options.peekOnly);
 
                 if (options.peekOnly) {
                     // For peek message, it's a read-only action and can be performed against secondary endpoint.
@@ -1730,7 +1730,7 @@ require = (function e(t, n, r) { function s(o, u) { if (!n[o]) { if (!t[o]) { va
 
                 doc.ele(Constants.QueueConstants.MESSAGE_TEXT_ELEMENT)
                     .txt(message)
-                  .up();
+                    .up();
             } else {
                 doc.ele(Constants.QueueConstants.MESSAGE_TEXT_ELEMENT).up();
             }
@@ -1936,10 +1936,10 @@ require = (function e(t, n, r) { function s(o, u) { if (!n[o]) { if (!t[o]) { va
              */
             TextXmlQueueMessageEncoder.prototype.encode = function (input) {
                 return input.replace(/&/gm, '&amp;')
-                  .replace(/</gm, '&lt;')
-                  .replace(/>/gm, '&gt;')
-                  .replace(/"/gm, '&quot;')
-                  .replace(/'/gm, '&apos;');
+                    .replace(/</gm, '&lt;')
+                    .replace(/>/gm, '&gt;')
+                    .replace(/"/gm, '&quot;')
+                    .replace(/'/gm, '&apos;');
             };
 
             /**
@@ -1952,10 +1952,10 @@ require = (function e(t, n, r) { function s(o, u) { if (!n[o]) { if (!t[o]) { va
              */
             TextXmlQueueMessageEncoder.prototype.decode = function (textToDecode) {
                 return textToDecode.replace(/&amp;/gm, '&')
-                  .replace(/&lt;/gm, '<')
-                  .replace(/&gt;/gm, '>')
-                  .replace(/&quot;/gm, '"')
-                  .replace(/&apos;/gm, '\'');
+                    .replace(/&lt;/gm, '<')
+                    .replace(/&gt;/gm, '>')
+                    .replace(/&quot;/gm, '"')
+                    .replace(/&apos;/gm, '\'');
             };
 
             module.exports = QueueMessageEncoder;

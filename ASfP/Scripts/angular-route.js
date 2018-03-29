@@ -55,13 +55,13 @@
      */
     /* global -ngRouteModule */
     var ngRouteModule = angular.
-      module('ngRoute', []).
-      info({ angularVersion: '1.6.8' }).
-      provider('$route', $RouteProvider).
-      // Ensure `$route` will be instantiated in time to capture the initial `$locationChangeSuccess`
-      // event (unless explicitly disabled). This is necessary in case `ngView` is included in an
-      // asynchronously loaded template.
-      run(instantiateRoute);
+        module('ngRoute', []).
+        info({ angularVersion: '1.6.8' }).
+        provider('$route', $RouteProvider).
+        // Ensure `$route` will be instantiated in time to capture the initial `$locationChangeSuccess`
+        // event (unless explicitly disabled). This is necessary in case `ngView` is included in an
+        // asynchronously loaded template.
+        run(instantiateRoute);
     var $routeMinErr = angular.$$minErr('ngRoute');
     var isEagerInstantiationEnabled;
 
@@ -241,19 +241,19 @@
                 routeCopy.caseInsensitiveMatch = this.caseInsensitiveMatch;
             }
             routes[path] = angular.extend(
-              routeCopy,
-              path && pathRegExp(path, routeCopy)
+                routeCopy,
+                path && pathRegExp(path, routeCopy)
             );
 
             // create redirection for trailing slashes
             if (path) {
                 var redirectPath = (path[path.length - 1] === '/')
-                      ? path.substr(0, path.length - 1)
-                      : path + '/';
+                    ? path.substr(0, path.length - 1)
+                    : path + '/';
 
                 routes[redirectPath] = angular.extend(
-                  { redirectTo: path },
-                  pathRegExp(redirectPath, routeCopy)
+                    { redirectTo: path },
+                    pathRegExp(redirectPath, routeCopy)
                 );
             }
 
@@ -291,22 +291,22 @@
                 keys = ret.keys = [];
 
             path = path
-              .replace(/([().])/g, '\\$1')
-              .replace(/(\/)?:(\w+)(\*\?|[?*])?/g, function (_, slash, key, option) {
-                  var optional = (option === '?' || option === '*?') ? '?' : null;
-                  var star = (option === '*' || option === '*?') ? '*' : null;
-                  keys.push({ name: key, optional: !!optional });
-                  slash = slash || '';
-                  return ''
-                    + (optional ? '' : slash)
-                    + '(?:'
-                    + (optional ? slash : '')
-                    + (star && '(.+?)' || '([^/]+)')
-                    + (optional || '')
-                    + ')'
-                    + (optional || '');
-              })
-              .replace(/([/$*])/g, '\\$1');
+                .replace(/([().])/g, '\\$1')
+                .replace(/(\/)?:(\w+)(\*\?|[?*])?/g, function (_, slash, key, option) {
+                    var optional = (option === '?' || option === '*?') ? '?' : null;
+                    var star = (option === '*' || option === '*?') ? '*' : null;
+                    keys.push({ name: key, optional: !!optional });
+                    slash = slash || '';
+                    return ''
+                        + (optional ? '' : slash)
+                        + '(?:'
+                        + (optional ? slash : '')
+                        + (star && '(.+?)' || '([^/]+)')
+                        + (optional || '')
+                        + ')'
+                        + (optional || '');
+                })
+                .replace(/([/$*])/g, '\\$1');
 
             ret.regexp = new RegExp('^' + path + '$', insensitive ? 'i' : '');
             return ret;
@@ -374,13 +374,13 @@
         };
 
         this.$get = ['$rootScope',
-                     '$location',
-                     '$routeParams',
-                     '$q',
-                     '$injector',
-                     '$templateRequest',
-                     '$sce',
-                     '$browser',
+            '$location',
+            '$routeParams',
+            '$q',
+            '$injector',
+            '$templateRequest',
+            '$sce',
+            '$browser',
             function ($rootScope, $location, $routeParams, $q, $injector, $templateRequest, $sce, $browser) {
                 /**
                  * @ngdoc service
@@ -713,33 +713,33 @@
                         $browser.$$incOutstandingRequestCount();
 
                         nextRoutePromise.
-                          then(getRedirectionData).
-                          then(handlePossibleRedirection).
-                          then(function (keepProcessingRoute) {
-                              return keepProcessingRoute && nextRoutePromise.
-                                then(resolveLocals).
-                                then(function (locals) {
-                                    // after route change
-                                    if (nextRoute === $route.current) {
-                                        if (nextRoute) {
-                                            nextRoute.locals = locals;
-                                            angular.copy(nextRoute.params, $routeParams);
+                            then(getRedirectionData).
+                            then(handlePossibleRedirection).
+                            then(function (keepProcessingRoute) {
+                                return keepProcessingRoute && nextRoutePromise.
+                                    then(resolveLocals).
+                                    then(function (locals) {
+                                        // after route change
+                                        if (nextRoute === $route.current) {
+                                            if (nextRoute) {
+                                                nextRoute.locals = locals;
+                                                angular.copy(nextRoute.params, $routeParams);
+                                            }
+                                            $rootScope.$broadcast('$routeChangeSuccess', nextRoute, lastRoute);
                                         }
-                                        $rootScope.$broadcast('$routeChangeSuccess', nextRoute, lastRoute);
-                                    }
-                                });
-                          }).catch(function (error) {
-                              if (nextRoute === $route.current) {
-                                  $rootScope.$broadcast('$routeChangeError', nextRoute, lastRoute, error);
-                              }
-                          }).finally(function () {
-                              // Because `commitRoute()` is called from a `$rootScope.$evalAsync` block (see
-                              // `$locationWatch`), this `$$completeOutstandingRequest()` call will not cause
-                              // `outstandingRequestCount` to hit zero.  This is important in case we are redirecting
-                              // to a new route which also requires some asynchronous work.
+                                    });
+                            }).catch(function (error) {
+                                if (nextRoute === $route.current) {
+                                    $rootScope.$broadcast('$routeChangeError', nextRoute, lastRoute, error);
+                                }
+                            }).finally(function () {
+                                // Because `commitRoute()` is called from a `$rootScope.$evalAsync` block (see
+                                // `$locationWatch`), this `$$completeOutstandingRequest()` call will not cause
+                                // `outstandingRequestCount` to hit zero.  This is important in case we are redirecting
+                                // to a new route which also requires some asynchronous work.
 
-                              $browser.$$completeOutstandingRequest(noop);
-                          });
+                                $browser.$$completeOutstandingRequest(noop);
+                            });
                     }
                 }
 
@@ -767,15 +767,15 @@
                             }
                         } else if (route.resolveRedirectTo) {
                             return $q.
-                              resolve($injector.invoke(route.resolveRedirectTo)).
-                              then(function (newUrl) {
-                                  if (angular.isDefined(newUrl)) {
-                                      data.url = newUrl;
-                                      data.hasRedirection = true;
-                                  }
+                                resolve($injector.invoke(route.resolveRedirectTo)).
+                                then(function (newUrl) {
+                                    if (angular.isDefined(newUrl)) {
+                                        data.url = newUrl;
+                                        data.hasRedirection = true;
+                                    }
 
-                                  return data;
-                              });
+                                    return data;
+                                });
                         }
                     }
 
@@ -793,14 +793,14 @@
 
                         if (newUrl) {
                             $location.
-                              url(newUrl).
-                              replace();
+                                url(newUrl).
+                                replace();
                         } else {
                             newUrl = $location.
-                              path(data.path).
-                              search(data.search).
-                              replace().
-                              url();
+                                path(data.path).
+                                search(data.search).
+                                replace().
+                                url();
                         }
 
                         if (newUrl !== oldUrl) {
@@ -1163,7 +1163,7 @@
                         var clone = $transclude(newScope, function (clone) {
                             $animate.enter(clone, null, currentElement || $element).done(function onNgViewEnter(response) {
                                 if (response !== false && angular.isDefined(autoScrollExp)
-                                  && (!autoScrollExp || scope.$eval(autoScrollExp))) {
+                                    && (!autoScrollExp || scope.$eval(autoScrollExp))) {
                                     $anchorScroll();
                                 }
                             });

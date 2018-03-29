@@ -1,52 +1,15 @@
-﻿1 - Pack On Premises Support Incident – USD 499(local taxes apply)
-1 インシデント – 49,900 円(税別)
+﻿
+W6N-00001 Advanced Support for Partners 年間契約 – 1,600,500 円 (税別)
+W6M-00001 新興成長市場向け Advanced Support for Partners 年間契約 – 137,500 円 (税別)
+W74-00001 1 回あたり – 220,000 円 (税別)
+W67-00001 1 インシデント – 49,900 円 (税別)
+W69-00001 5 インシデント パック – 199,900 円 (税別)
+W73-00001 サービス アカウント マネジメント 20 時間 – 440,000 円 (税別)
+ 
 
-5 - Pack On Premises Support Incidents – USD 1,999(local taxes apply)
-5 インシデント パック – ¥159,900 円(税別)
-
-1 Cloud Consult Engagement – USD 2,000(local taxes apply)
-1 回 クラウド相談会 – 220,000 円(税別)
-
-20 Hours of Services Account Management – USD 4,000(local taxes apply)
-20 時間 サービス アカウント マネージャー追加時間 – 440,000 円(税別)
-
-Advanced Support for Partners Annual Subscription in Emerging Markets, One-Time Payment – USD 10,000 (local taxes apply).
-No Japanese translation
-
-Advanced Support for Partners Monthly Subscription – Monthly Payment – USD 1, 250(local taxes apply)
-Advanced Support for Partners 月額課金 – 毎月のお支払い – 137, 500 円(税別)
-
-Advanced Support for Partners Annual Subscription – One - Time Payment, 3 % discount – USD 14, 550(local taxes apply)
-Advanced Support for Partners 年間契約 – 一括のお支払いで 3 % のディスカウント – 1, 600, 500 円(税別)
-
-ASfP PA Transition Package - One - Time Payment
-
-Offer catalog   USD JPY SKU
-ASfP Monthly Subscription		$1, 250	¥137, 500W6M - 00001
-ASfP Annual Subscription		$15, 000	¥1, 650, 000
-ASfP Annual Subscription(3 % discount)	$14, 550	¥1, 600, 500  W6N - 00001
-20 Hours SAM 				$4, 000	¥440, 000W73 - 00001
-1 Cloud Consult Engagement		$2, 000	¥220, 000W74 - 00001
-1 - Pack On Premises Support Incident	$499	¥31, 000 W67 - 00001
-5 - Pack On Premises Support Incidents	$1, 999	¥159, 000W69 - 00001
-ASfP PA Transition Package - One - Time Payment   AAA - 13751
-
-
+W6N-00001 Advanced Support for Partners Annual Subscription – USD $15,000 (local taxes apply)
+W6N-00002 Advanced Support for Partners Annual Subscription in Emerging Markets – USD $10,000 (local taxes apply)
+W74-00001 1 Cloud Consult Engagement – USD 2,000 (local taxes apply)
 W67-00001 1-Pack On Premises Support Incident – USD 499 (local taxes apply)
 W69-00001 5-Pack On Premises Support Incidents – USD 1,999 (local taxes apply)
-W74-00001 1 Cloud Consult Engagement – USD 2,000 (local taxes apply)
-W73-00001 20 Hours of Services Account Management – USD 4,000 (local taxes apply)
-W6M-00001 Advanced Support for Partners Monthly Subscription – Monthly Payment – USD 1,250 (local taxes apply)
-Advanced Support for Partners Annual Subscription – One-Time Payment – USD 15,000 (local taxes apply)
-W6N-00002 Advanced Support for Partners Annual Subscription in Emerging Markets – One-Time Payment – USD 10,000 (local taxes apply)
-W6N-00001 Advanced Support for Partners Annual Subscription – One-Time Payment, 3% discount – USD 14,550 (local taxes apply)
-  
-ASfP_Annual	Advanced Support for Partners 年間契約 – 一括のお支払いで – 1,650,000 円 (税別)
-ASfP_Annual_Discount	W6N-00001 Advanced Support for Partners 年間契約 – 一括のお支払いで 3% のディスカウント – 1,600,500 円 (税別)
-ASfP_Monthly	W6M-00001 Advanced Support for Partners 月額課金 – 毎月のお支払い – 137,500 円 (税別)
-ASfP_PA_Transition	AAA-13751 ASfP PA Transition Package - One-Time Payment 
-Banner	Microsoft Advanced Support for Partners  お申込み内容の確認
-Cloud_Consult_1	W74-00001 1 回 クラウド相談会 – 220,000 円 (税別)
-Incident_Pack_1	W67-00001 1 インシデント – 31,800 円 (税別)
-Incident_Pack_5	W69-00001 5 インシデント パック – 159,900 円 (税別)
-SAM_Hours_20	W73-00001 20 時間 サービス アカウント マネージャー追加時間 – 440,000 円 (税別)
+W73-00001 20 Hours of Services Account Management – USD $4,000 (local taxes apply)

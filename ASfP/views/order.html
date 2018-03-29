@@ -55,6 +55,9 @@
             <label><input type="radio" id='subEmerging' ng-model="subscription" value="Emerging" ng-required="!subscription">Emerging</label>
         </div>
         <div>
+            <p class="text-justify font-weight-normal ml-3">{{currencytext}}</p>
+        </div>
+        <div>
             <p class="text-justify font-weight-normal ml-3 pb-2">{{leadclickhere}}<a href="https://support.microsoft.com/help/4011810/asfp-emerging-market-subscription-requirement" target="_blank">{{clickhere}}</a> {{emergingmarketrequirements}}</p>
         </div>
         <div class="form-group col-4 py-2">
@@ -91,7 +94,7 @@
         </div>
         <div class="ml-5 w-75 py-3">
             <div class="custom-control custom-checkbox pb-3">
-                <input type="checkbox" class="custom-control-input" id="samhours" value="20 Hours of Services Account Management" ng-model="samhours">
+                <input type="checkbox" class="custom-control-input" id="samhours" value="Services Account Management" ng-model="samhours">
                 <label class="custom-control-label" for="samhours">{{samhourstxt}}</label>
             </div>
         </div>
@@ -111,7 +114,7 @@
         </div>
         <div class="ml-5 w-75 py-3">
             <div class="custom-control custom-checkbox pb-3">
-                <input type="checkbox" class="custom-control-input" id="cloudconsult" value="W74-00001 1 Cloud Consult Engagement" ng-model="cloudconsult">
+                <input type="checkbox" class="custom-control-input" id="cloudconsult" value="Cloud Consult Engagement" ng-model="cloudconsult">
                 <label class="custom-control-label" for="cloudconsult">{{cloudconsulttxt}}</label>
             </div>
         </div>
@@ -129,7 +132,13 @@
                 </div>
             </div>
         </div>
-        <div class="table-responsive ml-4 w-75 py-3">
+        <div class="ml-5 w-75 py-3">
+            <div class="custom-control custom-checkbox pb-3">
+                <input type="checkbox" class="custom-control-input" id="fivepack" value="5-Pack" ng-model="fivepack">
+                <label class="custom-control-label" for="fivepack">{{fivepacktxt}}</label>
+            </div>
+        </div>
+        <!--<div class="table-responsive ml-4 w-75 py-3">
             <table class="table w-75 font-weight-normal" style="border: 5px solid white;">
                 <tr class="table-light">
                     <td class="mr-5">
@@ -146,9 +155,11 @@
                     </td>
                 </tr>
             </table>
-        </div>
+        </div>-->
         <div>
-            <p class="text-justify font-weight-bold ml-3">{{agreement}}</p>
+            <br />
+
+            <!--<p class="text-justify font-weight-bold ml-3">{{agreement}}</p>-->
         </div>
         <div>
             <p class="text-justify font-weight-normal ml-3 w-75 pb-1">{{privacytext}}</p>
