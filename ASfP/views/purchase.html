@@ -9,7 +9,7 @@
         <div class="form-group col-4">
             <label for="email" class="font-weight-bold">{{workemail}}</label>
             <!--<span class="label label-danger" ng-show="orderForm.email.$invalid && orderForm.$error.email && orderForm.email.$touched">Invalid email!</span>-->
-            <input type="email" name="email" ng-model="email" class="form-control" ng-required="true" placeholder="e.g. name@example.com" />
+            <input type="email" name="email" ng-model="email" class="form-control" placeholder={{exemail}} ng-required="true" />
         </div>
         <div class="form-group col-4">
             <label for="tel" class="font-weight-bold">{{businessphonenumber}}</label>
@@ -138,28 +138,8 @@
                 <label class="custom-control-label" for="fivepack">{{fivepacktxt}}</label>
             </div>
         </div>
-        <!--<div class="table-responsive ml-4 w-75 py-3">
-            <table class="table w-75 font-weight-normal" style="border: 5px solid white;">
-                <tr class="table-light">
-                    <td class="mr-5">
-                        <div class="custom-control custom-checkbox mr-5">
-                            <input type="checkbox" class="custom-control-input" id="singlepack" value="W67-00001 1-Pack On Premises Support Incident" ng-model="singlepack">
-                            <label class="custom-control-label" for="singlepack">{{onepacktxt}}</label>
-                        </div>
-                    </td>
-                    <td class="ml-5">
-                        <div class="custom-control custom-checkbox ml-5">
-                            <input type="checkbox" class="custom-control-input" id="fivepack" value="W69-00001 5-Pack On Premises Support Incidents" ng-model="fivepack">
-                            <label class="custom-control-label" for="fivepack">{{fivepacktxt}}</label>
-                        </div>
-                    </td>
-                </tr>
-            </table>
-        </div>-->
         <div>
             <br />
-
-            <!--<p class="text-justify font-weight-bold ml-3">{{agreement}}</p>-->
         </div>
         <div>
             <p class="text-justify font-weight-normal ml-3 w-75 pb-1">{{privacytext}}</p>
@@ -169,7 +149,7 @@
                 <div class="custom-control custom-checkbox pb-3 font-weight-normal">
                     <!--<span class="label label-danger" ng-show="orderForm.privacy.$invalid && orderForm.privacy.$touched">Required!</span>-->
                     <input type="checkbox" class="custom-control-input" id="privacy" ng-model="privacy" ng-required="true">
-                    <label class="custom-control-label" for="privacy">{{privacyaccept}} <a href="https://privacy.microsoft.com/en-us/privacystatement" target="_blank">{{privacystatement}}</a></label>
+                    <label class="custom-control-label" for="privacy">{{privacyaccept}} <a href={{privacylink}} target="_blank">{{privacystatement}}</a></label>
                 </div>
             </div>
         </div>
@@ -188,6 +168,6 @@
         autoPlaceholder: true,
         formatOnDisplay: true,
         separateDialCode: true,
-        preferredCountries: ['us']
+        preferredCountries: ['us', 'jp']
     });
 </script>

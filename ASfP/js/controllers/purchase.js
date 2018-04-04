@@ -27,13 +27,13 @@
             $rootScope.fullname = '*お名前';
             $rootScope.softfullname = '';
             $rootScope.workemail = '*メール アドレス';
+            $rootScope.exemail = '例 name@example.com';
             $rootScope.businessphonenumber = '*ご連絡先お電話番号';
             $rootScope.idlabel = '*事業所 ID';
             $rootScope.domainname = 'ドメイン名';
             $rootScope.domainexample = '(例: contoso.onmicrosoft.com)';
-            $rootScope.selectsubscription = '*Advanced Support for Partners の契約モデルを選択してください。';
-            $rootScope.selectsubscription = '*Advanced Support for Partners の契約モデルを選択してください。';
-            $rootScope.selectsubscriptionmuted = '';
+            $rootScope.selectsubscription = '*Advanced Support for Partners の契約モデル  を選択してください。';
+            $rootScope.selectsubscriptionmuted = '(各契約モデルの概要を確認するためには、マウスを合わせてください。)';
             $rootScope.annualsubscription1 = 'Advanced Support for Partners ';
             $rootScope.annualsubscription2 = '年間契約';
             $rootScope.annualsubscription3 = '1,600,500 円* (税別)';
@@ -43,7 +43,7 @@
             $rootScope.emergingmarketsubscription3 = '137,500 円* (税別)';
             $rootScope.emergingmarkettooltip = 'Advanced Support for Partners は、エンド ユーザー様からの信頼獲得のお手伝いや、クラウド ビジネスの成長加速のお手伝いをお求めやすい価格でご提供します。新興成長市場向けのモデルで、日本ではこちらのモデルの利用はできません。';
             $rootScope.emergingmarketrequirements = 'をご覧ください。';
-            $rootScope.currencytext = '* Billing will be in your local currency, with currency conversion rates updated quarterly.'
+            $rootScope.currencytext = '* Billing will be in your local currency, with currency conversion rates updated quarterly.';
             $rootScope.clickhere = 'こちら';
             $rootScope.leadclickhere = '* 新興成長市場向けの契約の要件は';
             $rootScope.samlocation = '* ご希望のサービス アカウント マネージャの地域:';
@@ -66,6 +66,7 @@
             $rootScope.privacytext = '*最後に 「プライバシー ポリシー」をお読みください。';
             $rootScope.privacyaccept = 'プライバシー ';
             $rootScope.privacystatement = 'ポリシーを確認し、同意しました。';
+            $rootScope.privacylink = 'https://privacy.microsoft.com/ja-jp/privacystatement';
             $rootScope.successmessage = 'お申し込みフォーム受領後、ASfP のお申し込みについて、弊社の担当よりご連絡差し上げます。[送信] ボタンをクリックして、フォームを送信してください。';
             $rootScope.submit = '送信';
             $rootScope.thankyou = 'お申し込みありがとうございます。';
@@ -87,22 +88,23 @@
             $rootScope.fullname = '*Full Name';
             $rootScope.softfullname = '(First name/Last name)';
             $rootScope.workemail = '*Work Email';
+            $rootScope.exemail = 'e.g. name@example.com';
             $rootScope.businessphonenumber = '*Business Phone Number';
             $rootScope.idlabel = '*MPN ID';
             $rootScope.domainname = 'Domain Name';
-            $rootScope.domainexample = '(e.g. contoso.onmicrosoft.com)';
+            $rootScope.domainexample = 'e.g. contoso.onmicrosoft.com';
             $rootScope.selectsubscription = '*Select an Advanced Support for Partners Plan ';
             $rootScope.selectsubscriptionmuted = '(Hover over each option to learn more)';
             $rootScope.annualsubscription1 = 'Advanced Support for Partners  ';
             $rootScope.annualsubscription2 = 'Annual Contract';
-            $rootScope.annualsubscription3 = '15,000 USD* (local taxes apply)';
+            $rootScope.annualsubscription3 = 'USD 15,000* (local taxes apply)';
             $rootScope.annualsubscriptiontooltip = 'Advanced Support for Partners offers cloud support at an accessible price point that helps partners be a great ally to their customers and grow their business faster. This 1-year contract is for partners outside of the Emerging Markets regions.';
             $rootScope.emergingmarketsubscription1 = 'Advanced Support for Partners Annual  ';
             $rootScope.emergingmarketsubscription2 = 'Contract in Emerging Markets';
-            $rootScope.emergingmarketsubscription3 = '10,000 USD* (local taxes apply)';
+            $rootScope.emergingmarketsubscription3 = 'USD 10,000* (local taxes apply)';
             $rootScope.emergingmarkettooltip = 'Advanced Support for Partners offers cloud support at an accessible price point that helps partners be a great ally to their customers and grow their business faster. This 1-year contract is for partners within the Emerging Markets regions. Please see the Emerging Market contract requirements to determine if your organization qualifies. ';
             $rootScope.emergingmarketrequirements = ' for Emerging Market subscription requirements';
-            $rootScope.currencytext = '* Billing will be in your local currency, with currency conversion rates updated quarterly.'
+            $rootScope.currencytext = '* Billing will be in your local currency, with currency conversion rates updated quarterly.';
             $rootScope.clickhere = 'Click here';
             $rootScope.leadclickhere = '';
             $rootScope.samlocation = '*Preferred Services Account Manager Location';
@@ -125,15 +127,16 @@
             $rootScope.privacytext = '*You’re almost done! Please take a moment to read through and accept our privacy statement.';
             $rootScope.privacyaccept = 'I certify that I have read and accept the ';
             $rootScope.privacystatement = 'privacy statement.';
+            $rootScope.privacylink = 'https://privacy.microsoft.com/en-us/privacystatement';
             $rootScope.successmessage = 'Upon receipt of your order submission, you will be contacted by a Microsoft representative to complete your order. Please click submit to proceed.';
             $rootScope.submit = 'Submit';
             $rootScope.thankyou = 'Thank you!';
             $rootScope.offeringspecialist = 'A support offerings specialist will be in touch with you shortly.';
             $rootScope.returntopage = 'Return to page';
-            $rootScope.samhourstxt = '20 Hours of Services Account Management – 4,000 USD (local taxes apply)';
-            $rootScope.cloudconsulttxt = 'Cloud Consult Engagement – 2,000 USD (local taxes apply)';
-            //$rootScope.onepacktxt = '1-Pack On Premises Support Incident – 499 USD (local taxes apply)';
-            $rootScope.fivepacktxt = '5-Pack On Premises Support Incidents – $1,999 USD (local taxes apply)';
+            $rootScope.samhourstxt = '20 Hours of Services Account Management – USD 4,000 (local taxes apply)';
+            $rootScope.cloudconsulttxt = 'Cloud Consult Engagement – USD 2,000 (local taxes apply)';
+            //$rootScope.onepacktxt = '1-Pack On Premises Support Incident – USD 499 (local taxes apply)';
+            $rootScope.fivepacktxt = '5-Pack On Premises Support Incidents – USD 1,999 (local taxes apply)';
             $scope.formLCID = '9';
         }
 
@@ -155,12 +158,12 @@
                 var samh = 'W73-00001 サービス アカウント マネジメント 20 時間 – 440,000 円 (税別)';
             }
             else {
-                var sub1 = 'W6N-00001 Advanced Support for Partners Annual Subscription – 15,000 USD (local taxes apply)';
-                var sub2 = 'W6N-00002 Advanced Support for Partners Annual Subscription in Emerging Markets – 10,000 USD (local taxes apply)';
-                var ced = 'W74-00001 1 Cloud Consult Engagement – 2,000 USD (local taxes apply)';
-                var samh = 'W67-00001 1-Pack On Premises Support Incident – 499 USD (local taxes apply)';
+                var sub1 = 'W6N-00001 Advanced Support for Partners Annual Subscription – USD 15,000 (local taxes apply)';
+                var sub2 = 'W6N-00002 Advanced Support for Partners Annual Subscription in Emerging Markets – USD 10,000 (local taxes apply)';
+                var ced = 'W74-00001 1 Cloud Consult Engagement – USD 2,000 (local taxes apply)';
+                var samh = 'W67-00001 1-Pack On Premises Support Incident – USD 499 (local taxes apply)';
                 //var inc1 = 'W69-00001 5-Pack On Premises Support Incidents – USD 1, 999 (local taxes apply)'
-                var inc5 = 'W73-00001 20 Hours of Services Account Management – 4,000 USD (local taxes apply)';
+                var inc5 = 'W73-00001 20 Hours of Services Account Management – USD 4,000 (local taxes apply)';
             }
             if ($scope.fivepack) { $scope.fivepack = inc5; }
             if ($scope.samhours) { $scope.samhours = samh; }
@@ -169,7 +172,7 @@
             else { $scope.subscription = sub2; }
 
             //https://docs.microsoft.com/en-us/azure/cosmos-db/table-storage-cloud-service-nodejs
-            $scope.orderSubmission
+            $scope.orderSubmission;
             var entity = {
                 PartitionKey: $scope.samlist,
                 RowKey: rowKey, // valueOf() created date + first 2 characters of name
@@ -211,7 +214,7 @@
                 }
             });
 
-            var intlNumber = $('#phone').intlTelInput('getNumber');
+            var intlNumber = $('#phone').intlTelInput('getnumber');
             for (var entry in $scope.orderSubmission) {
                 (function (entry) {
                     $rootScope.phone = $scope.orderSubmission[entry];

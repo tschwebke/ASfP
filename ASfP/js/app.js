@@ -3,15 +3,15 @@
 
 asfpApp.run(['$rootScope', '$location', '$locale', function ($rootScope, $location, $locale) {
     $rootScope.$on('$routeChangeError', function (event, next, previous, error) {
-        $location.path('/order');
+        $location.path('/purchase');
     });
 }]);
 
 asfpApp.config(['$routeProvider',
     function ($routeProvider) {
         $routeProvider.
-            when('/order', {
-                templateUrl: 'views/order.html',
+            when('/purchase', {
+                templateUrl: 'views/purchase.html',
                 controller: 'orderController'
             }).
             when('/success', {
@@ -19,6 +19,6 @@ asfpApp.config(['$routeProvider',
                 controller: 'successController'
             }).
             otherwise({
-                redirectTo: '/order'
+                redirectTo: '/purchase'
             });
     }]);

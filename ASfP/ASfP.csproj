@@ -102,7 +102,7 @@
     <Content Include="images\msft.png" />
     <Content Include="images\success.old.png" />
     <Content Include="js\app.js" />
-    <Content Include="js\controllers\order.js" />
+    <Content Include="js\controllers\purchase.js" />
     <Content Include="js\controllers\success.js" />
     <Content Include="js\factory.js" />
     <Content Include="js\helpers\intlTelInput.js" />
@@ -182,11 +182,7 @@
     <Content Include="Scripts\umd\popper-utils.min.js" />
     <Content Include="Scripts\umd\popper.js" />
     <Content Include="Scripts\umd\popper.min.js" />
-    <Content Include="Test\checkout\form-validation.css" />
-    <Content Include="Test\checkout\index.html" />
-    <Content Include="Test\starter-template\index.html" />
-    <Content Include="Test\starter-template\starter-template.css" />
-    <Content Include="views\order.html" />
+    <Content Include="views\purchase.html" />
     <Content Include="views\success.html" />
     <Content Include="Web.config" />
     <Content Include="Scripts\umd\popper.min.js.map" />
