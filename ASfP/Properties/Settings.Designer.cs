@@ -12,7 +12,7 @@ namespace ASfP.Properties {
     
     
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "14.0.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "15.6.0.0")]
     internal sealed partial class Settings : global::System.Configuration.ApplicationSettingsBase {
         
         private static Settings defaultInstance = ((Settings)(global::System.Configuration.ApplicationSettingsBase.Synchronized(new Settings())));
@@ -20,6 +20,35 @@ namespace ASfP.Properties {
         public static Settings Default {
             get {
                 return defaultInstance;
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("asfptbl")]
+        public string AZURE_STORAGE_ACCOUNT {
+            get {
+                return ((string)(this["AZURE_STORAGE_ACCOUNT"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("h4bDfcQ/NJAH2CiyN2ruqBBfbQgb2/1LHVsT8rpDJ0v2ybDEiWLw/wWNxyKkZUVRc6S5Z/VJGObDV5hQL" +
+            "OnOsA==")]
+        public string AZURE_STORAGE_ACCESS_KEY {
+            get {
+                return ((string)(this["AZURE_STORAGE_ACCESS_KEY"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("DefaultEndpointsProtocol=https;AccountName=asfptbl;AccountKey=h4bDfcQ/NJAH2CiyN2r" +
+            "uqBBfbQgb2/1LHVsT8rpDJ0v2ybDEiWLw/wWNxyKkZUVRc6S5Z/VJGObDV5hQLOnOsA==;")]
+        public string AZURE_STORAGE_CONNECTION_STRING {
+            get {
+                return ((string)(this["AZURE_STORAGE_CONNECTION_STRING"]));
             }
         }
     }

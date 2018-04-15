@@ -13,3 +13,7 @@ W74-00001 1 Cloud Consult Engagement – USD 2,000 (local taxes apply)
 W67-00001 1-Pack On Premises Support Incident – USD 499 (local taxes apply)
 W69-00001 5-Pack On Premises Support Incidents – USD 1,999 (local taxes apply)
 W73-00001 20 Hours of Services Account Management – USD 4,000 (local taxes apply)
+
+
+
+https://docs.microsoft.com/en-us/azure/cosmos-db/table-storage-cloud-service-nodejs

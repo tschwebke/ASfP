@@ -1,6 +1,15 @@
 ﻿<?xml version='1.0' encoding='utf-8'?>
-<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)">
-  <Profiles>
-    <Profile Name="(Default)" />
-  </Profiles>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="ASfP.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="AZURE_STORAGE_ACCOUNT" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">asfptbl</Value>
+    </Setting>
+    <Setting Name="AZURE_STORAGE_ACCESS_KEY" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">h4bDfcQ/NJAH2CiyN2ruqBBfbQgb2/1LHVsT8rpDJ0v2ybDEiWLw/wWNxyKkZUVRc6S5Z/VJGObDV5hQLOnOsA==</Value>
+    </Setting>
+    <Setting Name="AZURE_STORAGE_CONNECTION_STRING" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">DefaultEndpointsProtocol=https;AccountName=asfptbl;AccountKey=h4bDfcQ/NJAH2CiyN2ruqBBfbQgb2/1LHVsT8rpDJ0v2ybDEiWLw/wWNxyKkZUVRc6S5Z/VJGObDV5hQLOnOsA==;</Value>
+    </Setting>
+  </Settings>
 </SettingsFile>

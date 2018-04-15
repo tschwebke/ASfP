@@ -1,31 +1,32 @@
 ﻿<div class="text-right col-12 py-6" translate>* Indicates a required field</div>
 <form name="orderForm" ng-submit="orderForm.$valid && order()" novalidate>
     <fieldset>
-        <div class="form-group col-4 py-6">
+        <div class="form-group py-6">
             <label for="name" class="font-weight-bold"><translate>*Full Name</translate><span>&nbsp;<translate>(First name/Last name)</translate></span></label>
             <span class="badge badge-danger" ng-show="orderForm.name.$invalid && orderForm.name.$touched" translate>Invalid input</span>
-            <input type="text" ng-pattern="/^[a-zA-Z ]+[一-龠]+|[ぁ-ゔ]+|[ァ-ヴー]+[々〆〤]*$/iu" name="name" ng-model="name" class="form-control" ng-required="true" ng-minlength="2" />
+            <input type="text" ng-pattern="/^[一-龠ぁ-ゔァ-ヴーa-zA-Z ａ-ｚＡ-Ｚ々〆〤\-]*$/iu" name="name" ng-model="name" class="form-control form-group col-xl-4" ng-required="true" ng-minlength="2" />
         </div>
-        <div class="form-group col-4">
+        <div class="form-group">
             <label for="email" class="font-weight-bold" translate>*Work Email</label>
             <span class="badge badge-danger" ng-show="(orderForm.email.$invalid || orderForm.$error.email) && orderForm.email.$touched" translate>Invalid email address</span>
-            <input type="email" ng-pattern="/[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9]+[一-龠]+|[ぁ-ゔ]+|[ァ-ヴー]+[々〆〤](?:[a-z0-9-]+[一-龠]+|[ぁ-ゔ]+|[ァ-ヴー]+[々〆〤]*[a-z0-9]+[一-龠]+|[ぁ-ゔ]+|[ァ-ヴー]+[々〆〤])?\.)+[a-z0-9]+[一-龠]+|[ぁ-ゔ]+|[ァ-ヴー]+[々〆〤](?:[a-z0-9-]+[一-龠]+|[ぁ-ゔ]+|[ァ-ヴー]+[々〆〤]*[a-z0-9]+[一-龠]+|[ぁ-ゔ]+|[ァ-ヴー]+[々〆〤])?/iu" name="email" ng-model="email" class="form-control" placeholder={{exemail}} ng-required="true" />
+            <input type="email" ng-pattern="/[一-龠ぁ-ゔァ-ヴー一-龠ぁ-ゔァ-ヴーa-zA-Z0-9 ａ-ｚＡ-Ｚ０-９々〆〤ａ-ｚＡ-Ｚ０-９々〆〤!#$%&'*+/=?^_`{|}~-]+(?:\.[一-龠ぁ-ゔァ-ヴーa-zA-Z0-9 ａ-ｚＡ-Ｚ０-９々〆〤!#$%&'*+/=?^_`{|}~-]+)*@(?:[一-龠ぁ-ゔァ-ヴーa-zA-Z0-9 ａ-ｚＡ-Ｚ０-９々〆〤](?:[一-龠ぁ-ゔァ-ヴーa-zA-Z0-9 ａ-ｚＡ-Ｚ０-９々〆〤-]*[一-龠ぁ-ゔァ-ヴーa-zA-Z0-9 ａ-ｚＡ-Ｚ０-９々〆〤])?\.)+[一-龠ぁ-ゔァ-ヴーa-zA-Z0-9 ａ-ｚＡ-Ｚ０-９々〆〤](?:[一-龠ぁ-ゔァ-ヴーa-zA-Z0-9 ａ-ｚＡ-Ｚ０-９々〆〤-]*[一-龠ぁ-ゔァ-ヴーa-zA-Z0-9 ａ-ｚＡ-Ｚ０-９々〆〤])?/iu" name="email" ng-model="email" class="form-control col-xl-4" placeholder="{{'e.g. name@example.com'|translate}}" ng-required="true" />
         </div>
-        <div class="form-group col-4">
-            <label for="tel" class="font-weight-bold" translate>*Business Phone Number</label>
-            <span class="badge badge-danger" ng-show="(orderForm.tel.$invalid || orderForm.$error.tel) && orderForm.tel.$touched" translate>Invalid phone number!</span>
-            <input type="tel" name="tel" id="phone" ng-model="phone" class="form-control" ng-required="true" />
+        <div class="form-group">
+            <div><label for="tel" class="font-weight-bold" translate>*Business Phone Number</label><span class="badge badge-danger" ng-show="(orderForm.tel.$invalid || orderForm.$error.tel) && orderForm.tel.$touched" translate>Invalid phone number!</span></div>
+            <div class="col-xl-4" style="margin-left:-15px">
+                <input type="tel" name="tel" id="phone" ng-model="phone" class="form-control" ng-required="true" />
+            </div>
         </div>
-        <div class="form-group col-4">
+        <div class="form-group">
             <label for="mpnid" class="font-weight-bold" translate>*MPN ID</label>
             <span class="badge badge-danger" ng-show="orderForm.mpnid.$invalid && orderForm.mpnid.$touched" translate>Invalid MPN ID</span>
-            <input type="text" name="mpnid" ng-model="mpnid" class="form-control" style="width: 50%" ng-required="true" ng-minlength="6" />
+            <input type="text" name="mpnid" ng-model="mpnid" class="form-control col-sm-3" ng-required="true" ng-minlength="6" />
         </div>
-        <div class="form-group col-4">
+        <div class="form-group">
             <label for="domain" class="font-weight-bold" translate>Domain Name</label>
-            <input type="text" name="domain" ng-model="domain" class="form-control" placeholder="{{'e.g. contoso.onmicrosoft.com'|translate}}" />
+            <input type="text" name="domain" ng-model="domain" class="form-control col-xl-4" placeholder="{{'e.g. contoso.onmicrosoft.com'|translate}}" />
         </div>
-        <div>
+        <div class="col-xl-auto" style="margin-left:-30px">
             <p class="text-justify font-weight-normal ml-3 pt-2 font-weight-bold"><translate>*Select an Advanced Support for Partners Plan</translate><span translate> (Hover over each option to learn more)</span></p>
         </div>
         <div class="table-responsive cell_hover">
@@ -51,35 +52,37 @@
             <label><input type="radio" id='subAnnual' ng-model="subscription" value="Annual" ng-required="!subscription">Annual</label>
             <label><input type="radio" id='subEmerging' ng-model="subscription" value="Emerging" ng-required="!subscription">Emerging</label>
         </div>
-        <div>
+        <div class="col-xl-auto" style="margin-left:-30px">
             <p class="text-justify font-weight-normal ml-3" translate>* Billing will be in your local currency, with currency conversion rates updated quarterly.</p>
         </div>
-        <div>
-            <p class="text-justify font-weight-normal ml-3 pb-2"><a href="https://support.microsoft.com/help/4011810/asfp-emerging-market-subscription-requirement" target="_blank" translate>Click here</a>&nbsp;<translate>for Emerging Market subscription requirements</translate></p>
+        <div class="col-xl-auto" style="margin-left:-30px">
+            <p class="text-justify font-weight-normal ml-3 pb-2"><translate>preEmerging </translate><a href="https://support.microsoft.com/help/4011810/asfp-emerging-market-subscription-requirement" target="_blank" translate>Click here</a>&nbsp;<translate>for Emerging Market subscription requirements</translate></p>
         </div>
-        <div class="form-group col-4 py-2">
+        <div class="form-group py-2">
             <label for="sam" class="font-weight-bold" translate>*Preferred Services Account Manager Location</label>
             <span class="badge badge-danger mr-lg-auto" ng-show="orderForm.samlist.$invalid && orderForm.samlist.$touched" translate>SAM location not selected</span>
-            <select name="samlist" ng-model="samlist" class="custom-select form-control form-control-md" ng-required="true">
-                <option value="" disabled selected translate>Select from the following options</option>
-                <option value="Asia Pacific" translate>Asia Pacific</option>
-                <option value="Europe, Middle East, Africa" translate>Europe, Middle East, Africa</option>
-                <option value="Japan" translate>Japan</option>
-                <option value="Latin America" translate>Latin America</option>
-                <option value="North America" translate>North America</option>
-            </select>
+            <div class="col-xl-4" style="margin-left:-15px">
+                <select name="samlist" ng-model="samlist" class="custom-select form-control" ng-required="true">
+                    <option value="" disabled selected translate>Select from the following options</option>
+                    <option value="Asia Pacific" translate>Asia Pacific</option>
+                    <option value="Europe, Middle East, Africa" translate>Europe, Middle East, Africa</option>
+                    <option value="Japan" translate>Japan</option>
+                    <option value="Latin America" translate>Latin America</option>
+                    <option value="North America" translate>North America</option>
+                </select>
+            </div>
         </div>
-        <div>
+        <div class="col-xl-auto" style="margin-left:-30px">
             <p class="text-justify font-weight-bold ml-3 pt-3" translate>Add Optional Packages to your Contract</p>
         </div>
-        <div>
+        <div class="col-xl-auto" style="margin-left:-30px">
             <p class="text-justify font-weight-normal ml-3 w-75 pb-3" translate>Choose from our three additional packages that can help you address specialized support scenarios or technologies by checking the box next to your desired package. Packages are paid up-front and require an active Advanced Support for Partners contract from your organization.</p>
         </div>
-        <div class="ml-3 w-75">
+        <div class="col-sm-9" style="margin-left:-15px">
             <div id="accordionSAMHours">
                 <div class="card">
                     <div class="card-header bg-dark" id="headingSAMHours">
-                        <button class="btn bg-transparent btn-outline-dark text-white" type="button" data-toggle="collapse" data-target="#collapseSAMHours" aria-expanded="false" aria-controls="collapseSAMHours">
+                        <button class="text-left btn bg-transparent btn-outline-dark text-white col-sm-9" style="white-space: normal;" type="button" data-toggle="collapse" data-target="#collapseSAMHours" aria-expanded="false" aria-controls="collapseSAMHours">
                             <div><translate>Additional Services Management</translate>&nbsp;<span translate>(Click to learn more)</span></div>
                         </button>
                     </div>
@@ -89,17 +92,17 @@
                 </div>
             </div>
         </div>
-        <div class="ml-5 w-75 py-3">
+        <div class="ml-3 w-75 py-3">
             <div class="custom-control custom-checkbox pb-3">
                 <input type="checkbox" class="custom-control-input" id="samhours" value="Services Account Management" ng-model="samhours">
                 <label class="custom-control-label" for="samhours" translate>20 Hours of Services Account Management – USD 4,000 (local taxes apply)</label>
             </div>
         </div>
-        <div class="ml-3 w-75">
+        <div class="col-sm-9" style="margin-left:-15px">
             <div id="accordionCloudConsult">
                 <div class="card">
                     <div class="card-header bg-dark" id="headingCloudConsult">
-                        <button class="btn bg-transparent btn-outline-dark text-white" type="button" data-toggle="collapse" data-target="#collapseCloudConsult" aria-expanded="false" aria-controls="collapseCloudConsult">
+                        <button class="text-left btn bg-transparent btn-outline-dark text-white col-sm-9" style="white-space: normal;" type="button" data-toggle="collapse" data-target="#collapseCloudConsult" aria-expanded="false" aria-controls="collapseCloudConsult">
                             <div><translate>Additional Cloud Consult Engagements</translate>&nbsp;<span translate>(Click to learn more)</span></div>
                         </button>
                     </div>
@@ -109,17 +112,17 @@
                 </div>
             </div>
         </div>
-        <div class="ml-5 w-75 py-3">
+        <div class="ml-3 w-75 py-3">
             <div class="custom-control custom-checkbox pb-3">
                 <input type="checkbox" class="custom-control-input" id="cloudconsult" value="Cloud Consult Engagement" ng-model="cloudconsult">
                 <label class="custom-control-label" for="cloudconsult" translate>Cloud Consult Engagement – USD 2,000 (local taxes apply)</label>
             </div>
         </div>
-        <div class="ml-3 w-75">
+        <div class="col-sm-9" style="margin-left:-15px">
             <div id="accordionSupport">
                 <div class="card">
                     <div class="card-header bg-dark" id="headingOne">
-                        <button class="btn bg-transparent btn-outline-dark text-white" type="button" data-toggle="collapse" data-target="#collapseSupport" aria-expanded="false" aria-controls="collapseSupport">
+                        <button class="text-left btn bg-transparent btn-outline-dark text-white col-sm-9" style="white-space: normal;" type="button" data-toggle="collapse" data-target="#collapseSupport" aria-expanded="false" aria-controls="collapseSupport">
                             <div><translate>On-Premises Support Incidents</translate>&nbsp;<span translate>(Click to learn more)</span></div>
                         </button>
                     </div>
@@ -129,7 +132,7 @@
                 </div>
             </div>
         </div>
-        <div class="ml-5 w-75 py-3">
+        <div class="ml-3 w-75 py-3">
             <div class="custom-control custom-checkbox pb-3">
                 <input type="checkbox" class="custom-control-input" id="fivepack" value="5-Pack" ng-model="fivepack">
                 <label class="custom-control-label" for="fivepack" translate>5-Pack On Premises Support Incidents – USD 1,999 (local taxes apply)</label>
@@ -138,11 +141,11 @@
         <div>
             <br />
         </div>
-        <div>
+        <div class="col-xl-auto" style="margin-left:-30px">
             <p class="text-justify font-weight-normal ml-3 w-75 pb-1" translate>*You’re almost done! Please take a moment to read through and accept our privacy statement.</p>
         </div>
         <div>
-            <div class="ml-5 w-75 py-3">
+            <div class="ml-3 w-75 py-3">
                 <div class="custom-control custom-checkbox pb-3 font-weight-normal">
                     <!--<span class="label label-danger" ng-show="orderForm.privacy.$invalid && orderForm.privacy.$touched">Required!</span>-->
                     <input type="checkbox" class="custom-control-input" id="privacy" ng-model="privacy" ng-required="true">
@@ -150,11 +153,14 @@
                 </div>
             </div>
         </div>
-        <div>
+        <div class="col-xl-auto" style="margin-left:-30px">
             <p class="text-justify font-weight-normal ml-3 w-75 pb-3" translate>Upon receipt of your order submission, you will be contacted by a Microsoft representative to complete your order. Please click submit to proceed.</p>
         </div>
-        <div class="form-group col-4 pb-5">
-            <button type="submit" ng-disabled="orderForm.$invalid" class="btn btn-primary" style="font-size: 30px; width: 75%; padding-bottom:50px; padding-top:5px;" translate>Submit</button>
+        <div class="form-group pb-6">
+            <button type="submit" ng-disabled="orderForm.$invalid" class="btn btn-primary col-xl-3 text-xl-center" style="font-size: 30px; width: 40%; height: 40%;" translate>Submit</button>
+        </div>
+        <div class="col-xl-auto" style="margin-left:-30px">
+            <br />
         </div>
     </fieldset>
 </form>
