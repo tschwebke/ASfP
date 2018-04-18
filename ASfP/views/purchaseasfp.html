@@ -61,8 +61,8 @@
         <div class="form-group py-2">
             <label for="sam" class="font-weight-bold" translate>*Preferred Services Account Manager Location</label>
             <span class="badge badge-danger mr-lg-auto" ng-show="orderForm.samlist.$invalid && orderForm.samlist.$touched" translate>SAM location not selected</span>
-            <div class="col-xl-4" style="margin-left:-15px">
-                <select name="samlist" ng-model="samlist" class="custom-select form-control" ng-required="true">
+            <div>
+                <select name="samlist" ng-model="samlist" class="form-control custom-select col-xl-4" ng-required="true">
                     <option value="" disabled selected translate>Select from the following options</option>
                     <option value="Asia Pacific" translate>Asia Pacific</option>
                     <option value="Europe, Middle East, Africa" translate>Europe, Middle East, Africa</option>
@@ -78,11 +78,11 @@
         <div class="col-xl-auto" style="margin-left:-30px">
             <p class="text-justify font-weight-normal ml-3 w-75 pb-3" translate>Choose from our three additional packages that can help you address specialized support scenarios or technologies by checking the box next to your desired package. Packages are paid up-front and require an active Advanced Support for Partners contract from your organization.</p>
         </div>
-        <div class="col-sm-9" style="margin-left:-15px">
+        <div class="col-lg-9" style="margin-left:-15px">
             <div id="accordionSAMHours">
                 <div class="card">
                     <div class="card-header bg-dark" id="headingSAMHours">
-                        <button class="text-left btn bg-transparent btn-outline-dark text-white col-sm-9" style="white-space: normal;" type="button" data-toggle="collapse" data-target="#collapseSAMHours" aria-expanded="false" aria-controls="collapseSAMHours">
+                        <button class="text-left btn bg-transparent btn-outline-dark text-white col-lg-9" style="height: 100%;white-space: normal;" type="button" data-toggle="collapse" data-target="#collapseSAMHours" aria-expanded="false" aria-controls="collapseSAMHours">
                             <div><translate>Additional Services Management</translate>&nbsp;<span translate>(Click to learn more)</span></div>
                         </button>
                     </div>
@@ -102,7 +102,7 @@
             <div id="accordionCloudConsult">
                 <div class="card">
                     <div class="card-header bg-dark" id="headingCloudConsult">
-                        <button class="text-left btn bg-transparent btn-outline-dark text-white col-sm-9" style="white-space: normal;" type="button" data-toggle="collapse" data-target="#collapseCloudConsult" aria-expanded="false" aria-controls="collapseCloudConsult">
+                        <button class="text-left btn bg-transparent btn-outline-dark text-white col-sm-9" style="height: 100%;white-space: normal;" type="button" data-toggle="collapse" data-target="#collapseCloudConsult" aria-expanded="false" aria-controls="collapseCloudConsult">
                             <div><translate>Additional Cloud Consult Engagements</translate>&nbsp;<span translate>(Click to learn more)</span></div>
                         </button>
                     </div>
@@ -122,7 +122,7 @@
             <div id="accordionSupport">
                 <div class="card">
                     <div class="card-header bg-dark" id="headingOne">
-                        <button class="text-left btn bg-transparent btn-outline-dark text-white col-sm-9" style="white-space: normal;" type="button" data-toggle="collapse" data-target="#collapseSupport" aria-expanded="false" aria-controls="collapseSupport">
+                        <button class="text-left btn bg-transparent btn-outline-dark text-white col-sm-9" style="height: 100%;white-space: normal;" type="button" data-toggle="collapse" data-target="#collapseSupport" aria-expanded="false" aria-controls="collapseSupport">
                             <div><translate>On-Premises Support Incidents</translate>&nbsp;<span translate>(Click to learn more)</span></div>
                         </button>
                     </div>
@@ -157,7 +157,7 @@
             <p class="text-justify font-weight-normal ml-3 w-75 pb-3" translate>Upon receipt of your order submission, you will be contacted by a Microsoft representative to complete your order. Please click submit to proceed.</p>
         </div>
         <div class="form-group pb-6">
-            <button type="submit" ng-disabled="orderForm.$invalid" class="btn btn-primary col-xl-3 text-xl-center" style="font-size: 30px; width: 40%; height: 40%;" translate>Submit</button>
+            <button type="submit" ng-disabled="orderForm.$invalid" class="btn btn-primary col-xl-3 text-xl-center" style="font-size: 150%; width: 40%; height: 40%;" translate>Submit</button>
         </div>
         <div class="col-xl-auto" style="margin-left:-30px">
             <br />

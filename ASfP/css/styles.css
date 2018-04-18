@@ -64,7 +64,7 @@ input, button {
 
 input, select {
     border: 1px solid #CCC;
-    width: 250px;
+    /*width: 250px;*/
 }
 
 ::-webkit-input-placeholder {
@@ -140,4 +140,12 @@ input.ng-invalid.ng-touched {
 .error {
     color: red;
     padding-bottom: 10px;
+}
+
+@media only screen and (max-width: 760px), (min-width: 768px) and (max-width: 1024px) {
+    select {
+        width: 150px;
+        word-wrap: break-word;
+        text-overflow: ellipsis;
+    }
 }
