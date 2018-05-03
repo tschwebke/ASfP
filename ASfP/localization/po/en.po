@@ -1,0 +1,333 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: en\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 2.0.6\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: ../Dev Projects/ASfP/ASfP/views/purchaseasfp.html:106
+#: Projects/ASfP/ASfP/views/purchaseasfp.html:126
+#: Projects/ASfP/ASfP/views/purchaseasfp.html:86
+msgid "(Click to learn more)"
+msgstr "(Click to learn more)"
+
+#: ../Dev Projects/ASfP/ASfP/views/purchaseasfp.html:5
+msgid "(First name/Last name)"
+msgstr "(First name/Last name)"
+
+#: ../Dev Projects/ASfP/ASfP/views/purchaseasfp.html:30
+msgid "(Hover over each option to learn more)"
+msgstr "(Hover over each option to learn more)"
+
+#: ../Dev Projects/ASfP/ASfP/views/purchaseasfp.html:56
+msgid ""
+"* Billing will be in your local currency, with currency conversion rates "
+"updated quarterly."
+msgstr ""
+"* Billing will be in your local currency, with currency conversion rates "
+"updated quarterly."
+
+#: ../Dev Projects/ASfP/ASfP/views/purchaseasfp.html:1
+msgid "* Indicates a required field"
+msgstr "* Indicates a required field"
+
+#: ../Dev Projects/ASfP/ASfP/views/purchaseasfp.html:15
+msgid "*Business Phone Number"
+msgstr "*Business Phone Number"
+
+#: ../Dev Projects/ASfP/ASfP/views/purchaseasfp.html:5
+msgid "*Full Name"
+msgstr "*Full Name"
+
+#: ../Dev Projects/ASfP/ASfP/views/purchaseasfp.html:21
+msgid "*MPN ID"
+msgstr "*MPN ID"
+
+#: ../Dev Projects/ASfP/ASfP/views/purchaseasfp.html:62
+msgid "*Preferred Services Account Manager Location"
+msgstr "*Preferred Services Account Manager Location"
+
+#: ../Dev Projects/ASfP/ASfP/views/purchaseasfp.html:30
+msgid "*Select an Advanced Support for Partners Plan"
+msgstr "*Select an Advanced Support for Partners Plan"
+
+#: ../Dev Projects/ASfP/ASfP/views/purchaseasfp.html:10
+msgid "*Work Email"
+msgstr "*Work Email"
+
+#: ../Dev Projects/ASfP/ASfP/views/purchaseasfp.html:145
+msgid ""
+"*You’re almost done! Please take a moment to read through and accept our "
+"privacy statement."
+msgstr ""
+"*You’re almost done! Please take a moment to read through and accept our "
+"privacy statement."
+
+#: ../Dev Projects/ASfP/ASfP/views/purchaseasfp.html:98
+msgid "20 Hours of Services Account Management – USD 4,000 (local taxes apply)"
+msgstr ""
+"20 Hours of Services Account Management – USD 4,000 (local taxes apply)"
+
+#: ../Dev Projects/ASfP/ASfP/views/purchaseasfp.html:138
+msgid "5-Pack On Premises Support Incidents – USD 1,999 (local taxes apply)"
+msgstr "5-Pack On Premises Support Incidents – USD 1,999 (local taxes apply)"
+
+#: ../Dev Projects/ASfP/ASfP/views/success.html:17
+msgid "A support offerings specialist will be in touch with you shortly."
+msgstr "A support offerings specialist will be in touch with you shortly."
+
+#: ../Dev Projects/ASfP/ASfP/views/purchaseasfp.html:76
+msgid "Add Optional Packages to your Contract"
+msgstr "Add Optional Packages to your Contract"
+
+#: ../Dev Projects/ASfP/ASfP/views/purchaseasfp.html:106
+msgid "Additional Cloud Consult Engagements"
+msgstr "Additional Cloud Consult Engagements"
+
+#: ../Dev Projects/ASfP/ASfP/views/purchaseasfp.html:86
+msgid "Additional Services Management"
+msgstr "Additional Services Management"
+
+#: ../Dev Projects/ASfP/ASfP/views/purchaseasfp.html:38
+msgid "Advanced Support for Partners"
+msgstr "Advanced Support for Partners"
+
+#: ../Dev Projects/ASfP/ASfP/views/purchaseasfp.html:43
+msgid "Advanced Support for Partners Annual"
+msgstr "Advanced Support for Partners Annual"
+
+#: ../Dev Projects/ASfP/ASfP/views/purchaseasfp.html:37
+msgid ""
+"Advanced Support for Partners offers cloud support at an accessible price "
+"point that helps partners be a great ally to their customers and grow their "
+"business faster. This 1-year contract is for partners outside of the "
+"Emerging Markets regions."
+msgstr ""
+"Advanced Support for Partners offers cloud support at an accessible price "
+"point that helps partners be a great ally to their customers and grow their "
+"business faster. This 1-year contract is for partners outside of the "
+"Emerging Markets regions."
+
+#: ../Dev Projects/ASfP/ASfP/views/purchaseasfp.html:42
+msgid ""
+"Advanced Support for Partners offers cloud support at an accessible price "
+"point that helps partners be a great ally to their customers and grow their "
+"business faster. This 1-year contract is for partners within the Emerging "
+"Markets regions. Please see the Emerging Market contract requirements to "
+"determine if your organization qualifies."
+msgstr ""
+"Advanced Support for Partners offers cloud support at an accessible price "
+"point that helps partners be a great ally to their customers and grow their "
+"business faster. This 1-year contract is for partners within the Emerging "
+"Markets regions. Please see the Emerging Market contract requirements to "
+"determine if your organization qualifies."
+
+#: ../Dev Projects/ASfP/ASfP/views/purchaseasfp.html:39
+msgid "Annual Contract"
+msgstr "Annual Contract"
+
+#: ../Dev Projects/ASfP/ASfP/views/purchaseasfp.html:67
+msgid "Asia Pacific"
+msgstr "Asia Pacific"
+
+#: ../Dev Projects/ASfP/ASfP/views/purchaseasfp.html:79
+msgid ""
+"Choose from our three additional packages that can help you address "
+"specialized support scenarios or technologies by checking the box next to "
+"your desired package. Packages are paid up-front and require an active "
+"Advanced Support for Partners contract from your organization."
+msgstr ""
+"Choose from our three additional packages that can help you address "
+"specialized support scenarios or technologies by checking the box next to "
+"your desired package. Packages are paid up-front and require an active "
+"Advanced Support for Partners contract from your organization."
+
+#: ../Dev Projects/ASfP/ASfP/views/purchaseasfp.html:59
+msgid "Click here"
+msgstr "Click here"
+
+#: ../Dev Projects/ASfP/ASfP/views/purchaseasfp.html:118
+msgid "Cloud Consult Engagement – USD 2,000 (local taxes apply)"
+msgstr "Cloud Consult Engagement – USD 2,000 (local taxes apply)"
+
+#: ../Dev Projects/ASfP/ASfP/views/purchaseasfp.html:110
+msgid ""
+"Cloud Consults offer a remote one-to-one, in-depth technical consultation "
+"with a Microsoft Cloud Expert to provide guidance on various stages of your "
+"cloud projects."
+msgstr ""
+"Cloud Consults offer a remote one-to-one, in-depth technical consultation "
+"with a Microsoft Cloud Expert to provide guidance on various stages of your "
+"cloud projects."
+
+#: ../Dev Projects/ASfP/ASfP/views/purchaseasfp.html:44
+msgid "Contract in Emerging Markets"
+msgstr "Contract in Emerging Markets"
+
+#: ../Dev Projects/ASfP/ASfP/views/purchaseasfp.html:26
+msgid "Domain Name"
+msgstr "Domain Name"
+
+#: ../Dev Projects/ASfP/ASfP/index.html:48
+msgid ""
+"Elevate your cloud business with Microsoft’s Advanced Support for Partners. "
+"Getting started is easy, just fill out the form below and you will be "
+"contacted by a Microsoft representative to review your order request and "
+"activate a contract for your organization."
+msgstr ""
+"Elevate your cloud business with Microsoft’s Advanced Support for Partners. "
+"Getting started is easy, just fill out the form below and you will be "
+"contacted by a Microsoft representative to review your order request and "
+"activate a contract for your organization."
+
+#: ../Dev Projects/ASfP/ASfP/views/purchaseasfp.html:68
+msgid "Europe, Middle East, Africa"
+msgstr "Europe, Middle East, Africa"
+
+#: ../Dev Projects/ASfP/ASfP/index.html:56
+msgid "Fill out the form below to get started."
+msgstr "Fill out the form below to get started."
+
+#: ../Dev Projects/ASfP/ASfP/views/purchaseasfp.html:90
+msgid ""
+"Gain direct access to a team of SAMs who provide proactive guidance and "
+"support assistance for your most critical cases as well as help identify and "
+"execute your top cloud priorities and projects."
+msgstr ""
+"Gain direct access to a team of SAMs who provide proactive guidance and "
+"support assistance for your most critical cases as well as help identify and "
+"execute your top cloud priorities and projects."
+
+#: ../Dev Projects/ASfP/ASfP/views/purchaseasfp.html:152
+msgid "I certify that I have read and accept the"
+msgstr "I certify that I have read and accept the"
+
+#: ../Dev Projects/ASfP/ASfP/views/purchaseasfp.html:22
+msgid "Invalid MPN ID"
+msgstr "Invalid MPN ID"
+
+#: ../Dev Projects/ASfP/ASfP/views/purchaseasfp.html:11
+msgid "Invalid email address"
+msgstr "Invalid email address"
+
+#: ../Dev Projects/ASfP/ASfP/views/purchaseasfp.html:6
+msgid "Invalid input"
+msgstr "Invalid input"
+
+#: ../Dev Projects/ASfP/ASfP/views/purchaseasfp.html:15
+msgid "Invalid phone number!"
+msgstr "Invalid phone number!"
+
+#: ../Dev Projects/ASfP/ASfP/views/purchaseasfp.html:69
+msgid "Japan"
+msgstr "Japan"
+
+#: ../Dev Projects/ASfP/ASfP/views/purchaseasfp.html:70
+msgid "Latin America"
+msgstr "Latin America"
+
+#: ../Dev Projects/ASfP/ASfP/views/purchaseasfp.html:71
+msgid "North America"
+msgstr "North America"
+
+#: ../Dev Projects/ASfP/ASfP/views/purchaseasfp.html:126
+msgid "On-Premises Support Incidents"
+msgstr "On-Premises Support Incidents"
+
+#: ../Dev Projects/ASfP/ASfP/views/purchaseasfp.html:130
+msgid ""
+"Professional Support is available as a 5-pack of incidents. Professional "
+"Support incidents focus on troubleshooting a specific problem, error "
+"message, or functionality that is not working as intended for Microsoft "
+"products."
+msgstr ""
+"Professional Support is available as a 5-pack of incidents. Professional "
+"Support incidents focus on troubleshooting a specific problem, error "
+"message, or functionality that is not working as intended for Microsoft "
+"products."
+
+#: ../Dev Projects/ASfP/ASfP/index.html:14
+msgid "Purchase ASfP, Microsoft Advanced Support for Partners"
+msgstr "Purchase ASfP, Microsoft Advanced Support for Partners"
+
+#: ../Dev Projects/ASfP/ASfP/index.html:46
+msgid "Purchase Advanced Support for Partners"
+msgstr "Purchase Advanced Support for Partners"
+
+#: ../Dev Projects/ASfP/ASfP/views/success.html:22
+msgid "Return to page"
+msgstr "Return to page"
+
+#: ../Dev Projects/ASfP/ASfP/views/purchaseasfp.html:63
+msgid "SAM location not selected"
+msgstr "SAM location not selected"
+
+#: ../Dev Projects/ASfP/ASfP/views/purchaseasfp.html:66
+msgid "Select from the following options"
+msgstr "Select location"
+
+#: ../Dev Projects/ASfP/ASfP/views/purchaseasfp.html:160
+msgid "Submit"
+msgstr "Submit"
+
+#: ../Dev Projects/ASfP/ASfP/views/purchaseasfp.html:33
+msgid "Subscription not selected"
+msgstr "Subscription not selected"
+
+#: ../Dev Projects/ASfP/ASfP/views/success.html:14
+msgid "Thank you!"
+msgstr "Thank you!"
+
+#: ../Dev Projects/ASfP/ASfP/views/purchaseasfp.html:45
+msgid "USD 10,000* (local taxes apply)"
+msgstr "USD 10,000* (local taxes apply)"
+
+#: ../Dev Projects/ASfP/ASfP/views/purchaseasfp.html:40
+msgid "USD 15,000* (local taxes apply)"
+msgstr "USD 15,000* (local taxes apply)"
+
+#: ../Dev Projects/ASfP/ASfP/views/purchaseasfp.html:157
+msgid ""
+"Upon receipt of your order submission, you will be contacted by a Microsoft "
+"representative to complete your order. Please click submit to proceed."
+msgstr ""
+"Upon receipt of your order submission, you will be contacted by a Microsoft "
+"representative to complete your order. Please click submit to proceed."
+
+#: ../Dev Projects/ASfP/ASfP/views/purchaseasfp.html:27
+msgid "e.g. contoso.onmicrosoft.com"
+msgstr "e.g. contoso.onmicrosoft.com"
+
+#: ../Dev Projects/ASfP/ASfP/views/purchaseasfp.html:12
+msgid "e.g. name@example.com"
+msgstr "e.g. name@example.com"
+
+#: ../Dev Projects/ASfP/ASfP/views/purchaseasfp.html:59
+msgid "for Emerging Market subscription requirements"
+msgstr "for Emerging Market subscription requirements"
+
+#: ../Dev Projects/ASfP/ASfP/views/purchaseasfp.html:152
+msgid "https://privacy.microsoft.com/en-us/privacystatement"
+msgstr "https://privacy.microsoft.com/en-us/privacystatement"
+
+#: ../Dev Projects/ASfP/ASfP/views/purchaseasfp.html:59
+msgid "preEmerging"
+msgstr " "
+
+#: ../Dev Projects/ASfP/ASfP/views/purchaseasfp.html:152
+msgid "privacy statement."
+msgstr "privacy statement."
+
+#: ../Dev Projects/ASfP/ASfP/views/purchaseasfp.html:152
+msgid "privay"
+msgstr " "
+
+#~ msgid "* Contracts requirements for emerging markets"
+#~ msgstr "* Contracts requirements for emerging markets"

@@ -1,0 +1,26 @@
+{
+  "name": "npmdir",
+  "version": "1.0.0",
+  "description": "package description",
+  "main": "index.js",
+  "dependencies": {
+    "azure-storage": "^2.8.1",
+    "express": "^4.16.3",
+    "gulp": "^3.9.1"
+  },
+  "devDependencies": {
+    "angular-gettext-plugin": "^1.0.1",
+    "grunt": "^0.4.5",
+    "grunt-angular-gettext": "^2.3.9",
+    "grunt-contrib-jshint": "^0.10.0",
+    "grunt-contrib-nodeunit": "~0.4.1",
+    "grunt-contrib-uglify": "^0.5.1",
+    "gulp-angular-gettext": "^2.2.0"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
